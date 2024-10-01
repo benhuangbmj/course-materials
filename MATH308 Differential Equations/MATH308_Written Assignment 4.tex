@@ -1,0 +1,99 @@
+\documentclass[10pt]{article}
+
+\usepackage{geometry}
+\geometry{margin = .5in,top =0.12\paperheight, headheight=\paperheight}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage[export]{adjustbox}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Written Assignment, Page \thepage}
+\lhead{MATH308}
+\chead{\includegraphics[width = 0.15\textwidth]{MCLogo-Bck.png}}
+\usepackage{mathrsfs}
+
+%\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem{exercise}{Exercise}
+
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\uv}{\mathbf u}
+
+\DeclareMathOperator{\xd}{d\!}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\bf Problems.}
+Consider the $n$th order linear homogeneous equation with constant coefficients:
+\[
+	L(y) =y^{(n)} +  \sum_{i = 0}^{n - 1}a_iy^{(i)} = 0.
+\]
+Suppose $\phi$ is a solution to this equation. Define
+\[
+\norm{\phi} = \left(\sum_{i = 0}^{n - 1} {\left(\phi^{(i)}\right)^2}\right)^{1/2}.
+\]
+We begin with finding an estimate of $\norm{\phi}$ in some explicit terms. Let $u = \norm{\phi}^2 = \sum_{i = 0}^{n - 1} {\left(\phi^{(i)}\right)^2}$, then
+
+\begin{align*}
+u ` &=\hspace{10em} \\[2em]
+\abs{u'}& \leq\\
+\end{align*}
+Since $\phi$ is assumed to be a solution of $L(y) = 0$, we have
+
+\begin{align*}
+	\phi^{(n)} &= \sum_{i = 0}^{n - 1} -a_i\phi^{(i)}\\
+	\abs{\phi^{(n)}} &\leq  \sum_{i = 0}^{n - 1} \abs{a_i}\abs{\phi^{(i)}}
+\end{align*}
+Consequently, substituting in $u'$, we have
+\vspace{\stretch{1}}\\
+We now apply the elementary inequality $2\abs{b}\abs{c} \leq \abs{b}^2 + \abs{c}^2$
+to obtain
+\vspace{\stretch{1}}\\
+Now, denote $k =1 + \sum_{i = 0}^{n - 1}\abs{a_i}$, then 
+\[
+\abs{u'} \leq 2ku,
+\]
+or equivalently, 
+\begin{equation}
+\label{uIneq}
+-2ku \leq {u'} \leq 2ku.
+\end{equation}
+\clearpage
+\begin{enumerate}
+\item
+Based on inequality (\ref{uIneq}), prove that
+\begin{equation}
+\label{phiIneq}
+	\norm{\phi(x_0)}e^{-k\abs{x - x_0}} \leq \norm{\phi(x)}\leq \norm{\phi(x_0)}e^{k\abs{x - x_0}}.
+\end{equation}
+\vspace{\stretch{1}}
+\item Let $\{c_i\}_{i=0}^{n-1}$ be any $n$ constants, and let $x_0$ be any real number. We want to prove that there exists at most one solution $\phi$  of $L(y) = 0$ satisfying $\{y^{(i)}(x_0) = c_i\}_{i=0}^{n-1}$. We break the proof into two steps:
+\begin{enumerate}
+\item
+  Suppose both $\phi$ and $\psi$ were two solutions of $L(y) = 0$ satisfying $\{y^{(i)}(x_0) = c_i\}_{i=0}^{n-1}$. Prove that $\chi = \phi - \psi$ satisfies $L(y) = 0$ and $\{\chi^{(i)}(x_0) = 0\}_{i=0}^{n-1}$.
+  \vspace{\stretch{1}}
+\item Use inequality (\ref{phiIneq}) to prove that $\norm{\chi} = 0$, which implies $\chi(x) = 0$ for all $x$ and hence $\phi = \psi$.
+\vspace{\stretch{1}}
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
