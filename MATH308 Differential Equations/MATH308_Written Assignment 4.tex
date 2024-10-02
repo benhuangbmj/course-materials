@@ -47,25 +47,25 @@ Consider the $n$th order linear homogeneous equation with constant coefficients:
 \]
 Suppose $\phi$ is a solution to this equation. Define
 \[
-\norm{\phi} = \left(\sum_{i = 0}^{n - 1} {\left(\phi^{(i)}\right)^2}\right)^{1/2}.
+\norm{\phi(x)} = \left(\sum_{i = 0}^{n - 1} {\left(\phi^{(i)}(x)\right)^2}\right)^{1/2}.
 \]
-We begin with finding an estimate of $\norm{\phi}$ in some explicit terms. Let $u = \norm{\phi}^2 = \sum_{i = 0}^{n - 1} {\left(\phi^{(i)}\right)^2}$, then
+We begin with finding an estimate of $\norm{\phi(x)}$ in some explicit terms. Let $u(x) = \norm{\phi(x)}^2 = \sum_{i = 0}^{n - 1} {\left(\phi^{(i)}(x)\right)^2}$, then
 
 \begin{align*}
-u ` &=\hspace{10em} \\[2em]
-\abs{u'}& \leq\\
+u'(x) &=\hspace{10em} \\[2em]
+\abs{u'(x)}& \leq\\
 \end{align*}
 Since $\phi$ is assumed to be a solution of $L(y) = 0$, we have
 
 \begin{align*}
-	\phi^{(n)} &= \sum_{i = 0}^{n - 1} -a_i\phi^{(i)}\\
-	\abs{\phi^{(n)}} &\leq  \sum_{i = 0}^{n - 1} \abs{a_i}\abs{\phi^{(i)}}
+	\phi^{(n)}(x) &= \sum_{i = 0}^{n - 1} -a_i\phi^{(i)}(x)\\
+	\abs{\phi^{(n)}(x)} &\leq  \sum_{i = 0}^{n - 1} \abs{a_i}\abs{\phi^{(i)}(x)}
 \end{align*}
-Consequently, substituting in $u'$, we have
+Consequently, substituting in $u'(x)$, we have
 \vspace{\stretch{1}}\\
 We now apply the elementary inequality $2\abs{b}\abs{c} \leq \abs{b}^2 + \abs{c}^2$
 to obtain
-\vspace{\stretch{1}}\\
+\vspace{\stretch{3}}\\
 Now, denote $k =1 + \sum_{i = 0}^{n - 1}\abs{a_i}$, then 
 \[
 \abs{u'} \leq 2ku,
@@ -85,7 +85,7 @@ Based on inequality (\ref{uIneq}), prove that
 \label{phiIneq}
 	\norm{\phi(x_0)}e^{-k\abs{x - x_0}} \leq \norm{\phi(x)}\leq \norm{\phi(x_0)}e^{k\abs{x - x_0}}.
 \end{equation}
-\vspace{\stretch{1}}
+\vspace{\stretch{3}}
 \item Let $\{c_i\}_{i=0}^{n-1}$ be any $n$ constants, and let $x_0$ be any real number. We want to prove that there exists at most one solution $\phi$  of $L(y) = 0$ satisfying $\{y^{(i)}(x_0) = c_i\}_{i=0}^{n-1}$. We break the proof into two steps:
 \begin{enumerate}
 \item
