@@ -1,0 +1,58 @@
+\documentclass[10pt]{article}
+
+\usepackage{geometry}
+\geometry{margin = .5in,top =0.12\paperheight, headheight=\paperheight}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage[export]{adjustbox}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Written Assignment, Page \thepage}
+\lhead{MATH308}
+\chead{\includegraphics[width = 0.15\textwidth]{MCLogo-Bck.png}}
+\usepackage{mathrsfs}
+
+%\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem{exercise}{Exercise}
+
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\uv}{\mathbf u}
+
+\DeclareMathOperator{\xd}{d\!}
+
+\title{}
+\date{}
+
+\begin{document}
+
+\noindent
+{\bf Problems.}
+\begin{enumerate}
+\item ({\bf Taylor's Theorem with the Integral Form Remainder}) If a function $f$  is differentiable through order $n+1$ in an interval $I$  containing $c$ , then, for each $x$ in $I$,
+\[
+	f(x) = f(c) + f'(c)(x-c) + \frac{f''(c)}{2!}(x-c)^2 + \cdots + \frac{f^{(n)}(c)}{n!}(x-c)^n + R_n(x)
+\]
+where
+\[
+R_n(x) = \frac{1}{n!}\int_c^x(x-t)^nf^{(n+1)}(t)\xd t
+\]
+Prove the theorem.
+\end{enumerate}
+\end{document}
