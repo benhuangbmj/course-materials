@@ -1,0 +1,206 @@
+\documentclass[10pt]{beamer}
+\usetheme{PaloAlto}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+%general package
+%\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage[cmtip,all]{xy}
+\newcommand{\longsquigarrow}{\xymatrix{{}\ar@{~>}[r]&{}}}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{graphbox}
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+%\usepackage{slashed}
+%\usepackage{tikz-cd}
+%\usepackage{extarrows}
+%font package
+\usepackage{mathrsfs}
+%\usepackage{bm}
+%\usepackage{thmtools}
+%misc. package
+\usepackage{enumitem}
+
+\author[B.H.]{{\Large MATH211 Calculus III}\\\vspace{6pt}Instructor: Ben Huang}
+\date{}
+\title[Section 14.3]{Section 13.4 Differentials}
+\institute[MU]{\includegraphics[width = 0.382\textwidth]{MCLogo-Bck.png}}
+\logo{\includegraphics[scale = 0.3]{MCLogo-Bck.png}}
+%general package
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{comment}
+
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{slashed}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+
+%font package
+\usepackage{mathrsfs}
+\usepackage{bm}
+
+%misc. package
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true, urlcolor=blue
+}
+
+
+
+
+%declared operators
+\DeclareMathOperator{\id}{Id}%identity
+\DeclareMathOperator{\ind}{Ind\!}%index
+\DeclareMathOperator{\tr}{Tr}%trace
+\DeclareMathOperator{\e}{e}%exponential
+\DeclareMathOperator{\im}{Im\!}%image
+\DeclareMathOperator{\vol}{vol}%volume
+\DeclareMathOperator{\cll}{\C\ell}%complexified Clifford algebra
+\DeclareMathOperator{\gd}{\slashed{\partial}}%geometric Dirac
+\DeclareMathOperator{\D}{\mathcal{D}}%generalized Dirac
+\DeclareMathOperator{\Div}{div}%divergence
+\DeclareMathOperator{\ud}{\,\mathrm{d}\!}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\xd}{\,d\!}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\dive}{div}
+\DeclareMathOperator{\proj}{proj}
+
+
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\R}{\mathbb R}
+\newcommand{\vF}{\mathbf F}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\fix}{(a,b)}
+\newcommand{\uv}{\mathbf u}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+%texting in citation
+\makeatletter
+\let\cite\relax
+\DeclareRobustCommand{\cite}{%
+  \let\new@cite@pre\@gobble
+  \@ifnextchar[\new@cite{\@citex[]}}
+\def\new@cite[#1]{\@ifnextchar[{\new@citea{#1}}{\@citex[#1]}}
+\def\new@citea#1{\def\new@cite@pre{#1}\@citex}
+\def\@cite#1#2{[{\new@cite@pre\space#1\if\relax\detokenize{#2}\relax\else, #2\fi}]}
+\makeatother
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Linear Approximation}
+\small
+Suppose \(f\) is a function of \((x,y)\) and both \(f_x\) and \(f_y\) are continuous.
+\begin{align*}
+\Delta z &= f(x_0+\Delta x, y_0 + \Delta y) - f(x_0,y_0)\\
+& = \left(f(x_0+\Delta x, y_0 + \Delta y) - f(x_0, y_0+\Delta y)\right) + \left(f(x_0, y_0+\Delta y) - f(x_0,y_0)\right)
+\end{align*}
+\begin{align*}
+&f(x_0+\Delta x, y_0 + \Delta y) - f(x_0, y_0+\Delta y)\\  
+= &\left(\frac{
+f(x_0+\Delta x, y_0 + \Delta y) - f(x_0, y_0+\Delta y) }{\Delta x}\right)\Delta x\\
+=&\left(f_x(x_0, y_0+\Delta y) + \varepsilon_{11}(\Delta x, \Delta y)\right)\Delta x\\
+=&\left[\overbrace{\left(f_x(x_0, y_0) +\varepsilon_{12}(\Delta y)\right)}^{f_x(x_0, y_0+\Delta y)} + \varepsilon_{11}(\Delta x, \Delta y)\right]\Delta x\\
+=&f_x(x_0,y_0)\Delta x + \overbrace{\varepsilon_1}^{\varepsilon_{12} + \varepsilon_{11}}\Delta x
+\end{align*}
+\begin{align*}
+f(x_0, y_0+\Delta y) - f(x_0,y_0)&=\left(\frac{f(x_0, y_0+\Delta y) - f(x_0,y_0)}{\Delta y}\right)\Delta y\\
+&=f_y(x_0,y_0)\Delta y + \varepsilon_2\Delta y
+\end{align*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Linear Approximation}
+Note that $\varepsilon_1, \varepsilon_1 \to 0$ as $(\Delta x, \Delta y)\to (0,0)$. Consequently, 
+\[
+\Delta z = f_x(x_0,y_0)\Delta x + f_y(x_0,y_0)\Delta y + \varepsilon_1\Delta x + \varepsilon_2\Delta y,
+\]
+where \(\varepsilon_1\Delta x + \varepsilon_2\Delta y\) decays in a comparable order of $\norm{\Delta x\mathbf i + \Delta y\mathbf j}^2$.
+\end{frame}
+
+\begin{comment}
+\begin{frame}
+\frametitle{Double integrals in Cartesian coordinates}
+The domain is subdivided into rectangular grids.
+\begin{columns}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=.8\textwidth]{cartesian1.png}
+\end{figure}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=.8\textwidth]{cartesian2.png}
+\end{figure}
+\end{columns}\pause
+\onslide<2->{ Like a waffle.}\onslide<3>{ However, when it comes to pizza...}
+\begin{columns}
+\onslide<2->{
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=.5\textwidth]{waffle.jpg}
+\end{figure}}
+\onslide<3->{
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=.5\textwidth]{pizza.jpg}
+\end{figure}}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Subdivision under polar coordinates}
+Recall that, under polar coordinates,  points in $\R^2/\{\mathbf 0\}$ can be identified by $(r,\theta)$ such that
+\[
+\begin{cases}
+	x = r\cos\theta\\
+	y=r\sin\theta
+\end{cases}.
+\]
+\begin{columns}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=.8\textwidth]{polar1.png}
+\end{figure}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=.8\textwidth]{polar2.png}
+\end{figure}
+\end{columns}\pause
+
+\[\Delta A=(\frac{1}{2} \Delta\theta) r_2^2 - (\frac{1}{2} \Delta\theta) r_1^2 = \frac{r_2+r_1}{2}\Delta r\Delta\theta\mathop{\longsquigarrow}^{r_1,r_2\to r}\pause r\!\xd r\!\xd\theta
+\]
+\end{frame}
+
+\begin{frame}
+\frametitle{Change of Variables to Polar Form}
+\begin{theorem}[14.3, page 988]
+Let $R$ be a plane region consisting of all points $(x,y)=(r\cos\theta, r\sin\theta)$ satisfying the conditions $0\leq g_1(\theta)\leq r \leq g_2(\theta)$, $\alpha \leq \theta \leq \beta$, where $0\leq(\beta-\alpha)\leq 2\pi$. If $g_1$ and $g_2$ are continuous on $[\alpha,\beta]$ and $f$ is continuous on $R$, then
+\[
+\iint_R f(x,y)\xd A = \int_\alpha^\beta\int_{g_1(\theta)}^{g_2(\theta)} f(r\cos\theta, r\sin\theta)r\xd r \!\xd \theta.
+\]
+\end{theorem}
+\end{frame}
+\end{comment}
+
+\end{document}
