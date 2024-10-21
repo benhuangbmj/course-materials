@@ -113,20 +113,19 @@
 \small
 Suppose \(f\) is a function of \((x,y)\) and both \(f_x\) and \(f_y\) are continuous.
 \begin{align*}
-\Delta z &= f(x_0+\Delta x, y_0 + \Delta y) - f(x_0,y_0)\\
-& = \left(f(x_0+\Delta x, y_0 + \Delta y) - f(x_0, y_0+\Delta y)\right) + \left(f(x_0, y_0+\Delta y) - f(x_0,y_0)\right)
+\onslide<1->{\Delta z &= f(x_0+\Delta x, y_0 + \Delta y) - f(x_0,y_0)\\}
+\onslide<2->{& = \left(\alt<3>{{\color{red}f(x_0+\Delta x, y_0 + \Delta y) - f(x_0, y_0+\Delta y)}}{f(x_0+\Delta x, y_0 + \Delta y) - f(x_0, y_0+\Delta y)}\right) + \left(\alt<8>{{\color{red}f(x_0, y_0+\Delta y) - f(x_0,y_0)}}{f(x_0, y_0+\Delta y) - f(x_0,y_0)}\right)}
 \end{align*}
 \begin{align*}
-&f(x_0+\Delta x, y_0 + \Delta y) - f(x_0, y_0+\Delta y)\\  
-= &\left(\frac{
-f(x_0+\Delta x, y_0 + \Delta y) - f(x_0, y_0+\Delta y) }{\Delta x}\right)\Delta x\\
-=&\left(f_x(x_0, y_0+\Delta y) + \varepsilon_{11}(\Delta x, \Delta y)\right)\Delta x\\
-=&\left[\overbrace{\left(f_x(x_0, y_0) +\varepsilon_{12}(\Delta y)\right)}^{f_x(x_0, y_0+\Delta y)} + \varepsilon_{11}(\Delta x, \Delta y)\right]\Delta x\\
-=&f_x(x_0,y_0)\Delta x + \overbrace{\varepsilon_1}^{\varepsilon_{12} + \varepsilon_{11}}\Delta x
+\onslide<3->{&f(x_0+\Delta x, y_0 + \Delta y) - f(x_0, y_0+\Delta y)\\}  
+\onslide<4->{= &\left(\frac{f(x_0+\Delta x, y_0 + \Delta y) - f(x_0, y_0+\Delta y) }{\Delta x}\right)\Delta x\\}
+\onslide<5->{=&\left(f_x(x_0, y_0+\Delta y) + \varepsilon_{11}(\Delta x, \Delta y)\right)\Delta x\\}
+\onslide<6->{=&\big[\big(\overbrace{f_x(x_0, y_0) +\varepsilon_{12}(\Delta y)}^{f_x(x_0, y_0+\Delta y)}\mathclap{\hspace{2pt}\phantom{f_x(x_0, y_0)} +\underbrace{\phantom{\varepsilon_{12}(\Delta y)}\big)+ \varepsilon_{11}(\Delta x, \Delta y)}_{\varepsilon_1}\big]\Delta x}\\}
+\onslide<7->{=&f_x(x_0,y_0)\Delta x + \varepsilon_1\Delta x}
 \end{align*}
 \begin{align*}
-f(x_0, y_0+\Delta y) - f(x_0,y_0)&=\left(\frac{f(x_0, y_0+\Delta y) - f(x_0,y_0)}{\Delta y}\right)\Delta y\\
-&=f_y(x_0,y_0)\Delta y + \varepsilon_2\Delta y
+\onslide<8->{f(x_0, y_0+\Delta y) - f(x_0,y_0)&=\left(\frac{f(x_0, y_0+\Delta y) - f(x_0,y_0)}{\Delta y}\right)\Delta y\\
+&=f_y(x_0,y_0)\Delta y + \varepsilon_2\Delta y}
 \end{align*}
 \end{frame}
 
