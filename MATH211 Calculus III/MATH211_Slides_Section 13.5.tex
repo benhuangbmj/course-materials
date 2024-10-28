@@ -1,0 +1,138 @@
+\documentclass[10pt]{beamer}
+\usetheme{PaloAlto}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+%general package
+%\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage[cmtip,all]{xy}
+\newcommand{\longsquigarrow}{\xymatrix{{}\ar@{~>}[r]&{}}}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\graphicspath{{../img/}}
+\usepackage{graphbox}
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+%\usepackage{slashed}
+%\usepackage{tikz-cd}
+%\usepackage{extarrows}
+%font package
+\usepackage{mathrsfs}
+%\usepackage{bm}
+%\usepackage{thmtools}
+%misc. package
+\usepackage{enumitem}
+
+\author[B.H.]{{\Large MATH211 Calculus III}\\\vspace{6pt}Instructor: Ben Huang}
+\date{}
+\title[Section 13.5]{Section 13.5 
+Chain Rules for Functions of Several Variables}
+\institute[MU]{\includegraphics[width = 0.382\textwidth]{MCLogo-Bck.png}}
+\logo{\includegraphics[scale = 0.3]{MCLogo-Bck.png}}
+%general package
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{comment}
+
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{slashed}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+
+%font package
+\usepackage{mathrsfs}
+\usepackage{bm}
+
+%misc. package
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true, urlcolor=blue
+}
+
+
+
+
+%declared operators
+\DeclareMathOperator{\id}{Id}%identity
+\DeclareMathOperator{\ind}{Ind\!}%index
+\DeclareMathOperator{\tr}{Tr}%trace
+\DeclareMathOperator{\e}{e}%exponential
+\DeclareMathOperator{\im}{Im\!}%image
+\DeclareMathOperator{\vol}{vol}%volume
+\DeclareMathOperator{\cll}{\C\ell}%complexified Clifford algebra
+\DeclareMathOperator{\gd}{\slashed{\partial}}%geometric Dirac
+\DeclareMathOperator{\D}{\mathcal{D}}%generalized Dirac
+\DeclareMathOperator{\Div}{div}%divergence
+\DeclareMathOperator{\ud}{\,\mathrm{d}\!}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\xd}{\,d\!}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\dive}{div}
+\DeclareMathOperator{\proj}{proj}
+
+
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\R}{\mathbb R}
+\newcommand{\vF}{\mathbf F}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\fix}{(a,b)}
+\newcommand{\uv}{\mathbf u}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+%texting in citation
+\makeatletter
+\let\cite\relax
+\DeclareRobustCommand{\cite}{%
+  \let\new@cite@pre\@gobble
+  \@ifnextchar[\new@cite{\@citex[]}}
+\def\new@cite[#1]{\@ifnextchar[{\new@citea{#1}}{\@citex[#1]}}
+\def\new@citea#1{\def\new@cite@pre{#1}\@citex}
+\def\@cite#1#2{[{\new@cite@pre\space#1\if\relax\detokenize{#2}\relax\else, #2\fi}]}
+\makeatother
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Chain Rules}
+Let \(w = f(x,y)\), where \(f\) is a differentiable function of $x$  and $y$,  $x = g(t)$ and $y = h(t)$, where $g$ and $h$ are differentiable functions of $t$. Note that $w$ is a composite function of $t$. \pause
+\begin{align*}
+\onslide<3->{\frac{\xd w}{\xd t} &= \lim_{\Delta t \to 0} \frac{w(t+\Delta t) - w(t)}{\Delta t}\\}
+\onslide<4->{& = \lim_{\Delta t \to 0} \frac{\alt<5>{{\color{red}f(x(t+\Delta t),y(t+\Delta t))  - f(x(t),y(t))}}{f(x(t+\Delta t),y(t+\Delta t))  - f(x(t),y(t))}}{\Delta t}}
+\end{align*}
+\onslide<5->{
+Since f is differentiable, from Section 13.4,
+\begin{align*}
+&f(x(t+\Delta t),y(t+\Delta t))  - f(x(t),y(t))\\ =& \frac{\partial w}{\partial x}(x,y)\Delta x + \frac{\partial w}{\partial y}(x,y)\Delta y + \varepsilon_1\Delta x + \varepsilon_2\Delta y,
+\end{align*}
+}
+\onslide <6-> {where $\Delta x  = x(t+\Delta t) - x(t)$, $\Delta y = y(t+\Delta t) - y(t)$, and $ \varepsilon_1,  \varepsilon_2 \xrightarrow{(\Delta x, \Delta y)\to(0,0)} 0$.}
+\end{frame}
+
+\begin{frame}
+\frametitle{Chain Rules}
+Consequently,
+\begin{align*}
+\alt<4->{{\color{red}\frac{\xd w}{\xd t}}}{\frac{\xd w}{\xd t}} =\ &  \frac{\partial w}{\partial x} \lim_{\Delta t \to 0}\frac{\Delta x }{\Delta t}+ \frac{\partial w}{\partial y} \lim_{\Delta t \to 0}\frac{\Delta x }{\Delta t}\\& +  \lim_{\Delta t \to 0}\varepsilon_1 \lim_{\Delta t \to 0}\frac{\Delta x }{\Delta t} +  \lim_{\Delta t \to 0}\varepsilon_2 \lim_{\Delta t \to 0}\frac{\Delta y }{\Delta t}\\
+\onslide<2->{=\ &  \frac{\partial w}{\partial x} \frac{\xd x}{\xd t}  + \frac{\partial w}{\partial y} \frac{\xd y}{\xd t} + 0\cdot \frac{\xd x}{\xd t} + 0\cdot \frac{\xd y}{\xd t}\\}
+\onslide<3->{=\ &  \alt<4->{{\color{red}\frac{\partial w}{\partial x} \frac{\xd x}{\xd t}  + \frac{\partial w}{\partial y} \frac{\xd y}{\xd t}}	}{\frac{\partial w}{\partial x} \frac{\xd x}{\xd t}  + \frac{\partial w}{\partial y} \frac{\xd y}{\xd t}}}
+\end{align*}
+\end{frame}
+
+\end{document}
