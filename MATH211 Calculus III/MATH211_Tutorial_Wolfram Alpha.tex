@@ -1,0 +1,73 @@
+\documentclass[10pt]{article}
+
+\usepackage{geometry}
+\geometry{margin = 1in,top =0.12\paperheight, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{comment}
+%\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img/}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{exercise}{Exercise}
+
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\uv}{\mathbf u}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Tutorial, Page \thepage}
+\lhead{MATH211}
+\chead{\includegraphics[width = 0.15\textwidth]{MCLogo-Bck.png}}
+
+\begin{document}
+
+\section*{Mathematica Tutorial: Solve, D, ReplaceAll, Integrate}
+Mathematica is a powerful computational software that provides a wide range of functions and commands for symbolic and numerical computations. In this tutorial, we will explore four essential commands: \texttt{Solve}, \texttt{D}, \texttt{ReplaceAll}, and \texttt{Integrate}.
+\subsection*{Solve}
+The \texttt{Solve} command is used to find the solutions to algebraic equations or systems of equations. Given an equation or a set of equations, \texttt{Solve} returns the values of the variables that satisfy the equation(s).
+Example:
+\begin{align*}
+\text{Solve}[x^2 - 4 == 0, x]
+\end{align*}
+This will return the solutions $x = \pm 2$.
+\subsection*{D}
+The \texttt{D} command is used to perform differentiation. It takes an expression and a variable (or a list of variables) as input and returns the derivative of the expression with respect to the specified variable(s).
+Example:
+\begin{align*}
+\text{D}[x^3 + 2x^2 - x, x]
+\end{align*}
+This will return the derivative $3x^2 + 4x - 1$.
+\subsection*{ReplaceAll}
+The \texttt{ReplaceAll} command is used to replace parts of an expression with other expressions. It allows you to substitute one or more subexpressions within an expression with new subexpressions.
+Example:
+\begin{align*}
+(x + y)^2 , \text{/.} , x \to a, y \to b
+\end{align*}
+This will replace $x$ with $a$ and $y$ with $b$, resulting in $(a + b)^2$.
+\subsection*{Integrate}
+The \texttt{Integrate} command is used to perform integration, both indefinite and definite. It takes an expression and a variable (or a list of variables) as input and returns the antiderivative or the definite integral of the expression with respect to the specified variable(s).
+Example:
+\begin{align*}
+\text{Integrate}[x^2 + 2x, x]
+\end{align*}
+This will return the indefinite integral $\frac{x^3}{3} + x^2 + C$, where $C$ is the constant of integration.
+
+\end{document}
