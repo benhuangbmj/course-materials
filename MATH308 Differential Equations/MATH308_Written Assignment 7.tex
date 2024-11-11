@@ -1,0 +1,63 @@
+\documentclass[10pt]{article}
+
+\usepackage{geometry}
+\geometry{margin = .5in,top =0.12\paperheight, headheight=\paperheight}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage[export]{adjustbox}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Written Assignment, Page \thepage}
+\lhead{MATH308}
+\chead{\includegraphics[width = 0.15\textwidth]{MCLogo-Bck.png}}
+\usepackage{mathrsfs}
+
+%\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem{exercise}{Exercise}
+
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\uv}{\mathbf u}
+
+\DeclareMathOperator{\xd}{d\!}
+
+\title{}
+\date{}
+
+\begin{document}
+
+\noindent
+{\bf Problems.}
+Solve the following initial value problem using Euler's method:
+\begin{equation*}
+\frac{\xd{}^2y}{\xd t^2} + t\frac{\xd y}{\xd t} + t^2y = t^3, \ y(0) = 1, \ y'(0) = 0
+\end{equation*}
+
+
+
+\begin{enumerate}
+    \item To apply Euler's method, convert this second-order differential equation into a system of first-order equations.
+    \vspace{\stretch{1}}
+    \item Use a step size of $h = 0.5$ to find $y(1)$. Show each iteration.
+     \vspace{\stretch{1}}
+    \item Use computer programming to find $y(1)$ with a step size of $h = 0.01$. Only show the answer, and attach your code.
+     \vspace{\stretch{1}}
+\end{enumerate}
+
+\end{document}
