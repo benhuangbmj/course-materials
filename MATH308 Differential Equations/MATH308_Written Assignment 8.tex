@@ -1,0 +1,74 @@
+\documentclass[10pt]{article}
+
+\usepackage{geometry}
+\geometry{margin = .5in,top =0.12\paperheight, headheight=\paperheight}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage[export]{adjustbox}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Written Assignment, Page \thepage}
+\lhead{MATH308}
+\chead{\includegraphics[width = 0.15\textwidth]{MCLogo-Bck.png}}
+\usepackage{mathrsfs}
+
+%\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem{exercise}{Exercise}
+
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\uv}{\mathbf u}
+
+\DeclareMathOperator{\xd}{d\!}
+
+\title{}
+\date{}
+
+\begin{document}
+
+\noindent
+{\bf Problem.} In this problem, we will analyze the truncation error in Euler's method. You may want to review the relevant material in the textbook first (page 99 - 102).
+
+Consider the IVP 
+\[
+y' = f(x,y) = \e^{-y^2},\quad y(0) = y_0
+\]
+\begin{enumerate}
+\item
+Find an upper bound of $\abs{f(x,y)}$.
+\vspace{\stretch{1}}
+\item Find an upper bound of $\abs{f_x(x,y)}$ and $\abs{f_y(x,y)}$ respectively.
+\vspace{\stretch{1}}
+\item Find an upper bound $M$ of $\abs{f_x(x,y) + f_y(x,y)f(x,y)}$.
+\vspace{\stretch{1}}
+\clearpage
+\item Use Taylor's Theorem to find an $R$ such that
+\[
+\abs{f(x_i,y(x_i)) - f(x_i,y_i)}\leq R\abs{e_i}
+\]
+\vspace{\stretch{1}}
+\item Let $b = 1$, and $\displaystyle h = \frac{b - 0}{n} = \frac{1}{n}$. Find a $K$ such that
+\[
+\abs{y(b) - y_n} \leq Kh
+\]
+\vspace{\stretch{1}}
+\item Lastly, in order for the truncation error to be less than $0.01$, how great does $n$ need to be?
+\vspace{\stretch{1}}
+\end{enumerate}
+\end{document}
