@@ -1,0 +1,195 @@
+\documentclass[10pt]{beamer}
+\usetheme{PaloAlto}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+%general package
+%\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+%\usepackage{slashed}
+%\usepackage{tikz-cd}
+
+%font package
+%\usepackage{mathrsfs}
+%\usepackage{bm}
+
+%misc. package
+\usepackage{enumitem}
+
+\author[B.H.]{{\Large MATH211 Calculus III}\\\vspace{6pt}Instructor: Ben Huang}
+\date{}
+\title[Section 11.4]{Section 11.4 Cross Product}
+\institute[MU]{\includegraphics[width = 0.382\textwidth]{MCLogo-Bck.png}}
+\logo{\includegraphics[scale = 0.3]{MCLogo-Bck.png}}
+%general package
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{slashed}
+\usepackage{tikz-cd}
+
+%font package
+\usepackage{mathrsfs}
+\usepackage{bm}
+
+%misc. package
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true, urlcolor=blue
+}
+
+
+
+
+%declared operators
+\DeclareMathOperator{\id}{Id}%identity
+\DeclareMathOperator{\ind}{Ind\!}%index
+\DeclareMathOperator{\tr}{Tr}%trace
+\DeclareMathOperator{\e}{e}%exponential
+\DeclareMathOperator{\im}{Im\!}%image
+\DeclareMathOperator{\vol}{vol}%volume
+\DeclareMathOperator{\cll}{\C\ell}%complexified Clifford algebra
+\DeclareMathOperator{\gd}{\slashed{\partial}}%geometric Dirac
+\DeclareMathOperator{\D}{\mathcal{D}}%generalized Dirac
+\DeclareMathOperator{\Div}{div}%divergence
+\DeclareMathOperator{\ud}{\,\mathrm{d}\!}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\xd}{\,d\!}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\dive}{div}
+
+
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\R}{\mathbb R}
+\newcommand{\vF}{\mathbf F}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\fix}{(a,b)}
+\newcommand{\uv}{\mathbf u}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+%texting in citation
+\makeatletter
+\let\cite\relax
+\DeclareRobustCommand{\cite}{%
+  \let\new@cite@pre\@gobble
+  \@ifnextchar[\new@cite{\@citex[]}}
+\def\new@cite[#1]{\@ifnextchar[{\new@citea{#1}}{\@citex[#1]}}
+\def\new@citea#1{\def\new@cite@pre{#1}\@citex}
+\def\@cite#1#2{[{\new@cite@pre\space#1\if\relax\detokenize{#2}\relax\else, #2\fi}]}
+\makeatother
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Knowledge Checks}
+Suppose $\mathbf u = u_1\mathbf i + u_2\mathbf j + u_3\mathbf k$, $\mathbf v = v_1\mathbf i + v_2\mathbf j + v_3\mathbf k$. What is the cross product $\mathbf u\times\mathbf v$?
+\pause
+\[
+\mathbf u \times \mathbf v = (u_2v_3 - u_3v_2)\mathbf i + (u_3v_1 - u_1v_3)\mathbf j + (u_1v_2 - u_2v_1)\mathbf k.
+\]
+\pause
+What is the special relation between the directions of $\mathbf u \times \mathbf v$ and $\mathbf u$ or $\mathbf v$?\pause
+
+$\mathbf u \times \mathbf v$ is orthogonal to both $\mathbf u$ and $\mathbf v$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Knowledge Checks}
+How is $\lVert\mathbf u\times\mathbf v\rVert$ related to  $\lVert\mathbf u\rVert$, $\lVert\mathbf v\rVert$, and  $\theta$?
+\begin{figure}
+\centering
+\includegraphics[width=0.618\textwidth]{area.png}
+\end{figure}
+\pause
+\begin{tcolorbox}
+$\lVert\mathbf u\times\mathbf v\rVert = \lVert\mathbf u\rVert\ \lVert\mathbf v\rVert \sin\theta = \text{the area of the parallelogram}$.
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+\frametitle{Knowledge Checks}
+What is the torque?
+\begin{tabular}{cc}
+\includegraphics[width = .5\textwidth]{example4fig.png}&
+\includegraphics[width = .5\textwidth]{torque.png}
+\end{tabular}\pause
+\[
+\mathbf M\text{ (or ${\tau}$)} = \overrightarrow{PQ}\times\mathbf F.
+\]
+\pause
+{\bf Remark: The torque is a vector, NOT a number.}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Right Hand Rule}
+\begin{figure}
+\includegraphics[width = .65\textwidth]{righthandrule1.png}
+\end{figure}
+\begin{tabular}{cc}
+\includegraphics[width = .35\textwidth]{righthandrule2.png}&\includegraphics[width = .35\textwidth]{righthandrule3.png}
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Cross Product of the Standard Unit Vectors}
+{\bf Exercise.} According to the right hand rule and the magnitude formula, find 
+\begin{itemize}[label = $\bullet$]
+\item $\mathbf i\times\mathbf j$.
+\item $\mathbf j\times\mathbf i$.
+\item $\mathbf j\times\mathbf k$.
+\item $\mathbf k\times\mathbf j$.
+\item $\mathbf k\times\mathbf i$.
+\item $\mathbf i\times\mathbf k$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{The General Formula}
+Suppose $\mathbf u = u_1\mathbf i + u_2\mathbf j + u_3\mathbf k$, $\mathbf v = v_1\mathbf i + v_2\mathbf j + v_3\mathbf k$. If distributivity is to be respected, we must have the following.\pause
+\begin{align*}
+\mathbf u \times \mathbf v =& \left(u_1\mathbf i + u_2\mathbf j + u_3\mathbf k\right)\times \left(  v_1\mathbf i + v_2\mathbf j + v_3\mathbf k\right)\\
+=&\quad u_1v_1\mathbf i\times\mathbf i + u_1v_2\mathbf i\times\mathbf j + u_1v_3\mathbf i\times\mathbf k\\
+&+u_2v_1 \mathbf j\times\mathbf i  + u_2v_2 \mathbf j\times\mathbf j + u_2v_3 \mathbf j\times\mathbf k\\
+&+u_3v_1 \mathbf k\times\mathbf i + u_3v_2\mathbf k\times\mathbf j + u_3v_3\mathbf k\times\mathbf k\\
+=&\quad (u_2v_3 - u_3v_2)\mathbf i + (u_3v_1 - u_1v_3)\mathbf j + (u_1v_2 - u_2v_1)\mathbf k.
+\end{align*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pin Support}
+\begin{figure}[h]
+\includegraphics[width = 0.5\textwidth]{pinSupport.jpg}
+\end{figure}
+Suppose a force $\mathbf F = 2\mathbf i - 3\mathbf j + \mathbf k$ is acting on the lever at $(1,1,1)$. 
+\begin{itemize}[label = $\bullet$]
+\item
+Find the torque of $\mathbf  F$ about the origin.
+\item If the lever is stuck, find the force $\inpr{F_x, F_y, F_z}$ at the pin support.
+\item If the lever can rotate freely about pin, find the couple moment $\inpr{M_x, M_y, M_z}$ at the pin support.
+\end{itemize}
+\end{frame}
+
+\end{document}
