@@ -87,7 +87,7 @@
 \newcommand{\inpr}[1]{\left\langle#1\right\rangle}
 \newcommand{\fix}{(a,b)}
 \newcommand{\uv}{\mathbf u}
-\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
 %texting in citation
 \makeatletter
 \let\cite\relax
@@ -107,13 +107,15 @@
 \frametitle{Knowledge Checks}
 Suppose $\mathbf u = u_1\mathbf i + u_2\mathbf j + u_3\mathbf k$, $\mathbf v = v_1\mathbf i + v_2\mathbf j + v_3\mathbf k$. What is the cross product $\mathbf u\times\mathbf v$?
 \pause
-\[
-\mathbf u \times \mathbf v = (u_2v_3 - u_3v_2)\mathbf i + (u_3v_1 - u_1v_3)\mathbf j + (u_1v_2 - u_2v_1)\mathbf k.
-\]
+
+\begin{tcolorbox}
+$\mathbf u \times \mathbf v = (u_2v_3 - u_3v_2)\mathbf i + (u_3v_1 - u_1v_3)\mathbf j + (u_1v_2 - u_2v_1)\mathbf k.$
+\end{tcolorbox}
 \pause
 What is the special relation between the directions of $\mathbf u \times \mathbf v$ and $\mathbf u$ or $\mathbf v$?\pause
-
+\begin{tcolorbox}
 $\mathbf u \times \mathbf v$ is orthogonal to both $\mathbf u$ and $\mathbf v$.
+\end{tcolorbox}
 \end{frame}
 
 \begin{frame}
@@ -136,11 +138,90 @@ What is the torque?
 \includegraphics[width = .5\textwidth]{example4fig.png}&
 \includegraphics[width = .5\textwidth]{torque.png}
 \end{tabular}\pause
-\[
-\mathbf M\text{ (or ${\tau}$)} = \overrightarrow{PQ}\times\mathbf F.
-\]
+\begin{tcolorbox}
+$\mathbf M\text{ (or ${\tau}$)} = \overrightarrow{PQ}\times\mathbf F.$
+\end{tcolorbox}
 \pause
 {\bf Remark: The torque is a vector, NOT a number.}
+\end{frame}
+\begin{frame}
+\frametitle{Knowledge Check}
+\begin{tcolorbox}
+{\bf Determinants}:
+\begin{itemize}
+\item
+$\begin{vmatrix}
+u_1 &u_2\\
+v_1&v_2
+\end{vmatrix}=\pause u_1v_2 - u_2v_1.
+$
+\item
+\begin{align*}
+\begin{vmatrix}
+u_1 &u_2&u_3\\
+v_1&v_2&v_3\\
+w_1&w_2&w_3
+\end{vmatrix}
+ &= \onslide<3->{ u_1\begin{vmatrix}
+v_2&v_3\\
+w_2&w_3
+\end{vmatrix} - u_2\begin{vmatrix}
+v_1&v_3\\
+w_1&w_3
+\end{vmatrix}  + u_3 \begin{vmatrix}
+v_1&v_2\\
+w_1&w_2
+\end{vmatrix}\\
+&=\onslide<4->{u_1(v_2w_3 - v_3w_2) - u_2(v_1w_3 - v_3w_1)\\
+&\quad + u_3(v_1w_2 - v_2w_1).}}
+\end{align*}
+\end{itemize}
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+\frametitle{Knowledge Checks}
+
+\only<1->{
+Let $\mathbf u = u_1\mathbf i + u_2\mathbf j + u_3\mathbf k$ { and } $\mathbf v = v_1\mathbf i + v_2\mathbf j + v_3\mathbf k$ be vectors in space.
+\begin{align*}
+\mathbf u\times\mathbf v &:=
+\begin{vmatrix}
+\mathbf i&\mathbf j&\mathbf k\\
+u_1&u_2&u_3\\
+v_1&v_2&v_3
+\end{vmatrix}=\begin{vmatrix}
+u_2&u_3\\
+v_2&v_3
+\end{vmatrix}\mathbf i - \begin{vmatrix}
+u_1&u_3\\
+v_1&v_3
+\end{vmatrix}\mathbf j+\begin{vmatrix}
+u_1&u_2\\
+v_1&v_2
+\end{vmatrix}\mathbf k\\
+&= (u_2v_3 - u_3v_2)\mathbf i - (u_1v_3 - u_3v_1)\mathbf j + (u_1v_2-u_2v_1)\mathbf k.
+\end{align*}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Triple scalar product}
+\begin{figure}
+\centering
+\includegraphics[width=.65\textwidth]{volume_parallelepiped.png}
+\end{figure}
+\begin{align*}
+&\text{Volume(parallelepiped)}\onslide<2->{ = \abs{\norm{\mathbf a\times\mathbf b} \norm{\mathbf c}\cos\theta} } \onslide<3->{= \abs{\mathbf c\cdot \norm{\mathbf a\times\mathbf b}}}\\
+\onslide<4->{
+=&\ \abs{c_1(a_2b_3 - a_3b_2) - c_2(a_1b_3 - a_3b_1) + c_3(a_1b_2 - a_2b_1)}\\
+=&\ \text{absolute value}\left(\begin{vmatrix}
+c_1 &c_2&c_3\\
+a_1&a_2&a_3\\
+b_1&b_2&b_3
+\end{vmatrix}\right)
+}
+\end{align*}
 \end{frame}
 
 \begin{frame}
@@ -171,10 +252,10 @@ What is the torque?
 Suppose $\mathbf u = u_1\mathbf i + u_2\mathbf j + u_3\mathbf k$, $\mathbf v = v_1\mathbf i + v_2\mathbf j + v_3\mathbf k$. If distributivity is to be respected, we must have the following.\pause
 \begin{align*}
 \mathbf u \times \mathbf v =& \left(u_1\mathbf i + u_2\mathbf j + u_3\mathbf k\right)\times \left(  v_1\mathbf i + v_2\mathbf j + v_3\mathbf k\right)\\
-=&\quad u_1v_1\mathbf i\times\mathbf i + u_1v_2\mathbf i\times\mathbf j + u_1v_3\mathbf i\times\mathbf k\\
-&+u_2v_1 \mathbf j\times\mathbf i  + u_2v_2 \mathbf j\times\mathbf j + u_2v_3 \mathbf j\times\mathbf k\\
-&+u_3v_1 \mathbf k\times\mathbf i + u_3v_2\mathbf k\times\mathbf j + u_3v_3\mathbf k\times\mathbf k\\
-=&\quad (u_2v_3 - u_3v_2)\mathbf i + (u_3v_1 - u_1v_3)\mathbf j + (u_1v_2 - u_2v_1)\mathbf k.
+=&\onslide<3->{\quad u_1v_1\mathbf i\times\mathbf i + u_1v_2\mathbf i\times\mathbf j + u_1v_3\mathbf i\times\mathbf k\\}
+&\onslide<4->{+u_2v_1 \mathbf j\times\mathbf i  + u_2v_2 \mathbf j\times\mathbf j + u_2v_3 \mathbf j\times\mathbf k\\}
+&\onslide<5->{+u_3v_1 \mathbf k\times\mathbf i + u_3v_2\mathbf k\times\mathbf j + u_3v_3\mathbf k\times\mathbf k\\}
+\onslide<6->{=&\quad (u_2v_3 - u_3v_2)\mathbf i + (u_3v_1 - u_1v_3)\mathbf j + (u_1v_2 - u_2v_1)\mathbf k.}
 \end{align*}
 \end{frame}
 
