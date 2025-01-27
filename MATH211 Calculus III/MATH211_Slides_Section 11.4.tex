@@ -212,7 +212,7 @@ v_1&v_2
 \includegraphics[width=.65\textwidth]{volume_parallelepiped.png}
 \end{figure}
 \begin{align*}
-&\text{Volume(parallelepiped)}\onslide<2->{ = \abs{\norm{\mathbf a\times\mathbf b} \norm{\mathbf c}\cos\theta} } \onslide<3->{= \abs{\mathbf c\cdot \norm{\mathbf a\times\mathbf b}}}\\
+&\text{Volume(parallelepiped)}\onslide<2->{ = \abs{\norm{\mathbf a\times\mathbf b} \norm{\mathbf c}\cos\phi} } \onslide<3->{= \abs{\mathbf c\cdot \left({\mathbf a\times\mathbf b}\right)}}\\
 \onslide<4->{
 =&\ \abs{c_1(a_2b_3 - a_3b_2) - c_2(a_1b_3 - a_3b_1) + c_3(a_1b_2 - a_2b_1)}\\
 =&\ \text{absolute value}\left(\begin{vmatrix}
@@ -237,6 +237,7 @@ b_1&b_2&b_3
 \begin{frame}
 \frametitle{The Cross Product of the Standard Unit Vectors}
 {\bf Exercise.} According to the right hand rule and the magnitude formula, find 
+\only<1>{
 \begin{itemize}[label = $\bullet$]
 \item $\mathbf i\times\mathbf j$.
 \item $\mathbf j\times\mathbf i$.
@@ -244,7 +245,24 @@ b_1&b_2&b_3
 \item $\mathbf k\times\mathbf j$.
 \item $\mathbf k\times\mathbf i$.
 \item $\mathbf i\times\mathbf k$.
+\item $\mathbf i\times\mathbf i$.
+\item $\mathbf j\times\mathbf j$.
+\item $\mathbf k\times\mathbf k$.
 \end{itemize}
+}
+\only<2>{
+\begin{itemize}[label = $\bullet$]
+\item $\mathbf i\times\mathbf j = \mathbf k$.
+\item $\mathbf j\times\mathbf i = -\mathbf  k$.
+\item $\mathbf j\times\mathbf k = \mathbf i$.
+\item $\mathbf k\times\mathbf j = - \mathbf i$.
+\item $\mathbf k\times\mathbf i = \mathbf j$.
+\item $\mathbf i\times\mathbf k = - \mathbf j$.
+\item $\mathbf i\times\mathbf i = \mathbf  0$.
+\item $\mathbf j\times\mathbf j = \mathbf  0$.
+\item $\mathbf k\times\mathbf k = \mathbf 0$.
+\end{itemize}
+}
 \end{frame}
 
 \begin{frame}
