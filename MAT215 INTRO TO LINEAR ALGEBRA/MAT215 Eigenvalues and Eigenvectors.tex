@@ -1,0 +1,153 @@
+\documentclass[10pt]{beamer}
+\usetheme{PaloAlto}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+%general package
+%\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{graphbox}
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+%\usepackage{slashed}
+%\usepackage{tikz-cd}
+%\usepackage{extarrows}
+%font package
+\usepackage{mathrsfs}
+%\usepackage{bm}
+%\usepackage{thmtools}
+%misc. package
+\usepackage{enumitem}
+{
+\author[B.H.]{\vspace{1em}\\{\Large MAT215 Intro to Linear Algebra}\\
+\vspace{2em}
+Instructor: Ben Huang}
+
+\date{}
+\title[]{Eigenvalues and Eigenvectors}
+\institute[DCC]{\vskip -12em\includegraphics[width = 0.8\textwidth]{DCC.png}}
+\logo{\includegraphics[width=0.12\textwidth]{DCC.png}}
+%general package
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{slashed}
+\usepackage{tikz-cd}
+
+%font package
+\usepackage{mathrsfs}
+\usepackage{bm}
+
+%misc. package
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true, urlcolor=blue
+}
+%declared operators
+\DeclareMathOperator{\id}{Id}%identity
+\DeclareMathOperator{\ind}{Ind\!}%index
+\DeclareMathOperator{\tr}{Tr}%trace
+\DeclareMathOperator{\e}{e}%exponential
+\DeclareMathOperator{\im}{Im\!}%image
+\DeclareMathOperator{\vol}{vol}%volume
+\DeclareMathOperator{\cll}{\C\ell}%complexified Clifford algebra
+\DeclareMathOperator{\gd}{\slashed{\partial}}%geometric Dirac
+\DeclareMathOperator{\D}{\mathcal{D}}%generalized Dirac
+\DeclareMathOperator{\Div}{div}%divergence
+\DeclareMathOperator{\ud}{\,\mathrm{d}\!}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\xd}{\,d\!}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\dive}{div}
+\DeclareMathOperator{\proj}{proj}
+
+
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\R}{\mathbb R}
+\newcommand{\vF}{\mathbf F}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\fix}{(a,b)}
+\newcommand{\uv}{\mathbf u}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+%texting in citation
+\makeatletter
+\let\cite\relax
+\DeclareRobustCommand{\cite}{%
+  \let\new@cite@pre\@gobble
+  \@ifnextchar[\new@cite{\@citex[]}}
+\def\new@cite[#1]{\@ifnextchar[{\new@citea{#1}}{\@citex[#1]}}
+\def\new@citea#1{\def\new@cite@pre{#1}\@citex}
+\def\@cite#1#2{[{\new@cite@pre\space#1\if\relax\detokenize{#2}\relax\else, #2\fi}]}
+\makeatother
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{The Hierarchy of Matrices}
+The simplest - scalar matrix:
+\[
+\begin{bmatrix}
+c&0&0\\
+0&c&0\\
+0&0&c
+\end{bmatrix}
+\]\pause
+The second to the best - diagonal matrix:
+\[
+\begin{bmatrix}
+1&0&0\\
+0&2&0\\
+0&0&3
+\end{bmatrix}
+\]
+\end{frame}
+\begin{frame}
+\frametitle{The Hierarchy of Matrices}
+Prominent properties of diagonal matrices:\pause
+\[
+\begin{bmatrix}
+1&0&0\\
+0&2&0\\
+0&0&3
+\end{bmatrix}^{-1} = \begin{bmatrix}
+1&0&0\\
+0&1/2&0\\
+0&0&1/3
+\end{bmatrix}
+\]\pause
+More generally, 
+\[
+\begin{bmatrix}
+1&0&0\\
+0&2&0\\
+0&0&3
+\end{bmatrix}^k = \begin{bmatrix}
+1^k&0&0\\
+0&2^k&0\\
+0&0&3^k
+\end{bmatrix}
+\]
+\end{frame}
+
+\end{document}
