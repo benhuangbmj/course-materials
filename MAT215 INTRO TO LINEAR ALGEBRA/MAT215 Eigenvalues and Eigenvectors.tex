@@ -15,6 +15,7 @@
 %math package
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{mathtools}
 %\usepackage{amssymb}
 %\usepackage{amsthm}
 %\usepackage{slashed}
@@ -115,7 +116,7 @@ c&0&0\\
 \]\pause
 The second to the best - diagonal matrix:
 \[
-\begin{bmatrix}
+C = \begin{bmatrix}
 1&0&0\\
 0&2&0\\
 0&0&3
@@ -126,7 +127,7 @@ The second to the best - diagonal matrix:
 \frametitle{The Hierarchy of Matrices}
 Prominent properties of diagonal matrices:\pause
 \[
-\begin{bmatrix}
+D = \begin{bmatrix}
 1&0&0\\
 0&2&0\\
 0&0&3
@@ -148,6 +149,80 @@ More generally,
 0&0&3^k
 \end{bmatrix}
 \]
+Consequently, 
+\[
+e^D = \begin{bmatrix}
+e^1&0&0\\
+0&e^2&0\\
+0&0&e^3
+\end{bmatrix}
+\]
 \end{frame}
 
+\begin{frame}
+\frametitle{The Hierarchy of Matrices}
+The almost as good - diagonalizable matrix: 
+\[
+A = \begin{bmatrix*}[r]
+6&-1\\
+2&3
+\end{bmatrix*} =  \begin{bmatrix*}[r]
+2&-1\\
+-1&1
+\end{bmatrix*}^{-1} \begin{bmatrix*}[r]
+5&0\\
+0&4
+\end{bmatrix*}\begin{bmatrix*}[r]
+2&-1\\
+-1&1
+\end{bmatrix*}
+\]
+\pause
+Properties:
+\[
+A^k =  \begin{bmatrix*}[r]
+2&-1\\
+-1&1
+\end{bmatrix*}^{-1} \begin{bmatrix*}[r]
+5^k&0\\
+0&4^k
+\end{bmatrix*}\begin{bmatrix*}[r]
+2&-1\\
+-1&1
+\end{bmatrix*}
+\]
+\pause
+\[
+e^A =   \begin{bmatrix*}[r]
+2&-1\\
+-1&1
+\end{bmatrix*}^{-1} \begin{bmatrix*}[r]
+e^5&0\\
+0&e^4
+\end{bmatrix*}\begin{bmatrix*}[r]
+2&-1\\
+-1&1
+\end{bmatrix*}
+\]
+\end{frame}
+
+\begin{frame}
+\frametitle{The Hierarchy of Matrices}
+A stronger version - orthogonally diagonalizable:
+\[
+S = \begin{bmatrix*}[r]
+1&-2\\[1em]
+-2&1
+\end{bmatrix*} = \begin{bmatrix*}[r]
+\frac{1}{\sqrt 2}&-\frac{1}{\sqrt 2}\\[1em]
+\frac{1}{\sqrt 2}&\frac{1}{\sqrt 2}
+\end{bmatrix*}^T\begin{bmatrix*}[r]
+3&0\\[1em]
+0&-1
+\end{bmatrix*}\begin{bmatrix*}[r]
+\frac{1}{\sqrt 2}&-\frac{1}{\sqrt 2}\\[1em]
+\frac{1}{\sqrt 2}&\frac{1}{\sqrt 2}
+\end{bmatrix*}
+\]
+\end{frame}
 \end{document}
