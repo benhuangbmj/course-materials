@@ -167,42 +167,48 @@ A = \begin{bmatrix*}[r]
 6&-1\\
 2&3
 \end{bmatrix*} =  \begin{bmatrix*}[r]
-2&-1\\
--1&1
-\end{bmatrix*}^{-1} \begin{bmatrix*}[r]
+1&1\\
+1&2
+\end{bmatrix*}
+\begin{bmatrix*}[r]
 5&0\\
 0&4
-\end{bmatrix*}\begin{bmatrix*}[r]
-2&-1\\
--1&1
 \end{bmatrix*}
+\begin{bmatrix*}[r]
+1&1\\
+1&2
+\end{bmatrix*}^{-1}
 \]
 \pause
 Properties:
 \[
 A^k =  \begin{bmatrix*}[r]
-2&-1\\
--1&1
-\end{bmatrix*}^{-1} \begin{bmatrix*}[r]
+1&1\\
+1&2
+\end{bmatrix*}
+\begin{bmatrix*}[r]
 5^k&0\\
 0&4^k
-\end{bmatrix*}\begin{bmatrix*}[r]
-2&-1\\
--1&1
 \end{bmatrix*}
+\begin{bmatrix*}[r]
+1&1\\
+1&2
+\end{bmatrix*}^{-1}
 \]
 \pause
 \[
-e^A =   \begin{bmatrix*}[r]
-2&-1\\
--1&1
-\end{bmatrix*}^{-1} \begin{bmatrix*}[r]
+e^A =  \sum_{k = 0}^\infty \frac{1}{k!}A^k= \begin{bmatrix*}[r]
+1&1\\
+1&2
+\end{bmatrix*}
+\begin{bmatrix*}[r]
 e^5&0\\
 0&e^4
-\end{bmatrix*}\begin{bmatrix*}[r]
-2&-1\\
--1&1
 \end{bmatrix*}
+\begin{bmatrix*}[r]
+1&1\\
+1&2
+\end{bmatrix*}^{-1}
 \]
 \end{frame}
 
@@ -214,15 +220,216 @@ S = \begin{bmatrix*}[r]
 1&-2\\[1em]
 -2&1
 \end{bmatrix*} = \begin{bmatrix*}[r]
-\frac{1}{\sqrt 2}&-\frac{1}{\sqrt 2}\\[1em]
-\frac{1}{\sqrt 2}&\frac{1}{\sqrt 2}
-\end{bmatrix*}^T\begin{bmatrix*}[r]
+\frac{1}{\sqrt 2}&\frac{1}{\sqrt 2}\\[1em]
+-\frac{1}{\sqrt 2}&\frac{1}{\sqrt 2}
+\end{bmatrix*}\begin{bmatrix*}[r]
 3&0\\[1em]
 0&-1
 \end{bmatrix*}\begin{bmatrix*}[r]
-\frac{1}{\sqrt 2}&-\frac{1}{\sqrt 2}\\[1em]
-\frac{1}{\sqrt 2}&\frac{1}{\sqrt 2}
-\end{bmatrix*}
+\frac{1}{\sqrt 2}&\frac{1}{\sqrt 2}\\[1em]
+-\frac{1}{\sqrt 2}&\frac{1}{\sqrt 2}
+\end{bmatrix*}^T
 \]
+\pause
+Applications:
+\begin{enumerate}[label = {(\alph*)}]
+\item Classify quadric curves and surfaces\pause
+\item Simplify the inertia tensor of a rigid body (classical mechanics)
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{The Hierarchy of Matrices}
+Advanced decompositions:
+\begin{enumerate}[label=\bullet]
+\item
+Jordan canonical form
+\item
+Singular Value decomposition
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Meet the Eigenvalues}
+{\bf Question:} How to even start diagonalizing a matrix?\pause
+
+{\bf The Trick:} Reverse Engineering! \pause
+
+Suppose $A =P\begin{bmatrix}
+\lambda_1&0\\
+0&\lambda_2
+\end{bmatrix}P^{-1}$, 
+where $P =  \begin{bmatrix}
+p_{11}&p_{12}\\
+p_{21}&p_{22}
+\end{bmatrix} = \begin{bmatrix}
+\mathbf p_1&\mathbf p_2
+\end{bmatrix}$.\pause
+\begin{align*}
+\onslide<4->{
+&A\mathbf p_1 = P\begin{bmatrix}
+\lambda_1&0\\
+0&\lambda_2
+\end{bmatrix}P^{-1}\mathbf p_1
+}\\
+\onslide<5->{
+&A\mathbf p_1 = P\begin{bmatrix}
+\lambda_1&0\\
+0&\lambda_2
+\end{bmatrix}\begin{bmatrix}
+1\\0
+\end{bmatrix}
+}\\
+\onslide<6->{
+&A\mathbf p_1 = P\begin{bmatrix}
+\lambda_1\\
+0
+\end{bmatrix} =  \begin{bmatrix}
+p_{11}&p_{12}\\
+p_{21}&p_{22}
+\end{bmatrix}\begin{bmatrix}
+\lambda_1\\
+0
+\end{bmatrix}
+}\\
+\onslide<7->{
+&A\mathbf p_1 = \begin{bmatrix}
+\lambda_1p_{11}\\
+\lambda_1p_{21}
+\end{bmatrix} = \lambda_1\mathbf p_1
+}
+\end{align*}
+\end{frame}
+\begin{frame}
+\frametitle{Meet the Eigenvalues}
+\begin{tcolorbox}
+{\bf Definition} Let $A$ be a square matrix. $\lambda$ is called an {\bf eigenvalue} of $A$ if there is a non-zero column vector $\mathbf v$ such that 
+\[
+A\mathbf v = \lambda\mathbf v,
+\]
+and $\mathbf v$ is called an {\bf eigenvector} of $A$ associated with $\lambda$.
+\end{tcolorbox}\pause
+
+\vspace{1em}
+\href{https://webwork.messiah.edu/webwork2/MATH261_2025SP/Eigenvalues_and_Eigenvectors/1}{Exercises on WeBWork}
+\end{frame}
+
+\begin{frame}
+\frametitle{Meet the Eigenvalues}
+How to find the eigenvalues?\pause
+\[
+\lambda\mathbf v = A\mathbf v\pause \Leftrightarrow \lambda\mathbf v - A\mathbf v = \mathbf 0\pause \Leftrightarrow
+  \lambda I\mathbf v - A\mathbf v  = \mathbf 0 \pause \Leftrightarrow ( \lambda I - A)\mathbf v = \mathbf 0 \]
+\pause
+\[
+\mathbf v \ne \mathbf 0\pause  \Leftrightarrow \lambda I - A\text{ is nonsingular}\pause \Leftrightarrow \det(\lambda I - A) = 0.
+\]
+\pause
+\begin{tcolorbox}
+{\bf Definition} The polynomial $p(\lambda) = \det(\lambda I - A)$ is called the {\bf characteristic polynomial} of $A$. Note that the roots of $p(\lambda)$ are precisely the eigenvalues of $A$.
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+\frametitle{Diagonalize a Matrix}
+
+{\bf Example.} 
+
+Let $A = \begin{bmatrix*}[r]
+6&-3\\
+-2&1
+\end{bmatrix*}$. Diagonalize $A$.\pause
+
+{\bf Solution:}
+
+Step 1: Find the eigenvalues of $A$.
+\[
+\det(\lambda I - A) = \det\left(\begin{bmatrix*}[r]
+\lambda - 6&3\\
+2&\lambda - 1
+\end{bmatrix*}\right) = \pause \lambda^2 - 7\lambda = 0;
+\]
+$\lambda_1 = 0$, $\lambda_2 = 7$.\pause
+
+Step 2: Find a basis for each eigenspace.\pause
+
+$\lambda_1 = 0$:\pause
+\[
+ (0 I - A)\mathbf v = \mathbf 0
+\]
+\pause
+\[
+\begin{bmatrix*}[r]
+-6&3\\
+2&-1
+\end{bmatrix*}\begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix} = \begin{bmatrix}
+0\\0	
+\end{bmatrix}
+\]\pause
+\[
+\begin{bmatrix}
+x_1\\
+x_2	
+\end{bmatrix} = \begin{bmatrix}
+\frac{1}{2}t\\
+t
+\end{bmatrix} = t \begin{bmatrix}
+\frac{1}{2}\\
+1
+\end{bmatrix}, \text{ thus } \mathscr B_1 = \left\{ \begin{bmatrix}
+\frac{1}{2}\\
+1
+\end{bmatrix}\right\}.
+\]
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Diagonalize a Matrix}
+
+$\lambda_2 = 7$:\pause
+\[
+ (7 I - A)\mathbf v = \mathbf 0
+\]
+\pause
+\[
+\begin{bmatrix*}[r]
+1&3\\
+2&6
+\end{bmatrix*}\begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix} = \begin{bmatrix}
+0\\0	
+\end{bmatrix}
+\]\pause
+\[
+\begin{bmatrix}
+x_1\\
+x_2	
+\end{bmatrix} = \begin{bmatrix}
+-3t\\
+t
+\end{bmatrix} = t \begin{bmatrix}
+-3\\
+1
+\end{bmatrix}, \text{ thus } \mathscr B_2 = \left\{ \begin{bmatrix}
+-3\\
+1
+\end{bmatrix}\right\}.
+\]\pause
+
+Step 4: Since the number of basis vectors is the same as the dimension of the ambient space ($R^2$), $A$ is diagonalizable, and 
+\[
+D = P^{-1}AP, 
+\] where $D = \begin{bmatrix}
+0&0\\
+0&7	
+\end{bmatrix}$, $P = \begin{bmatrix}
+\frac{1}{2}&-3\\
+1&1
+\end{bmatrix}$.
 \end{frame}
 \end{document}
