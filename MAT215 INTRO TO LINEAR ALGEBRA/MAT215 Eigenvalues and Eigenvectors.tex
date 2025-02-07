@@ -104,6 +104,7 @@ Instructor: Ben Huang}
 
 \frame{\titlepage}
 
+\section{Hierarchy}
 \begin{frame}
 \frametitle{The Hierarchy of Matrices}
 The simplest - scalar matrix:
@@ -234,7 +235,8 @@ S = \begin{bmatrix*}[r]
 Applications:
 \begin{enumerate}[label = {(\alph*)}]
 \item Classify quadric curves and surfaces\pause
-\item Simplify the inertia tensor of a rigid body (classical mechanics)
+\item Simplify the inertia tensor of a rigid body (classical mechanics)\pause
+\item Principal Component Analysis
 \end{enumerate}
 \end{frame}
 \begin{frame}
@@ -242,12 +244,52 @@ Applications:
 Advanced decompositions:
 \begin{enumerate}[label=\bullet]
 \item
-Jordan canonical form
-\item
 Singular Value decomposition
+{\footnotesize
+\[
+\begin{bmatrix*}[r]
+3&2&2\\
+2&3&-2
+\end{bmatrix*} = \begin{bmatrix*}[r]
+1/\sqrt 2&1/\sqrt 2\\
+1/\sqrt 2 & -1/\sqrt 2
+\end{bmatrix*} \begin{bmatrix*}[r]
+5&0&0\\
+0&3&0
+\end{bmatrix*}\begin{bmatrix*}[r]
+1/\sqrt 2 & 1/\sqrt{18}&2/3\\
+1/\sqrt 2 & -1/\sqrt{18} &-2/3\\
+0&4/\sqrt{18}&-1/3
+\end{bmatrix*}^T
+\]
+}
+\item
+Jordan canonical form
+\[
+\begin{bmatrix*}[r]
+-2&2&1\\
+-7&4&2\\
+5&0&0
+\end{bmatrix*} = \begin{bmatrix*}[r]
+0&1&1\\
+-1&-1&2\\
+2&5&0
+\end{bmatrix*}
+\begin{bmatrix*}[r]
+0&0&0\\
+0&1&1\\
+0&0&1
+\end{bmatrix*}
+\begin{bmatrix*}[r]
+0&1&1\\
+-1&-1&2\\
+2&5&0
+\end{bmatrix*}^{-1}
+\]
 \end{enumerate}
 \end{frame}
 
+\section{Eigenvalues}
 \begin{frame}
 \frametitle{Meet the Eigenvalues}
 {\bf Question:} How to even start diagonalizing a matrix?\pause
@@ -311,6 +353,10 @@ and $\mathbf v$ is called an {\bf eigenvector} of $A$ associated with $\lambda$.
 
 \vspace{1em}
 \href{https://webwork.messiah.edu/webwork2/MATH261_2025SP/Eigenvalues_and_Eigenvectors/1}{Exercises on WeBWork}
+
+\vspace{1em}
+\pause
+\href{https://www.geogebra.org/3d/q9rzs2af}{A 3-D Example on GeoGebra}
 \end{frame}
 
 \begin{frame}
@@ -329,6 +375,7 @@ How to find the eigenvalues?\pause
 \end{tcolorbox}
 \end{frame}
 
+\section{Diagonalization}
 \begin{frame}
 \frametitle{Diagonalize a Matrix}
 
