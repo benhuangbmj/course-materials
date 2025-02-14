@@ -1,0 +1,101 @@
+\documentclass[10pt]{beamer}
+\usetheme{PaloAlto}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+%general package
+%\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+%\usepackage{slashed}
+%\usepackage{tikz-cd}
+
+%font package
+%\usepackage{mathrsfs}
+%\usepackage{bm}
+
+%misc. package
+\usepackage{enumitem}
+
+\DeclareMathOperator{\xd}{\,d\!}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\dive}{div}
+\newcommand{\e}{{\rm e}}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\R}{\mathbb R}
+\newcommand{\vF}{\mathbf F}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+
+\author[B.H.]{{\Large MATH211 Calculus III}\\\vspace{6pt}Instructor: Ben Huang}
+\date{}
+\title[Section 12.5]{Section 12.5 Arc Length and Curvature}
+\institute[MU]{\includegraphics[width = 0.382\textwidth]{MCLogo-Bck.png}}
+\logo{\includegraphics[scale = 0.3]{MCLogo-Bck.png}}
+
+\begin{document}
+\frame{\titlepage}
+
+
+
+\begin{frame}
+\frametitle{Knowledge Checks}
+How to find the arc length of a curve?\pause
+\[
+s = \int_a^b \norm{\mathbf r'(t)}\xd t = \int_a^b \sqrt{[x'(t)]^2 + [y'(t)]^2 + [z'(t)]^2}\xd t
+\]
+\pause
+Note: This is just the non-constant version of the elementary fact
+\[
+\text{distance} = \text{speed}\cdot{time}
+\]
+\end{frame}
+\begin{frame}
+\frametitle{Knowledge Checks}
+How to describe how sharply a curve bends at a point, quantitatively?\pause
+\vspace{1em}
+
+{\bf Curvature:} $\displaystyle \quad K(t) = \frac{\norm{\mathbf T'(t)}}{\norm{\mathbf v(t)}}\pause = \frac{\text{how fast the direction is changing}}{\text{how fast the object is moving}}$\pause
+\vspace{1em}
+
+{
+\bf Other computational formulas (Read the textbook for the proof):
+}\pause
+\vspace{1em}
+
+\begin{enumerate}[label = \arabic*.]
+\item
+$\displaystyle K(t) = \frac{\norm{\mathbf r'(t)\times\mathbf r''(t)}}{\norm{\mathbf r'(t)}^3}$\pause
+\vspace{1em}
+
+\item If $C: y = y(x)$,  \[
+K(x)=\frac{\lvert{y''(x)}\rvert}{\left\{1+[y'(x)]^2\right\}^{3/2}}
+\]
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Knowledge Checks}
+{\bf Physics implications (Read the textbook for the proof):}
+\vspace{1em}
+\begin{tcolorbox}
+\[
+\mathbf a = \norm{v}'\mathbf T + K\norm{v}^2\mathbf N,
+\]
+\end{tcolorbox}
+\vspace{1em}
+
+When the speed is stable, the greater the curvature is, the \alt<2->{\underline{\hspace{.5em}more\hspace{.5em}}}{\rule{3em}{.3pt}} force is needed to maintain the object on track. 
+\end{frame}
+
+\end{document}
