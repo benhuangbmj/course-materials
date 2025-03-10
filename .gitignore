@@ -5,3 +5,4 @@
 !*.ggb
 !.gitignore
 *.ini
+!Algebra/*.png
