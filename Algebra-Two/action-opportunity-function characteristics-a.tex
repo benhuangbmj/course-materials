@@ -1,7 +1,7 @@
 \documentclass[10pt]{article}
 
 \usepackage{geometry}
-\geometry{margin = 3em,top =6em, headheight=\paperheight}
+\geometry{margin = 3em, left=2.5cm, top =6em, headheight=\paperheight}
 \usepackage[export]{adjustbox}
 \usepackage{array}
 \usepackage{amsmath}
@@ -44,7 +44,7 @@ Name \rule{16em}{.5pt}\hspace{\stretch{1}} Date \rule{8em}{.5pt}\hspace{\stretch
 \begingroup
 \renewcommand{\arraystretch}{1.5}
 \begin{center}
-{\footnotesize
+{
 \begin{tabularx}{\textwidth}{|X|X|X|X|X|X|}
 \hline
 \bf BE PRECISE & \centerline{Integrating} & \centerline{Applying} & \centerline{Practicing} & \centerline{Acquiring} & \centerline{Awaiting Evidence} \\
@@ -75,7 +75,7 @@ AND
 Attempts to express the answer to the correct level of precision needed for the problem (including the correct rounding, units, math symbols, labeling, graphing, vocab…).
 &Selects and attempts to apply the correct procedure for some routine problems.\\
 \hline
-\bf Criteria&\multicolumn{5}{l|}{\parbox[c][4em]{.8\textwidth}{When describing the graph, you have to address, if exists, the $x$-intercept, $y$-intercept, maxima and minima (both absolute and relative), asymptotes, symmetric axes, and the period.}}\\
+\bf Criteria&\multicolumn{5}{l|}{\parbox[c][4em]{.8\textwidth}{When describing the graph, you have to address, if exists, the $x$-intercept, $y$-intercept, maxima and minima (both absolute and relative), and symmetric axes.}}\\
 \hline
 \end{tabularx}
 }
@@ -98,24 +98,94 @@ Attempts to express the answer to the correct level of precision needed for the 
     axis lines=middle,
     xmin=-5,xmax=5,
     ymin=-5,ymax=5,
-    domain=-1:5,
+    domain=-5:5,
     samples=100,
     width=0.5\textwidth
 ]
 \addplot[thick]{x*(x-3)^2};
 \end{axis}
 \end{tikzpicture}
-}&\parbox[c]{0.5\textwidth}{{\bf \large Description}\\[1.5em]
-\rule{0.4\textwidth}{0.5pt}\\[1.5em]
-\rule{0.4\textwidth}{0.5pt}\\[1.5em]
-\rule{0.4\textwidth}{0.5pt}\\[1.5em]
-\rule{0.4\textwidth}{0.5pt}\\[1.5em]
-\rule{0.4\textwidth}{0.5pt}\\[1.5em]
-\rule{0.4\textwidth}{0.5pt}\\[1.5em]
-\rule{0.4\textwidth}{0.5pt}\\[1.5em]
+}&\parbox[c]{0.5\textwidth}{{\bf \large Description}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
 }
 \end{tabular}
 \end{center}
-\item Let \(f(x) = x^2 + 3x - 4\).  Find the zeros, the $y$-intercept and the vertex of the graph of $f(x)$, then plot the graph.
+\clearpage
+\item
+Describe the following graph.
+\begin{center}
+\begin{tabular}{p{0.5\textwidth}p{0.5\textwidth}}
+\parbox{0.5\textwidth}{
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    grid=both,
+    minor tick num=1,
+    axis lines=middle,
+    xmin=-5,xmax=5,
+    ymin=-5,ymax=5,
+    domain=-5:5,
+    samples=100,
+    width=0.5\textwidth
+]
+\addplot[thick]{-(x+3)*(x+2)*(x-2)/3};
+\end{axis}
+\end{tikzpicture}
+}&\parbox[c]{0.5\textwidth}{{\bf \large Description}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+}
+\end{tabular}
+\end{center}
+\item
+Describe the following graph.
+\begin{center}
+\begin{tabular}{p{0.5\textwidth}p{0.5\textwidth}}
+\parbox{0.5\textwidth}{
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    grid=both,
+    minor tick num=1,
+    axis lines=middle,
+    xmin=-5,xmax=5,
+    ymin=-5,ymax=5,
+    domain=-5:5,
+    samples=100,
+    width=0.5\textwidth
+]
+\addplot[thick]{-(x+3)*(x+2)*(x-2)*(x-3)/9};
+\end{axis}
+\end{tikzpicture}
+}&\parbox[c]{0.5\textwidth}{{\bf \large Description}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+\rule{0.4\textwidth}{0.5pt}\\[1em]
+}
+\end{tabular}
+\end{center}
 \end{enumerate}
 \end{document}
