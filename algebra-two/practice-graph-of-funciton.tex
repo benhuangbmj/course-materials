@@ -1,0 +1,140 @@
+\documentclass[10pt]{article}
+
+\usepackage{geometry}
+\geometry{margin=3em,top=6em, left=2.5cm, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II}
+\chead{Graph of Function}
+\rhead{Practice, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{luacode}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{
+Name \rule{16em}{.5pt}\hspace{\stretch{1}} Date \rule{8em}{.5pt}\hspace{\stretch{1}} Period \rule{4em}{.5pt}
+}
+\vspace{1em}
+
+{\noindent\bf Targets.}
+\begin{itemize}
+    \item to plot the points on the graph of a function
+    \item to sketch the graph by tracing the points
+\end{itemize}
+{\noindent\bf Do Now.}
+Use this coordinate frame for the following problems. 
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    grid=both,
+    minor tick num=1,
+    axis lines=middle,
+    xmin=-6,xmax=6,
+    ymin=-6,ymax=6,
+    domain=-5:5,
+    samples=100,
+    width=0.6\textwidth,
+    grid style={draw=gray!80},
+]
+\addplot[
+    only marks,
+    mark=*,
+    mark size=3pt,
+    color=black
+] coordinates {(1,2)};
+\end{axis}
+\end{tikzpicture}
+\end{center}   
+\begin{enumerate}
+    \item Find the coordinates of the black point in the coordinate frame.
+    \item Plot the point \((-4, -3)\) in the coordinate frame.
+\end{enumerate}
+
+{\noindent\bf Take note.}\\[1em]
+
+\noindent
+\rule{\textwidth}{.5pt}\\[1em]
+\rule{\textwidth}{.5pt}\\[1em]
+\rule{\textwidth}{.5pt}\\[1em]
+\rule{\textwidth}{.5pt}\\[1em]
+\rule{\textwidth}{.5pt}\\[1em]
+\rule{\textwidth}{.5pt}\\[1em]
+\rule{\textwidth}{.5pt}\\[1em]
+\rule{\textwidth}{.5pt}\\[1em]
+\rule{\textwidth}{.5pt}\\[1em]
+\rule{\textwidth}{.5pt}\\[1em]
+\rule{\textwidth}{.5pt}\\[1em]
+\rule{\textwidth}{.5pt}
+\clearpage
+
+{\noindent\bf Practice.}
+
+Let $f(x) = 2x$.
+\begin{enumerate}
+    \item Complete the following table.
+    \item Plot the points in the coordinate frame.
+    \item Sketch the graph of $f(x)$ by tracing the points.
+\end{enumerate}
+\begin{luacode*}
+tex.print("\\begin{center}\\Large")
+tex.print("\\begin{tabular}{|c|c|}")
+tex.print("\\hline\\textbf{$x$} & \\textbf{$f(x)$} \\\\ \\hline")
+
+for i = -6, 6 do
+  local x = i * 0.5
+  tex.print(string.format("%g & \\\\ \\hline", x))
+end
+
+tex.print("\\end{tabular}")
+tex.print("\\end{center}")
+\end{luacode*}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    grid=both,
+    minor tick num=1,
+    axis lines=middle,
+    xmin=-6,xmax=6,
+    ymin=-6,ymax=6,
+    domain=-5:5,
+    samples=100,
+    width=0.6\textwidth,
+    grid style={draw=gray!80},
+]
+\end{axis}
+\end{tikzpicture}
+\end{center} 
+{\noindent\bf Exit Ticket.}
+Use the approach we learned in this lesson to sketch $f(x) = (x-1)^2$.
+
+\end{document}
