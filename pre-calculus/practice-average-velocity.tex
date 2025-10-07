@@ -1,0 +1,90 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{margin=2em,top=6em, inner=2.5cm, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Average Velocity}
+\rhead{Practice, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{luacode}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+{\noindent\bf Targets.}
+\begin{itemize}
+    \item to calculate the average velocity over a time interval, given the position
+    \item to numerically determine the limit of the average velocity as the time interval getting shorter
+\end{itemize}
+{\noindent\bf Do Now.}
+
+Is the free falling motion of uniform velocity? How can you experimentally verify your claim?
+{\noindent\bf Concepts.}
+\begin{itemize}
+\item
+Average Velocity
+\vspace{\stretch{1}}
+\end{itemize}
+
+{\noindent\bf Problems.}
+
+Let $t$ be the time, and $p(t) = -16t^2 + 100$ be the position of an object dropped from 100 feet above the ground. Calculate the average velocity over the time interval $[2, 2+\Delta t]$ for various $\Delta t$. Complete the table below.
+\vspace{1em}
+
+\begin{luacode*}
+tex.print("\\begin{center}\\renewcommand{\\arraystretch}{2}")
+tex.print("\\begin{tabular}{|c|c|}")
+tex.print("\\hline\\textbf{$\\Delta t$} & \\textbf{$\\bar{v}$} \\\\ \\hline")
+local x = 1
+for i = 1,5 do
+  x = x /10
+  local s = string.format("%.6f", x):gsub("0+$", ""):gsub("%.$", "")
+  tex.print(string.format("%s & \\hspace{5em} \\\\ \\hline", s))
+end
+tex.print("\\end{tabular}")
+tex.print("\\end{center}")
+\end{luacode*}
+\vspace{1em}
+
+{\bf\noindent Discussion.}
+
+Does the average velocity in the table above seem to stably approach a specific number? What number would that be?
+\vspace{\stretch{1}}
+
+{\noindent\bf Exit Ticket.} 
+
+Suppose the position of an object over time is given by $p(t) = \sin(t)$.\footnote{This type of motion is frequently seen in real life, too. For example, the oscillatory motion of a ball attached to a spring.} Find the average velocity over the time interval $[0, \pi/2]$.
+\vspace{\stretch{1}}
+
+\end{document}
