@@ -1,0 +1,65 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{margin=2em,top=6em, inner=2.5cm, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Average Velocity}
+\rhead{Action Opportunity A, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{luacode}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+{\noindent\bf Problems.}
+
+Let $t$ be the time, and $p(t) = 3t^3  - 2t^2+t +50$ be the position of an object moving along a line. {\bf Write a problem with the programming of your choice} to calculate the average velocity over the time interval $[1, 1+\Delta t]$ for various $\Delta t$. Complete the table below.
+\vspace{1em}
+
+\begin{luacode*}
+tex.print("\\begin{center}\\renewcommand{\\arraystretch}{2}")
+tex.print("\\begin{tabular}{|c|c|}")
+tex.print("\\hline\\textbf{$\\Delta t$} & \\textbf{$\\bar{v}$} \\\\ \\hline")
+local x = 2
+for i = 1,15 do
+  x = x /2
+  local s = string.format("%.10f", x):gsub("0+$", ""):gsub("%.$", "")
+  tex.print(string.format("%s & \\hspace{5em} \\\\ \\hline", s))
+end
+tex.print("\\end{tabular}")
+tex.print("\\end{center}")
+\end{luacode*}
+\vspace{1em}
+To earn credits, you have to show and run a working code snippet to the teacher.
+According to the table, $\bar{v}$ seems to stably approach \rule{5em}{0.1pt} as $\Delta t$ getting smaller.
+\end{document}
