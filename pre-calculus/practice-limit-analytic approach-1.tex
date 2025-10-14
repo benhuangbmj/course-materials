@@ -1,0 +1,87 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{margin=2em,top=6em, inner=2.5cm, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Limit: Analytic Approach, One}
+\rhead{Practice, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{luacode}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+{\noindent\bf Targets.}
+\begin{itemize}
+    \item to calculate the limit of a rational function by simplifying the expression algebraically.
+\end{itemize}
+{\noindent\bf Do Now.}
+\begin{enumerate}
+\item
+Prove \(x^2-y^2 = (x-y)(x+y)\).
+\vspace{\stretch{1}}
+\item
+Prove \((x \pm y)^2 = x^2 \pm 2xy +y^2\).
+\vspace{\stretch{1}}
+\end{enumerate}
+
+{\noindent\bf Concepts.}
+\begin{itemize}
+\item
+The {\it limit} of a function at a point (in loose term)
+\vspace{\stretch{1}}
+\item Instantaneous velocity
+\vspace{\stretch{1}}
+\end{itemize}
+\clearpage
+
+{\noindent\bf Problems.}
+\begin{enumerate}
+\item
+Find $\displaystyle \lim_{x\to2} \frac{x^2 - 2^2}{x-2}$.
+\vspace{\stretch{1}}
+\item
+Find $\displaystyle \lim_{x\to3} \frac{x^3 - 3^3}{x-3}$.
+\vspace{\stretch{1}}
+\item
+Find $\displaystyle \lim_{x\to x_0} \frac{x^4 - x_0^4}{x-x_0}$.
+\vspace{\stretch{1}}
+
+\end{enumerate}
+
+{\noindent\bf Exit Ticket.}
+Suppose the position of an object over time is given by $p(t) = t^2$. Find the instantaneous velocity of the object at $t=2$. 
+\vspace{\stretch{1}}
+
+\end{document}
