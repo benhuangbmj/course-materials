@@ -1,0 +1,121 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II - BASE}
+\chead{Function  Characteristics - Business Applications}
+\rhead{Pretest, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{luacode}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+{\noindent\bf Thoughts of the Day}
+\begin{center}
+{\it Exams are not lotteries.}
+\end{center}
+
+{\noindent \bf Learning Objectives.}
+\begin{itemize}
+\item
+Use the graph of a business function to make informed business decisions.
+\end{itemize}
+{\noindent\bf Do Now.}
+Let $f(x) = x^2 - x$.
+\begin{enumerate}
+    \item Complete the following table.
+    \item Plot the points in the coordinate frame.
+    \item Sketch the graph of $f(x)$ on $[-2, 2]$ by tracing the points.
+\end{enumerate}
+\begin{luacode*}
+tex.print("\\begin{center}\\begingroup\\renewcommand{\\arraystretch}{2}")
+tex.print("\\begin{tabular}{cc}")
+tex.print("\\begin{tabular}{|c|c|}")
+tex.print("\\hline\\textbf{$x$} & \\textbf{$f(x)$} \\\\ \\hline")
+
+for i = -4, 4 do
+  local x = i * 0.5
+  tex.print(string.format("%g & \\hspace{5em} \\\\ \\hline", x))
+end
+tex.print("\\end{tabular}&\\hspace{5em}")
+tex.print("\\begin{tikzpicture}[baseline={(current bounding box.center)}]")
+tex.print("\\begin{axis}[    xlabel={$x$},    ylabel={$y$},    grid=both,    minor tick num=1,    axis lines=middle,     xmin=-6,xmax=6,    ymin=-6,ymax=6,    domain=-2:2,    samples=100,    width=0.6\\textwidth,    grid style={draw=gray!80, dashed},]\\end{axis}\\end{tikzpicture}")
+tex.print("\\end{tabular}\\endgroup")
+tex.print("\\end{center}")
+\end{luacode*}
+
+{\noindent\bf Problems.}
+A manufacturer of sweatshirts finds that profits and costs fluctuate depending on the number
+of products created. Creating more products doesn't always increase profits because it requires
+additional costs, such as building a larger facility or hiring more workers. The manufacturer
+determines the profit, $p(x)$, in thousands of dollars, as a function of the number of sweatshirts
+sold, $x$, in thousands. This function, $p$, is given below.
+\[
+p(x) = -x^3+11x^2-7x-69
+\]
+\begin{enumerate}
+\item
+$(1, -66)$ is a point on the graph of the function. Interpret the meaning of this set of coordinates in the business language. 
+\vspace{\stretch{1}}
+\clearpage
+\item
+Graph $y=p(x)$, over the interval $0\leq x \leq 9$, on the set of axes below.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+axis lines=middle,
+xmin=-7, xmax = 13,
+xlabel={$x$}, ylabel={$y$},
+ymin=-90, ymax=180,
+grid=both,
+ytick distance=30,
+minor tick num=1,
+width=0.8\textwidth
+]
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\item Over the given interval, state the coordinates of the maximum of p and round all values to
+the nearest integer. Explain what this point represents in terms of the number of sweatshirts sold
+and profit.
+\vspace{\stretch{1}}
+\item Determine how many sweatshirts, to the nearest whole sweatshirt, the manufacturer would need
+to produce in order to first make a positive profit. Justify your answer.
+\vspace{\stretch{1}}
+\end{enumerate}
+
+\end{document}
