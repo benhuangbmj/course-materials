@@ -1,0 +1,119 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II - BASE}
+\chead{Compositions of Functions}
+\rhead{Practice, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\noindent
+{\bf Learning Objectives.}
+\begin{itemize}
+\item
+Implement the composition of two functions.
+\item 
+Implement the decomposition of a function into two simpler functions.
+\end{itemize}
+\noindent
+{\bf Do Now.} {\it Work on the following problems when the teacher is taking attendance and returning works.}
+
+Find the (natural) domain and range of the following functions.
+\begin{enumerate}
+\item
+$\displaystyle f(x) = -\sqrt{x}$
+\vspace{\stretch{1}}
+\item
+$\displaystyle g(x) =\sqrt{x^2}$
+\vspace{\stretch{1}}
+\end{enumerate}
+\noindent
+{\bf Practice.}
+{\it In this practice, we review how to ``plug in a number'', namely, evaluate the function at a number.}
+
+In the following problems, find the value of the function at the given point. If the value is undefined, put {\bf DNE} (Does Not Exist).
+\begin{enumerate}
+\item
+$f(x) = x^3 + 4x^2 - 10$, find $f(2)$.
+\vspace{\stretch{1}}
+\item 
+$\displaystyle g(x) = \frac{2}{x+6}$, find $g(10)$ and $g(-6)$.
+\vspace{\stretch{1}}
+\item 
+$h(x) = 2x^2 - 3\sqrt{x}$, find $h(9)$ and $h(-9)$.
+\vspace{\stretch{1}}
+\end{enumerate}
+\clearpage
+
+\noindent
+{\bf Discussion.}
+{\it Composition is just about putting the output of a function/process to the input of another. It's used a lot to organize stuffs in not only mathematics, but also software engineering and almost everything. In other words, it's about building a complex structure from simpler ones. In contrast, decomposition is about break complex things into simpler ones.}
+
+Discuss how the following process can be constructed by composing two sub-processes:
+You are building a video game, and currently you are working on the AI of the enemies. The goal is simple: the enemy object wants to march toward the player once the player enters its sight. Ignoring all the implementation details of code, write this target process as a composition of two sub-processes. 
+
+\noindent
+{\bf Examples.}
+
+Let $f(x) = x^2 +1$, $g(x) = x - 2$.
+\begin{enumerate}
+\item
+Find $f(g(5))$.
+\vspace{\stretch{1}}
+\item 
+Find $f(g(x))$. Simplify the answer.
+\vspace{\stretch{1}}
+\item 
+Find $g(f(x))$. Simplify the answer.
+\vspace{\stretch{1}}
+\item
+Find $(g(f(5))$.
+\vspace{\stretch{1}}
+\end{enumerate}
+\noindent
+{\bf Notations.}
+\begin{itemize}
+\item
+``$(f\circ g)(x)$'' just means $f(g(x))$.
+\end{itemize}
+\noindent
+{\bf Challenges.}
+If $(f\circ g)(x) = \sqrt[3]{2x-5}$, what are $f(x)$ and $g(x)$?
+\vspace{\stretch{1}}
+\end{document}

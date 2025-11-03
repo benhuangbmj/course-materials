@@ -1,0 +1,110 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II - BASE}
+\chead{Domain and Range Applications}
+\rhead{Practice, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\noindent
+{\bf Learning Objectives.}
+\begin{itemize}
+\item
+Find the domain and range of a function arising from real-world applications and set the graphing window accordingly.
+\item
+Discover the relationship between the $x$-intercepts and the vertex of a parabola.
+\end{itemize}
+
+\noindent
+{\bf Do Now.} {\it Work on the following problem while the teacher is taking attendance and returning work.}
+
+Dr. Benjamin wants to add a new feature to his video game in which the player can throw a stone toward the enemy. According to your daily experience and common sense, draw the trajectory of the stone as it flies through the air.
+\vspace{\stretch{3}}
+
+\noindent
+{\bf Discussion.}
+According to physics, a stone flying through the air follows the path of part of a {\it parabola}, which is the graph of a quadratic function $y=ax^2 + bx + c$, where $a<0$. The following figure shows the graph of a typical parabola. Examine the graph and determine the relationships among the $x$-intercepts, the axis of symmetry, and the maximum point.
+\vspace{2em}
+
+\begin{tikzpicture}
+\begin{axis}[
+axis lines=middle,
+xlabel={$x$},
+ylabel={$y$},
+ticks=none,
+ymax=30,
+ymin=-20,
+domain=-2.5:1.5,
+]
+\addplot[thick]{-10*(x+2)*(x-1)};
+\draw[dashed](-0.5, -25) -- (-0.5, 30);
+\draw (-2,0) circle(8pt);
+\draw (1,0) circle(8pt);
+\draw[fill=black] (-2,0) circle(2pt);
+\draw[fill=black] (1,0) circle(2pt);
+\end{axis}
+\end{tikzpicture}
+\vspace{1em}
+
+{\bf Your observations:}
+
+\vspace{\stretch{1}}
+
+\clearpage
+
+\noindent
+{\bf Practice.}
+In Algebra I, we learned the quadratic formula. The solutions to the quadratic equation $\displaystyle ax^2 + bx + c = 0$ are given by
+\[
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\]
+assuming $b^2 - 4ac\geq0$.
+\begin{enumerate}
+\item
+How would you adapt the quadratic formula to solve $ax^2 + bx + c = d$, where $d\ne0$?
+\vspace{\stretch{1}}
+\item Let the ground be on the $x$-axis. Suppose a stone thrown from a height of 6 units follows part of the parabola $\displaystyle y = f(x) = -\frac{x^2}{6} + \frac{8x}{3} + 6$. Determine the realistic domain and range of the function $f(x)$.
+
+{\it Hint: First find the $x$-intercepts. Then use the relationship you discovered in the Discussion section to find the vertex.}
+\vspace{\stretch{1}}
+\item Use the domain and range you found in the previous problem to set the window on your graphing calculator appropriately, then graph the function $f(x)$.
+\vspace{\stretch{1}}
+\end{enumerate}
+\end{document}
