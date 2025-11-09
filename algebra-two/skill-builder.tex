@@ -19,6 +19,8 @@
     urlcolor=blue     % External links
 }
 \usepackage{wrapfig}
+\usepackage{luacode}
+\usepackage{comment}
 
 %math package
 \usepackage{amsmath}
@@ -46,7 +48,7 @@
 \newcommand{\vv}{\mathbf v}
 \newcommand{\inpr}[1]{\left\langle#1\right\rangle}
 
-\author[B.H.]{{\Large Collection of Daily Exercises}\\\vspace{.5em} Author: Benjamin Huang}
+\author[B.H.]{{\Large A Collection of Daily Exercises}\\\vspace{.5em} Author: Benjamin Huang}
 \date{}
 \title[skill builder]{Math Skill Builder}
 
@@ -55,5 +57,57 @@
 
 \begin{document}
 \frame{\titlepage}
+\begin{frame}
+The standard form of a quadratic equation is $ax^2 + bx + c = 0$.
+Identify the $a$, $b$ and $c$ for the following equations:
+\begin{enumerate}[label=(\arabic*)]
+\item $3x^2 - 2x + 4 = 0$
+\vspace{\stretch{1}}
+\item $-5x^2 +3 = 0$
+\vspace{\stretch{1}}
+\item $9x^2 +x -3 = 7$
+\vspace{\stretch{1}}
+\item $x^2 -2x + 3 = -x^2 -3$
+\vspace{\stretch{1}}
+\end{enumerate}
+\pause
+
+\color{red}
+{\bf Answer}
+\begin{enumerate}[label=(\arabic*)]
+\item
+$a = 3,\ b =-2,\ c = 4$
+\vspace{\stretch{1}}
+\item
+$a=-5,\ b = 0,\ c=3$
+\vspace{\stretch{1}}
+\item
+$a=9,\ b=1,\ c=-10$
+\vspace{\stretch{1}}
+\item
+$a=2,\ b=-2,\ c=6$
+\vspace{\stretch{1}}
+\end{enumerate}
+\end{frame}
+
+\begin{luacode*}
+local function generateNonzero(min, max)
+  local output
+  repeat
+    output = math.random(min, max)
+  until output ~= 0
+  return output
+end
+local a1 = generateNonzero(-20, 20)
+local b1 = string.format("%+d", generateNonzero(-20, 20))
+local c1 = string.format("%+d", generateNonzero(-20, 20))
+local eq1 = string.format("$%dx^2 %sx %s =0$",a1,b1,c1)
+tex.print('\\begin{frame}')
+tex.print('The standard form of a quadratic equation is $ax^2 + bx + c = 0$. Identify the $a$, $b$ and $c$ for the following equations:')
+tex.print('\\begin{enumerate}[label=(\\arabic*)]')
+tex.print('\\item' .. eq1 )
+tex.print('\\end{enumerate}')
+tex.print('\\end{frame}')
+\end{luacode*}
 
 \end{document}
