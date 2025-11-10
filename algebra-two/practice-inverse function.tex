@@ -1,0 +1,119 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II - BASE}
+\chead{Inverse Function, I}
+\rhead{Practice, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\noindent
+{\bf Learning Objectives.}
+\begin{itemize}
+\item
+Verify a pair of inverse functions via composition
+\end{itemize}
+
+\noindent
+{\bf Skill Builder.} {\it Work on the Skill Builder problems on the screen while the teacher is taking attendance and returning work.}\\[.25em]
+
+\noindent
+\rule{\textwidth}{.1pt}\\[1em]
+\rule{\textwidth}{.1pt}\\[1em]
+\rule{\textwidth}{.1pt}\\[1em]
+\rule{\textwidth}{.1pt}\\[1em]
+\rule{\textwidth}{.1pt}\\[1em]
+\rule{\textwidth}{.1pt}\\[1em]
+
+\noindent
+{\bf Discussion.}
+
+Find the operation that undoes the given operation.
+\begin{enumerate}
+\item
+Adding 2.
+\vspace{\stretch{1}}
+\item
+Multiplying by 10.
+\vspace{\stretch{1}}
+\item
+Squaring a negative number.
+\vspace{\stretch{1}}
+\end{enumerate}
+\noindent
+{\bf Concepts.}
+The {\it inverse function} undoes the original function. Formally, $g(x)$ is called the {\bf inverse function} of $f(x)$ if both of the following are true:
+\begin{enumerate}
+\item
+$(f\circ g)(x) = x$
+\item
+$(g\circ f)(x) = x$
+\end{enumerate}
+See the diagram below.
+{\Large
+\setlength{\fboxsep}{1em}
+\[ x\quad\substack{\xrightarrow{\hspace{5em}}\\ \xleftarrow{\hspace{5em}}} \quad\fbox{\hspace{.5em} f(x) \hspace{.5em}}\quad\substack{\xrightarrow{\hspace{5em}}\\ \xleftarrow{\hspace{5em}}} \quad\fbox{\hspace{.5em} g(x) \hspace{.5em}}\quad\substack{\xrightarrow{\hspace{5em}}\\ \xleftarrow{\hspace{5em}}} \quad x\]
+}
+The inverse function of $f(x)$ is denoted by $f^{-1}(x)$. It is worthwhile to note that
+\begin{itemize}
+\item
+domain($f(x)$) = range($f^{-1}(x)$)
+\item
+domain($f^{-1}(x)$) = range($f(x)$)
+\end{itemize}
+Moreover, the graph of $f(x)$ and the graph of $f^{-1}(x)$ are symmetric about the line $y=x$.
+\clearpage
+
+\noindent
+{\bf Examples.}
+
+Verify the pair of functions below are the inverse functions of each other.
+\begin{enumerate}
+\item
+$f(x) = x + 2$, $g(x) = x - 2$.
+\vspace{\stretch{1}}
+\item $f(x) = x\times 10$, $g(x) = x\div 10$.
+\vspace{\stretch{1}}
+\end{enumerate}
+
+\noindent
+{\bf Challenge.} Is $g(x) = \sqrt{x}$ the inverse function of $f(x) = x$? Why or why not?
+\vspace{\stretch{1}}
+
+\end{document}
