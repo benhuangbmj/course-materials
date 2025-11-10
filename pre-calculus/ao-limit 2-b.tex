@@ -1,0 +1,169 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Limit 2}
+\rhead{AO Make, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Due \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\tiny
+{
+\begin{tabularx}{\textwidth}{|X|X|X|X|X|X|}
+\hline
+\bf MODEL & \centerline{Integrating} & \centerline{Applying} & \centerline{Practicing} & \centerline{Acquiring} & \centerline{Awaiting Evidence} \\
+\hline
+I can use math to model and solve real-world problems.&
+Correctly identifies
+important
+quantities and
+illustrates their
+relationships using
+diagrams, tables,
+graphs, or
+formulas.
+Appropriate work is
+shown with no
+errors. The answer
+includes units and
+rounding as
+appropriate to the
+problem.
+Explains how the
+answer makes
+sense in the
+context of the
+problem.
+&Correctly identifies
+important
+quantities and
+illustrates their
+relationships using
+diagrams, tables,
+graphs, or
+formulas.
+Appropriate work is
+shown with no
+errors. The answer
+includes units and
+rounding as
+appropriate to the
+problem.
+&Correctly identifies
+important
+quantities and
+illustrates their
+relationships using
+diagrams, tables,
+graphs, or
+formulas.
+Appropriate work is
+shown with 1
+COMPUTATIONAL
+or ROUNDING
+error.
+&Correctly identifies
+important
+quantities and
+attempts to
+illustrate their
+relationships using
+diagrams, tables,
+graphs, or formulas
+Appropriate work is
+shown with 1
+CONCEPTUAL
+error.
+&Correctly identifies
+important
+quantities and
+attempts to
+illustrate their
+relationships using
+diagrams, tables,
+graphs, or formulas
+Appropriate work is
+shown with more
+than 1 conceptual
+error.\\
+\hline
+\bf Criteria&\multicolumn{5}{l|}{\parbox[c][4em]{.8\textwidth}{}}\\
+\hline
+\end{tabularx}
+}
+\end{center}
+\endgroup
+\vspace{.5em}
+
+\begin{enumerate}
+\item Create a problem of calculating a limit meeting the following requirements, then solve it.
+\begin{enumerate}
+\item
+It finds the limit of a function at the number $n=\text{an integer}$. 
+\item
+It's a fraction and when plugging in $n$ directly it becomes ``$\displaystyle \frac{0}{0}$''.
+\item
+It has a square root expression at either the numerator or the denominator.
+\item
+It's solvable with the ``multiplying the conjugate'' trick.
+\end{enumerate}
+Here is a model problem: $\displaystyle \lim_{x\to2}\frac{\sqrt{x+2} - 2}{x-2}$
+\vspace{\stretch{1}}
+\item Create a problem of calculating a limit at the positive infinity meeting the following requirements, then solve it.
+\begin{itemize}
+\item
+The function is a rational function, namely, a quotient between two polynomials.
+\item 
+The answer is a nonzero number.
+\end{itemize}
+\vspace{\stretch{1}}
+\item Create a problem of calculating a limit at the negative infinity meeting the following requirements, then solve it.
+\begin{itemize}
+\item
+The function is a rational function, namely, a quotient between two polynomials.
+\item 
+The answer is the positive infinity.
+\end{itemize}
+\vspace{\stretch{1}}
+\end{enumerate}
+
+\end{document}
