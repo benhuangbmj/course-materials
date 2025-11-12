@@ -127,5 +127,33 @@ tex.print('\\item' .. ans1  .. '\\vspace{\\stretch{1}}\\item' .. ans2..'\\vspace
 tex.print('\\end{enumerate}')
 tex.print('\\end{frame}')
 \end{luacode*}
-
+\begin{luacode*}
+local a1 = generateNonzero(-3, 3)
+local c1 = generateNonzero(-3, 3)
+local b1
+if 4*a1*c1 <= 0 then 
+  b1 = generateNonzero(-3, 3)
+else
+  local low = math.ceil(math.sqrt(4*a1*c1))  
+  b1 = generateNonzero(low, low + 6)
+end
+local discriminant = b1^2 - 4*a1*c1
+local sol1 = string.format("%.3f", (-b1 + math.sqrt(discriminant))/(2*a1))
+local sol2 = string.format("%.3f", (-b1 - math.sqrt(discriminant))/(2*a1))
+local fb1 = string.format("%+d", b1)
+local fc1 = string.format("%+d", c1)
+local eq1 = string.format("$%dx^2 %sx %s =0$",a1,fb1,fc1):gsub("(%+?)1(x)", "%1%2"):gsub("(-)1(x)", "%1%2")
+tex.print('\\begin{frame}')
+tex.print('The standard form of a quadratic equation is $ax^2 + bx + c = 0$.  Apply the quadratic formula \\[x=\\frac{-b\\pm\\sqrt{b^2 - 4ac}}{2a}\\] to solve the equation:')
+tex.print('\\begin{enumerate}[label=(\\arabic*)]')
+tex.print('\\item' .. eq1 .. '\\vspace{\\stretch{1}}')
+tex.print('\\end{enumerate}{\\bf Follow-up}: How to do you verify/check your answer?\\vspace{\\stretch{1}}\\pause\\\\')
+local ans1 = string.format("$\\displaystyle x=\\frac{-(%s) \\pm \\sqrt{(%s)^2 - 4(%d)(%s)}}{2(%d)}$", b1, fb1,a1,c1,a1)
+local ans2 = string.format("$\\displaystyle =\\frac{%d \\pm \\sqrt{%d}}{%d}$", -b1, b1^2-4*a1*c1,2*a1)
+tex.print('\\color{red} {\\bf Answer:}')
+tex.print('\\begin{enumerate}[label=(\\arabic*)]')
+tex.print('\\item' .. ans1  .. ans2 .. '$\\displaystyle \\approx \\begin{cases}' .. sol1.. '\\\\' .. sol2 ..'\\end{cases}$\\vspace{\\stretch{1}}')
+tex.print('\\end{enumerate}')
+tex.print('\\end{frame}')
+\end{luacode*}
 \end{document}
