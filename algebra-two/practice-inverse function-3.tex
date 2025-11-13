@@ -1,0 +1,105 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II - BASE}
+\chead{Inverse Function, III}
+\rhead{Practice, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\noindent
+{\bf Skill Builder.} {\it Work on the Skill Builder problems on the screen while the teacher is taking attendance and returning work.}\\[.25em]
+
+\noindent
+\rule{\textwidth}{.1pt}\\[1em]
+\rule{\textwidth}{.1pt}\\[1em]
+\rule{\textwidth}{.1pt}\\[1em]
+\rule{\textwidth}{.1pt}\\[1em]
+\rule{\textwidth}{.1pt}\\[1em]
+\rule{\textwidth}{.1pt}\\[1em]
+
+\noindent
+{\bf Practice.}
+
+\begin{enumerate}
+\item Your friend attempted to solve the quadratic equation $x^2 -5x + 6 = 2$ by the following calculation:
+\begin{align*}
+x&=\frac{-(-5) \pm \sqrt{(-5)^2 - 4(1)(6)}}{2(1)}\\
+&=\frac{5 \pm 1}{2}\\
+&=\begin{cases}
+&3\\[1em]
+&2
+\end{cases}
+\end{align*}
+He insisted that this is the correct answer.
+\begin{enumerate}
+\item
+How can you logically convince him that this is incorrect? ({\it Hint}: Think about what it means by a solution of an equation.)
+\vspace{\stretch{1}}
+\item How do you find the correct solution?
+\vspace{\stretch{1}}
+\end{enumerate}
+\clearpage
+\item Determine if the pair of functions are inverses of each other. SHOW WORK and explain how you know.
+\begin{enumerate}
+\item
+$f(x) = 0.5x-4$,\quad $g(x) = 4x +16$.
+\vspace{\stretch{1}}
+\item 
+$f(x) = x^2 - 2x$ on $[1, \infty)$,\quad $g(x) = 1 + \sqrt{x+1}$ on $[-1, \infty)$. 
+\vspace{\stretch{1}}
+\end{enumerate} 
+\item
+The signed distance of a train from Station $A$, $d(t)$, in miles, is a function of time, $t$, in hours, given by 
+\[
+d(t) = 70t - 200
+\]
+Here, the negative distance means {\it to the west},  and the positive distance means {\it to the east.}
+\begin{enumerate}
+\item
+Find the inverse function of $d(t)$.
+\vspace{\stretch{1}}
+\item Station $B$ is along the train route and 10 miles {\bf to the east} from Station $A$. Use the inverse function to find when the train will arrive at Station $B$.
+\vspace{\stretch{1}}
+\item Station $C$ is along the train route and 130 miles {\bf to the west} from Station $A$. Use the inverse function to find when the train will arrive at Station $C$.
+\vspace{\stretch{1}}
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

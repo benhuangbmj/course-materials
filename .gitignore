@@ -1,9 +1,7 @@
 *.*
-!*.pdf
 !*.tex
 !img/*
 !*.ggb
 !.gitignore
 *.ini
 !Algebra/*.png
-skill-builder.pdf
