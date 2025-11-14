@@ -1,0 +1,78 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II - BASE}
+\chead{Inverse Function}
+\rhead{Pretest, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Due \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\begin{enumerate}
+\item Use the quadratic formula $\displaystyle x = \frac{-b\pm\sqrt{b^2 - 4ac}}{2a}$ to solve the equation $2x^2+4x -6 = 0$.
+\vspace{\stretch{1}}
+
+\item Determine if the pair of functions are inverses of each other. SHOW WORK and explain how you know.
+\begin{enumerate}
+\item
+$f(x) = 0.5x-4$,\quad $g(x) = 4x +16$.
+\vspace{\stretch{1}}
+\item 
+$f(x) = x^2 - 2x$ on $[1, \infty)$,\quad $g(x) = 1 + \sqrt{x+1}$ on $[-1, \infty)$. 
+\vspace{\stretch{1}}
+\end{enumerate} 
+\item
+The signed distance of a train from Station $A$, written as $d(t)$ (in miles), depends on time $t$ (in hours) and is given by 
+\[
+d(t) = 70t - 200
+\]
+A negative distance means the train is {\it west} of Station $A$, and a positive distance means it is {\it east} of Station $A$.
+
+\begin{enumerate}
+\item Find the inverse of $d(t)$. What does this new function tell you in words?
+\vspace{\stretch{1}}
+
+\item Station $B$ is on the same track, $10$ miles {\bf east} of Station $A$. Use the inverse function to figure out when the train reaches Station $B$.
+\vspace{\stretch{1}}
+
+\item Station $C$ is on the same track, $130$ miles {\bf west} of Station $A$. Use the inverse function to figure out when the train reaches Station $C$.
+\end{enumerate}
+\vspace{\stretch{1}}
+\end{enumerate}
+
+\end{document}
