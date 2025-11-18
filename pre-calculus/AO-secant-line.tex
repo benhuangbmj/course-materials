@@ -1,0 +1,58 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Secant Line}
+\rhead{AO Make, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} {\bf Due} \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+Let \(f(x) = x^3 - 3x^2 + 2x + 1 \). 
+\begin{enumerate}
+\item Plot the graph of $f(x)$ in GeoGebra.
+\item Pick two random points on the graph of $f(x)$, and plot them in GeoGebra, too.\\[1em]
+{\bf Point $A$}: \rule{10em}{0.1pt}\quad{\bf Point $B$}: \rule{10em}{0.1pt}
+\item Find the equation of the line through the two points you picked. 
+\vspace{\stretch{1}}
+\item Plot the line equation in GeoGebra. \\
+{\bf Remark}: If the line of your equation doesn't go through those two points, you have to backtrack and fix your mistakes.\\
+{\bf Follow-up}: How do you algebraically verify that those two points are on the line of the equation?
+\vspace{\stretch{1}}
+\item Show your instructor the whole plot in GeoGebra.
+\end{enumerate}
+
+\end{document}
