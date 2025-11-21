@@ -1,0 +1,101 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Skill Builder}
+\chead{Distributive Law and FOIL}
+\rhead{Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{luacode}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\begin{luacode*}
+math.randomseed(os.time());
+a1 = math.random(-10, 10);
+b1 = math.random(-10,10);
+c1 = math.random(-10,10);
+expr1 = string.format("&(%d) (%d %+d )\\\\[1em]=&(%d)(\\rule{3em}{.1pt})\\\\[1em]=&\\rule{4em}{.1pt}\\ .", a1, b1, c1, a1)
+expr2 = string.format("&(%d)(%d) +( %d)(%d)\\\\[1em]=&\\rule{3em}{.1pt} + \\rule{3em}{.1pt}\\\\[1em]=&\\rule{4em}{.1pt}", a1,b1,a1,c1)
+
+a2 = math.random(-99999, 99999)
+b2 = math.random(-99999, 99999)
+c2 = b2 - 1
+a3 = math.random(-99999, 99999)
+b3 = math.random(-99999, 99999)
+c3 = b3 + 1
+expr3 = string.format("&(%d)(%d) - (%d)(%d)\\\\[1em] =& (%d)((\\rule{4em}{.1pt}) - (\\rule{4em}{.1pt}))\\\\[1em] =& (%d)(\\rule{2em}{0.1pt})\\\\[1em] =& \\rule{4em}{.1pt}\\ .", a2, b2,a2,c2,a2,a2)
+expr4 = string.format("(%d)(%d) + (%d)(%d))", a3, -b3, a3, c3)
+\end{luacode*}
+
+\noindent{\bf Distributive Law}: $a(b+c) = ab + ac$. \\
+{\it Remark}:
+\begin{itemize}
+\item
+Note that this implies $a(b-c) = ab - ac$, because $a(b-c) = a(b+(-c)) = ab + a(-c) = ab - ac$.
+ \item 
+It also implies that $a(b+c + d) = ab+ac+ad$, because
+\[
+a(b+c+d) = a((b+c)+d) = a(b+c) + ad = ab+ac+ad.
+\]
+\end{itemize}
+\noindent{\bf Problems}
+\begin{enumerate}
+\item
+Verify the distributive law for the following numbers:
+
+\parbox{.45\textwidth}{
+\begin{align*}
+\directlua{tex.print(expr1)}
+\end{align*}
+}\parbox{.45\textwidth}{
+\begin{align*}
+\directlua{tex.print(expr2)}
+\end{align*}
+}
+\item
+Use the distributive law to solve the following problems:
+\begin{enumerate}
+\item
+\begin{align*}
+\directlua{tex.print(expr3)}
+\end{align*}
+\item $\directlua{tex.print(expr4)}$
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

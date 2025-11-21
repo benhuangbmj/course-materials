@@ -1,0 +1,73 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Skill Builder}
+\chead{Rational Exponent}
+\rhead{Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{luacode}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\begin{luacode*}
+math.randomseed(os.time());
+a1 = math.random(500,2000)
+b1 = math.random(1,15)
+c1 = (a1*b1)/100
+expr1 = string.format("%d(%.2f) = %.2f", a1,b1/100, (a1*b1)/100)
+expr2 = string.format("%d(1 + %.2f) = %.2f", a1,b1/100, a1*(1+b1/100))
+\end{luacode*}
+
+\noindent{\bf Review of Concepts}
+\begin{itemize}
+\item
+{\bf Percentage.} $\displaystyle p\% = \frac{p}{100}$. The $p\%$ of the quantity $Q$ is computed by $\displaystyle Q\left(\frac{p}{100}\right)$. If the quantity $Q$ grows by $p\%$, the final quantity will be 
+\[
+Q + Q\left(\frac{p}{100}\right) = Q\left(1 + \frac{p}{100}\right).
+\]
+For example, the $\directlua{tex.print(b1)}\%$ of $\directlua{tex.print(a1)}$ dollars is $\directlua{tex.print(expr1)}$ dollars, and if your investment of $\directlua{tex.print(a1)}$ dollars grows by  $\directlua{tex.print(b1)}\%$ in the first year, you will end up with $\directlua{tex.print(expr2)}$ dollars.
+
+If the quantity $Q$ stably grows by $p\%$ again and again, then you have
+\[
+Q,\ Q\left(1 + \frac{p}{100}\right),\ \left(Q\left(1 + \frac{p}{100}\right)\right)\left(1 + \frac{p}{100}\right) = Q\left(1 + \frac{p}{100}\right)^2,\ Q\left(1 + \frac{p}{100}\right)^3,\ \dots
+\]
+\end{itemize}
+
+\noindent{\bf Exercises.}
+
+\end{document}
