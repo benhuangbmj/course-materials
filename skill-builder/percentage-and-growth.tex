@@ -10,7 +10,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Skill Builder}
-\chead{Rational Exponent}
+\chead{Percentage and Growth}
 \rhead{Page \thepage}
 \usepackage{lastpage}
 \usepackage{xcolor}
@@ -51,9 +51,40 @@ b1 = math.random(1,15)
 c1 = (a1*b1)/100
 expr1 = string.format("%d(%.2f) = %.2f", a1,b1/100, (a1*b1)/100)
 expr2 = string.format("%d(1 + %.2f) = %.2f", a1,b1/100, a1*(1+b1/100))
-\end{luacode*}
 
-\noindent{\bf Review of Concepts}
+a2 = math.random(100,2000)
+a3 = math.random(100,2000)
+a4 = math.random(100,2000)
+b2 = math.random(1,99)
+b3 = math.random(1,99)
+b4 = math.random(1,99)
+expr3 = string.format("The %d\\%% of %d", b2,a2)
+expr4 = string.format("The %d\\%% of %d", b3, a3)
+expr5 =  string.format("The %d\\%% of %d", b4, a4)
+
+a5 = math.random(1000,10000)
+b5 = math.random(1,10)
+\end{luacode*}
+\noindent {\bf Foundation Assessment.} {\it Instruction: Finish the following problems and ask your instructor to check you answer. If you get the correct answer, move on to the unit practice; If you don't get it right, or you have no clue how to tackle these problems, use the review material below and continue to work on the additional exercises.}
+
+Your investment of \directlua{tex.print(a3)} dollars has a return rate of \directlua{tex.print(b2)}\% per year. Complete the following table:
+
+\begin{center}
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|c|c|}
+\hline
+ \bf Year&\bf Principal\\
+ \hline
+ 1st & \$\directlua{tex.print(a3)} \\
+ \hline
+ 2nd& \parbox{8em}{\hspace{\fill}}\\
+ \hline
+ 3rd&\\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent{\bf Review of Concepts.}
 \begin{itemize}
 \item
 {\bf Percentage.} $\displaystyle p\% = \frac{p}{100}$. The $p\%$ of the quantity $Q$ is computed by $\displaystyle Q\left(\frac{p}{100}\right)$. If the quantity $Q$ grows by $p\%$, the final quantity will be 
@@ -69,5 +100,45 @@ Q,\ Q\left(1 + \frac{p}{100}\right),\ \left(Q\left(1 + \frac{p}{100}\right)\righ
 \end{itemize}
 
 \noindent{\bf Exercises.}
+\begin{enumerate}
+\item
 
+
+Find the following quantities:
+
+\parbox{.5\textwidth}{\begin{itemize}
+\item
+\directlua{tex.print(expr3)}
+\vspace{3em}
+\item
+\directlua{tex.print(expr4)}
+\end{itemize}}
+\parbox{.5\textwidth}{\begin{itemize}
+\item
+\directlua{tex.print(expr5)}
+\vspace{6em}
+\end{itemize}}
+\vspace{3em}
+\item
+Your investment of \directlua{tex.print(a5)} dollars has a return rate of \directlua{tex.print(b5)}\% per year. Complete the following table:
+\vspace{1em}
+
+\centering
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|c|c|}
+\hline
+ \bf Year&\bf Principal\\
+ \hline
+ 1st & \$\directlua{tex.print(a5)} \\
+ \hline
+ 2nd& \parbox{8em}{\hspace{\fill}}\\
+ \hline
+ 3rd&\\
+ \hline
+ 4th&\\
+  \hline
+ 5th&\\
+\hline
+\end{tabular}
+\end{enumerate}
 \end{document}
