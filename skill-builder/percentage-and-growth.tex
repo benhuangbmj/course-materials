@@ -52,22 +52,24 @@ c1 = (a1*b1)/100
 expr1 = string.format("%d(%.2f) = %.2f", a1,b1/100, (a1*b1)/100)
 expr2 = string.format("%d(1 + %.2f) = %.2f", a1,b1/100, a1*(1+b1/100))
 
-a2 = math.random(100,2000)
-a3 = math.random(100,2000)
-a4 = math.random(100,2000)
-b2 = math.random(1,99)
-b3 = math.random(1,99)
-b4 = math.random(1,99)
-expr3 = string.format("The %d\\%% of %d", b2,a2)
-expr4 = string.format("The %d\\%% of %d", b3, a3)
-expr5 =  string.format("The %d\\%% of %d", b4, a4)
+aList = {}
+bList = {}
+exprList = {}
+for i = 1, 4 do
+	aList[i] = math.random(100, 2000)
+	bList[i] =  math.random(1,99)
+	exprList[i] = string.format("The %d\\%% of %d", bList[i], aList[i])
+end
 
-a5 = math.random(1000,10000)
-b5 = math.random(1,10)
+for i = 5, 6 do
+	aList[i] = math.random(1000,10000)
+	bList[i] = math.random(1,10)
+end
 \end{luacode*}
 \noindent {\bf Foundation Assessment.} {\it Instruction: Finish the following problems and ask your instructor to check you answer. If you get the correct answer, move on to the unit practice; If you don't get it right, or you have no clue how to tackle these problems, use the review material below and continue to work on the additional exercises.}
-
-Your investment of \directlua{tex.print(a3)} dollars has a return rate of \directlua{tex.print(b2)}\% per year. Complete the following table:
+\begin{enumerate}
+\item
+Your investment of \directlua{tex.print(aList[5])} dollars has a return rate of \directlua{tex.print(bList[5])}\% per year. Complete the following table:
 
 \begin{center}
 \renewcommand{\arraystretch}{2}
@@ -75,7 +77,7 @@ Your investment of \directlua{tex.print(a3)} dollars has a return rate of \direc
 \hline
  \bf Year&\bf Principal\\
  \hline
- 1st & \$\directlua{tex.print(a3)} \\
+ 1st & \$\directlua{tex.print(aList[5])} \\
  \hline
  2nd& \parbox{8em}{\hspace{\fill}}\\
  \hline
@@ -83,6 +85,7 @@ Your investment of \directlua{tex.print(a3)} dollars has a return rate of \direc
 \hline
 \end{tabular}
 \end{center}
+\end{enumerate}
 
 \noindent{\bf Review of Concepts.}
 \begin{itemize}
@@ -108,19 +111,21 @@ Find the following quantities:
 
 \parbox{.5\textwidth}{\begin{itemize}
 \item
-\directlua{tex.print(expr3)}
+\directlua{tex.print(exprList[1])}
 \vspace{3em}
 \item
-\directlua{tex.print(expr4)}
+\directlua{tex.print(exprList[2])}
 \end{itemize}}
 \parbox{.5\textwidth}{\begin{itemize}
 \item
-\directlua{tex.print(expr5)}
-\vspace{6em}
+\directlua{tex.print(exprList[3])}
+\vspace{3em}
+\item
+\directlua{tex.print(exprList[4])}
 \end{itemize}}
 \vspace{3em}
 \item
-Your investment of \directlua{tex.print(a5)} dollars has a return rate of \directlua{tex.print(b5)}\% per year. Complete the following table:
+Your investment of \directlua{tex.print(aList[6])} dollars has a return rate of \directlua{tex.print(bList[6])}\% per year. Complete the following table:
 \vspace{1em}
 
 \centering
@@ -129,7 +134,7 @@ Your investment of \directlua{tex.print(a5)} dollars has a return rate of \direc
 \hline
  \bf Year&\bf Principal\\
  \hline
- 1st & \$\directlua{tex.print(a5)} \\
+ 1st & \$\directlua{tex.print(aList[6])} \\
  \hline
  2nd& \parbox{8em}{\hspace{\fill}}\\
  \hline

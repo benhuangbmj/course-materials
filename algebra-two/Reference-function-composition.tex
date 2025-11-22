@@ -41,7 +41,7 @@
 \item {\bf Evaluate a function.}
 \begin{enumerate}
 \item
-To evaluate a {\bf function given by an algebraic formula}, you just need to replace the variable of the function by the input subject. For example, if \[(x) = x^2 - x,\]
+To evaluate a {\bf function given by an algebraic formula}, you just need to replace the variable of the function by the input subject. For example, if \[f(x) = x^2 - x,\]
 then 
 \[
  f(2) = (2)^2 -(2) = 4 - 2 = 2,\quad f(10) = (10)^2 - (10) = 100 - 10 = 90.
@@ -74,7 +74,7 @@ xlabel={$x$},
 ylabel={$y$},
 axis lines=middle,
 domain=-3:3,
-samples=200,
+samples=100,
 ytick distance = 2,
 width=.45\textwidth
 ]
@@ -92,5 +92,27 @@ width=.45\textwidth
 f(-1) = 6,\quad f(2) = -12
 \]
 \end{enumerate}
+\item {\bf Compose Functions.} Composing functions is just plugging in values {\bf iteratively}. For example, let $f(x) = x + 1$, $g(x) = \sqrt{x}$, then $g\circ f(8) = g(f(8))$ is just
+\begin{center}
+\setlength{\fboxsep}{1em}
+$8$ $\xrightarrow{\hspace{3em}}$ $\overbrace{\fbox{$x+1$}}^{f(x)}$ $\xrightarrow{\parbox{4em}{\centering\tiny $(8) + 1$}}$ $9$ $\xrightarrow{\hspace{3em}}$ $\underbrace{\fbox{$\sqrt{x}$}}_{g(x)}$ $\xrightarrow{\parbox{4em}{\centering\tiny$\sqrt{(9)}$}}$ $3$
+\end{center}
+Tabular functions and Graphical functions work in the same way. For example,
+ \begin{center}
+\setlength{\fboxsep}{1em}
+$4$ $\xrightarrow{\hspace{3em}}$ $\overbrace{\fbox{\begin{tabular}{|c|c|c|c|}
+\hline
+$x$ & 2&4&9\\
+\hline
+$f(x)$ &3&-1&0\\
+\hline
+\end{tabular}}}^{f(x)}$ $\xrightarrow{\parbox{4em}{\hspace{\fill}}}$ $-1$ $\xrightarrow{\hspace{3em}}$ $\underbrace{\fbox{\begin{tabular}{|c|c|c|c|}
+\hline
+$x$ & -1&0&2\\
+\hline
+$g(x)$ &10&3&$\sqrt3$\\
+\hline
+\end{tabular}}}_{g(x)}$ $\xrightarrow{\parbox{4em}{\hspace{\fill}}}$ $10$
+\end{center}
 \end{enumerate}
 \end{document}
