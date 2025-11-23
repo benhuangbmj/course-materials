@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\geometry{margin=3em}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{empty}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} 
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{luacode}
+\newcommand{\studentname}{}
+\newcommand{\classtitle}{}
+
+\input{vars.local.tex}
+\begin{luacode}
+local ftcsv = require("ftcsv")
+students = ftcsv.parse("\csvsource")
+\end{luacode}
+
+\begin{document}
+\begin{luacode*}
+for i, student in pairs(students) do	
+	local studentName = student.Name:gsub("^(.-),%s*(.-)$", "%2 %1")
+	tex.print("\\renewcommand{\\studentname}{" .. studentName .. "}")
+	tex.print("\\renewcommand{\\classtitle}{" .. student.class .. "}")
+	tex.print("\\input{Classroom-Restoration-Program-Template.tex}")
+end
+\end{luacode*}
+
+\end{document}
