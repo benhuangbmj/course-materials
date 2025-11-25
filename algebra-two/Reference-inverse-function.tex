@@ -1,0 +1,81 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II - BASE}
+\chead{Inverse Function}
+\rhead{Reference, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\begin{enumerate}
+\item
+{\bf Verify inverse functions.} A pair of inverse functions undo each other. In diagram, it means
+{
+\setlength{\fboxsep}{1em}
+\[ x\quad\substack{\xrightarrow{\hspace{5em}}\\ \xleftarrow{\hspace{5em}}} \quad\fbox{f(x)}\quad\substack{\xrightarrow{\hspace{5em}}\\ \xleftarrow{\hspace{5em}}} \quad\fbox{g(x)}\quad\substack{\xrightarrow{\hspace{5em}}\\ \xleftarrow{\hspace{5em}}} \quad x\]
+}
+For example,
+\begin{center}
+\setlength{\fboxsep}{1em}
+$x$ $\xrightarrow{\hspace{3em}}$ $\overbrace{\fbox{$x+1$}}^{f(x)}$ $\xrightarrow{\parbox{4em}{\centering\tiny$(x) + 1$}}$ $x+1$ $\xrightarrow{\hspace{3em}}$ $\underbrace{\fbox{$x-1$}}_{g(x)}$ $\xrightarrow{\parbox{4em}{\centering\tiny$(x+1) - 1$}}$ $x$
+
+\setlength{\fboxsep}{1em}
+$x$ $\xrightarrow{\hspace{3em}}$ $\overbrace{\fbox{$x-1$}}^{g(x)}$ $\xrightarrow{\parbox{4em}{\centering\tiny$(x)- 1$}}$ $x-1$ $\xrightarrow{\hspace{3em}}$ $\underbrace{\fbox{$x+1$}}_{f(x)}$ $\xrightarrow{\parbox{4em}{\centering\tiny$(x-1) + 1$}}$ $x$
+\end{center}
+Thus, $f(x) = x+1$ and $g(x) = x-1$ are the inverse functions of each other.
+\item 
+{\bf Find the inverse function.} The gist of finding the inverse function is in {\bf expressing the independent variable $\mathbf x$ in terms of the dependent variable $\mathbf y$.} For example, let $y = f(x) = 2x - 5$, we can express $x$ by $y$ through the following algebra.
+\begin{align*}
+y + 5 = 2x - 5 + 5 &\Longrightarrow y + 5 = 2x\\
+\left(\frac{1}{2}\right) (y + 5) = \left(\frac{1}{2}\right) 2x &\Longrightarrow \frac{y+5}{2} = x
+\end{align*}
+Lastly, we swap $x$ and $y$ to maintain the consistency in the choice of symbols. Thus, we conclude that $f^{-1}(x) = (x+5)/2$. For another example, let $y= g(x) = x^2 + 5$ on $x$ in $[0, \infty)$,
+\begin{align*}
+y - 5 = x^2 + 5 - 5 &\Longrightarrow y-5 = x^2 \\
+\sqrt{y - 5} = \sqrt{x^2} &\Longrightarrow \sqrt{y - 5} = x
+\end{align*}
+Thus, $g^{-1}(x) = \sqrt{x-5}$ on $x$ in $[5, \infty)$.
+
+\textbf{Final Remark.} The symbol used for the input of a function is a \textit{dummy variable}. This means the choice of symbol does not affect the function itself, as long as we use the symbol consistently within an expression. In other words, it serves only as a placeholder. For example, the function written as
+\[
+f^{-1}(x) = \frac{x+5}{2}
+\]
+is completely equivalent to any of the following:
+\[
+f^{-1}(y) = \frac{y+5}{2}, \qquad
+f^{-1}(t) = \frac{t+5}{2}, \qquad
+f^{-1}(\star) = \frac{\star+5}{2}.
+\]
+
+\end{enumerate}
+\end{document}
