@@ -1,0 +1,115 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\geometry{margin=3em}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{empty}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} 
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{luacode}
+\newcommand{\studentname}{}
+\newcommand{\classtitle}{}
+\newcommand{\csvsourceOne}{pre_calculus_grade.csv}
+
+\begin{luacode}
+local ftcsv = require("ftcsv")
+assignmentRecords = ftcsv.parse("\csvsourceOne", {headers=false})
+\end{luacode}
+
+\begin{document}
+\begin{luacode*}
+assignmentLocations = {}
+assignmentInfo = {}
+titles = assignmentRecords[2]
+standardsDue = assignmentRecords[3]
+
+for i, title in pairs(titles) do
+	if title ~= "" then
+		table.insert(assignmentLocations, i)
+	end
+end
+
+for j, l in ipairs(assignmentLocations) do 
+	local assignment = {}
+	assignment.standards = {}
+	local offset = 0
+	local due
+	repeat
+		local year, month, day = standardsDue[l+offset]:match("(%d%d%d%d)-(%d%d)-(%d%d)")
+		if year ~= nil then
+			due = {year=year, month=month, day=day}
+			assignment.due=due
+		else
+			table.insert(assignment.standards, l + offset)
+		end
+		offset = offset + 1
+	until due ~= nil
+	table.insert(assignmentInfo, assignment)			
+end
+for i = 4, #assignmentRecords do
+	local record = assignmentRecords[i]
+	local name = record[2]
+	local below4 = {}
+	local belowPass = {}
+	
+	for i, info in ipairs(assignmentInfo) do
+		below4[i] = {}
+		belowPass[i] = {}
+		standards = info.standards
+		for j, standard in ipairs(standards) do
+			if record[standard] ~= "4" and record[standard] ~= "E" then
+				if tonumber(record[standard]) and tonumber(record[standard]) < 4 and tonumber(record[standard]) >= 2.5 then
+					table.insert(below4[i], standard)
+				else
+					table.insert(belowPass[i], standard)
+				end
+			end
+		end
+	end
+		
+	local function printGrades(group)
+		for l, standards in pairs(group) do
+			if #standards ~= 0 then
+				tex.print("\\begin{itemize}")
+				tex.print("\\item")
+				tex.print((titles[assignmentLocations[l]]:gsub("#", "\\#")))
+				tex.print("\\begin{itemize}")
+					for i, standard in ipairs(standards) do
+						tex.print("\\item")
+						 local info = standardsDue[standard]
+						 tex.print(info:match( "%((.-)%)") .. "\\hfill " .. record[standard])
+					end
+				tex.print("\\end{itemize}")
+				tex.print("\\end{itemize}")
+			end
+		end
+	end
+	
+	tex.print("\\noindent")
+	tex.print(name)
+	tex.print("\\begin{itemize}")
+	tex.print("\\item Below 4")
+	printGrades(below4)
+	tex.print("\\item Below Pass")
+	printGrades(belowPass)
+	tex.print("\\end{itemize}")
+	-- tex.print(info:match( "%((.-)%)") .. "\\hfill " .. record[k])			
+	-- tex.print((titles[l]:gsub("#", "\\#")))
+	tex.print("\\clearpage")
+end
+\end{luacode*}
+
+\end{document}
