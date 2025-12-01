@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[10pt]{article}
 
 \usepackage{geometry}
 \geometry{margin=3em}
@@ -59,6 +59,7 @@ for j, l in ipairs(assignmentLocations) do
 	until due ~= nil
 	table.insert(assignmentInfo, assignment)			
 end
+
 for i = 4, #assignmentRecords do
 	local record = assignmentRecords[i]
 	local name = record[2]
@@ -70,7 +71,7 @@ for i = 4, #assignmentRecords do
 		belowPass[i] = {}
 		standards = info.standards
 		for j, standard in ipairs(standards) do
-			if record[standard] ~= "4" and record[standard] ~= "E" then
+			if record[standard] ~= "4" and record[standard] ~= "E" and record[standard] ~= "" then
 				if tonumber(record[standard]) and tonumber(record[standard]) < 4 and tonumber(record[standard]) >= 2.5 then
 					table.insert(below4[i], standard)
 				else
@@ -81,8 +82,10 @@ for i = 4, #assignmentRecords do
 	end
 		
 	local function printGrades(group)
+		local count = 0
 		for l, standards in pairs(group) do
 			if #standards ~= 0 then
+				count = count + 1
 				tex.print("\\begin{itemize}")
 				tex.print("\\item")
 				tex.print((titles[assignmentLocations[l]]:gsub("#", "\\#")))
@@ -90,24 +93,28 @@ for i = 4, #assignmentRecords do
 					for i, standard in ipairs(standards) do
 						tex.print("\\item")
 						 local info = standardsDue[standard]
-						 tex.print(info:match( "%((.-)%)") .. "\\hfill " .. record[standard])
+						 tex.print(info:match( "%((.-)%)") .. "\\ \\leaders\\hbox{\\raisebox{0.5ex}{.}}\\hfill\\kern0pt\\ {}" .. record[standard])
 					end
 				tex.print("\\end{itemize}")
 				tex.print("\\end{itemize}")
 			end
 		end
+		if count == 0 then
+			tex.print("\\begin{itemize}")
+			tex.print("\\item N/A")
+			tex.print("\\end{itemize}")
+		end
 	end
 	
 	tex.print("\\noindent")
-	tex.print(name)
+	tex.print("Dear " .. name:gsub("^(.-),%s*(.-)$", "%2 %1") .. ",\\newline")
+	tex.print("\\indent This is your current summary of all revisable Action Opportunities (AOs) in this class as of \\today.  The AOs are grouped by grade, depending on whether they fall below 2.5 or below 4. Please use the space below to indicate which AO you would like to revise. Please be advised that MP2 grades will be pulled at 8AM on December 4th, 2025 and any submission after noon on December 3rd, 2025 is not to be processed. \\\\[1em] AO to revise:  \\hrulefill\\\\[1em]\\rule{\\textwidth}{.1pt}\\\\[1em]\\rule{\\textwidth}{.1pt}")
 	tex.print("\\begin{itemize}")
+	tex.print("\\item Below 2.5")
+	printGrades(belowPass)
 	tex.print("\\item Below 4")
 	printGrades(below4)
-	tex.print("\\item Below Pass")
-	printGrades(belowPass)
 	tex.print("\\end{itemize}")
-	-- tex.print(info:match( "%((.-)%)") .. "\\hfill " .. record[k])			
-	-- tex.print((titles[l]:gsub("#", "\\#")))
 	tex.print("\\clearpage")
 end
 \end{luacode*}
