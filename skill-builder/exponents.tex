@@ -1,0 +1,179 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Skill Builder}
+\chead{Exponents and Exponent Rules}
+\rhead{Rebuild, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usepackage{luacode}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{Review of Exponents and Exponent Rules}
+\author{}
+\date{}
+
+\begin{document}
+\section*{1. What is an Exponent?}
+Let $n$ be a natural number, namely, a positive integer.
+An expression of the form
+\[
+a^n
+\]
+means that the base $a$ is multiplied by itself $n$ times. That is,
+\[
+a^n = \underbrace{a \cdot a \cdot a \cdots a}_{n \text{ times}}.
+\]
+
+\subsection*{Examples}
+\[
+2^4 = 2\times2\times2\times2 = 16, \qquad 5^1 = 5
+\]
+
+\section*{2. Fundamental Exponent Rules}
+
+\subsection*{Rule 1: Product of Powers}
+If the bases are the same, add the exponents:
+\[
+a^m \cdot a^n = a^{m+n}.
+\]
+
+\textit{Example:}
+\[
+x^3 \cdot x^5 = (x\cdot x\cdot x)(x\cdot x\cdot x\cdot x\cdot x) = x\cdot x\cdot x\cdot x\cdot x\cdot x\cdot x\cdot x= x^8 = x^{3+5}.
+\]
+
+\subsection*{Rule 2: Quotient of Powers}
+If the bases are the same, subtract the exponents:
+\[
+\frac{a^m}{a^n} = a^{m-n} \quad (a \neq 0).
+\]
+
+\textit{Example:}
+\[
+\frac{y^4}{y^2} = \frac{y\cdot y\cdot y\cdot y}{y\cdot y} = \frac{y\cdot y}{1} = y^2 =	y^{4-2}.
+\]
+
+\subsection*{Rule 3: Power of a Power}
+Multiply the exponents:
+\[
+(a^m)^n = a^{mn}.
+\]
+
+\textit{Example:}
+\[
+(x^2)^3 = (x^2) (x^2) (x^2) = (x\cdot x) (x\cdot x) (x\cdot x) = x\cdot x\cdot x\cdot x\cdot x\cdot x= x^6 = x^{2\times 3}.
+\]
+
+\subsection*{Rule 4: Power of a Product}
+\[
+(ab)^n = a^n b^n.
+\]
+
+\textit{Example:} 
+\[
+(xy)^3 = (xy)(xy)(xy) = (xxx)(yyy) = x^3y^3.
+\]
+
+\subsection*{Rule 5: Power of a Quotient}
+\[
+\left( \frac{a}{b} \right)^n = \frac{a^n}{b^n} \quad (b \neq 0).
+\]
+
+\textit{Example:}
+\[
+\left(\frac{2x}{3y}\right)^3 = \frac{2^3 x^3}{3^3 y^3} = \frac{8x^3}{27y^3}.
+\]
+
+\section*{3. Zero and Negative Exponents}
+
+\subsection*{Zero Exponent}
+According to \textbf{Rule 2}, \textit{Quotient of Powers},
+\[
+a^0 = a^{1-1} = \frac{a^1}{a^1} = \frac{a}{a} =  1 \quad (a \neq 0).
+\]
+
+\textit{Examples:}
+\[
+7^0 = 1, \qquad (-3)^0 = 1.
+\]
+
+\subsection*{Negative Exponent}
+\[
+a^{-n} = a^{0-n} = \frac{a^0}{a^n} = \frac{1}{a^n} \quad (a \neq 0).
+\]
+
+\textit{Examples:}
+\[
+x^{-3} = \frac{1}{x^3}, 
+\qquad 
+10^{-2} = \frac{1}{10^2} = \frac{1}{100}.
+\]
+
+\section*{4. Fractional Exponents}
+According to \textbf{Rule 3}, \textit{Power of a Power},
+\[
+\left(a^\frac{1}{n}\right)^n = a^{\frac{1}{n}\cdot n} = a^1 = a.
+\]
+Therefore, a fractional exponent represents roots:
+\[
+a^{\frac{1}{n}} = \sqrt[n]{a},
+\qquad
+a^{\frac{m}{n}} = \sqrt[n]{a^m} = \left(\sqrt[n]{a}\right)^m.
+\]
+
+\textit{Examples:}
+\[
+16^{1/2} = 4, 
+\qquad 
+27^{2/3} = \left( \sqrt[3]{27} \right)^2 = 3^2 = 9.
+\]
+
+\section*{5. Practice Problems}
+
+\begin{enumerate}
+  \item Simplify: $x^5 \cdot x^7$
+  \vspace{\stretch{1}}
+  \item Simplify: $\dfrac{a^{12}}{a^3}$
+  \vspace{\stretch{1}}
+  \item Simplify: $(y^4)^3$
+  \vspace{\stretch{1}}
+  \item Rewrite with positive exponents only: $b^{-6}$\\
+  (Hint: Use a fraction)
+  \vspace{\stretch{1}}
+    \clearpage
+  \item Evaluate without a calculator: $32^{1/5}$
+  \vspace{\stretch{1}}
+  \item Simplify completely: $\left( \dfrac{3x^2}{y^3} \right)^2$
+  \vspace{\stretch{1}}
+\end{enumerate}
+\section*{6. Exit Tickets}
+An exponential function is of the form $f(x) = ab^x$. Given $f(0) = 25$ and $f(1) = 20$, find $f(x)$.
+  \vspace{\stretch{1}}
+
+\end{document}

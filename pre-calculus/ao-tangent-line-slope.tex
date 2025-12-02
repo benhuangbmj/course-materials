@@ -1,0 +1,60 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Slope of Tangent Line}
+\rhead{AO Make, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} {Due} \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+Let \(f(x) = x^3\). 
+\begin{enumerate}
+\item Pick a random point $A$ on the graph of $f(x)$. 
+{\bf Point $A$}: \rule{10em}{0.1pt}
+\item Let $B$ be an arbitrary point on the graph of $f(x)$ distinct from $A$. Write the slope of the line $AB$ as a function $g(x)$ of the $x$ coordinate of Point $B$
+\vspace{\stretch{1}}
+\item 
+Find the limit of $g(x)$ as $B$ approaches $A$.
+\vspace{\stretch{1}}
+\clearpage
+\item Find an equation of the tangent line of $f(x)$ at point $A$.
+\vspace{\stretch{1}}
+\item Plot $f(x)$, Point $A$, and the tangent line in a coordinate system.
+\vspace{\stretch{1}}
+\end{enumerate}
+
+\end{document}
