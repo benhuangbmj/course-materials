@@ -1,0 +1,48 @@
+\documentclass[10pt]{article}
+
+\usepackage{geometry}
+\geometry{margin=3em}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{empty}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} 
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{luacode}
+\newcommand{\studentname}{}
+\newcommand{\classtitle}{}
+\newcommand{\csvsourceOne}{comprehensive-roster.csv}
+
+\begin{luacode}
+local ftcsv = require("ftcsv")
+behaviorRecords = ftcsv.parse("\csvsourceOne", {headers=false})
+headers = behaviorRecords[1]
+\end{luacode}
+
+\begin{document}
+\begin{luacode*}
+tex.print("\\footnotesize\\renewcommand{\\arraystretch}{2}\\begin{tabularx}{.6\\textwidth}{|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|}")
+tex.print("\\hline")
+for i = 3, 8 do
+	tex.print(headers[i])
+	if i ~= 8 then
+		tex.print("&")
+	else 
+	 	tex.print("\\\\ \\hline")
+	end
+end
+tex.print("\\end{tabularx}")
+\end{luacode*}
+
+\end{document}
