@@ -1,0 +1,147 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II - BASE}
+\chead{Exponential Functions}
+\rhead{AO Test, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{luacode}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\tiny
+{
+\begin{tabularx}{\textwidth}{|X|X|X|X|X|X|}
+\hline
+\bf BE PRECISE & \centerline{Integrating} & \centerline{Applying} & \centerline{Practicing} & \centerline{Acquiring} & \centerline{Awaiting Evidence} \\
+\hline
+I can calculate accurately and efficiently, and be precise in all of my math.&
+Selects and applies the correct procedure and solves all routine AND integrating problems.
+
+AND
+
+Expresses the answer to the correct level of precision needed for the problem (including the correct rounding, units, math symbols, labeling, graphing, vocab…)
+&Selects and applies the correct procedure and solves all routine problems.
+
+
+AND
+
+Expresses the answer to the correct level of precision needed for the problem (including the correct rounding, units, math symbols, labeling, graphing, vocab…)
+&Selects and applies the correct procedure and solves most routine problems.
+
+
+AND
+
+Expresses the answer to the correct level of precision needed for the problem (including the correct rounding, units, math symbols, labeling, graphing, vocab…)
+&Selects and applies the correct procedure and solves some routine problems.
+
+
+AND
+
+Attempts to express the answer to the correct level of precision needed for the problem (including the correct rounding, units, math symbols, labeling, graphing, vocab…).
+&Selects and attempts to apply the correct procedure for some routine problems.\\
+\hline
+\bf Criteria&\multicolumn{5}{l|}{\parbox[c][4em]{.8\textwidth}{}}\\
+\hline
+\end{tabularx}
+}
+\end{center}
+\endgroup
+
+\begin{luacode*}
+math.randomseed(os.time())
+car_price = 20000 + 500*math.random(0, 40)
+depreciate_rate = math.random(80,90)/100
+car_value = string.format("$f(t) = %d(%.2f)^t$", car_price, depreciate_rate)
+car_year = math.random(3,8)
+after_price = string.format("%.0f", car_price*.5)
+home_price=600000 + 5000 * math.random(0, 60)
+home_year=math.random(30,70)
+appreciate_rate = math.random(2,5)
+\end{luacode*}
+
+\begin{enumerate}[leftmargin=*]
+\item
+The equation \directlua{tex.print(car_value)} represents the value of a car, in dollars, $t$ years after it was purchased.
+\begin{enumerate}
+\item
+What was the purchasing price of the car?
+\item 
+What is the rate at which the car depreciates every year?
+\item
+How much is the car worth after \directlua{tex.print(car_year)} years?
+\item 
+Will the value of the car be more than \$\directlua{tex.print(after_price)} ten years after it was purchased? Show your calculation.
+\end{enumerate}
+
+\item A home is purchased for \$\directlua{tex.print(home_price)}. Since then, its value has increased \directlua{tex.print(appreciate_rate)}\% per year.
+\begin{enumerate}
+\item
+Write an equation, in function notation, to represent the value of the home as a function of time in years since it was purchased, $t$.
+
+\item What is the value of the home \directlua{tex.print(home_year)} years after it was purchased (assuming that the trend continues)? Show your calculation.
+\end{enumerate}
+\item the graph shows a rabbit population that has been growing exponentially.
+
+\begin{tikzpicture}
+\begin{axis}[
+axis lines=middle,
+ylabel={$r$},
+xlabel={$t$},
+grid=both,
+ymin=0,
+ytick distance = 15,
+xtick distance = 1,
+width = 0.55\textwidth
+]
+\addplot[thick, domain=0:4]{60*(1.5^x)};
+\end{axis}
+\end{tikzpicture}
+\begin{enumerate}
+\item
+What was the population when it was first measured?
+\item By what factor did the population grow in the first year?
+\item Write an equation relating the rabbit population, $r$, and the number of years since it was first measured, $t$.
+\item What was the population after \textbf{18 months} since it was first measured?
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
