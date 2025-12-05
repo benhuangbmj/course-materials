@@ -51,33 +51,81 @@ First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace
 {
 \begin{tabularx}{\textwidth}{|X|X|X|X|X|X|}
 \hline
-\bf BE PRECISE & \centerline{Integrating} & \centerline{Applying} & \centerline{Practicing} & \centerline{Acquiring} & \centerline{Awaiting Evidence} \\
+\bf MODEL & \centerline{Integrating} & \centerline{Applying} & \centerline{Practicing} & \centerline{Acquiring} & \centerline{Awaiting Evidence} \\
 \hline
-I can calculate accurately and efficiently, and be precise in all of my math.&
-Selects and applies the correct procedure and solves all routine AND integrating problems.
-
-AND
-
-Expresses the answer to the correct level of precision needed for the problem (including the correct rounding, units, math symbols, labeling, graphing, vocab…)
-&Selects and applies the correct procedure and solves all routine problems.
-
-
-AND
-
-Expresses the answer to the correct level of precision needed for the problem (including the correct rounding, units, math symbols, labeling, graphing, vocab…)
-&Selects and applies the correct procedure and solves most routine problems.
-
-
-AND
-
-Expresses the answer to the correct level of precision needed for the problem (including the correct rounding, units, math symbols, labeling, graphing, vocab…)
-&Selects and applies the correct procedure and solves some routine problems.
-
-
-AND
-
-Attempts to express the answer to the correct level of precision needed for the problem (including the correct rounding, units, math symbols, labeling, graphing, vocab…).
-&Selects and attempts to apply the correct procedure for some routine problems.\\
+I can use math to model and solve real-world problems.&
+Correctly identifies
+important
+quantities and
+illustrates their
+relationships using
+diagrams, tables,
+graphs, or
+formulas.
+Appropriate work is
+shown with no
+errors. The answer
+includes units and
+rounding as
+appropriate to the
+problem.
+Explains how the
+answer makes
+sense in the
+context of the
+problem.
+&Correctly identifies
+important
+quantities and
+illustrates their
+relationships using
+diagrams, tables,
+graphs, or
+formulas.
+Appropriate work is
+shown with no
+errors. The answer
+includes units and
+rounding as
+appropriate to the
+problem.
+&Correctly identifies
+important
+quantities and
+illustrates their
+relationships using
+diagrams, tables,
+graphs, or
+formulas.
+Appropriate work is
+shown with 1
+COMPUTATIONAL
+or ROUNDING
+error.
+&Correctly identifies
+important
+quantities and
+attempts to
+illustrate their
+relationships using
+diagrams, tables,
+graphs, or formulas
+Appropriate work is
+shown with 1
+CONCEPTUAL
+error.
+&Correctly identifies
+important
+quantities and
+attempts to
+illustrate their
+relationships using
+diagrams, tables,
+graphs, or formulas
+Appropriate work is
+shown with more
+than 1 conceptual
+error.\\
 \hline
 \bf Criteria&\multicolumn{5}{l|}{\parbox[c][4em]{.8\textwidth}{}}\\
 \hline
@@ -96,30 +144,80 @@ after_price = string.format("%.0f", car_price*.5)
 home_price=600000 + 5000 * math.random(0, 60)
 home_year=math.random(30,70)
 appreciate_rate = math.random(2,5)
+function home_value (year)
+	return home_price*(1 + appreciate_rate/100)^year
+end
+home_value_between = string.format("%.0f", (home_value(home_year) + home_value(home_year+1))/2 )
+
+aList = {}
+bList = {}
+exprList = {}
+for i = 1, 4 do
+	aList[i] = math.random(100, 2000)
+	bList[i] =  math.random(1,99)
+	exprList[i] = string.format("The %d\\%% of %d", bList[i], aList[i])
+end
+
+for i = 5, 6 do
+	aList[i] = math.random(1000,10000)
+	bList[i] = math.random(1,10)
+end
 \end{luacode*}
+\vspace{1em}
 
 \begin{enumerate}[leftmargin=*]
 \item
-The equation \directlua{tex.print(car_value)} represents the value of a car, in dollars, $t$ years after it was purchased.
+\textit{\textbf{Instruction}: To support different learning needs, this assignment offers two problem choices, \textbf{Rebuild and Recap}.\\
+\textbf{Solve only one}---choose the problem that you feel best demonstrates your understanding.\\
+Full credit can be earned from either problem.}
+
+\textbf{\large Rebuild:}
 \begin{enumerate}
 \item
-What was the purchasing price of the car?
-\item 
-What is the rate at which the car depreciates every year?
-\item
-How much is the car worth after \directlua{tex.print(car_year)} years?
-\item 
-Will the value of the car be more than \$\directlua{tex.print(after_price)} ten years after it was purchased? Show your calculation.
-\end{enumerate}
 
-\item A home is purchased for \$\directlua{tex.print(home_price)}. Since then, its value has increased \directlua{tex.print(appreciate_rate)}\% per year.
-\begin{enumerate}
-\item
-Write an equation, in function notation, to represent the value of the home as a function of time in years since it was purchased, $t$.
+Find the following quantities:
 
-\item What is the value of the home \directlua{tex.print(home_year)} years after it was purchased (assuming that the trend continues)? Show your calculation.
+\parbox{.5\textwidth}{\begin{itemize}
+\item
+\directlua{tex.print(exprList[1])}
+\vspace{8em}
+\item
+\directlua{tex.print(exprList[2])}
+\end{itemize}}
+\parbox{.5\textwidth}{\begin{itemize}
+\item
+\directlua{tex.print(exprList[3])}
+\vspace{8em}
+\item
+\directlua{tex.print(exprList[4])}
+\end{itemize}}
+\vspace{\stretch{1}}
+\item
+Your investment of \directlua{tex.print(aList[6])} dollars has a return rate of \directlua{tex.print(bList[6])}\% per year. Complete the following table:
+\vspace{1em}
+
+\centering
+\renewcommand{\arraystretch}{3}
+\begin{tabular}{|c|c|}
+\hline
+ \bf Year&\bf Principal\\
+ \hline
+0 & \$\directlua{tex.print(aList[6])} \\
+ \hline
+ 1 & \parbox{8em}{\hspace{\fill}}\\
+ \hline
+ 2 &\\
+ \hline
+ 3 &\\
+  \hline
+ 4 &\\
+\hline
+\end{tabular}
 \end{enumerate}
-\item the graph shows a rabbit population that has been growing exponentially.
+\clearpage 
+\textbf{\large Recap:}
+
+The graph shows a rabbit population that has been growing exponentially.
 
 \begin{tikzpicture}
 \begin{axis}[
@@ -130,7 +228,7 @@ grid=both,
 ymin=0,
 ytick distance = 15,
 xtick distance = 1,
-width = 0.55\textwidth
+width = .8\textwidth
 ]
 \addplot[thick, domain=0:4]{60*(1.5^x)};
 \end{axis}
@@ -138,10 +236,43 @@ width = 0.55\textwidth
 \begin{enumerate}
 \item
 What was the population when it was first measured?
+\vspace{\stretch{1}}
 \item By what factor did the population grow in the first year?
+\vspace{\stretch{1}}
 \item Write an equation relating the rabbit population, $r$, and the number of years since it was first measured, $t$.
+\vspace{\stretch{1}}
 \item What was the population after \textbf{18 months} since it was first measured?
+\vspace{\stretch{1}}
+\end{enumerate}
+\clearpage
+
+\noindent\leavevmode\leaders\hbox to 1em{\hss--\hss}\hfill\kern0pt \textit{PROBLEMS BELOW THIS LINE ARE MANDATORY FOR ALL} \leavevmode\leaders\hbox to 1em{\hss--\hss}\hfill\kern0pt
+\item
+The equation \directlua{tex.print(car_value)} represents the value of a car, in dollars, $t$ years after it was purchased.
+\begin{enumerate}
+\item
+What was the purchasing price of the car?
+\vspace{\stretch{1}}
+\item 
+What is the rate at which the car depreciates every year?
+\vspace{\stretch{1}}
+\item
+How much is the car worth after \directlua{tex.print(car_year)} years?
+\vspace{\stretch{1}}
+\item 
+Will the value of the car be more than \$\directlua{tex.print(after_price)} ten years after it was purchased? Show your calculation.
+\vspace{\stretch{1}}
+\end{enumerate}
+
+\item A home is purchased for \$\directlua{tex.print(home_price)}. Since then, its value has increased \directlua{tex.print(appreciate_rate)}\% per year.
+\begin{enumerate}
+\item
+Write an equation, in function notation, to represent the value of the home as a function of time in years since it was purchased, $t$.
+\vspace{\stretch{1}}
+\item Between which two years  after it was purchased does the home value reach \$\directlua{tex.print(home_value_between)}? Show your calculation.
+\vspace{\stretch{1}}
 \end{enumerate}
 
 \end{enumerate}
+
 \end{document}
