@@ -20,6 +20,7 @@
 \usepackage{tikz}
 \usetikzlibrary{patterns}
 \usepackage{luacode}
+\newcommand{\rulefilldate}{\parbox[t]{8em}{\centering\hrulefill\\\footnotesize mm/dd/yyyy}}
 \newcommand{\studentname}{}
 \newcommand{\classtitle}{}
 \newcommand{\csvsourceOne}{modern_states_clep_course_even_2_grades.csv}
@@ -108,7 +109,11 @@ for i = 4, #assignmentRecords do
 	
 	tex.print("\\noindent")
 	tex.print("Dear " .. name:gsub("^(.-),%s*(.-)$", "%2 %1") .. ",\\\\[1em]")
-	tex.print("\\indent This is your current summary of all revisable Action Opportunities (AOs) in this class as of \\today.  The AOs are grouped by grade, depending on whether they fall below 2.5 or below 4. Please use the space below to indicate which AO you would like to revise. Please be advised that MP2 grades will be pulled at 8AM on December 4th, 2025 and any submission after noon on December 3rd, 2025 is not to be processed. \\\\[1em] AO to revise:  \\hrulefill\\\\[1em]\\rule{\\textwidth}{.1pt}\\\\[1em]\\rule{\\textwidth}{.1pt}")
+	tex.print("\\indent This is your current summary of all revisable Action Opportunities (AOs) in this class as of \\today.  The AOs are grouped by grade, depending on whether they fall below 2.5 or below 4. If you need to revise an AO that is much older than the most recent ones, please use the space below to indicate which AOs you would like to revise. If you are intending to revise an AO outside of the regular in-class revision day, please make an appointment with Dr. Benjamin with the form below. \\textbf{Please be advised that any AO submission without proctoring will not be accepted.}  \\\\[1em] AOs to revise:  \\hrulefill .\\vspace{1em}\\par")	
+	tex.print("\\noindent\\hrulefill \\raisebox{-.5ex}{\\textit{\\textbf{Out-of-Class Appointment}}} \\hrulefill")
+	tex.print("\\begin{center}")
+	tex.print("$\\bullet$ 5th Period, Mon on \\rulefilldate \\hfill $\\bullet$ 5th Period, Wed on \\rulefilldate \\hfill $\\bullet$ After School, Tue on \\rulefilldate") 
+	tex.print("\\end{center}")
 	tex.print("\\begin{itemize}")
 	tex.print("\\item Below 2.5")
 	printGrades(belowPass)
