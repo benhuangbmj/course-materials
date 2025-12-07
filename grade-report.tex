@@ -23,14 +23,19 @@
 \newcommand{\rulefilldate}{\parbox[t]{8em}{\centering\hrulefill\\\footnotesize mm/dd/yyyy}}
 \newcommand{\studentname}{}
 \newcommand{\classtitle}{}
-\newcommand{\csvsourceOne}{modern_states_clep_course_even_2_grades.csv}
+\newcommand{\csvsourceOne}{cc_algebra_2_trig_1_of_2_period_4_grades.csv}
+\newcommand{\csvsourceTwo}{Class-Grades-Period4.csv}
 
 \begin{luacode}
 local ftcsv = require("ftcsv")
 assignmentRecords = ftcsv.parse("\csvsourceOne", {headers=false})
+gradeRecords = ftcsv.parse("\csvsourceTwo")
 \end{luacode}
 
 \begin{document}
+\directlua{
+tex.print(gradeRecords[1]["Student First Name"])
+}
 \begin{luacode*}
 assignmentLocations = {}
 assignmentInfo = {}
@@ -63,6 +68,11 @@ end
 
 for i = 4, #assignmentRecords do
 	local record = assignmentRecords[i]
+	local email = record[3]
+	if email == "" then
+		goto continue
+	end
+	local grade = gradeRecords[i - 3]
 	local name = record[2]
 	local below4 = {}
 	local belowPass = {}
@@ -110,17 +120,20 @@ for i = 4, #assignmentRecords do
 	tex.print("\\noindent")
 	tex.print("Dear " .. name:gsub("^(.-),%s*(.-)$", "%2 %1") .. ",\\\\[1em]")
 	tex.print("\\indent This is your current summary of all revisable Action Opportunities (AOs) in this class as of \\today.  The AOs are grouped by grade, depending on whether they fall below 2.5 or below 4. If you need to revise an AO that is much older than the most recent ones, please use the space below to indicate which AOs you would like to revise. If you are intending to revise an AO outside of the regular in-class revision day, please make an appointment with Dr. Benjamin with the form below. \\textbf{Please be advised that any AO submission without proctoring will not be accepted.}  \\\\[1em] AOs to revise:  \\hrulefill .\\vspace{1em}\\par")	
-	tex.print("\\noindent\\hrulefill \\raisebox{-.5ex}{\\textit{\\textbf{Out-of-Class Appointment}}} \\hrulefill")
+	tex.print("\\noindent\\hrulefill \\raisebox{-.6ex}{\\textit{\\textbf{Out-of-Class Appointment}}} \\hrulefill")
 	tex.print("\\begin{center}")
 	tex.print("$\\bullet$ 5th Period, Mon on \\rulefilldate \\hfill $\\bullet$ 5th Period, Wed on \\rulefilldate \\hfill $\\bullet$ After School, Tue on \\rulefilldate") 
-	tex.print("\\end{center}")
-	tex.print("\\begin{itemize}")
+	tex.print("\\end{center}\\vspace{1em}")
+	tex.print("\\noindent\\hrulefill \\raisebox{-.6ex}{\\textit{\\textbf{Current Grade Summary}}} \\hrulefill\\vspace{.5em} \\par")
+	tex.print("Section Name: " .. grade["Section Name"] .. "\\hfill Section ID: " .. grade["Section External ID"] .. "\\hfill Current Grade: " .. grade["Conversion"] .. "/100")
+	tex.print("\\begin{itemize}\\footnotesize")
 	tex.print("\\item Below 2.5")
 	printGrades(belowPass)
 	tex.print("\\item Below 4")
 	printGrades(below4)
 	tex.print("\\end{itemize}")
 	tex.print("\\clearpage")
+	::continue::
 end
 \end{luacode*}
 
