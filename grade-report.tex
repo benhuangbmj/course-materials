@@ -1,7 +1,7 @@
 \documentclass[10pt]{article}
 
 \usepackage{geometry}
-\geometry{margin=3em}
+\geometry{margin=5em}
 \usepackage[export]{adjustbox}
 \usepackage{array}
 \usepackage{amsmath}
@@ -20,7 +20,7 @@
 \usepackage{tikz}
 \usetikzlibrary{patterns}
 \usepackage{luacode}
-\newcommand{\rulefilldate}{\parbox[t]{8em}{\centering\hrulefill\\\footnotesize mm/dd/yyyy}}
+\newcommand{\rulefilldate}{\parbox[t]{6em}{\centering\hrulefill\\\footnotesize mm/dd/yyyy}}
 \newcommand{\studentname}{}
 \newcommand{\classtitle}{}
 \newcommand{\csvsourceOne}{cc_algebra_2_trig_1_of_2_period_4_grades.csv}
@@ -33,9 +33,6 @@ gradeRecords = ftcsv.parse("\csvsourceTwo")
 \end{luacode}
 
 \begin{document}
-\directlua{
-tex.print(gradeRecords[1]["Student First Name"])
-}
 \begin{luacode*}
 assignmentLocations = {}
 assignmentInfo = {}
@@ -123,7 +120,7 @@ for i = 4, #assignmentRecords do
 	tex.print("\\noindent\\hrulefill \\raisebox{-.6ex}{\\textit{\\textbf{Out-of-Class Appointment}}} \\hrulefill")
 	tex.print("\\begin{center}")
 	tex.print("$\\bullet$ 5th Period, Mon on \\rulefilldate \\hfill $\\bullet$ 5th Period, Wed on \\rulefilldate \\hfill $\\bullet$ After School, Tue on \\rulefilldate") 
-	tex.print("\\end{center}\\vspace{1em}")
+	tex.print("\\end{center}\\vspace{.5em} Approved by \\rule{16em}{.4pt}\\par\\vspace{1em}")
 	tex.print("\\noindent\\hrulefill \\raisebox{-.6ex}{\\textit{\\textbf{Current Grade Summary}}} \\hrulefill\\vspace{.5em} \\par")
 	tex.print("Section Name: " .. grade["Section Name"] .. "\\hfill Section ID: " .. grade["Section External ID"] .. "\\hfill Current Grade: " .. grade["Conversion"] .. "/100")
 	tex.print("\\begin{itemize}\\footnotesize")
@@ -133,6 +130,7 @@ for i = 4, #assignmentRecords do
 	printGrades(below4)
 	tex.print("\\end{itemize}")
 	tex.print("\\clearpage")
+	tex.print("\\input{binder-check-rubric}\\clearpage")
 	::continue::
 end
 \end{luacode*}
