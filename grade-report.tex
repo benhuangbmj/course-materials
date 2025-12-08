@@ -23,8 +23,8 @@
 \newcommand{\rulefilldate}{\parbox[t]{6em}{\centering\hrulefill\\\footnotesize mm/dd/yyyy}}
 \newcommand{\studentname}{}
 \newcommand{\classtitle}{}
-\newcommand{\csvsourceOne}{cc_algebra_2_trig_1_of_2_period_4_grades.csv}
-\newcommand{\csvsourceTwo}{Class-Grades-Period4.csv}
+\newcommand{\csvsourceOne}{assignments-period8.csv}
+\newcommand{\csvsourceTwo}{grades-period8.csv}
 
 \begin{luacode}
 local ftcsv = require("ftcsv")
@@ -64,6 +64,7 @@ for j, l in ipairs(assignmentLocations) do
 end
 
 for i = 4, #assignmentRecords do
+	local cutOffCount = 0
 	local record = assignmentRecords[i]
 	local email = record[3]
 	if email == "" then
@@ -99,12 +100,16 @@ for i = 4, #assignmentRecords do
 				tex.print((titles[assignmentLocations[l]]:gsub("#", "\\#")))
 				tex.print("\\begin{itemize}")
 					for i, standard in ipairs(standards) do
+						cutOffCount = cutOffCount + 1
 						tex.print("\\item")
 						 local info = standardsDue[standard]
 						 tex.print(info:match( "%((.-)%)") .. "\\ \\leaders\\hbox{\\raisebox{0.5ex}{.}}\\hfill\\kern0pt\\ {}" .. record[standard])
 					end
 				tex.print("\\end{itemize}")
 				tex.print("\\end{itemize}")
+				if cutOffCount > 15 then
+					return
+				end
 			end
 		end
 		if count == 0 then
