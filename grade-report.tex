@@ -23,13 +23,20 @@
 \newcommand{\rulefilldate}{\parbox[t]{6em}{\centering\hrulefill\\\footnotesize mm/dd/yyyy}}
 \newcommand{\studentname}{}
 \newcommand{\classtitle}{}
-\newcommand{\csvsourceOne}{assignments-period8.csv}
-\newcommand{\csvsourceTwo}{grades-period8.csv}
+\newcommand{\csvsourceOne}{assignments-period4.csv}
+\newcommand{\csvsourceTwo}{grades-period4.csv}
 
 \begin{luacode}
 local ftcsv = require("ftcsv")
 assignmentRecords = ftcsv.parse("\csvsourceOne", {headers=false})
 gradeRecords = ftcsv.parse("\csvsourceTwo")
+function table.findByID(tbl, value)
+    for i, record in ipairs(tbl) do
+       if record["Student External ID"] == value then 
+       	return record 
+	end
+    end
+end
 \end{luacode}
 
 \begin{document}
@@ -70,7 +77,8 @@ for i = 4, #assignmentRecords do
 	if email == "" then
 		goto continue
 	end
-	local grade = gradeRecords[i - 3]
+	local ID = record[4]
+	local grade = table.findByID(gradeRecords, ID)
 	local name = record[2]
 	local below4 = {}
 	local belowPass = {}
@@ -127,7 +135,7 @@ for i = 4, #assignmentRecords do
 	tex.print("$\\bullet$ 5th Period, Mon on \\rulefilldate \\hfill $\\bullet$ 5th Period, Wed on \\rulefilldate \\hfill $\\bullet$ After School, Tue on \\rulefilldate") 
 	tex.print("\\end{center}\\vspace{.5em} Approved by \\rule{16em}{.4pt}\\par\\vspace{1em}")
 	tex.print("\\noindent\\hrulefill \\raisebox{-.6ex}{\\textit{\\textbf{Current Grade Summary}}} \\hrulefill\\vspace{.5em} \\par")
-	tex.print("Section Name: " .. grade["Section Name"] .. "\\hfill Section ID: " .. grade["Section External ID"] .. "\\hfill Current Grade: " .. grade["Conversion"] .. "/100")
+	tex.print("\\noindent Name: " .. grade["Student First Name"] .. " " .. grade["Student Last Name"] .. "\\hfill "  .. "Section Name: " .. grade["Section Name"] .. "\\hfill Section ID: " .. grade["Section External ID"] .. "\\hfill Current Grade: " .. grade["Conversion"] .. "/100")
 	tex.print("\\begin{itemize}\\footnotesize")
 	tex.print("\\item Below 2.5")
 	printGrades(belowPass)
