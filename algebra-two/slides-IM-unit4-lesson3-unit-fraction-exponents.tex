@@ -1,0 +1,213 @@
+\documentclass[11pt]{beamer}
+\usetheme{PaloAlto}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+%general package
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\graphicspath{{../img}}
+\hypersetup{
+    colorlinks=true, 
+    linkcolor=red,    % Internal links
+    urlcolor=blue     % External links
+}
+\usepackage{wrapfig}
+\usepackage{luacode}
+\usepackage{comment}
+\usepackage{tabularx}
+
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+%\usepackage{slashed}
+%\usepackage{tikz-cd}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+%font package
+%\usepackage{mathrsfs}
+%\usepackage{bm}
+
+%misc. package
+\usepackage{enumitem}
+\usepackage{animate}
+
+\DeclareMathOperator{\xd}{\,d\!}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\dive}{div}
+\newcommand{\e}{{\rm e}}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\R}{\mathbb R}
+\newcommand{\vF}{\mathbf F}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+
+\author[B.H.]{{\Large Unit Fraction Exponents}\\\vspace{.5em} Author: Benjamin Huang}
+\date{}
+\title[IM-Unit4-Lesson3]{Algebra II}
+
+%\institute[]{\vskip -2em\includegraphics[width = 0.65\textwidth]{}}
+%\logo{\includegraphics[width=.12\textwidth]{}}
+
+\begin{document}
+\begin{luacode*}
+function generateNonzero(min, max)
+  local output
+  repeat
+    output = math.random(min, max)
+  until output ~= 0
+  return output
+end
+\end{luacode*}
+\frame{\titlepage}
+
+\begin{frame}{Warm-up}
+\Large
+Have trouble getting started? Read the examples below:
+\begin{enumerate}[label=(\arabic*)]
+\item
+$x^2 = 36\quad\Longrightarrow\quad x = \pm \sqrt{36} = \pm 6$
+\vspace{2em}
+\item 
+$y^3 = 27\quad\Longrightarrow\quad y = \sqrt[3]{27} = 3$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Learning Targets}
+\Large
+\begin{enumerate}[label = \arabic*.]
+\item
+I can write square and cube roots as exponents.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Review: Properties of Exponents}
+\vskip -4em
+
+\begin{figure}[h]
+\includegraphics[width=.3\textwidth, left]{read-aloud.png}
+\end{figure}
+\Large
+Let $a,b\ne 0$.
+\begin{itemize}[label=$\bullet$]
+\item
+$a^ma^n = a^{m+n}$
+\item
+$\displaystyle \frac{a^m}{a^n} = a^{m-n}$
+\item
+$(a^m)^n = a^{mn}$
+\item 
+$(ab)^m = a^mb^m$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Review: Exponential Growth Model}
+
+Suppose that a population of 500 rabbits doubles every year.\pause
+\[
+P(t) = 500\cdot 2^t,\quad t \text{ measured in years.}
+\]\pause
+Questions:
+\begin{enumerate}[label = (\alph*)]
+\item
+How to find the population after 1 year?\\ \pause $P(1) = 500\cdot 2^1$\pause
+\item How to find the population after half a year?\\ \pause $P(\frac{1}{2}) = 500\cdot 2^{1/2}$ \pause
+\item How to find the population after 4 months?\\ \pause $P(\frac{1}{3}) = 500\cdot 2^{1/3}$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Wait a Second}
+\begin{figure}[h]
+\includegraphics[width=0.35\textwidth]{wondering.jpg}
+\end{figure}
+However, what on earth is $2^{1/2}$ and $2^{1/3}$? What about $2^{1/n}$ for any integer $n$?
+\end{frame}
+\begin{frame}{The Graph}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+axis lines=middle,
+grid = both,
+grid style = {dashed},
+xtick distance = 1,
+ytick distance = 5,
+]
+\addplot[thick, blue]{2^x} node [pos=0.9, left] {$y = 2^x$};
+\end{axis}
+\end{tikzpicture}\pause
+
+But, why?
+\end{frame}
+
+\begin{frame}{The Graph}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+axis lines=middle,
+grid = both,
+grid style = {dashed},
+xtick distance = 1,
+ytick distance = 5,
+width = .9\textwidth,
+]
+\addplot[thick, blue]{2^x} node [pos=0.9, left] {$y = 2^x$};
+\draw[fill=black] (0,1) circle (2pt) node[above left] {\small $(0,1)$};
+\draw[fill=black] (1,2) circle (2pt) node[above] {\small $(1,2)$};
+\draw[fill=black] (2,4) circle (2pt) node[above] {\small $(2,4)$};
+\draw[fill=black] (3,8) circle (2pt) node[above left] {\small $(3,8)$};
+\draw[fill=black] (4,16) circle (2pt) node[above left] {\small $(4,16)$};
+\end{axis}
+\end{tikzpicture}
+
+But, why?
+\end{frame}
+
+\begin{frame}{The Graph}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+axis lines=middle,
+grid = both,
+grid style = {dashed},
+xtick distance = 1,
+ytick distance = 5,
+width = .9\textwidth,
+xmax = 5, xmin=-5,
+ymax=32, ymin = 0,
+]
+\draw[fill=black] (0,1) circle (2pt) node[above left] {\small $(0,1)$};
+\draw[fill=black] (1,2) circle (2pt) node[above] {\small $(1,2)$};
+\draw[fill=black] (2,4) circle (2pt) node[above] {\small $(2,4)$};
+\draw[fill=black] (3,8) circle (2pt) node[above left] {\small $(3,8)$};
+\draw[fill=black] (4,16) circle (2pt) node[above left] {\small $(4,16)$};
+\draw (0,1) -- (1,2);
+\draw (1,2) -- (2,4);
+\draw (2,4) -- (3,8);
+\draw (3,8) -- (4,16);
+\draw (4,16) -- (5,32);
+\draw (0,1) -- (-1,1/2);
+\draw(-1,1/2) -- (-2, 1/4);
+\draw(-2,1/4) -- (-3, 1/8);
+\draw(-3,1/8) -- (-4, 1/16);
+\draw(-4,1/16) -- (-5, 1/32);
+\end{axis}
+\end{tikzpicture}
+
+Why not?
+\end{frame}
+
+\end{document}
