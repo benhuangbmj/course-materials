@@ -20,8 +20,8 @@
 \usepackage{tikz}
 \usetikzlibrary{patterns}
 \usepackage{luacode}
-\newcommand{\studentname}{}
-\newcommand{\classtitle}{}
+\newcommand{\studentname}{\rule{10em}{0.4pt}}
+\newcommand{\classtitle}{\rule{10em}{0.4pt}}
 
 \input{vars.local.tex}
 \begin{luacode}
@@ -30,6 +30,7 @@ students = ftcsv.parse("\csvsource")
 \end{luacode}
 
 \begin{document}
+\input{Classroom-Restoration-Program-Template.tex}
 \begin{luacode*}
 for i, student in pairs(students) do	
 	local studentName = student.Name:gsub("^(.-),%s*(.-)$", "%2 %1")
@@ -38,5 +39,4 @@ for i, student in pairs(students) do
 	tex.print("\\input{Classroom-Restoration-Program-Template.tex}")
 end
 \end{luacode*}
-
 \end{document}
