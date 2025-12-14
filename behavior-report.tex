@@ -28,21 +28,54 @@
 local ftcsv = require("ftcsv")
 behaviorRecords = ftcsv.parse("\csvsourceOne", {headers=false})
 headers = behaviorRecords[1]
+function printHeaders()
+	for i = 3, 8 do
+		tex.print(headers[i])
+		if i ~= 8 then
+			tex.print("&")
+		else 
+		 	tex.print("\\\\ \\hline")
+		end
+	end
+end
+function printRecord(record)
+	for i = 3, 8 do
+		tex.print(record[i])
+		if i ~= 8 then
+			tex.print("&")
+		else 
+		 	tex.print("\\\\ \\hline")
+		end
+	end
+end
+function printStudentName(record)
+tex.print("Name: " .. record[1])
+end
+function printClass(record)
+	tex.print("Class: " .. record[2])
+end
+function getTotalViolations(record)
+	local total = 0
+	for i = 3, 8 do
+		total = total + tonumber(record[i])
+	end
+	return total
+end
 \end{luacode}
 
 \begin{document}
 \begin{luacode*}
+local testRecord = behaviorRecords[2]
+printStudentName(testRecord)
+tex.print("\\quad")
+printClass(testRecord)
+tex.print("\\par Records of Classroom Norm Violation:\\par\\vspace{1em}")
 tex.print("\\footnotesize\\renewcommand{\\arraystretch}{2}\\begin{tabularx}{.6\\textwidth}{|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|}")
 tex.print("\\hline")
-for i = 3, 8 do
-	tex.print(headers[i])
-	if i ~= 8 then
-		tex.print("&")
-	else 
-	 	tex.print("\\\\ \\hline")
-	end
-end
-tex.print("\\end{tabularx}")
+printHeaders()
+printRecord(testRecord)
+tex.print("\\end{tabularx}\\par\\vspace{1em}")
+tex.print("Total Violation in This Report Period: " .. getTotalViolations(testRecord))
 \end{luacode*}
 
 \end{document}
