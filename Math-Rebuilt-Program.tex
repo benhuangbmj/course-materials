@@ -21,53 +21,36 @@
 \usetikzlibrary{patterns}
 \usepackage{luacode}
 \usepackage{parskip}
-
+\input{vars.local.tex}
 \begin{document}
-\hfill Period
-\begin{center}
-    {\Large \textbf{Introducing \emph{Math Rebuilt}:\\ A Supplemental Math Practice Program}}
-\end{center}
-
-\vspace{1em}
-
-Dear Parents and Guardians,
-
-I hope you are doing well. I am writing to introduce \textbf{Math Rebuilt}, a supplemental math practice program that I have created to support students in strengthening their math skills through consistent daily practice. This is a teacher-created, optional program and is not school-sponsored.
-
-Math is a connected subject, and steady daily practice helps students build understanding and confidence over time. The core expectation of Math Rebuilt is \textbf{30 additional minutes of math practice each day}.
-
-\textbf{What students will do:}
-\begin{itemize}
-    \item Use \textbf{DeltaMath}, a free online platform that offers targeted practice with immediate feedback:
-    \begin{center}
-        \texttt{https://www.deltamath.com/students} \\
-        Class code:
-    \end{center}
-    \item Watch short math tutorial videos that I will handpick and post in the Algebra II Google Classroom to support review and understanding
-\end{itemize}
-
-\textbf{How parents can help and monitor progress:}
-\begin{itemize}
-    \item Encourage a consistent daily practice routine
-    \item Ask your child to show you their DeltaMath assignment list and completion status, which clearly displays completed work and progress over time
-    \item Provide encouragement and support at home
-\end{itemize}
-
-The goal of Math Rebuilt is to help students rebuild strong mathematical foundations and develop productive study habits that support long-term success in mathematics.
-
-Thank you for your continued partnership. Please feel free to contact me if you have any questions.
-
-\vspace{2em}
-
-Warm regards,
-
-\noindent\makebox[\textwidth]{\hrulefill \raisebox{-.6ex}{ \it For Parent/Guardian Use Only } \hrulefill}
-\begin{center}
-\renewcommand{\arraystretch}{2}
-\begin{tabular}{m{.5\textwidth}m{.48\textwidth}}
-\noindent
-\textbf{Signature:}  \hrulefill& \textbf{Date:}  \hrulefill 
-\end{tabular}
-\end{center}
-\clearpage
+\input{"Math-Rebuilt-Program-Template.tex"}
+\begin{luacode}
+local ftcsv = require("ftcsv")
+local roster = ftcsv.parse("comprehensive-roster.csv")
+mathRebuilt = ftcsv.parse("math-rebuilt-roster.csv")
+function findClass(source)
+	local classes = {}
+	for i, record in ipairs(source) do
+		classes[record.name] = record.class
+	end
+	return classes
+end
+classes = findClass(roster)
+function printTable(table)
+	for i, v in pairs(table) do
+		print(i, v)
+	end
+end
+for i, student in ipairs(mathRebuilt) do
+	local studentName = student.name:gsub("^(.-),%s*(.-)$", "%2 %1")
+	tex.print("\\renewcommand{\\studentname}{" .. studentName .. "}")
+	local classTitle = classes[student.name]
+	if classTitle == nil then
+		tex.print("\\renewcommand{\\classtitle}{\\rule{10em}{0.4pt}}")
+	else
+		tex.print("\\renewcommand{\\classtitle}{" .. classTitle .. "}")
+	end
+	tex.print('\\input{"Math-Rebuilt-Program-Template.tex"}')	
+end
+\end{luacode}
 \end{document}
