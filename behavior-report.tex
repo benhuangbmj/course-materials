@@ -25,23 +25,24 @@
 \newcommand{\csvsourceOne}{comprehensive-roster.csv}
 
 \begin{luacode}
+violationEnd = 7
 local ftcsv = require("ftcsv")
 behaviorRecords = ftcsv.parse("\csvsourceOne", {headers=false})
 headers = behaviorRecords[1]
-function printHeaders()
-	for i = 3, 8 do
+function printHeaders(start, endCount)
+	for i = start, endCount do
 		tex.print(headers[i])
-		if i ~= 8 then
+		if i ~= endCount then
 			tex.print("&")
 		else 
 		 	tex.print("\\\\ \\hline")
 		end
 	end
 end
-function printRecord(record)
-	for i = 3, 8 do
+function printRecord(record, start, endCount)
+	for i = start, endCount do
 		tex.print(record[i])
-		if i ~= 8 then
+		if i ~= endCount then
 			tex.print("&")
 		else 
 		 	tex.print("\\\\ \\hline")
@@ -56,26 +57,57 @@ function printClass(record)
 end
 function getTotalViolations(record)
 	local total = 0
-	for i = 3, 8 do
+	for i = 3, violationEnd do
 		total = total + tonumber(record[i])
 	end
 	return total
 end
+function getTotalParticipation(record)
+	local total = 0
+	for i = 9,10 do
+		total = total + tonumber(record[i])
+	end
+	return total
+end
+function congregate(records, calculate)
+	local classTotal = 0
+	for i = 2, #records do
+		local total = calculate(records[i])
+		classTotal = classTotal + total
+	end
+	return classTotal
+end
+averageViolations = math.floor(congregate(behaviorRecords, getTotalViolations)/(#behaviorRecords-1))
+averageParticipation =math.floor(congregate(behaviorRecords, getTotalParticipation)/(#behaviorRecords-1))
 \end{luacode}
 
 \begin{document}
+{\footnotesize
 \begin{luacode*}
-local testRecord = behaviorRecords[2]
-printStudentName(testRecord)
-tex.print("\\quad")
-printClass(testRecord)
-tex.print("\\par Records of Classroom Norm Violation:\\par\\vspace{1em}")
-tex.print("\\footnotesize\\renewcommand{\\arraystretch}{2}\\begin{tabularx}{.6\\textwidth}{|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|}")
-tex.print("\\hline")
-printHeaders()
-printRecord(testRecord)
-tex.print("\\end{tabularx}\\par\\vspace{1em}")
-tex.print("Total Violation in This Report Period: " .. getTotalViolations(testRecord))
+function printReport(record)
+	printStudentName(record)
+	tex.print("\\quad")
+	printClass(record)
+	tex.print("\\par Records of Classroom Norm Violation:\\par\\vspace{1em}")
+	tex.print("\\renewcommand{\\arraystretch}{2}\\begin{tabularx}{.6\\textwidth}{|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|}")
+	tex.print("\\hline")
+	printHeaders(3, violationEnd)
+	printRecord(record, 3, violationEnd)
+	tex.print("\\end{tabularx}\\par\\vspace{1em}")
+	tex.print("Total Violation in This Report Period: " .. getTotalViolations(record) .. "\\par")
+	tex.print("Class Average Violation in This Report Period: " .. averageViolations .. "\\par\\vspace{1em}")
+	tex.print("\\par Records of Active Class Participation:\\par\\vspace{1em}")
+	tex.print("\\renewcommand{\\arraystretch}{2}\\begin{tabularx}{.6\\textwidth}{|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|>{\\centering\\arraybackslash}X|}")
+	tex.print("\\hline")
+	printHeaders(9, 10)
+	printRecord(record, 9, 10)
+	tex.print("\\end{tabularx}\\par\\vspace{1em}")
+	tex.print("Total Participation in This Report Period: " .. getTotalParticipation(record) .. "\\par")
+	tex.print("Class Average Participation in This Report Period: " .. averageParticipation .. "\\par\\clearpage")
+end
+for i = 2, #behaviorRecords do
+	printReport(behaviorRecords[i])
+end
 \end{luacode*}
-
+}
 \end{document}
