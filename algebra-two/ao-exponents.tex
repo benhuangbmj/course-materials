@@ -1,0 +1,151 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{outer=3em, inner=2.2cm, top=6em, bottom=4em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II - BASE}
+\chead{Exponents}
+\rhead{AO Test, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{luacode}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+\input{"../learning-targets.local.tex"}
+
+\begin{luacode*}
+math.randomseed(os.time())
+a11= math.random(-10,10)
+a13 = math.random(-10,10)
+a12 = math.random(2,30)
+expr_a1 = string.format("\\(%d^{%d}\\cdot %d^{%d} = %d^a\\)", a12,a11, a12, a13, a12)
+b11 = math.random(-10,10)
+b12 = math.random(-10,10)
+b13 = math.random(2,30)
+expr_b1 = string.format("\\(\\displaystyle\\frac{%d^{%d}}{%d^{%d}} = %d^b\\)", b13,b11, b13, b12, b13)
+c11 = math.random(2,10)
+expr_c1 = string.format("$\\displaystyle %d^c = \\frac{1}{%d}$", c11, c11^2)
+d1 = math.random(-5,5)
+d2 = math.random(-5,5)
+d3 = math.random(2,30)
+expr_d1 = string.format("$\\left(%d^{%d}\\right)^d = %d^{%d}$", d3, d1, d3, d1*d2)
+a21 = math.random(2, 9)
+a22 = string.format("%d",a21^2)
+expr_a21 = string.format("$\\displaystyle %d^{\\frac{1}{2}} \\cdot %d^{\\frac{1}{2}}$", a21^2, a21^2)
+
+a32 = string.format("%d", 64)
+
+a41 = math.random(2,5)
+a42 = math.random(2,4)
+if a42 == 3 then
+	a42 = 2
+end
+expr_a4 = string.format("$%d^\\frac{%d}{3}$", a41^3, a42)
+
+a51 = math.random(2,200)
+a52 = math.random(2,200)
+a53 = math.random(2,200)
+
+a61 = math.random(2,9)
+a62 = math.random(a61^2 + 1, (a61+1)^2 - 1)
+expr_a6 = string.format("$\\sqrt{%d}$", a62)
+\end{luacode*}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt} \hspace{\stretch{1}}Last Name \rule{6em}{.1pt} \hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\learningtargetbeprecise
+
+\begin{enumerate}[leftmargin=*]
+\item
+Find the value of each variable that makes the equation true
+\begin{enumerate}[itemsep=2em]
+\item
+\directlua{tex.print(expr_a1)}.\quad $a = \rule{3em}{.4pt}$
+\item
+\directlua{tex.print(expr_b1)}.\quad $b = \rule{3em}{.4pt}$
+\item
+\directlua{tex.print(expr_c1)}.\quad $c = \rule{3em}{.4pt}$
+\item
+\directlua{tex.print(expr_d1)}.\quad $d = \rule{3em}{.4pt}$
+\end{enumerate}
+\item Suppose that a friend missed class and never learned what $\directlua{tex.print(a22)}^\frac{1}{2}$ means.
+\begin{enumerate}
+\item
+Use exponent rules to show the value of \directlua{tex.print(expr_a21)}.
+\vspace{\stretch{1}}
+\item Explain why this means that $\directlua{tex.print(a22)}^\frac{1}{2} = \directlua{tex.print(a21)}$.
+\vspace{\stretch{1}}
+\end{enumerate}
+\item Complete the table. Use powers of \directlua{tex.print(a32)} in the top row and radicals or rational numbers in the bottom row.
+\begin{center}
+\renewcommand{\arraystretch}{2}
+\begin{tabularx}{0.5\textwidth}{|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
+\hline
+$\directlua{tex.print(a32)}^1$&$\directlua{tex.print(a32)}^\frac{1}{2}$& & $\directlua{tex.print(a32)}^0$& & $\directlua{tex.print(a32)}^{-1}$\\
+\hline
+$\directlua{tex.print(a32)}$& &4& & $\frac{1}{8}$ & \\
+\hline 
+\end{tabularx}
+\end{center}
+\clearpage
+\item
+\rebuildrecap{
+\fbox{\parbox{\textwidth}{
+\textbf{Recap.}
+\begin{enumerate}
+\item 
+Evaluate \directlua{tex.print(expr_a4)}.
+\item Use exponent rules to explain why $\left(\sqrt{\directlua{tex.print(a21)}}\right)^{\directlua{tex.print(c11)}} = \sqrt{\directlua{tex.print(a21)}^{\directlua{tex.print(c11)}}}$.
+\item $\sqrt{111}$ is between 10 and 11 because $10^2 = 100$ and $11^2 = 121$. Determine the whole numbers that \directlua{tex.print(expr_a6)} lies between.
+\end{enumerate}
+}}
+
+\fbox{\parbox{\textwidth}{
+\textbf{Rebuild.}
+\begin{enumerate}
+\item 
+Evaluate $(\sqrt{\directlua{tex.print(a51)}})^2$.
+\item
+Evaluate $\left(\sqrt[3]{\directlua{tex.print(a52)}}\right)\left(\sqrt[3]{\directlua{tex.print(a52)}}\right)\left(\sqrt[3]{\directlua{tex.print(a52)}}\right)$.
+\item Evaluate $\left(\sqrt[4]{\directlua{tex.print(a53)}}\right)\left(\sqrt[4]{\directlua{tex.print(a53)}}\right)\left(\sqrt[4]{\directlua{tex.print(a53)}}\right)\left(\sqrt[4]{\directlua{tex.print(a53)}}\right)$.
+\end{enumerate}
+}}}
+\begin{enumerate}
+\item\ 
+\vspace{\stretch{1}}
+\item\ \vspace{\stretch{1}}
+\item\ \vspace{\stretch{1}}
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
