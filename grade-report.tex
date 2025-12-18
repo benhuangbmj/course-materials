@@ -47,7 +47,7 @@ titles = assignmentRecords[2]
 standardsDue = assignmentRecords[3]
 
 for i, title in pairs(titles) do
-	if title ~= "" then
+	if title ~= "" and not string.find(title, "Binder Check") then
 		table.insert(assignmentLocations, i)
 	end
 end
@@ -70,7 +70,7 @@ for j, l in ipairs(assignmentLocations) do
 	table.insert(assignmentInfo, assignment)			
 end
 
-for i = 4, #assignmentRecords do
+for i = 4, 4 do
 	local cutOffCount = 0
 	local record = assignmentRecords[i]
 	local email = record[3]
@@ -82,14 +82,18 @@ for i = 4, #assignmentRecords do
 	local name = record[2]
 	local below4 = {}
 	local belowPass = {}
+	local missing = {}
 	
 	for i, info in ipairs(assignmentInfo) do
 		below4[i] = {}
 		belowPass[i] = {}
+		missing[i] = {}
 		standards = info.standards
 		for j, standard in ipairs(standards) do
 			if record[standard] ~= "4" and record[standard] ~= "E" and record[standard] ~= "" then
-				if tonumber(record[standard]) and tonumber(record[standard]) < 4 and tonumber(record[standard]) >= 2.5 then
+				if record[standard] == "M" then
+					table.insert(missing[i], standard)
+				elseif tonumber(record[standard]) and tonumber(record[standard]) < 4 and tonumber(record[standard]) >= 2.5 then
 					table.insert(below4[i], standard)
 				else
 					table.insert(belowPass[i], standard)
@@ -129,7 +133,7 @@ for i = 4, #assignmentRecords do
 	
 	tex.print("\\noindent")
 	tex.print("Dear " .. name:gsub("^(.-),%s*(.-)$", "%2 %1") .. ",\\\\[1em]")
-	tex.print("\\indent This is your current summary of all revisable Action Opportunities (AOs) in this class as of \\today.  The AOs are grouped by grade, depending on whether they fall below 2.5 or below 4. If you need to revise an AO that is much older than the most recent ones, please use the space below to indicate which AOs you would like to revise. If you are intending to revise an AO outside of the regular in-class revision day, please make an appointment with Dr. Benjamin with the form below. \\textbf{Please be advised that any AO submission without proctoring will not be accepted.}  \\\\[1em] AOs to revise:  \\hrulefill .\\vspace{1em}\\par")	
+	tex.print("\\indent This is the summary of your \\emph{most recent 15} revisable Action Opportunities (AOs) in this class as of \\today.  The full status of your grade can always be found on Jump Rope. The AOs are grouped by grade, depending on whether they are missing (M),  fall below 2.5 or below 4. If you need to revise an AO that is much older than the most recent ones, please use the space below to indicate which AOs you would like to revise. If you are intending to revise an AO outside of the regular in-class revision day, please make an appointment with Dr. Benjamin with the \\textit{\\textbf{Out-of-Class Appointment}} form below. \\textbf{Please be advised that any AO submission without proctoring will not be accepted.}  \\\\[1em] AOs to revise:  \\hrulefill .\\vspace{1em}\\par")	
 	tex.print("\\noindent\\hrulefill \\raisebox{-.6ex}{\\textit{\\textbf{Out-of-Class Appointment}}} \\hrulefill")
 	tex.print("\\begin{center}")
 	tex.print("$\\bullet$ 5th Period, Mon on \\rulefilldate \\hfill $\\bullet$ 5th Period, Wed on \\rulefilldate \\hfill $\\bullet$ After School, Tue on \\rulefilldate") 
@@ -137,13 +141,14 @@ for i = 4, #assignmentRecords do
 	tex.print("\\noindent\\hrulefill \\raisebox{-.6ex}{\\textit{\\textbf{Current Grade Summary}}} \\hrulefill\\vspace{.5em} \\par")
 	tex.print("\\noindent Name: " .. grade["Student First Name"] .. " " .. grade["Student Last Name"] .. "\\hfill "  .. "Section Name: " .. grade["Section Name"] .. "\\hfill Section ID: " .. grade["Section External ID"] .. "\\hfill Current Grade: " .. grade["Conversion"] .. "/100")
 	tex.print("\\begin{itemize}\\footnotesize")
-	tex.print("\\item Below 2.5")
+	tex.print("\\item \\textbf{Missing}")
+	printGrades(missing)
+	tex.print("\\item \\textbf{Below 2.5}")
 	printGrades(belowPass)
-	tex.print("\\item Below 4")
+	tex.print("\\item \\textbf{Below 4}")
 	printGrades(below4)
 	tex.print("\\end{itemize}")
 	tex.print("\\clearpage")
-	tex.print("\\input{binder-check-rubric}\\clearpage")
 	::continue::
 end
 \end{luacode*}
