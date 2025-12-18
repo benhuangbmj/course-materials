@@ -70,7 +70,7 @@ for j, l in ipairs(assignmentLocations) do
 	table.insert(assignmentInfo, assignment)			
 end
 
-for i = 4, 4 do
+function printGradeReport(i)
 	local cutOffCount = 0
 	local record = assignmentRecords[i]
 	local email = record[3]
@@ -151,6 +151,7 @@ for i = 4, 4 do
 	tex.print("\\clearpage")
 	::continue::
 end
+printGradeReport(4)
 \end{luacode*}
 
 \end{document}
