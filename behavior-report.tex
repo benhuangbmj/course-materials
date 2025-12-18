@@ -20,10 +20,8 @@
 \usepackage{tikz}
 \usetikzlibrary{patterns}
 \usepackage{luacode}
-\newcommand{\studentname}{}
-\newcommand{\classtitle}{}
 \newcommand{\csvsourceOne}{comprehensive-roster.csv}
-
+\input{"vars.local.tex"}
 \begin{luacode}
 violationEnd = 7
 local ftcsv = require("ftcsv")
@@ -85,6 +83,7 @@ averageParticipation =math.floor(congregate(behaviorRecords, getTotalParticipati
 {\footnotesize
 \begin{luacode*}
 function printReport(record)
+	tex.print("\\textbf{Report Period: Nov 25th 2025 - Dec 18th 2025}\\par")
 	printStudentName(record)
 	tex.print("\\quad")
 	printClass(record)
@@ -103,10 +102,11 @@ function printReport(record)
 	printRecord(record, 9, 10)
 	tex.print("\\end{tabularx}\\par\\vspace{1em}")
 	tex.print("Total Participation in This Report Period: " .. getTotalParticipation(record) .. "\\par")
-	tex.print("Class Average Participation in This Report Period: " .. averageParticipation .. "\\par\\clearpage")
+	tex.print("Class Average Participation in This Report Period: " .. averageParticipation .. "\\par")
 end
-for i = 2, #behaviorRecords do
+for i = 2, 2 do
 	printReport(behaviorRecords[i])
+	tex.print('\\vspace{1em}\\normalsize\\input{"self-evaluation.tex"}\\clearpage')
 end
 \end{luacode*}
 }
