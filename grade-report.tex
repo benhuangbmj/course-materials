@@ -21,11 +21,10 @@
 \usetikzlibrary{patterns}
 \usepackage{luacode}
 \newcommand{\rulefilldate}{\parbox[t]{6em}{\centering\hrulefill\\\footnotesize mm/dd/yyyy}}
-\newcommand{\studentname}{}
-\newcommand{\classtitle}{}
 \newcommand{\csvsourceOne}{assignments-period4.csv}
 \newcommand{\csvsourceTwo}{grades-period4.csv}
-
+\input{"vars.local.tex"}
+\input{"behavior-report.tex"}
 \begin{luacode}
 local ftcsv = require("ftcsv")
 assignmentRecords = ftcsv.parse("\csvsourceOne", {headers=false})
@@ -33,6 +32,13 @@ gradeRecords = ftcsv.parse("\csvsourceTwo")
 function table.findByID(tbl, value)
     for i, record in ipairs(tbl) do
        if record["Student External ID"] == value then 
+       	return record 
+	end
+    end
+end
+function table.findByName(tbl, value)
+    for i, record in ipairs(tbl) do
+       if record[1] == value then 
        	return record 
 	end
     end
@@ -130,7 +136,8 @@ function printGradeReport(i)
 			tex.print("\\end{itemize}")
 		end
 	end
-	
+	behaviorRecord = table.findByName(behaviorRecords, name)
+	printBehaviorReport(behaviorRecord)
 	tex.print("\\noindent")
 	tex.print("Dear " .. name:gsub("^(.-),%s*(.-)$", "%2 %1") .. ",\\\\[1em]")
 	tex.print("\\indent This is the summary of your \\emph{most recent 15} revisable Action Opportunities (AOs) in this class as of \\today.  The full status of your grade can always be found on Jump Rope. The AOs are grouped by grade, depending on whether they are missing (M),  fall below 2.5 or below 4. If you need to revise an AO that is much older than the most recent ones, please use the space below to indicate which AOs you would like to revise. If you are intending to revise an AO outside of the regular in-class revision day, please make an appointment with Dr. Benjamin with the \\textit{\\textbf{Out-of-Class Appointment}} form below. \\textbf{Please be advised that any AO submission without proctoring will not be accepted.}  \\\\[1em] AOs to revise:  \\hrulefill .\\vspace{1em}\\par")	
