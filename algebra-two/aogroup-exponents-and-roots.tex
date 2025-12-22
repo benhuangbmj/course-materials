@@ -92,42 +92,14 @@ a92 = (2*math.random(2,10) + 1)/2
 \end{luacode*}
 \begin{document}
 \noindent
-{
-Period \rule{4em}{.4pt} \quad Score \rule{4em}{.4pt}
+{\large
+First Name \rule{6em}{.1pt} \hspace{\stretch{1}}Last Name \rule{6em}{.1pt} \hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
 \vspace{1em}
 
-\renewcommand{\arraystretch}{2.5}
-\noindent
-\begin{tabular}{|ll|}
-\hline
-Group Member Names:&\\
-1. First Name \rule{6em}{.1pt}\ Last Name \rule{6em}{.1pt} \hfill &2. First Name \rule{6em}{.1pt} Last Name \rule{6em}{.1pt} \hfill\\
-3. First Name \rule{6em}{.1pt}\hfill Last Name \rule{6em}{.1pt} \hfill &4. First Name \rule{6em}{.1pt} Last Name \rule{6em}{.1pt} \hfill\\
-5. First Name \rule{6em}{.1pt}\hfill Last Name \rule{6em}{.1pt} \hfill &6. First Name \rule{6em}{.1pt} Last Name \rule{6em}{.1pt} \hfill\\
-\hline
-\end{tabular}
-\vspace{1em}
-
-\learningtargetbeprecise
+\learningtargetbeprecise{For each group, a random paper will be collected and graded. The grade will then be applied to all present group members.}
 
 \begin{enumerate}[leftmargin=*]
-\item
-Find the value of each variable that makes the equation true. \textbf{SHOW ALL YOUR WORK!}
-\begin{enumerate}[itemsep=2em]
-\item
-\directlua{tex.print(expr_a1)}.\quad $a = \rule{3em}{.4pt}$
-\vspace{\stretch{1}}
-\item
-\directlua{tex.print(expr_b1)}.\quad $b = \rule{3em}{.4pt}$
-\vspace{\stretch{1}}
-\item
-\directlua{tex.print(expr_c1)}.\quad $c = \rule{3em}{.4pt}$
-\vspace{\stretch{1}}
-\item
-\directlua{tex.print(expr_d1)}.\quad $d = \rule{3em}{.4pt}$
-\vspace{\stretch{1}}
-\end{enumerate}
-
 \item Complete the table. Use powers of \directlua{tex.print(a32)} in the top row and radicals or rational numbers in the bottom row.\\ (\textbf{Hint}: $\directlua{tex.print(a32)} = \directlua{tex.print(a30)}^6$. )
 \begin{center}
 \renewcommand{\arraystretch}{3}
@@ -139,7 +111,6 @@ $\directlua{tex.print(a32)}$& &\directlua{tex.print(a31^(1/3))}& & $\displaystyl
 \hline 
 \end{tabularx}
 \end{center}
-\clearpage
 \item Complete the following problems without a calculator.
 \begin{enumerate}
 \item 
@@ -151,6 +122,8 @@ Evaluate $\left(\sqrt[3]{\directlua{tex.print(a52)}}\right)\left(\sqrt[3]{\direc
 \item Evaluate $\left(\sqrt[4]{\directlua{tex.print(a53)}}\right)\left(\sqrt[4]{\directlua{tex.print(a53)}}\right)\left(\sqrt[4]{\directlua{tex.print(a53)}}\right)\left(\sqrt[4]{\directlua{tex.print(a53)}}\right)$.
 \vspace{\stretch{1}}
 \end{enumerate}
+\clearpage
+
 \item Find solution(s) to each equation , or explain why there is no solution.
 \begin{enumerate}
 \item
