@@ -97,7 +97,9 @@ First Name \rule{6em}{.1pt} \hspace{\stretch{1}}Last Name \rule{6em}{.1pt} \hspa
 }
 \vspace{1em}
 
-\learningtargetbeprecise{For each group, a random paper will be collected and graded. The grade will then be applied to all present group members.}
+\learningtargetbeprecise{
+ Version: \directlua{tex.print(os.time())}
+}
 
 \begin{enumerate}[leftmargin=*]
 \item Complete the table. Use powers of \directlua{tex.print(a32)} in the top row and radicals or rational numbers in the bottom row.\\ (\textbf{Hint}: $\directlua{tex.print(a32)} = \directlua{tex.print(a30)}^6$. )
@@ -138,9 +140,9 @@ Evaluate $\left(\sqrt[3]{\directlua{tex.print(a52)}}\right)\left(\sqrt[3]{\direc
 \item
 \(\sqrt[3]{x} = \directlua{tex.print(a91)}\)
 \vspace{\stretch{1}}
-\item
-\(\sqrt[3]{x} + \directlua{tex.print(a92)} = 0\)
-\vspace{\stretch{1}}
+%\item
+%\(\sqrt[3]{x} + \directlua{tex.print(a92)} = 0\)
+%\vspace{\stretch{1}}
 \end{enumerate}
 \end{enumerate}
 
