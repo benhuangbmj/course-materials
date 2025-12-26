@@ -7,3 +7,4 @@
 !Algebra/*.png
 !*.lua
 *.local.tex
+!*.md
