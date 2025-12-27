@@ -1,5 +1,6 @@
 *.*
 !*.tex
+algebra-two-sync/
 !img/*
 !*.ggb
 !.gitignore
@@ -8,3 +9,4 @@
 !*.lua
 *.local.tex
 !*.md
+!*.bat
