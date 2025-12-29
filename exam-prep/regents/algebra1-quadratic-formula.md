@@ -35,7 +35,7 @@ Practice it enough, and this becomes one of the easiest points you can secure on
   https://youtu.be/F6nV0lAI1cU?si=9i324mBbQWSnLGUn
 - **Tons of Examples:** https://youtu.be/kkRrCrXC-fA?si=g9diFwmKskCGbRhi
 - **Regents Past Questions:**
-  Jun 2025 Q34(4), Jan 2025 Q34(4), Aug 2024 Q34(4), Jan 2024 Q31(4)
+  Jun 2025 Q34(4), Jan 2025 Q34(4), Aug 2024 Q34(4), Jan 2024 Q35(4)
 
 ### Factor a polynomial
 
