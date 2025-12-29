@@ -35,4 +35,4 @@ Linear equations and systems of linear equations are fundamental to the Regents 
 ### Single linear inequality:
 
 - **Regents Past Questions:**
-  Jun 2025 Q26(2), Jan 2025 Q23(1), Jan 2025 Q22(1), Aug 2024 Q13(1), Jun 2024 Q25(2), Jan 2024 Q18(1)
+  Aug 2025 Q32(4), Jun 2025 Q26(2), Jan 2025 Q23(1), Jan 2025 Q22(1), Aug 2024 Q13(1), Jun 2024 Q25(2), Jan 2024 Q18(1)
