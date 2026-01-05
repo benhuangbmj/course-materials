@@ -1,0 +1,92 @@
+\documentclass[twoside, 10pt]{article}
+
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Gradient Descent - 1D}
+\rhead{Practice, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{luacode}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{document}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}}Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} {Date} \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+Let $f(x)$ be a function. The slope of the tangent line of $f(x)$ at an arbitrary point $x$ is 
+\[
+f'(x) = \lim_{\Delta x\to 0}\frac{f(x + \Delta x) - f(x)}{\Delta x}
+\]
+This concept is typically called the \textbf{derivative} of $f(x)$ in mathematics literature, denoted by $f'(x)$ (read ``f prime of x''.) The \textbf{gradient} of a single variable function (i.e., the variable is one dimensional) is effectively just the derivative.
+
+Consider the function \[f(x) = 2x^2 -6x + 10.\] We want to find its minimum via the \textbf{gradient descent method}. In this lesson, we will use GeoGebra to assist the calculation.
+
+\begin{enumerate}
+\item
+Plot the graph of $f(x)$ in GeoGebra.
+\item
+Find the derivative of $f(x)$.
+\vspace{\stretch{1}}
+\item 
+Pick a point on the graph, then find the derivative at this point.
+\vspace{1em}
+\begin{itemize}
+\item
+Your point: \rule{8em}{.4pt}\\[1em]
+\item 
+Your derivative \rule{8em}{.4pt}
+\end{itemize}
+\item Find an equation of the tangent line of $f(x)$ at the point you picked, then
+\begin{itemize}
+\item
+Plot the equation that you found in GeoGebra.
+\item
+Plot the tangent line at your point in GeoGebra with the built-in feature. Do the two lines match?
+\vspace{\stretch{1}}
+\clearpage
+
+\end{itemize}
+\item Now we start to use the gradient descent to find the minimum of $f(x)$. Start from the point you chose, then
+\begin{itemize}
+\item
+Try three different descent steps: 0.1, 0.01, and 0.001.
+\vspace{\stretch{1}}
+\item
+Plot and compare the three results in GeoGebra.
+\vspace{\stretch{1}}
+\item Count how many steps you have taken to get the results, respectively. 
+\vspace{\stretch{1}}
+\end{itemize}
+\end{enumerate}
+
+
+\end{document}
