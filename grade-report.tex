@@ -21,8 +21,8 @@
 \usetikzlibrary{patterns}
 \usepackage{luacode}
 \newcommand{\rulefilldate}{\parbox[t]{6em}{\centering\hrulefill\\\footnotesize mm/dd/yyyy}}
-\newcommand{\csvsourceOne}{assignments-period4.csv}
-\newcommand{\csvsourceTwo}{grades-period4.csv}
+\newcommand{\csvsourceOne}{precalculus1-assignments-01062026.csv}
+\newcommand{\csvsourceTwo}{PreCalculus-grades-01062026.csv}
 \input{"vars.local.tex"}
 \input{"behavior-report.tex"}
 \begin{luacode}
@@ -137,6 +137,10 @@ function printGradeReport(i)
 		end
 	end
 	behaviorRecord = table.findByName(behaviorRecords, name)
+	if behaviorRecord == nil then
+		tex.print(name .. "\\clearpage")
+		goto continue
+	end
 	printBehaviorReport(behaviorRecord)
 	tex.print("\\noindent")
 	tex.print("Dear " .. name:gsub("^(.-),%s*(.-)$", "%2 %1") .. ",\\\\[1em]")
@@ -158,7 +162,9 @@ function printGradeReport(i)
 	tex.print("\\clearpage")
 	::continue::
 end
-printGradeReport(4)
+for i = 4, #assignmentRecords do
+printGradeReport(i)
+end
 \end{luacode*}
 
 \end{document}
