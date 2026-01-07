@@ -21,11 +21,12 @@
 \usetikzlibrary{patterns}
 \usepackage{luacode}
 \newcommand{\rulefilldate}{\parbox[t]{6em}{\centering\hrulefill\\\footnotesize mm/dd/yyyy}}
-\newcommand{\csvsourceOne}{assignments-period4-01072026.csv}
-\newcommand{\csvsourceTwo}{class-grades-period4-01072026.csv}
+\newcommand{\csvsourceOne}{assignments-period8-01072026.csv}
+\newcommand{\csvsourceTwo}{class-grades-period8-01072026.csv}
 \input{"vars.local.tex"}
 \input{"behavior-report.tex"}
 \begin{luacode}
+cutOffCap = 10
 local ftcsv = require("ftcsv")
 assignmentRecords = ftcsv.parse("\csvsourceOne", {headers=false})
 gradeRecords = ftcsv.parse("\csvsourceTwo")
@@ -125,7 +126,7 @@ function printGradeReport(i)
 					end
 				tex.print("\\end{itemize}")
 				tex.print("\\end{itemize}")
-				if cutOffCount > 15 then
+				if cutOffCount > cutOffCap then
 					return
 				end
 			end
@@ -144,7 +145,7 @@ function printGradeReport(i)
 	printBehaviorReport(behaviorRecord)
 	tex.print("\\noindent")
 	tex.print("Dear " .. name:gsub("^(.-),%s*(.-)$", "%2 %1") .. ",\\\\[1em]")
-	tex.print("\\indent This is the summary of your \\emph{most recent 15} revisable Action Opportunities (AOs) in this class as of \\today.  The full status of your grade can always be found on Jump Rope. The AOs are grouped by grade, depending on whether they are missing (M),  fall below 2.5 or below 4. If you need to revise an AO that is much older than the most recent ones, please use the space below to indicate which AOs you would like to revise. If you are intending to revise an AO outside of the regular in-class revision day, please make an appointment with Dr. Benjamin with the \\textit{\\textbf{Out-of-Class Appointment}} form below. \\textbf{Please be advised that any AO submission without proctoring will not be accepted.}  \\\\[1em] AOs to revise:  \\hrulefill .\\vspace{1em}\\par")	
+	tex.print("\\indent This is the summary of your \\emph{most recent " .. cutOffCap .. "} revisable Action Opportunities (AOs) in this class as of \\today.  The full status of your grade can always be found on Jump Rope. The AOs are grouped by grade, depending on whether they are missing (M),  fall below 2.5 or below 4. If you need to revise an AO that is much older than the most recent ones, please use the space below to indicate which AOs you would like to revise. If you are intending to revise an AO outside of the regular in-class revision day, please make an appointment with Dr. Benjamin with the \\textit{\\textbf{Out-of-Class Appointment}} form below. \\textbf{Please be advised that any AO submission without proctoring will not be accepted.}  \\\\[1em] AOs to revise:  \\hrulefill .\\vspace{1em}\\par")	
 	tex.print("\\noindent\\hrulefill \\raisebox{-.6ex}{\\textit{\\textbf{Out-of-Class Appointment}}} \\hrulefill")
 	tex.print("\\begin{center}")
 	tex.print("$\\bullet$ 5th Period, Mon on \\rulefilldate \\hfill $\\bullet$ 5th Period, Wed on \\rulefilldate \\hfill $\\bullet$ After School, Tue on \\rulefilldate") 
