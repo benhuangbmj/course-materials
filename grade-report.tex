@@ -21,8 +21,8 @@
 \usetikzlibrary{patterns}
 \usepackage{luacode}
 \newcommand{\rulefilldate}{\parbox[t]{6em}{\centering\hrulefill\\\footnotesize mm/dd/yyyy}}
-\newcommand{\csvsourceOne}{precalculus1-assignments-01062026.csv}
-\newcommand{\csvsourceTwo}{PreCalculus-grades-01062026.csv}
+\newcommand{\csvsourceOne}{assignments-period4-01072026.csv}
+\newcommand{\csvsourceTwo}{class-grades-period4-01072026.csv}
 \input{"vars.local.tex"}
 \input{"behavior-report.tex"}
 \begin{luacode}
@@ -53,7 +53,7 @@ titles = assignmentRecords[2]
 standardsDue = assignmentRecords[3]
 
 for i, title in pairs(titles) do
-	if title ~= "" and not string.find(title, "Binder Check") then
+	if title ~= "" and not string.find(title, "Binder Check") and not string.find(title, "Exit Ticket") then
 		table.insert(assignmentLocations, i)
 	end
 end
