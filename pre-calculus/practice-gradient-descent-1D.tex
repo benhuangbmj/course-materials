@@ -36,35 +36,8 @@
 \date{}
 
 \begin{luacode*}
-math.randomseed(os.time())
-function genCoeff(a, b, sign, noOne, noZero)
-	a = a or -10
-	b = b or 10
-	if noZero == nil then
-		noZero = true
-	end
-	output =  math.random(a,b)
-	if noZero then
-		while output == 0 do
-			output =  math.random(a,b)
-		end
-	end
-	if sign == true then
-		output = string.format("%+d", output)
-	end
-	if noOne then
-		if output == "1" or output == "+1"  or output == 1 then
-			if sign then
-				output = "+"
-			else 
-				output =""
-			end
-		elseif output == "-1" or output == -1 then
-			output ="-"
-		end
-	end	
-	return output
-end
+utils = require("../utils")
+genCoeff = utils.genRandom
 \end{luacode*}
 
 \begin{document}
@@ -80,7 +53,7 @@ f'(x) = \lim_{\Delta x\to 0}\frac{f(x + \Delta x) - f(x)}{\Delta x}
 \]
 This concept is typically called the \textbf{derivative} of $f(x)$ in mathematics literature, denoted by $f'(x)$ (read ``f prime of x''.) The \textbf{gradient} of a single variable function (i.e., the variable is one dimensional) is effectively just the derivative.
 
-Consider the function \[f(x) = \directlua{tex.print(genCoeff(-1,1, false, true, true))}x^3 \directlua{tex.print(genCoeff(-3,3, true, true, true))}x^2 \directlua{tex.print(genCoeff(-10,10, true, true, true))}x  \directlua{tex.print(genCoeff(-10,10, true, true, true))}.\] We want to find its minimum via the \textbf{gradient descent method}. In this lesson, we will use GeoGebra to assist the calculation.
+Consider the function \[f(x) = \directlua{tex.print(genCoeff(-1,1, false, true, true))}x^3 \directlua{tex.print(genCoeff(-3,3, true, true, true))}x^2 \directlua{tex.print(genCoeff(-10,10, true, true, true))}x  \directlua{tex.print(genCoeff(-10,10, true, false, true))}.\] We want to find its minimum via the \textbf{gradient descent method}. In this lesson, we will use GeoGebra to assist the calculation.
 
 \begin{enumerate}
 \item
