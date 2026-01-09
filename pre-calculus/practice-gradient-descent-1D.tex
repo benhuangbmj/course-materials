@@ -22,6 +22,7 @@
 \pgfplotsset{compat=1.18}
 \usepackage{tabularx}
 \usepackage{luacode}
+\usepackage{polynom}
 
 \newcommand{\R}{\mathbb R}
 \newcommand{\e}{{\rm e}}
@@ -53,34 +54,39 @@ f'(x) = \lim_{\Delta x\to 0}\frac{f(x + \Delta x) - f(x)}{\Delta x}
 \]
 This concept is typically called the \textbf{derivative} of $f(x)$ in mathematics literature, denoted by $f'(x)$ (read ``f prime of x''.) The \textbf{gradient} of a single variable function (i.e., the variable is one dimensional) is effectively just the derivative.
 
-Consider the function \[f(x) = \directlua{tex.print(genCoeff(-1,1, false, true, true))}x^3 \directlua{tex.print(genCoeff(-3,3, true, true, true))}x^2 \directlua{tex.print(genCoeff(-10,10, true, true, true))}x  \directlua{tex.print(genCoeff(-10,10, true, false, true))}.\] We want to find its minimum via the \textbf{gradient descent method}. In this lesson, we will use GeoGebra to assist the calculation.
-
+Consider the function
+\begin{luacode*}
+a = genCoeff(-10,10,false,false,true)
+tex.print("\\polymul\\function{x-".. a .. "}{(x-" .. tonumber(a) + 3 .. ")(x-" .. tonumber(a) + 8 .. ")}")
+tex.print("\\[f(x) = \\polyprint\\function\\]")
+\end{luacode*}
+We want to find its minimum via the \textbf{gradient descent method}. In this lesson, we will use GeoGebra to assist the calculation.
 \begin{enumerate}
 \item
 Plot the graph of $f(x)$ in GeoGebra.
 \item
-Find the derivative of $f(x)$.
+Find the derivative of $f(x)$ with the ``Derivative'' command in GeoGebra.
 \vspace{\stretch{1}}
 \item 
-Pick a point on the graph, then find the derivative at this point. (Remark: Be sure to plot the point in GeoGebra and check if it's really on the graph!)
+Find the point on the graph with $x = \directlua{tex.print(tonumber(a) + 4)}$, then find the derivative at this point. (Remark: Be sure to plot the point in GeoGebra and check if it's really on the graph!)
 \vspace{1em}
 \begin{itemize}
 \item
-Your point: \rule{8em}{.4pt}\\[1em]
+Point: \rule{8em}{.4pt}\\[1em]
 \item 
-Your derivative \rule{8em}{.4pt}
+Derivative \rule{8em}{.4pt}
 \end{itemize}
-\item Find an equation of the tangent line of $f(x)$ at the point you picked, then
+\item Find an equation of the tangent line of $f(x)$ at the point you found, then
 \begin{itemize}
 \item
 Plot the equation that you found in GeoGebra.
 \item
-Plot the tangent line at your point in GeoGebra with the built-in feature. Do the two lines match?
+Plot the tangent line at the point in GeoGebra with the built-in feature. Do the two lines match?
 \vspace{\stretch{1}}
 \clearpage
 
 \end{itemize}
-\item Now we start to use the gradient descent to find the minimum of $f(x)$. Start from the point you chose, then (Remark: Feel free to use the code template in Google Classroom and adapt.)
+\item Now we start to use the gradient descent to find the minimum of $f(x)$. Start from the point you found, then (Remark: Feel free to use the code template in Google Classroom and adapt.)
 \begin{itemize}
 \item
 Try three different descent steps: 0.1, 0.01, and 0.001.
