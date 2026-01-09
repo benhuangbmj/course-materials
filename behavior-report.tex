@@ -43,19 +43,26 @@ function getTotalParticipation(record)
 	end
 	return total
 end
-function congregate(records, calculate)
-	local classTotal = 0
-	for i = 2, #records do
-		local total = calculate(records[i])
-		classTotal = classTotal + total
+function congregate(records, calculate, predicate)
+	if predicate == nil then
+		predicate = function() return true end
 	end
-	return classTotal
+	local classTotal = 0
+	local count = 0
+	for i = 2, #records do
+		if predicate(records[i]) then
+			local total = calculate(records[i])
+			classTotal = classTotal + total
+			count = count + 1
+		end
+	end
+	return {classTotal, count}
 end
-averageViolations = math.floor(congregate(behaviorRecords, getTotalViolations)/(#behaviorRecords-1))
-averageParticipation =math.floor(congregate(behaviorRecords, getTotalParticipation)/(#behaviorRecords-1))
 \end{luacode}
 \begin{luacode*}
 function printBehaviorReport(record)
+	averageViolations = math.floor(congregate(behaviorRecords, getTotalViolations)[1]/congregate(behaviorRecords, getTotalViolations)[2])
+	averageParticipation =math.floor(congregate(behaviorRecords, getTotalParticipation)[1]/congregate(behaviorRecords, getTotalViolations)[2])
 	tex.print("\\noindent\\textbf{Report Period: Nov 25th 2025 - Dec 18th 2025}\\par\\vspace{.5em}\\footnotesize")
 	printStudentName(record)
 	tex.print("\\quad")
