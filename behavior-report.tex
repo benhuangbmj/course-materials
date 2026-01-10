@@ -61,8 +61,16 @@ end
 \end{luacode}
 \begin{luacode*}
 function printBehaviorReport(record)
-	averageViolations = math.floor(congregate(behaviorRecords, getTotalViolations)[1]/congregate(behaviorRecords, getTotalViolations)[2])
-	averageParticipation =math.floor(congregate(behaviorRecords, getTotalParticipation)[1]/congregate(behaviorRecords, getTotalViolations)[2])
+	local classTitle = record[2]
+	local function isSameClass(comp)
+		if comp[2] == classTitle then
+			return true
+		else
+			return false
+		end
+	end
+	averageViolations = math.floor(congregate(behaviorRecords, getTotalViolations, isSameClass)[1]/congregate(behaviorRecords, getTotalViolations, isSameClass)[2])
+	averageParticipation =math.floor(congregate(behaviorRecords, getTotalParticipation, isSameClass)[1]/congregate(behaviorRecords, getTotalViolations, isSameClass)[2])
 	tex.print("\\noindent\\textbf{Report Period: Nov 25th 2025 - Dec 18th 2025}\\par\\vspace{.5em}\\footnotesize")
 	printStudentName(record)
 	tex.print("\\quad")
