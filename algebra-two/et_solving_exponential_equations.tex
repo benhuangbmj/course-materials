@@ -1,0 +1,53 @@
+\documentclass[twoside, 11pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Alagebra II - BASE}
+\chead{Solving Exponential Equations}
+\directlua{pageNum = 1}
+\rhead{Exit Ticket, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 1 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+
+\begin{luacode*}
+for i = 1,4 do
+	tex.print("\\ \\par\\vskip -3em\\noindent Version: " .. os.time()+math.random(-99999,99999) .. "\\vspace{1em}\\par")
+	tex.print('\\input{"et_solving_exponential_equations_template.tex"}')
+	i = i + 1
+end
+\end{luacode*}
+
+\end{document}
