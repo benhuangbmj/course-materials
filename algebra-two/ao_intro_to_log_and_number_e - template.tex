@@ -1,0 +1,64 @@
+
+\directlua{tex.print("\\ \\par\\vskip -3em\\noindent Version: " .. os.time()+math.random(-99999,99999) .. "\\vspace{1em}\\par")}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\begin{enumerate}
+\item (\textbf{Be Precise}) Score: \rule{2em}{.4pt} 
+
+Fill the blanks with the proper terms:
+
+Both $f(t) = A(1 + r)^t$ and $g(t) = Ae^{rt}$ are models for $\substack{\rule[-5ex]{16em}{.4pt}\\[.5em] \text{\large A. linear; B. exponential}}$ growth.
+\vspace{\stretch{.25}}
+
+$f(t) = A(1 + r)^t$ is more suitable to model  $\substack{\rule[-5ex]{16em}{.4pt}\\[.5em] \text{\large A. discrete; B. continuous}}$ growth\\ such as  $\substack{\rule[-5ex]{16em}{.4pt}\\[.5em] \text{\large A. population; B. compound Interest}}$.
+\vspace{\stretch{.25}}
+
+$g(t) = Ae^{rt}$ is more suitable to model $\substack{\rule[-5ex]{16em}{.4pt}\\[.5em] \text{\large A. discrete; B. continuous}}$ growth\\ such as $\substack{\rule[-5ex]{16em}{.4pt}\\[.5em] \text{\large A. population; B. compound Interest}}$.
+\vspace{\stretch{.25}}
+
+\item ({\textbf{Argue}}) Score: \rule{2em}{.4pt} 
+
+Choose one problem to solve.
+\begin{enumerate}
+\item
+(\textbf{Rebuild}) Which expression has a greater value: $\log_{\directlua{b = utils.genRandom(2,10,false,false,true);tex.print(b)}}\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(b^a)}$ or  $\log_{\directlua{b = utils.genRandom(2,10,false,false,true);tex.print(b)}}\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(b^a)}$? Explain how you know.
+\vspace{\stretch{1}}
+\item
+(\textbf{Recap}) Let $b>0$. Which expression has a greater value: $\log_b b^{\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(a)}}$ or  $\log_{\directlua{b = utils.genRandom(2,10,false,false,true);tex.print(b)}}\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(b^a)}$? Explain how you know.
+\vspace{\stretch{1}}
+\end{enumerate}
+\clearpage
+
+\item ({\textbf{Model}}) Score: \rule{2em}{.4pt} 
+
+Choose one problem to solve.
+\begin{enumerate}
+\item
+(\textbf{Rebuild}) The function $f = 50\cdot e^{(\directlua{r = utils.genRandom(10,50, false,false, true);tex.print(r/100)}t)}$ models the population of bacteria $t$ hours after it was initially measured. 
+\begin{enumerate}
+\item
+What is the approximate percent increase in the population each hour?
+\vspace{\stretch{1}}
+\item About how many bacteria are in the population $10$ hours after the scientist initially measured?
+\vspace{\stretch{1}}
+\item About how many hours does it take for the number of bacteria in the dish to double? Round to the nearest integer. 
+\vspace{\stretch{1}}
+\end{enumerate}
+\item
+(\textbf{Recap})
+\begin{enumerate}
+\item
+An investment is worth $\$1000$ and grows in value by $\directlua{ir=utils.genRandom(1,8, false, false, true);tex.print(ir)}$ percent each year. Find the model for the value of the investment after t years.
+\vspace{\stretch{1}}
+\item  A second investment is worth $\$1000$ and grows in value by $\directlua{n=utils.genRandom(2,10, false, false, true);tex.print(ir .. "/" .. n)}$ percent each $1/\directlua{tex.print(n)}$ year. Find the model for the value of the investment after t years.
+\vspace{\stretch{1}}
+\item A third investment is worth $\$1000$ and grows in value by $\directlua{tex.print(ir)}$ percent each year, but the interest is applied continuously, at every moment. Find the model for the value of the investment after t years, then order the three investments from slowest growing to fastest growing. Explain how you know.
+\vspace{\stretch{1}}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\clearpage

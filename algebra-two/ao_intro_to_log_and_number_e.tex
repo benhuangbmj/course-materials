@@ -1,4 +1,4 @@
-\documentclass[twoside, 11pt]{article}
+\documentclass[twoside, 10pt]{article}
 \usepackage{geometry}
 \geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
 \usepackage[export]{adjustbox}
@@ -10,9 +10,9 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Alagebra II - BASE}
-\chead{Solving Exponential Equations}
+\chead{Intro to Logarithm and the Number $e$}
 \directlua{pageNum = 1}
-\rhead{Exit Ticket, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 1 then pageNum = 1 end}}
+\rhead{AO Test, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 2 then pageNum = 1 end}}
 \usepackage{lastpage}
 \usepackage{xcolor}
 \usepackage{enumitem}
@@ -41,27 +41,9 @@ utils = require("../utils")
 \end{luacode*}
 
 \begin{document}
-
-\begin{enumerate}
-\item (\textbf{Be Precise}) Score: \rule{2em}{.4pt} 
-
-Fill the blanks with proper terms:
-
-Both $f(t) = A(1 + r)^t$ and $g(t) = Ae^{rt}$ are models for {\rule{6em}{.4pt}} (A. linear B. exponential) growth.
-
-$f(t) = A(1 + r)^t$ is more suitable to model  {\rule{6em}{.4pt}} (A. Discrete B. Continuous) growth such as  {\rule{6em}{.4pt}} (A. Population B. Compound Interest).
-
-$g(t) = Ae^{rt}$ is more suitable to model  {\rule{6em}{.4pt}} (A. Discrete B. Continuous) growth such as  {\rule{6em}{.4pt}} (A. Population B. Compound Interest).
-
-\item ({\textbf{Argue}}) Score: \rule{2em}{.4pt} 
-
-Choose one problem to solve.
-\begin{enumerate}
-\item
-(\textbf{Rebuild}) Which expression has a greater value: $\log_{\directlua{b = utils.genRandom(2,10,false,false,true);tex.print(b)}}\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(b^a)}$ or  $\log_{\directlua{b = utils.genRandom(2,10,false,false,true);tex.print(b)}}\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(b^a)}$? Explain how you know.
-\item
-(\textbf{Recap}) Let $b>0$. Which expression has a greater value: $\log_b b^{\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(a)}}$ or  $\log_{\directlua{b = utils.genRandom(2,10,false,false,true);tex.print(b)}}\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(b^a)}$? Explain how you know.
-\end{enumerate}
-\end{enumerate}
-
+\begin{luacode*}
+for i = 1,4 do
+tex.print('\\input{"ao\\_intro\\_to\\_log\\_and\\_number\\_e - template"}')
+end
+\end{luacode*}
 \end{document}
