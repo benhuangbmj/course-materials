@@ -1,0 +1,79 @@
+\documentclass[twoside, 11pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{\today}
+\directlua{pageNum = 1}
+\rhead{Exit Ticket, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 1 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\newcommand{\template}{
+\noindent
+{\large
+First Name \rule{8em}{.1pt}\hspace{\stretch{1}} Last Name \rule{8em}{.1pt}\hspace{\stretch{1}} Period \rule{4em}{.1pt}\hspace{\stretch{1}} Score \rule{4em}{.1pt}
+}
+\vspace{1em}
+\begin{enumerate}
+\item (\textbf{Argue})
+Does $(x\directlua{a = utils.genRandom(-10,10, true, false, true);tex.print(a)})(x\directlua{b = utils.genRandom(-10,10, true, false, true);tex.print(b)})$ equal $x^2\directlua{c = utils.genRandom(-20,20, true, false, true);tex.print(c)}x\directlua{d = utils.genRandom(-10,10, true, false, true);tex.print(d)}$? Use two different methods to verify you claim.
+\begin{enumerate}[leftmargin=*, label = Method (\textbf{\alph*}):]
+\item\ 
+
+\vspace{\stretch{.5}}
+\item\ 
+
+\vspace{\stretch{.5}}
+\end{enumerate}
+
+\item (\textbf{Argue})
+\directlua{l = utils.genRandom(-9,9, false, false); m = utils.genRandom(-9,9, false, false, -l)}
+Solve the equation for $x$:
+\[
+(\ln x)^2 \directlua{tex.print(utils.normalizeCoeff(l + m, true, true))}\ln x \directlua{tex.print(utils.normalizeCoeff(l * m, true, true))} = 0
+\]
+\vspace{\stretch{1}}
+\end{enumerate}
+\clearpage
+}
+
+\title{}
+\date{}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\begin{luacode}
+for i = 1, 3 do
+utils.genVersion()
+tex.print("\\template")
+end
+\end{luacode}
+\end{document}
