@@ -37,4 +37,11 @@ utils.normalizeCoeff = normalizeCoeff
 function utils.genVersion() 
 	tex.print("\\ \\par\\vskip -3em\\noindent Version: " .. os.time()+math.random(-99999,99999) .. "\\vspace{1em}\\par")
 end
+function utils.printFraction(b, e) 
+	if e >= 0 then
+		return math.floor(b^e)
+	else
+		return "\\frac{1}{" .. math.floor(b^(-e)) .. "}"
+	end
+end
 return utils
