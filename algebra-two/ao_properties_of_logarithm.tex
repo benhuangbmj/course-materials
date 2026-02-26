@@ -41,11 +41,78 @@ utils = require("../utils")
 \end{luacode*}
 
 \begin{document}
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
 \begin{enumerate}
+\item ({\textbf{Be Precise}}) Score: \rule{2em}{.4pt} 
+\begin{enumerate}
+\item Rewrite each expression as a single exponent.
+\begin{enumerate}
+\item
+$x^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}\cdot x^\directlua{tex.print(utils.genRandom(2,10, false, false, false))}$
+\vspace{\stretch{1}}
+\item
+$(y^\directlua{tex.print(utils.genRandom(2,10, false, false, false))})^\directlua{tex.print(utils.genRandom(2,10, false, false, false))}$
+\vspace{\stretch{1}}
+\end{enumerate}
+\item Rewrite the expression in exponential form: $\sqrt[\directlua{tex.print(utils.genRandom(2,10, false, false, false))}]{a^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}}$.
+\item Rewrite each expression as a single logarithm.
+\begin{enumerate}
+\item
+$\log_b\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}\right) + \log_b\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}\right)$
+\vspace{\stretch{1}}
+\item $\log_b\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}\right) - \log_b\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}\right)$
+\vspace{\stretch{1}}
+\end{enumerate}
+\item Rewrite each expression so that it does not show any exponents.
+\begin{enumerate}
+\item
+$\log\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}\right)$
+\vspace{\stretch{1}}
+\item $\ln(x^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}y^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}})$
+\vspace{\stretch{1}}
+\end{enumerate}
+\item \textbf{Choose one problem to solve:}
+\begin{enumerate}
+\item(\textbf{Rebuild}) Rewrite the expression as a single logarithm, then find its value.
+\[
+\directlua{b = utils.genRandom(2,9, false, false, false); e = utils.genRandom(-5,5, false, false, true); }
+\log_{\directlua{tex.print(b)}}({\directlua{tex.print(math.floor(b^2))}}) - \log_{\directlua{tex.print(b)}}\left({\directlua{tex.print(utils.printFraction(b,e+2))}}\right)
+\]
+\vspace{\stretch{1}}
+
+\rule{20em}{.4pt}\hspace{10em}\rule{10em}{.4pt}
+\item(\textbf{Recap}) Suppose $\ln(a) = \directlua{tex.print(utils.genRandom(-5,5, false, false, true))}$. Rewrite the expression as a single logarithm, then find its value.
+\[
+\directlua{ d = utils.genRandom(-5,5, false, false, true); e = utils.genRandom(-5,5, false, false, true); }
+\ln(a^{\directlua{tex.print(e)}}) + \ln(a^{\directlua{tex.print(d)}})
+\]
+\vspace{\stretch{1}}
+
+\rule{20em}{.4pt}\hspace{10em}\rule{10em}{.4pt}
+\end{enumerate}
+
+\end{enumerate}
+\clearpage
 \item ({\textbf{Model}}) Score: \rule{2em}{.4pt} 
 
 \textbf{Choose one problem to solve:}
 \begin{enumerate}
+\item(\textbf{Rebuild})
+Population growth in the U.S. between 1800 and 1850, in millions, can be represented
+by the function $f$, defined by $f(t) = 5 · e^{0.028t}$, where $t$ represents the number of years
+after 1800.
+\begin{enumerate}
+\item
+What does $f$ estimate for the U.S population in \directlua{tex.print(utils.genRandom(0,50, false, false, false) + 1800)}?  \textbf{Show your reasoning}.
+\vspace{\stretch{1}}
+\item According to the model, when does the population of  U.S. reach  \directlua{tex.print(utils.genRandom(6,20, false, false, false))} millions?  \textbf{Show your reasoning}.
+\vspace{\stretch{1}}
+\end{enumerate}
 \item (\textbf{Recap})
 A bank account had a balance of \$$100$. Because of the interest accumulated over time,
 the balance doubles every decade. No withdrawals or other deposits are made.
@@ -61,8 +128,10 @@ Find out when the account will have the following amounts. \textbf{Show your rea
 \begin{enumerate}
 \item
 \$\directlua{tex.print(utils.genRandom(1, 10, false, false, false) * 1000) }
+\vspace{\stretch{1}}
 \item
 \$\directlua{tex.print(utils.genRandom(11, 20, false, false, false) * 1000) }
+\vspace{\stretch{1}}
 \end{enumerate}
 \end{enumerate}
 \clearpage
