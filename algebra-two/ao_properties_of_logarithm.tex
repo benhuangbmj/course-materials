@@ -12,7 +12,7 @@
 \lhead{Alagebra II - BASE}
 \chead{Properties of Logarithms}
 \directlua{pageNum = 1}
-\rhead{AO Test, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 2 then pageNum = 1 end}}
+\rhead{AO Test, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
 \usepackage{lastpage}
 \usepackage{xcolor}
 \usepackage{enumitem}
@@ -36,11 +36,7 @@
 \title{}
 \date{}
 
-\begin{luacode*}
-utils = require("../utils")
-\end{luacode*}
-
-\begin{document}
+\newcommand{\template}{
 \directlua{tex.print(utils.genVersion())}
 \noindent
 {\large
@@ -60,6 +56,7 @@ $(y^\directlua{tex.print(utils.genRandom(2,10, false, false, false))})^\directlu
 \vspace{\stretch{1}}
 \end{enumerate}
 \item Rewrite the expression in exponential form: $\sqrt[\directlua{tex.print(utils.genRandom(2,10, false, false, false))}]{a^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}}$.
+\vspace{\stretch{1}}
 \item Rewrite each expression as a single logarithm.
 \begin{enumerate}
 \item
@@ -68,7 +65,7 @@ $\log_b\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}\r
 \item $\log_b\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}\right) - \log_b\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}\right)$
 \vspace{\stretch{1}}
 \end{enumerate}
-\item Rewrite each expression so that it does not show any exponents.
+\item Rewrite each expression so that it does not show any exponent.
 \begin{enumerate}
 \item
 $\log\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}\right)$
@@ -80,7 +77,7 @@ $\log\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}^{\d
 \begin{enumerate}
 \item(\textbf{Rebuild}) Rewrite the expression as a single logarithm, then find its value.
 \[
-\directlua{b = utils.genRandom(2,9, false, false, false); e = utils.genRandom(-5,5, false, false, true); }
+\directlua{b = utils.genRandom(2,9, false, false, false); e = utils.genRandom(-2,2, false, false, true); }
 \log_{\directlua{tex.print(b)}}({\directlua{tex.print(math.floor(b^2))}}) - \log_{\directlua{tex.print(b)}}\left({\directlua{tex.print(utils.printFraction(b,e+2))}}\right)
 \]
 \vspace{\stretch{1}}
@@ -166,7 +163,7 @@ single base.
 \[
 \log_{\rule{2em}{.4pt}}\left(\rule{3em}{0.4pt}\right) = \rule{4em}{.4pt}
 \]
-\item Combining the result in (i) and (iv), we conclude the quotient rule of logarithms:\\[1em]
+\item Combine the result in (i) and (iv) to derive the quotient rule of logarithms:\\[1em]
 \begin{center}
 \rule{20em}{.4pt}
 \end{center}
@@ -191,7 +188,20 @@ into the change of base rule?\\[1em]
 \hrulefill\\[1em]
 
 \hrulefill\\[1em]
+\clearpage
 \end{enumerate}
 \end{enumerate}
 \end{enumerate}
+}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\begin{luacode}
+for i=1,4 do
+	tex.print("\\template")
+end
+\end{luacode}
 \end{document}
