@@ -1,0 +1,148 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Logarithms I}
+\directlua{pageNum = 1}
+\rhead{AO Test, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+\begin{enumerate}
+\item ({\textbf{Be Precise}}) Score: \rule{2em}{.4pt} 
+\begin{enumerate}
+\item
+Find the value of the following expressions
+\begin{enumerate}
+\item
+\directlua{b = utils.genRandom(2,5, false, false, false); e = utils.genRandom(-3, 3, false, false,false)}
+$\log_\directlua{tex.print(b)}\left(\directlua{tex.print(utils.printFraction(b,e))}\right)$
+\vspace{\stretch{1}}
+\item
+\directlua{b = utils.genRandom(2,9, false, false, false); e = utils.genRandom(-5, 5, false, false,false); c = utils.genRandom(2,9, false, false, false)}
+$\directlua{tex.print(b)}^{\log_\directlua{tex.print(b)}\left(\directlua{tex.print(utils.printFraction(c,e))}\right)}$
+\vspace{\stretch{1}}
+\end{enumerate}
+\item
+In our information-rich era, knowledge is no longer scarce. The more valuable skill is knowing how to verify information. For instance, if you ask ChatGPT, “What is a solution to an equation?”, it will generate the following response.
+
+A \textbf{solution to an equation} is a value (or set of values) that makes the equation \textbf{true} when substituted into it.
+
+An equation states that two expressions are equal.  
+A solution is the number (or numbers) that make both sides equal.
+
+\subsection*{Example 1}
+
+\[
+x + 3 = 7
+\]
+
+Substitute \( x = 4 \):
+
+\[
+4 + 3 = 7
+\]
+
+Since this statement is true, \( 4 \) is a solution.
+
+\subsection*{Example 2}
+
+\[
+x^2 = 9
+\]
+
+Two numbers satisfy this equation:
+
+\[
+3^2 = 9
+\]
+
+\[
+(-3)^2 = 9
+\]
+
+So the solutions are \( x = 3 \) and \( x = -3 \).
+
+\subsection*{Key Idea}
+
+A solution must make the equation true when substituted in.  
+Not every number is a solution --- only those that make the statement correct.
+
+\textbf{Here is the question for you:}
+\begin{enumerate}
+\item
+Is $x = 2$ a solution of $(x-3)(x+2) - 8 = -8$? Explain.
+\vspace{\stretch{1}}
+\item Find all solutions of  $(x-3)(x+2) - 8 = -8$.
+\vspace{\stretch{1}}
+\end{enumerate}
+\clearpage
+\end{enumerate}
+\item ({\textbf{Argue}}) Score: \rule{2em}{.4pt} 
+\begin{enumerate}
+\item
+Solve the equation system
+\directlua{l = utils.genRandom(-9,9, false, false); m = utils.genRandom(-9,9, false, false, -l)}
+\begin{align*}
+y &=  \directlua{tex.print(utils.normalizeCoeff(-l - m, false, true))}x\\
+y & = x^2\directlua{tex.print(utils.normalizeCoeff(l * m, true, true))}
+\end{align*}
+\vspace{\stretch{1}}
+\item 
+\directlua{l = utils.genRandom(-9,9, false, false); m = utils.genRandom(-9,9, false, false, -l)}
+Solve the equation for $x$:
+\[
+(\ln x)^2 \directlua{tex.print(utils.normalizeCoeff(l + m, true, true))}\ln x \directlua{tex.print(utils.normalizeCoeff(l * m, true, true))} = 0
+\]
+\vspace{\stretch{1}}
+\end{enumerate}
+\end{enumerate}
+\clearpage
+}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\begin{luacode}
+for i=1,4 do
+	tex.print("\\template")
+end
+\end{luacode}
+\end{document}
