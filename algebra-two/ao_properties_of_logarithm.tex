@@ -49,10 +49,10 @@ First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspac
 \item Rewrite each expression as a single exponent.
 \begin{enumerate}
 \item
-$x^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}\cdot x^\directlua{tex.print(utils.genRandom(2,10, false, false, false))}$
+$x^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}\cdot x^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}$
 \vspace{\stretch{1}}
 \item
-$(y^\directlua{tex.print(utils.genRandom(2,10, false, false, false))})^\directlua{tex.print(utils.genRandom(2,10, false, false, false))}$
+$(y^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}})^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}$
 \vspace{\stretch{1}}
 \end{enumerate}
 \item Rewrite the expression in exponential form: $\sqrt[\directlua{tex.print(utils.genRandom(2,10, false, false, false))}]{a^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}}$.
@@ -65,20 +65,20 @@ $\log_b\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}\r
 \item $\log_b\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}\right) - \log_b\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}\right)$
 \vspace{\stretch{1}}
 \end{enumerate}
-\item Rewrite each expression so that it does not show any exponent.
+\item Rewrite each expression so that it does not show any exponent in the logarithm.
 \begin{enumerate}
 \item
-$\log\left(\directlua{tex.print(utils.genRandom(2,10, false, false, false))}^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}\right)$
+$\log_b\left(c^{\directlua{tex.print(utils.genRandom(20,99, false, false, false))}}\right)$
 \vspace{\stretch{1}}
-\item $\ln(x^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}}y^{\directlua{tex.print(utils.genRandom(2,10, false, false, false))}})$
+\item $\ln(x^{\directlua{tex.print(utils.genRandom(2,20, false, false, false))}}y^{\directlua{tex.print(utils.genRandom(2,20, false, false, false))}})$
 \vspace{\stretch{1}}
 \end{enumerate}
 \item \textbf{Choose one problem to solve:}
 \begin{enumerate}
 \item(\textbf{Rebuild}) Rewrite the expression as a single logarithm, then find its value.
 \[
-\directlua{b = utils.genRandom(2,9, false, false, false); e = utils.genRandom(-2,2, false, false, true); }
-\log_{\directlua{tex.print(b)}}({\directlua{tex.print(math.floor(b^2))}}) - \log_{\directlua{tex.print(b)}}\left({\directlua{tex.print(utils.printFraction(b,e+2))}}\right)
+\directlua{b = utils.genRandom(2,5, false, false, false); e = utils.genRandom(-2,2, false, false, true); c = utils.genRandom(2,4, false, false, b); }
+\log_{\directlua{tex.print(b)}}({\directlua{tex.print(c)}}) - \log_{\directlua{tex.print(b)}}\left({\directlua{tex.print(c ..  "\\times" .. utils.printFraction(b,e))}}\right)
 \]
 \vspace{\stretch{1}}
 
