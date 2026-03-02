@@ -1,0 +1,105 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Linear v.s. Logarithmic }
+\directlua{pageNum = 1}
+\rhead{Practice, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\template
+
+Consider the following sequence of 10 numbers:
+\[
+3,\; 7,\; 12,\; 18,\; 25,\; 31,\; 42,\; 56,\; 63,\; 78
+\]
+
+Answer the questions below.
+
+\begin{enumerate}[label=\arabic*.]
+    \item Clearly describe each step of your algorithm, and justify that the algorithm always terminates, regardless of whether 58 is in the sequence.
+\vspace{\stretch{1}}
+    \item How many iterations does your algorithm take before it ends?  
+    Explain how you determined this number.
+\vspace{\stretch{1}}
+    \item Suppose the length of the sequence is \(n\) instead of 10.  
+    As \(n\) increases, how does the number of iterations needed by your algorithm change?  
+    Describe the relationship using words and, if possible, mathematical notation.
+    \vspace{\stretch{1}}
+\end{enumerate}
+\clearpage
+Here is the same sequence of numbers:
+\[
+3,\; 7,\; 12,\; 18,\; 25,\; 31,\; 42,\; 56,\; 63,\; 78
+\]
+
+Notice that the sequence is ordered from smallest to largest. Because of this, we can apply the \emph{binary search} algorithm.
+
+\subsection*{Description of Binary Search}
+
+Binary search works as follows:
+\begin{enumerate}[label = (\roman*)]
+    \item Look at the middle number of the sequence.
+    \item If the middle number is the target number, the search stops.
+    \item If the target number is smaller than the middle number, repeat the process using only the left half of the sequence.
+    \item If the target number is larger than the middle number, repeat the process using only the right half of the sequence.
+    \item Continue this process until the number is found or there are no numbers left to check.
+\end{enumerate}
+
+Answer the questions below.
+
+\begin{enumerate}[label=\arabic*.]
+    \item Use the binary search algorithm to search for the number \(58\).  
+    Show the result of each iteration, including which numbers remain under consideration at each step.
+    \vspace{\stretch{1}}
+    \item How many iterations does it take to determine whether \(58\) is in the sequence?
+    \vspace{\stretch{1}}
+    \item Suppose the length of the sequence is \(n\).  
+    As \(n\) increases, how does the number of iterations required by binary search change?  
+    Describe the relationship using words and, if possible, mathematical notation.
+        \vspace{\stretch{1}}
+\end{enumerate}
+\end{document}
