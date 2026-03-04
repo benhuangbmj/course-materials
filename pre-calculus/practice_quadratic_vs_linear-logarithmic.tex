@@ -1,0 +1,116 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Quadratic v.s. Linear-Logarithmic}
+\directlua{pageNum = 1}
+\rhead{Practice, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\template
+
+Consider the following sequence of 10 numbers:
+\[
+42,\; 7,\; 56,\; 18,\; 3,\; 63,\; 25,\; 78,\; 12,\; 31
+\]
+
+Answer the questions below.
+
+\begin{enumerate}[label=\arabic*.]
+    \item Design an algorithm to sort the sequence from smallest to largest.  
+    Clearly describe each step of your algorithm, and justify that the algorithm always terminates.
+    \vspace{\stretch{1}}
+
+    \item How many merge steps does your algorithm perform before the sequence is fully sorted?  
+    Explain how you determined this number.
+    \vspace{\stretch{1}}
+
+    \item Suppose the length of the sequence is \(n\) instead of 10.  
+    As \(n\) increases, how does the number of steps required by your algorithm change?  
+    Describe the relationship using words and, if possible, mathematical notation.
+    \vspace{\stretch{1}}
+\end{enumerate}
+
+\clearpage
+
+Here is the same sequence of numbers:
+\[
+42,\; 7,\; 56,\; 18,\; 3,\; 63,\; 25,\; 78,\; 12,\; 31
+\]
+
+Notice that the sequence is \emph{not} ordered.  
+To efficiently sort the sequence, we can apply the \emph{merge sort} algorithm.
+
+\subsection*{Description of Merge Sort}
+
+Merge sort works as follows:
+\begin{enumerate}[label=(\roman*)]
+    \item Divide the sequence into two smaller subsequences of approximately equal length.
+    \item Recursively apply merge sort to each subsequence.
+    \item Merge the two sorted subsequences into a single sorted sequence by repeatedly selecting the smaller leading element.
+    \item Continue this process until the entire sequence is sorted.
+\end{enumerate}
+
+Answer the questions below.
+
+\begin{enumerate}[label=\arabic*.]
+    \item Apply the merge sort algorithm to the given sequence.  
+    Show the result of each division and each merge step.
+    \vspace{\stretch{1}}    
+    \clearpage
+    \item How many times must the sequence be divided until all subsequences contain exactly one element?
+    \vspace{\stretch{1}}
+    \item At a given level of division, how many total numbers are involved in the merging process?
+    \vspace{\stretch{1}}
+    \item Does this total number of elements involved in merging depend on the level?  
+    Explain your reasoning.
+    \vspace{\stretch{1}}
+    \item Using your answers above, describe how the total amount of work required by merge sort changes as the length \(n\) of the sequence increases.
+    \vspace{\stretch{1}}
+\end{enumerate}
+
+\end{document}
+\end{document}
