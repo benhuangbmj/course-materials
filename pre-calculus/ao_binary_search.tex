@@ -1,0 +1,101 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Binary Search I}
+\directlua{pageNum = 1}
+\rhead{AO Test, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 2 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+\begin{enumerate}
+\item ({\textbf{Be Precise}}) Score: \rule{2em}{.4pt} 
+
+Consider the ordered sequence
+\[
+\directlua{
+s = {};
+table.insert(s, utils.genRandom(-10, 10))
+for i = 1, 9 do
+	table.insert(s, utils.genRandom(s[i]+1, s[i]+10))
+	tex.print(s[i] .. ",\\ ")
+end
+tex.print(s[10])
+}
+\]
+Apply the binary search to find \directlua{tex.print(utils.genRandom(s[1], s[10]))} in the sequence. In each step, indicate the number that you looked at, and the subsequence you will use in the next step. If you find the number, return the position of the number in the original sequence; otherwise, return \textit{null}. 
+\begin{center}
+\renewcommand{\arraystretch}{3}
+\begin{tabular}{cc}
+Number to Compare & Next Subsequence\\
+\rule{4em}{.4pt}&\rule{20em}{.4pt}\\
+\rule{4em}{.4pt}&\rule{20em}{.4pt}\\
+\rule{4em}{.4pt}&\rule{20em}{.4pt}\\
+\rule{4em}{.4pt}&\rule{20em}{.4pt}\\
+\end{tabular}
+\end{center}
+return: \rule{4em}{.4pt}
+\item ({\textbf{Argue}}) Score: \rule{2em}{.4pt} 
+\begin{enumerate}
+\item Suppose the length of an ordered sequence is $n$. Explain how you will estimate the number of iterations it takes to find a number with the binary search to find a particular number in the sequence, even for the worst case.
+\clearpage
+\item Line $r$ in the $xy$-plane has a slope $\directlua{tex.print(utils.genRandom(-10, 10, false, false, true))}$ of  and passes through the point $(0,  \directlua{tex.print(utils.genRandom(-10, 10, false, false, true))})$.  Find an equation of line $r$.
+\vspace{\stretch{1}}
+\item A veterinarian recommends that each day a certain
+rabbit should eat $\directlua{tex.print(utils.genRandom(25, 35, false, false, true))}$ calories per pound of the rabbit’s
+weight, plus an additional $\directlua{tex.print(utils.genRandom(8, 15, false, false, true))}$ calories. If $c$ is the
+total number of calories the veterinarian
+recommends the rabbit should eat each day if the
+rabbit’s weight is $x$ pounds, find an equation to relate $c$ and $x$.
+\vspace{\stretch{1}}
+\clearpage
+\end{enumerate}
+\end{enumerate}
+}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\begin{luacode}
+for i=1,12 do
+	tex.print("\\template")
+end
+\end{luacode}
+\end{document}
