@@ -12,7 +12,7 @@
 \lhead{Alagebra II - BASE}
 \chead{Polynomial I}
 \directlua{pageNum = 1}
-\rhead{AO Test, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\rhead{AO Test, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 2 then pageNum = 1 end}}
 \usepackage{lastpage}
 \usepackage{xcolor}
 \usepackage{enumitem}
@@ -43,23 +43,64 @@
 First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
 }
 \vspace{1em}
+
+\noindent\textbf{Instruction: No calculator in this action opportunity. In particular, you are required to simplify all additions and subtractions.}
 \begin{enumerate}
 \item ({\textbf{Be Precise}}) Score: \rule{2em}{.4pt} 
+\begin{enumerate}
+\item
+Identify the degree, leading coefficient, and constant value of the
+following polynomial:
+\vspace{1em}
+
+ $\directlua{tex.print(utils.genRandom(-10,10, false, true, true))} x^{\directlua{tex.print(utils.genRandom(1,10,false, true,true))}}\directlua{tex.print(utils.genRandom(-10,10, true, true, true))} x^{\directlua{tex.print(utils.genRandom(11,20,false, true,true))}}\directlua{tex.print(utils.genRandom(-10,10, true, true, true))} x^{\directlua{tex.print(utils.genRandom(1,10,false, true,true))}}\directlua{tex.print(utils.genRandom(-200,200, true, false, true))} $. Degree: \rule{3em}{0.4pt} Leading Coefficient: \rule{3em}{0.4pt} Constant Value: \rule{3em}{0.4pt}
+
+ \item Write the expression in standard form:
+$
+ (\directlua{tex.print(utils.genRandom(-10,10, false, true, true))} x \directlua{tex.print(utils.genRandom(-10,10, true, true, true))} x^3\directlua{tex.print(utils.genRandom(-10,10, true, true, true))}x^2 ) - (\directlua{tex.print(utils.genRandom(-10,10, false, true, true))}x^2  \directlua{tex.print(utils.genRandom(-10,10, true, true, true))} x \directlua{tex.print(utils.genRandom(-10,10, true, true, true))} )
+$
+\vspace{1em}
+
+\rule{20em}{0.4pt}
+\item
+$\log_c(c^{\directlua{tex.print(utils.genRandom(-10,10, false, true, true))} x^2 \directlua{tex.print(utils.genRandom(-10,10, true, true, true))} x}) = $ \rule{3em}{0.4pt}
+\item $\sqrt[\directlua{n =utils.genRandom(1,10, false, true, 2); tex.print(n)}]{x^{\directlua{m =utils.genRandom(1,10, false, true, n); tex.print(m)}}} = x^{(\rule{2em}{0.4pt})}$
+\item In the discrete exponential growth model $2026(\directlua{tex.print(utils.genRandom(1,99)/1000+1)})^t$, the growth factor is \rule{3em}{0.4pt}, and the growth rate is \rule{3em}{0.4pt} \%.
+\item In the continuous exponential growth model $2025e^{\directlua{tex.print(utils.genRandom(1,99)/1000)}t}$, the growth factor is \rule{3em}{0.4pt}, and the growth rate is \rule{3em}{0.4pt}\%.
+\end{enumerate}
+
 \item ({\textbf{Argue}}) Score: \rule{2em}{.4pt} 
+\begin{enumerate}
+\item
+Given $f(x) = \directlua{tex.print(utils.genRandom(-10,10, false, true, true))}x \directlua{tex.print(utils.genRandom(-10,10, true, false, true))}$, write the equation of $f^{-1}(x)$. \textbf{Show your work.}
+\vspace{\stretch{1}}
+\item  What is the solution to $ \directlua{tex.print(utils.genRandom(2,10))}\left( \directlua{tex.print(utils.genRandom(2,10))}\right)^{ \directlua{tex.print(utils.genRandom(-10,10, false, true, true))}x} =  \directlua{tex.print(utils.genRandom(1,20))}$? \textbf{Show your work, and express your answer in exact form through mathematics notation. No decimal.}
+\vspace{\stretch{1}}
+\end{enumerate}
 \clearpage
 \item ({\textbf{Model}}) Score: \rule{2em}{.4pt} 
 
 \textbf{Choose one problem to solve:}
 \begin{enumerate}
-\item(\textbf{Rebuild})
+\item(\textbf{Rebuild}) Suppose the sum of two numbers is $\directlua{tex.print(utils.genRandom(-100, 100))}$. Denote one of the numbers by $x$.
+\begin{enumerate}
+\item Write an expression for the product of these two numbers, $P(x)$. \textbf{Show your reasoning.}
+\vspace{\stretch{1}}
+\item What is the product of the two numbers when $x=\directlua{tex.print(utils.genRandom(-50, 50))}$. \textbf{Show your reasoning.}
+\vspace{\stretch{1}}
+\item What is the reasonable domain of $P(x)$? \textbf{Show your reasoning.}
+\vspace{\stretch{1}}
+\end{enumerate}
 
 \item (\textbf{Recap})
 Mai wants to make an open-top box by cutting out the corners of a square piece of cardboard and folding up the sides. The cardboard is \directlua{a = utils.genRandom(10,20, false, false,false); tex.print(a)} centimeters by \directlua{tex.print(a)} centimeters. The volume $V(x)$ in cubic centimeters of the open-top box is a function of the side length $x$,
 in centimeters, of the square cutouts.
 \begin{enumerate}
-\item Write an expression for $V(x)$
+\item Write an expression for $V(x)$. \textbf{Show your reasoning.}
 \vspace{\stretch{1}}
-\item What is the volume of the box when $x=\directlua{tex.print(utils.genRandom(1, math.floor(a/2) - 1))}$.
+\item What is the volume of the box when $x=\directlua{tex.print(utils.genRandom(1, math.floor(a/2) - 1))}$. \textbf{Show your reasoning.}
+\vspace{\stretch{1}}
+\item What is the reasonable domain of $V(x)$? \textbf{Show your reasoning.}
 \vspace{\stretch{1}}
 \end{enumerate}
 \clearpage
@@ -73,7 +114,7 @@ utils = require("../utils")
 
 \begin{document}
 \begin{luacode}
-for i=1,4 do
+for i=1,7 do
 	tex.print("\\template")
 end
 \end{luacode}
