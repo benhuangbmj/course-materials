@@ -25,10 +25,10 @@ $g(t) = Ae^{rt}$ is more suitable to model $\substack{\rule[-5ex]{16em}{.4pt}\\[
 Choose one problem to solve.
 \begin{enumerate}
 \item
-(\textbf{Rebuild}) Which expression has a greater value: $\log_{\directlua{b = utils.genRandom(2,10,false,false,true);tex.print(b)}}\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(b^a)}$ or  $\log_{\directlua{b = utils.genRandom(2,10,false,false,true);tex.print(b)}}\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(b^a)}$? Explain how you know.
+(\textbf{Rebuild}) Which expression has a greater value: $\log_{\directlua{b = utils.genRandom(2,5,false,false,true);tex.print(b)}}\directlua{a=utils.genRandom(-3,3, false, false,false);tex.print(utils.printFraction(b,a))}$ or  $\log_{\directlua{b = utils.genRandom(2,5,false,false,true);tex.print(b)}}\directlua{a=utils.genRandom(-3,3, false, false,false);tex.print(utils.printFraction(b,a))}$? Explain how you know.
 \vspace{\stretch{1}}
 \item
-(\textbf{Recap}) Let $b>0$. Which expression has a greater value: $\log_b b^{\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(a)}}$ or  $\log_{\directlua{b = utils.genRandom(2,10,false,false,true);tex.print(b)}}\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(b^a)}$? Explain how you know.
+(\textbf{Recap}) Let $b>0$. Which expression has a greater value: $\log_b b^{\directlua{a=utils.genRandom(-4,4, false, false,false);tex.print(a)}}$ or  $\log_{\directlua{b = utils.genRandom(2,5,false,false,true);tex.print(b)}}\directlua{a=utils.genRandom(-3,3, false, false,false);tex.print(utils.printFraction(b,a))}$? Explain how you know.
 \vspace{\stretch{1}}
 \end{enumerate}
 \clearpage
@@ -38,7 +38,7 @@ Choose one problem to solve.
 Choose one problem to solve.
 \begin{enumerate}
 \item
-(\textbf{Rebuild}) The function $f = 50\cdot e^{(\directlua{r = utils.genRandom(10,50, false,false, true);tex.print(r/100)}t)}$ models the population of bacteria $t$ hours after it was initially measured. 
+(\textbf{Rebuild}) The function $f = 50\cdot e^{\directlua{r = utils.genRandom(10,50, false,false, true);tex.print(r/100)}t}$ models the population of bacteria $t$ hours after it was initially measured. 
 \begin{enumerate}
 \item
 What is the approximate percent increase in the population each hour?
