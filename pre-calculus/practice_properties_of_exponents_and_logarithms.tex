@@ -1,0 +1,172 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Properties of Exponents and Logarithms}
+\directlua{pageNum = 1}
+\rhead{Practice, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\template
+
+\noindent\textbf{Learning Target: Argue.}
+\begin{itemize}
+\item
+I can prove the basic properties of exponents.
+\item 
+I can apply the appropriate properties of exponents to simplify an expression. 
+\end{itemize}
+
+\noindent{\bf Diagnostic Warm-up.}
+Find the value of each of the following expressions.
+\begin{enumerate}[itemsep=2em]
+\item
+$2^3 = \rule{5em}{0.4pt}$
+\item 
+$8^{2/3} = \rule{5em}{0.4pt}$
+\item 
+$2^{-1} = \rule{5em}{0.4pt}$
+\item
+$(2^{1/2})^4 = \rule{5em}{0.4pt}$
+\item 
+$2^{4/3}\cdot2^{2/3} = \rule{5em}{0.4pt}$
+\item
+$(4^3\cdot 3^6)^{1/6} = \rule{5em}{0.4pt}$
+\end{enumerate}
+\vspace{2em}
+
+
+Let $n$ be a natural number, namely, a positive integer.
+An expression of the form
+\[
+a^n
+\]
+means that the base $a$ is multiplied by itself $n$ times. That is,
+\[
+a^n = \underbrace{a \cdot a \cdot a \cdots a}_{n \text{ times}}.
+\]
+\begin{enumerate}[label=\arabic*.]
+\item Prove $a^m \cdot a^n = a^{m + n}$.
+\vspace{\stretch{1}}
+\item Prove $(a^m)^n  = a^{m\cdot n}$
+\vspace{\stretch{1}}
+\clearpage
+\item {\bf Exit ticket.} Score \rule{4em}{0.4pt}
+
+Exponents also have the following useful properties:
+\begin{enumerate}
+\item
+ $\displaystyle \frac{a^m}{a^n} = a^{m - n}$
+ \item
+ $(ab)^n = a^nb^n$
+ \item
+ $\displaystyle \left(\frac{a}{b}\right)^n =\frac{a^n}{b^n} $
+\end{enumerate}
+    Pick one to prove.
+\clearpage
+\item
+Complete the steps of a proof for the logarithm quotient rule. Start with two equations:
+\[
+b^x = U\hspace{8em}b^y = V
+\]
+\begin{enumerate}
+\item
+Rewrite both of these equations as logarithms.
+\begin{align*}
+\log_{\rule{2em}{.4pt}}\left(\rule{3em}{0.4pt}\right) &= \rule{4em}{.4pt}\\[1em]
+\log_{\rule{2em}{.4pt}}\left(\rule{3em}{0.4pt}\right) &= \rule{4em}{.4pt}
+\end{align*}
+\item Divide the left sides of the original equations, and set the quotient equal to the quotient of
+the right sides of the original equations.
+\[
+\rule{6em}{0.4pt} = \frac{U}{V}
+\]
+\item Combine the exponents on the left side of the equation so that it is written with a
+single base.
+\[
+\rule{6em}{0.4pt} = \frac{U}{V}
+\]
+\item Rewrite the last equation as a logarithm.
+\[
+\log_{\rule{2em}{.4pt}}\left(\rule{3em}{0.4pt}\right) = \rule{4em}{.4pt}
+\]
+\item Combine the result in (i) and (iv) to derive the quotient rule of logarithms:\\[1em]
+\begin{center}
+\rule{20em}{.4pt}
+\end{center}
+\end{enumerate}
+\item 
+Prove the following {\bf Change of Base} formula: for any positive number $c$ (except 1),
+\[
+\log_a(b) = \frac{\log_c(b)}{\log_c(a)}
+\]
+\begin{enumerate}
+\item
+Start with the expression $\displaystyle \log_c(a^{\log_a(b)})$. Rewrite this expression in two ways.\\[1em]
+\begin{enumerate}
+\item
+Use the power rule for logarithms. \rule{20em}{0.4pt}\\[1em]
+\item Rewrite the expression $\displaystyle a^{\log_a(b)}$ so that it does not use a power.  \rule{15em}{0.4pt}
+\end{enumerate}
+\item Set the two expressions you wrote equal to each other. How can you turn this equation
+into the change of base rule?\\[1em]
+
+\hrulefill\\[1em]
+
+\hrulefill\\[1em]
+
+\hrulefill\\[1em]
+
+\hrulefill\\[1em]
+
+\hrulefill\\[1em]
+\clearpage
+\end{enumerate}
+\end{enumerate}
+
+
+\end{document}
+\end{document}
