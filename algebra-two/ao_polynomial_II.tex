@@ -42,17 +42,17 @@
 {\large
 First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
 }
-\vspace{1em}
+%\vspace{1em}
 \begin{enumerate}
-\section*{\bf Be Precise. Score \rule{4em}{.4pt}}
-\item The standard form of $(-2x^2)^3$ is \rule{4em}{0.4pt}, the degree is \rule{4em}{0.4pt}, the leading coefficient is \rule{4em}{0.4pt} and the constant value is \rule{4em}{0.4pt}. 
+\section*{\normalsize Be Precise. Score \rule{4em}{.4pt}}
+\item The standard form of $(-\directlua{tex.print(utils.genRandom(2, 3))}x^{\directlua{tex.print(utils.genRandom(2,10))}})^3$ is \rule{4em}{0.4pt}, the degree is \rule{4em}{0.4pt}, the leading coefficient is \rule{4em}{0.4pt} and the constant value is \rule{4em}{0.4pt}. 
 \item Write a polynomial given the following conditions:
 \begin{itemize}
 \item
-the degree of the expression is 3
+the degree of the expression is \directlua{tex.print(utils.genRandom(3, 8))}
 \item 
-the leading coefficient is 4
-\item the constant term is -5
+the leading coefficient is \directlua{tex.print(utils.genRandom(-99, 99, false, false, true))}
+\item the constant term is \directlua{tex.print(utils.genRandom(-99, 99, false, false, false))}
 \end{itemize}
 \rule{20em}{.4pt}
 \item Find the zeros for each of the following polynomials:
@@ -76,22 +76,28 @@ The expression $x^2 - 26x - 120$ is equivalent to
 A. $(x-4)(x+30)$\hfill B. $(x-20)(x+6)$ \hfill C. $(x+4)(x-30)$ \hfill D. $(x+20)(x-6)$ 
 \item
 (\textbf{Recap})  Factor the polynomial $x^2 +14x -120$.
+\vspace{\stretch{1}}
 \end{enumerate}
-\section*{\bf Argue. Score \rule{4em}{.4pt}}
+\section*{\normalsize Argue. Score \rule{4em}{.4pt}}
 \item Determine the product of $(3x+2)$ and $(-4x^2 + x - 2)$. Express the product in standard form. {\bf Show all your work!}
+\vspace{\stretch{1}}
+\clearpage
 \item Find the result when $2x^2 - 3x + 4$ is subtracted from $x^2 + 2x - 5$. {\bf Show all your work!}
+\vspace{\stretch{1}}
 \item 
-Choose one problem to solve:
+Choose one problem to solve. Circle the label of the problem that you choose.
 \begin{enumerate}
 \item
 (\textbf{Rebuild}) Let $f(x) = (x\directlua{tex.print(utils.genRandom(-5,5, true, false, true))})(x\directlua{tex.print(utils.genRandom(-5,5, true, false, true))})(x\directlua{tex.print(utils.genRandom(-5,5, true, false, true))})$. Find all intercepts of $f(x)$ (including both horizontal and vertical). {\bf Show your reasoning!}
 \item
 (\textbf{Recap}) 
 Let $f(x) = (x - 10)(x + 3)$. {\bf Explain} how you will choose the smallest graphing window in the form of ``$-a \leq x\leq a$, $-b \leq y \leq b$'' such that it contains all intercepts (both horizontal and vertical).
+\vspace{\stretch{1}}
 \end{enumerate}
-\section*{\bf Model. Score \rule{4em}{.4pt}}
-\item Abby has \$20 to spend at a community festival. She uses \$8.50 to purchase food coupons for
-popcorn, a hot dog, and a soda. She can buy individual ride tickets for \$2.25 each. Determine algebraically the maximum number of ride tickets Abby can buy.
+\section*{\normalsize Model. Score \rule{4em}{.4pt}}
+\item Abby has \$\directlua{tex.print(utils.genRandom(20, 30))} to spend at a community festival. She uses \$\directlua{tex.print(utils.genRandom(5, 15))} to purchase food coupons for
+popcorn, a hot dog, and a soda. She can buy individual ride tickets for \$\directlua{tex.print(utils.genRandom(2, 6))} each. Determine algebraically the maximum number of ride tickets Abby can buy. {\bf Show your reasoning!}
+\vspace{\stretch{1}}
 \end{enumerate}
 \clearpage
 }
@@ -103,7 +109,7 @@ utils = require("../utils")
 
 \begin{document}
 \begin{luacode}
-for i=1,4 do
+for i=1,10 do
 	tex.print("\\template")
 end
 \end{luacode}
