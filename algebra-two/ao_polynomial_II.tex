@@ -1,0 +1,110 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Alagebra II - BASE}
+\chead{Polynomial II}
+\directlua{pageNum = 1}
+\rhead{AO Test, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+\begin{enumerate}
+\section*{\bf Be Precise. Score \rule{4em}{.4pt}}
+\item The standard form of $(-2x^2)^3$ is \rule{4em}{0.4pt}, the degree is \rule{4em}{0.4pt}, the leading coefficient is \rule{4em}{0.4pt} and the constant value is \rule{4em}{0.4pt}. 
+\item Write a polynomial given the following conditions:
+\begin{itemize}
+\item
+the degree of the expression is 3
+\item 
+the leading coefficient is 4
+\item the constant term is -5
+\end{itemize}
+\rule{20em}{.4pt}
+\item Find the zeros for each of the following polynomials:
+\begin{enumerate}[itemsep=2em]
+\item
+$(x-3)(x+2)$\hspace{2em} \rule{15em}{.4pt}
+\item
+$x(x-4)(x-9)(x+11)$ \hspace{2em} \rule{15em}{.4pt}
+\item 
+$(x-5)^3(x+9)^2$ \hspace{2em} \rule{15em}{.4pt}
+\item 
+$(3x - 9) (2x + 8)$ \hspace{2em} \rule{15em}{.4pt}
+\end{enumerate}
+\item 
+Choose one problem to solve:
+\begin{enumerate}
+\item
+(\textbf{Rebuild})
+The expression $x^2 - 26x - 120$ is equivalent to 
+
+A. $(x-4)(x+30)$\hfill B. $(x-20)(x+6)$ \hfill C. $(x+4)(x-30)$ \hfill D. $(x+20)(x-6)$ 
+\item
+(\textbf{Recap})  Factor the polynomial $x^2 +14x -120$.
+\end{enumerate}
+\section*{\bf Argue. Score \rule{4em}{.4pt}}
+\item Determine the product of $(3x+2)$ and $(-4x^2 + x - 2)$. Express the product in standard form. {\bf Show all your work!}
+\item Find the result when $2x^2 - 3x + 4$ is subtracted from $x^2 + 2x - 5$. {\bf Show all your work!}
+\item 
+Choose one problem to solve:
+\begin{enumerate}
+\item
+(\textbf{Rebuild}) Let $f(x) = (x\directlua{tex.print(utils.genRandom(-5,5, true, false, true))})(x\directlua{tex.print(utils.genRandom(-5,5, true, false, true))})(x\directlua{tex.print(utils.genRandom(-5,5, true, false, true))})$. Find all intercepts of $f(x)$ (including both horizontal and vertical). {\bf Show your reasoning!}
+\item
+(\textbf{Recap}) 
+Let $f(x) = (x - 10)(x + 3)$. {\bf Explain} how you will choose the smallest graphing window in the form of ``$-a \leq x\leq a$, $-b \leq y \leq b$'' such that it contains all intercepts (both horizontal and vertical).
+\end{enumerate}
+\section*{\bf Model. Score \rule{4em}{.4pt}}
+\item Abby has \$20 to spend at a community festival. She uses \$8.50 to purchase food coupons for
+popcorn, a hot dog, and a soda. She can buy individual ride tickets for \$2.25 each. Determine algebraically the maximum number of ride tickets Abby can buy.
+\end{enumerate}
+\clearpage
+}
+
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\begin{luacode}
+for i=1,4 do
+	tex.print("\\template")
+end
+\end{luacode}
+\end{document}
