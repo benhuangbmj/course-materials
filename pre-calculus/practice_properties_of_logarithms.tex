@@ -12,7 +12,7 @@
 \lhead{Precalculus - BASE}
 \chead{Properties of Exponents and Logarithms}
 \directlua{pageNum = 1}
-\rhead{Practice, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\rhead{Practice, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 100 then pageNum = 1 end}}
 \usepackage{lastpage}
 \usepackage{xcolor}
 \usepackage{enumitem}
@@ -80,7 +80,6 @@ $4^{1/4}\cdot4^{1/4} = \rule{5em}{0.4pt}$
 \item
 $\displaystyle\left(\frac{9^{1/4}}{4^{1/4}}\right)^2 = \rule{5em}{0.4pt}$
 \end{enumerate}
-\vspace{5em}
 
 The basic definition of logarithm is, for $b>0$,
 \[
@@ -101,8 +100,11 @@ $\log_b(U^c) = c\log_b(U)$
 $\displaystyle \log_a(b) = \frac{\log_c(b)}{\log_c(a)}$
 \end{enumerate}
 {\bf Notation:} $\log = \log_{10}$,  $\ln = \log_e$, that is, $\log(10^x) = x$, $\ln(e^x) = x$.
+\item Prove $\log_b(U\cdot V) = \log_bU + \log_bV$.
+
 \clearpage
-\item
+\item {\bf Exit Ticket (Argue).} Score \rule{4em}{.4pt}
+
 Complete the steps of a proof for the logarithm quotient rule: $\displaystyle \log_b\left(\frac{U}{V}\right) = \log_b{U} - \log_b{V}$. Start with two equations:
 \[
 b^x = U\hspace{8em}b^y = V
@@ -132,7 +134,25 @@ single base.
 \begin{center}
 \rule{20em}{.4pt}
 \end{center}
+\vspace{\stretch{1}}
 \end{enumerate}
+\item {\bf Exit Ticket (Be Precise). } Score \rule{4em}{.4pt}
+\begin{enumerate}[itemsep=3em]
+\item
+$3^{-3} = \rule{5em}{0.4pt}$
+\item 
+$16^{1/4} = \rule{5em}{0.4pt}$
+\item 
+$\displaystyle \frac{9^{100/2}}{9^{99/2}} = \rule{5em}{0.4pt}$
+\item
+$(4^{1/2})^4 = \rule{5em}{0.4pt}$
+\item 
+$4^{2/6}\cdot4^{1/6} = \rule{5em}{0.4pt}$
+\item
+$\displaystyle\left(16^{-1/6}\cdot 2^{2/3}\right)^3 = \rule{5em}{0.4pt}$
+\end{enumerate}
+\clearpage
+
 \item 
 Prove the following {\bf Change of Base} formula: for any positive number $c$ (except 1),
 \[
@@ -158,35 +178,11 @@ into the change of base rule?\\[1em]
 \hrulefill\\[1em]
 
 \hrulefill\\[1em]
-\clearpage
-\end{enumerate}
-\item {\bf Exit Ticket (Be Precise). } Score \rule{4em}{.4pt}
-\begin{enumerate}[itemsep=3em]
-\item
-$3^{-3} = \rule{5em}{0.4pt}$
-\item 
-$16^{1/4} = \rule{5em}{0.4pt}$
-\item 
-$\displaystyle \frac{9^{100/2}}{9^{99/2}} = \rule{5em}{0.4pt}$
-\item
-$(4^{1/2})^4 = \rule{5em}{0.4pt}$
-\item 
-$4^{2/6}\cdot4^{1/6} = \rule{5em}{0.4pt}$
-\item
-$\displaystyle\left(16^{-1/6}\cdot 2^{2/3}\right)^3 = \rule{5em}{0.4pt}$
-\end{enumerate}
-\clearpage
 
+\end{enumerate}
 \item {\bf Exit Ticket (Argue).} Score \rule{4em}{.4pt}
 
-Pick one to prove:
-
-\begin{enumerate}
-\item
-$\log_b(U\cdot V) = \log_bU + \log_bV$
-\item 
-$\log_b(U^c) = c\log_b(U)$
-\end{enumerate}
+Prove $\log_b(U^c) = c\log_b(U)$.
 \end{enumerate}
 
 
