@@ -58,31 +58,31 @@ the leading coefficient is \directlua{tex.print(utils.genRandom(-99, 99, false, 
 \item Find the zeros for each of the following polynomials:
 \begin{enumerate}[itemsep=2em]
 \item
-$(x-3)(x+2)$\hspace{2em} \rule{15em}{.4pt}
+$(x\directlua{tex.print(a1)})(x\directlua{tex.print(a2)})$\hspace{2em} \rule{15em}{.4pt}
 \item
-$x(x-4)(x-9)(x+11)$ \hspace{2em} \rule{15em}{.4pt}
+$x(x\directlua{tex.print(b1)})(x\directlua{tex.print(b2)})(x\directlua{tex.print(b3)})$ \hspace{2em} \rule{15em}{.4pt}
 \item 
-$(x-5)^3(x+9)^2$ \hspace{2em} \rule{15em}{.4pt}
+$(x\directlua{tex.print(c1)})^3(x\directlua{tex.print(c2)})^2$ \hspace{2em} \rule{15em}{.4pt}
 \item 
-$(3x - 9) (2x + 8)$ \hspace{2em} \rule{15em}{.4pt}
+$(\directlua{tex.print(d1)}x\directlua{tex.print(d3)}) (\directlua{tex.print(d2)}x \directlua{tex.print(d4)})$ \hspace{2em} \rule{15em}{.4pt}
 \end{enumerate}
 \item 
 Choose one problem to solve:
 \begin{enumerate}
 \item
 (\textbf{Rebuild})
-The expression $x^2 - 26x - 120$ is equivalent to 
+The expression $x^2  + 11x - 80$ is equivalent to 
 
-A. $(x-4)(x+30)$\hfill B. $(x-20)(x+6)$ \hfill C. $(x+4)(x-30)$ \hfill D. $(x+20)(x-6)$ 
+A. $(x-8)(x+10)$\hfill B. $(x-2)(x+40)$ \hfill C. $(x+2)(x-40)$ \hfill D. $(x+16)(x-5)$ 
 \item
 (\textbf{Recap})  Factor the polynomial $x^2 +14x -120$.
 \vspace{\stretch{1}}
 \end{enumerate}
 \section*{\normalsize Argue. Score \rule{4em}{.4pt}}
-\item Determine the product of $(3x+2)$ and $(-4x^2 + x - 2)$. Express the product in standard form. {\bf Show all your work!}
+\item Determine the product of $(\directlua{tex.print(d1)}x\directlua{tex.print(a1)})$ and $(-4x^2 + x - 2)$. Express the product in standard form. {\bf Show all your work!}
 \vspace{\stretch{1}}
 \clearpage
-\item Find the result when $2x^2 - 3x + 4$ is subtracted from $x^2 + 2x - 5$. {\bf Show all your work!}
+\item Find the result when $\directlua{tex.print(d2)}x^2 \directlua{tex.print(a2)}x + 4$ is subtracted from $x^2 + 2x \directlua{tex.print(d4)}$. {\bf Show all your work!}
 \vspace{\stretch{1}}
 \item 
 Choose one problem to solve. Circle the label of the problem that you choose.
@@ -105,11 +105,23 @@ popcorn, a hot dog, and a soda. She can buy individual ride tickets for \$\direc
 
 \begin{luacode*}
 utils = require("../utils")
+a1 = utils.genRandom(-5,5, true, false, true)
+a2 = utils.genRandom(a1+1,a1+5, true, false, true)
+b1 = utils.genRandom(-10,10, true, false, true)
+b2 = utils.genRandom(b1+1,b1+5, true, false, true)
+b3 = utils.genRandom(b2+1,b2+5, true, false, true)
+c1 = utils.genRandom(-10,10, true, false, true)
+c2 = utils.genRandom(c1+1,c1+5, true, false, true)
+d1 = utils.genRandom(2,10, false, false, true)
+d2 = utils.genRandom(d1+1,11, false, false, true)
+d3 = utils.genRandom(-10,10, true, false, true)
+d4 =  utils.genRandom(-10,10, true, false, true)
+
 \end{luacode*}
 
 \begin{document}
 \begin{luacode}
-for i=1,10 do
+for i=1,3 do
 	tex.print("\\template")
 end
 \end{luacode}
