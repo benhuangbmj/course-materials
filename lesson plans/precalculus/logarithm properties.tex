@@ -1,0 +1,167 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+
+\title{Lesson Plan: Properties of Logarithms}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Objective}
+Students will understand and apply the properties of logarithms to expand, condense, and evaluate logarithmic expressions.
+
+\section*{Standards}
+\begin{itemize}
+    \item Rewrite logarithmic expressions using properties of logarithms.
+    \item Solve problems involving exponential and logarithmic relationships.
+\end{itemize}
+
+\section*{Prerequisites}
+\begin{itemize}
+    \item Understanding of exponents and exponent rules
+    \item Definition of logarithms as inverses of exponential functions
+\end{itemize}
+
+\section*{Materials}
+\begin{itemize}
+    \item Whiteboard / projector
+    \item Student worksheet
+    \item Graphing calculator (optional)
+\end{itemize}
+
+\section*{Lesson Duration}
+45--60 minutes
+
+\section*{Lesson Structure}
+
+\subsection*{1. Warm-Up (5--10 minutes)}
+
+Rewrite using exponent rules:
+\begin{enumerate}[label=\arabic*.]
+    \item $a^m \cdot a^n =$
+    \item $\frac{a^m}{a^n} =$
+    \item $(a^m)^n =$
+\end{enumerate}
+
+Then ask:
+\begin{quote}
+How might these rules translate to logarithms?
+\end{quote}
+
+\subsection*{2. Motivation (5--10 minutes)}
+
+Start from the definition:
+\[
+\log_b(x) = y \iff b^y = x
+\]
+
+Example:
+\[
+\log_2(8) = 3 \quad \text{because} \quad 2^3 = 8
+\]
+
+Pose the question:
+\begin{quote}
+What is $\log_b(xy)$ in terms of $\log_b(x)$ and $\log_b(y)$?
+\end{quote}
+
+\subsection*{3. Direct Instruction (15 minutes)}
+
+\textbf{Product Rule:}
+\[
+\log_b(xy) = \log_b(x) + \log_b(y)
+\]
+
+\textbf{Quotient Rule:}
+\[
+\log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y)
+\]
+
+\textbf{Power Rule:}
+\[
+\log_b(x^k) = k \log_b(x)
+\]
+
+\textbf{Important Conditions:}
+\begin{itemize}
+    \item $x > 0$, $y > 0$
+    \item $b > 0$, $b \neq 1$
+\end{itemize}
+
+\textbf{Example 1 (Expansion):}
+\[
+\log_2(8x^3) = \log_2(8) + \log_2(x^3) = 3 + 3\log_2(x)
+\]
+
+\textbf{Example 2 (Condensing):}
+\[
+2\log(x) - \log(y) = \log(x^2) - \log(y) = \log\left(\frac{x^2}{y}\right)
+\]
+
+\subsection*{4. Guided Practice (10--15 minutes)}
+
+\begin{enumerate}[label=\arabic*.]
+    \item Expand: $\log_3(9x^2y)$
+    \item Expand: $\log\left(\frac{a^3}{b\sqrt{c}}\right)$
+    \item Condense: $\log(x) + \log(y) - \log(z)$
+    \item Condense: $3\log(a) + \frac{1}{2}\log(b)$
+\end{enumerate}
+
+Encourage students to justify each step using a named property.
+
+\subsection*{5. Independent Practice (10 minutes)}
+
+\begin{enumerate}[label=\arabic*.]
+    \item Expand completely: $\log_5\left(\frac{25x^4}{y^2}\right)$
+    \item Condense into a single logarithm: 
+    \[
+    2\log(x) - 3\log(y) + \log(z)
+    \]
+    \item Evaluate: $\log_2(32) + \log_2(4)$
+    \item Challenge: Solve for $x$:
+    \[
+    \log(x) + \log(x - 3) = 1
+    \]
+\end{enumerate}
+
+\subsection*{6. Closure (5 minutes)}
+
+Ask:
+\begin{itemize}
+    \item How are logarithm properties related to exponent rules?
+    \item Why must arguments of logarithms be positive?
+\end{itemize}
+
+Summarize:
+\begin{quote}
+Logarithm properties transform multiplication into addition, division into subtraction, and exponents into coefficients.
+\end{quote}
+
+\section*{Assessment}
+
+\begin{itemize}
+    \item Exit Ticket:
+    \[
+    \text{Condense: } \log(x) + 2\log(y) - \log(z)
+    \]
+\end{itemize}
+
+\section*{Differentiation}
+
+\textbf{Support:}
+\begin{itemize}
+    \item Provide a reference sheet of exponent rules alongside log rules
+    \item Use numerical examples before variables
+\end{itemize}
+
+\textbf{Extension:}
+\begin{itemize}
+    \item Introduce change of base formula
+    \item Solve logarithmic equations with multiple steps
+\end{itemize}
+
+\end{document}

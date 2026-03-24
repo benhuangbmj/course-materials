@@ -1,0 +1,163 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Alagebra II - BASE}
+\chead{Polynomial III}
+\directlua{pageNum = 1}
+\rhead{AO Test, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Be Precise}&\textbf{Argue}&\textbf{Model}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+\section*{\normalsize Be Precise.}
+\item The standard form of $(-\directlua{tex.print(utils.genRandom(2, 3))}x^{\directlua{tex.print(utils.genRandom(2,10))}})^3$ is \rule{4em}{0.4pt}, the degree is \rule{4em}{0.4pt}, the leading coefficient is \rule{4em}{0.4pt} and the constant value is \rule{4em}{0.4pt}. 
+\item Write a polynomial given the following conditions:
+\begin{itemize}
+\item
+the degree of the expression is \directlua{tex.print(utils.genRandom(3, 8))}
+\item 
+the leading coefficient is \directlua{tex.print(utils.genRandom(-99, 99, false, false, true))}
+\item the constant term is \directlua{tex.print(utils.genRandom(-99, 99, false, false, false))}
+\end{itemize}
+\rule{20em}{.4pt}
+\item Find the zeros for each of the following polynomials:
+\begin{enumerate}[itemsep=2em]
+\item
+$(x\directlua{tex.print(a1)})(x\directlua{tex.print(a2)})$\hspace{2em} \rule{15em}{.4pt}
+\item
+$x(x\directlua{tex.print(b1)})(x\directlua{tex.print(b2)})(x\directlua{tex.print(b3)})$ \hspace{2em} \rule{15em}{.4pt}
+\item 
+$(x\directlua{tex.print(c1)})^3(x\directlua{tex.print(c2)})^2$ \hspace{2em} \rule{15em}{.4pt}
+\item 
+$(\directlua{tex.print(d1)}x\directlua{tex.print(d3)}) (\directlua{tex.print(d2)}x \directlua{tex.print(d4)})$ \hspace{2em} \rule{15em}{.4pt}
+\end{enumerate}
+\item 
+Choose one problem to solve:
+\begin{enumerate}
+\item
+(\textbf{Rebuild})
+The expression $x^2  + 11x - 80$ is equivalent to 
+
+A. $(x-8)(x+10)$\hfill B. $(x-2)(x+40)$ \hfill C. $(x+2)(x-40)$ \hfill D. $(x+16)(x-5)$ 
+\item
+(\textbf{Recap})  Factor the polynomial $x^2 +14x -120$.
+\vspace{\stretch{1}}
+\end{enumerate}
+\section*{\normalsize Argue. }
+\item Choose one set of problems (either \textbf{Recap} or \textbf{Rebuild}) to solve:
+
+\textbf{Recap:}
+\begin{enumerate}
+\item Finish the proof of the remainder theorem: The remainder of $p(x)$ divided by $(x-a)$ is $p(a)$.
+
+{\bf Proof:} Suppose $p(x) = q(x)(x-a) + r$, then 
+\begin{align*}
+p(a) & = q(\rule{2em}{0.4pt})(\rule{2em}{0.4pt} - a) + r\\
+& = q(\rule{2em}{0.4pt})(\rule{2em}{0.4pt}) + r\\
+&=\rule{2em}{0.4pt}
+\end{align*}
+
+\item Use the remainder theorem to determine if $x\directlua{tex.print(utils.genRandom(-3, 3, true, false, true))}$ is a factor of $x^3 - x^2 - x + 1$. Show all your work!
+\item \directlua{a = utils.genRandom(-5,5); b = utils.genRandom(-5,5, false, false, -a);c = utils.genRandom(-5,5)} Factor the polynomial $(x\directlua{tex.print(utils.normalizeCoeff(c, true))})^2\directlua{tex.print(utils.normalizeCoeff(a+b, true))}(x\directlua{tex.print(utils.normalizeCoeff(c, true))})\directlua{tex.print(utils.normalizeCoeff(a*b, true))}$ completely.
+\end{enumerate}
+{\bf Rebuild:}
+\begin{enumerate}
+\item Find the remainder of $x^2 - x - 6$ divided by $x\directlua{tex.print(utils.genRandom(-9, 9, true, false, true))}$. Show all your work!
+\item \directlua{a = utils.genRandom(-5,5)} Factor the trinomial $x^2\directlua{tex.print(utils.normalizeCoeff(a+b, true))}x$ completely.
+\end{enumerate}
+\item Determine the product of $(\directlua{tex.print(d1)}x\directlua{tex.print(a1)})$ and $(-4x^2 + x - 2)$. Express the product in standard form. {\bf Show all your work!}
+\vspace{\stretch{1}}
+\clearpage
+\item Find the result when $\directlua{tex.print(d2)}x^2 \directlua{tex.print(a2)}x + 4$ is subtracted from $x^2 + 2x \directlua{tex.print(d4)}$. {\bf Show all your work!}
+\vspace{\stretch{1}}
+\item 
+Choose one problem to solve. Circle the label of the problem that you choose.
+\begin{enumerate}
+\item
+(\textbf{Rebuild}) Let $f(x) = (x\directlua{tex.print(utils.genRandom(-5,5, true, false, true))})(x\directlua{tex.print(utils.genRandom(-5,5, true, false, true))})(x\directlua{tex.print(utils.genRandom(-5,5, true, false, true))})$. Find all intercepts of $f(x)$ (including both horizontal and vertical). {\bf Show your reasoning!}
+\item
+(\textbf{Recap}) 
+Let $f(x) = (x - 10)(x + 3)$. {\bf Explain} how you will choose the smallest graphing window in the form of ``$-a \leq x\leq a$, $-b \leq y \leq b$'' such that it contains all intercepts (both horizontal and vertical).
+\vspace{\stretch{1}}
+\end{enumerate}
+\section*{\normalsize Model. }
+\item
+\begin{enumerate}
+\item
+Find the number that is $\displaystyle \frac{7}{12}$ less than its reciprocal.
+\end{enumerate}
+\vspace{\stretch{1}}
+\end{enumerate}
+\clearpage
+}
+
+
+\begin{luacode*}
+utils = require("../utils")
+a1 = utils.genRandom(-5,5, true, false, true)
+a2 = utils.genRandom(a1+1,a1+5, true, false, true)
+b1 = utils.genRandom(-10,10, true, false, true)
+b2 = utils.genRandom(b1+1,b1+5, true, false, true)
+b3 = utils.genRandom(b2+1,b2+5, true, false, true)
+c1 = utils.genRandom(-10,10, true, false, true)
+c2 = utils.genRandom(c1+1,c1+5, true, false, true)
+d1 = utils.genRandom(2,10, false, false, true)
+d2 = utils.genRandom(d1+1,11, false, false, true)
+d3 = utils.genRandom(-10,10, true, false, true)
+d4 =  utils.genRandom(-10,10, true, false, true)
+
+\end{luacode*}
+
+\begin{document}
+\begin{luacode}
+for i=1,3 do
+	tex.print("\\template")
+end
+\end{luacode}
+\end{document}

@@ -1,0 +1,148 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+
+\title{Lesson Plan: The Remainder Theorem}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Objective}
+Students will understand and apply the Remainder Theorem to evaluate polynomials and determine remainders without performing long division.
+
+\section*{Standards}
+\begin{itemize}
+    \item Understand the relationship between polynomial division and function evaluation.
+    \item Apply algebraic reasoning to simplify computations.
+\end{itemize}
+
+\section*{Prerequisites}
+\begin{itemize}
+    \item Polynomial evaluation
+    \item Synthetic division (optional but helpful)
+    \item Basic understanding of division of polynomials
+\end{itemize}
+
+\section*{Materials}
+\begin{itemize}
+    \item Whiteboard / projector
+    \item Student worksheet
+    \item Graphing calculator (optional)
+\end{itemize}
+
+\section*{Lesson Duration}
+45--60 minutes
+
+\section*{Lesson Structure}
+
+\subsection*{1. Warm-Up (5--10 minutes)}
+Evaluate the following:
+\[
+f(x) = x^2 + 3x + 2
+\]
+\begin{itemize}
+    \item Find $f(1)$
+    \item Find $f(-2)$
+\end{itemize}
+
+Prompt discussion: What does it mean to ``plug in'' a value?
+
+\subsection*{2. Motivation (10 minutes)}
+Ask students:
+\begin{quote}
+What if I divide $f(x) = x^2 + 3x + 2$ by $(x - 1)$? What remainder do I get?
+\end{quote}
+
+Walk through polynomial division (or synthetic division) to show:
+\[
+\text{Remainder} = 6
+\]
+
+Then connect:
+\[
+f(1) = 6
+\]
+
+\textbf{Key Question:} Is this a coincidence?
+
+\subsection*{3. Direct Instruction (10--15 minutes)}
+State the theorem clearly:
+
+\begin{quote}
+\textbf{Remainder Theorem:}  
+If a polynomial $f(x)$ is divided by $(x - c)$, then the remainder is $f(c)$.
+\end{quote}
+
+\textbf{Example 1:}
+\[
+f(x) = 2x^3 - x + 5
+\]
+Find the remainder when divided by $(x - 2)$.
+
+\[
+f(2) = 2(2)^3 - 2 + 5 = 16 - 2 + 5 = 19
+\]
+
+\textbf{Conclusion:} The remainder is 19.
+
+\subsection*{4. Guided Practice (10--15 minutes)}
+
+Students try:
+
+\begin{enumerate}[label=\arabic*.]
+    \item $f(x) = x^3 - 4x + 1$, divided by $(x - 3)$
+    \item $f(x) = 2x^2 + 5x - 7$, divided by $(x + 1)$
+    \item $f(x) = x^4 - x^2 + 3$, divided by $(x - 0)$
+\end{enumerate}
+
+Encourage students to evaluate $f(c)$ instead of dividing.
+
+\subsection*{5. Independent Practice (10 minutes)}
+
+\begin{enumerate}[label=\arabic*.]
+    \item Find the remainder when $f(x) = 3x^3 - 2x^2 + x - 5$ is divided by $(x - 1)$.
+    \item Determine the remainder when $f(x) = x^4 + 2x^3 - x + 6$ is divided by $(x + 2)$.
+    \item Challenge: Find $k$ such that the remainder when $f(x) = x^2 + kx + 4$ is divided by $(x - 2)$ is 10.
+\end{enumerate}
+
+\subsection*{6. Closure (5 minutes)}
+
+Ask:
+\begin{itemize}
+    \item What does $f(c)$ represent in terms of division?
+    \item Why is this theorem useful?
+\end{itemize}
+
+Summarize:
+\begin{quote}
+The Remainder Theorem allows us to avoid long division by simply evaluating the polynomial.
+\end{quote}
+
+\section*{Assessment}
+\begin{itemize}
+    \item Exit Ticket:
+    \[
+    f(x) = 2x^3 + x - 4
+    \]
+    Find the remainder when divided by $(x - 3)$.
+\end{itemize}
+
+\section*{Differentiation}
+
+\textbf{Support:}
+\begin{itemize}
+    \item Provide step-by-step substitution examples
+    \item Allow use of calculators
+\end{itemize}
+
+\textbf{Extension:}
+\begin{itemize}
+    \item Introduce Factor Theorem
+    \item Connect to graphing: zeros and x-intercepts
+\end{itemize}
+
+\end{document}
