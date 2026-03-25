@@ -104,12 +104,14 @@ p(a) & = q(\rule{2em}{0.4pt})(\rule{2em}{0.4pt} - a) + r\\
 \end{align*}
 
 \item Use the remainder theorem to determine if $x\directlua{tex.print(utils.genRandom(-3, 3, true, false, true))}$ is a factor of $x^3 - x^2 - x + 1$. Show all your work!
-\item \directlua{a = utils.genRandom(-5,5); b = utils.genRandom(-5,5, false, false, -a);c = utils.genRandom(-5,5)} Factor the polynomial $(x\directlua{tex.print(utils.normalizeCoeff(c, true))})^2\directlua{tex.print(utils.normalizeCoeff(a+b, true))}(x\directlua{tex.print(utils.normalizeCoeff(c, true))})\directlua{tex.print(utils.normalizeCoeff(a*b, true))}$ completely.
+\item \directlua{a = utils.genRandom(-5,5); b = utils.genRandom(-5,5, false, false, -a);c = utils.genRandom(-5,5)} Factor the polynomial $(x\directlua{tex.print(utils.normalizeCoeff(c, true))})^2\directlua{tex.print(utils.normalizeCoeff(a+b, true))}(x\directlua{tex.print(utils.normalizeCoeff(c, true))})\directlua{tex.print(utils.normalizeCoeff(a*b, true))}$ completely. Show all your work!
 \end{enumerate}
 {\bf Rebuild:}
 \begin{enumerate}
+\item Use the quadratic formula to solve $2x^2 - 4x - \directlua{tex.print(utils.genRandom(1,9))} = 0$, and express the answer in simplest
+radical form. 
 \item Find the remainder of $x^2 - x - 6$ divided by $x\directlua{tex.print(utils.genRandom(-9, 9, true, false, true))}$. Show all your work!
-\item \directlua{a = utils.genRandom(-5,5)} Factor the trinomial $x^2\directlua{tex.print(utils.normalizeCoeff(a+b, true))}x$ completely.
+\item \directlua{a = utils.genRandom(-5,5, true, true, true)} Factor the binomial $x^2\directlua{tex.print(a)}x$ completely. Show all your work!
 \end{enumerate}
 \item Determine the product of $(\directlua{tex.print(d1)}x\directlua{tex.print(a1)})$ and $(-4x^2 + x - 2)$. Express the product in standard form. {\bf Show all your work!}
 \vspace{\stretch{1}}

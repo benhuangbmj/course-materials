@@ -1,0 +1,70 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Logarithm Equations}
+\directlua{pageNum = 1}
+\rhead{Practice, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 100 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\template
+
+\noindent\textbf{Learning Target: Argue.}
+\begin{itemize}
+\item
+I can solve an equation of logarithms
+\end{itemize}
+
+\noindent
+{\bf Practice.} 
+Solve $\log_5(x+3) - \log_5x = 2$ for $x$.
+\clearpage
+
+\noindent
+{\bf Exit Ticket.} Score \rule{2em}{0.4pt} 
+
+Solve $\log(4x+22) - \log(2x+1) = 1$ for $x$.
+\end{document}

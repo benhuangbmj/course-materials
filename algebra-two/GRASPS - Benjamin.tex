@@ -1,0 +1,218 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, geometry}
+\usepackage{array}
+\usepackage{booktabs}
+
+\geometry{margin=1in}
+
+\title{Modeling Project: Decaying Average Grading System}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Background}
+
+Some grading systems use a \textbf{decaying average} so that more recent assignments count more than earlier ones. One common model is:
+
+\[
+G_n = 0.6 S_n + 0.4 G_{n-1}
+\]
+
+where:
+\begin{itemize}
+    \item $S_n$ = score on the newest assignment
+    \item $G_n$ = updated grade
+    \item $G_{n-1}$ = previous grade
+\end{itemize}
+
+\section*{Part 1: Understanding the Model}
+
+\begin{enumerate}
+    \item Suppose a student's first score is 70. What is their first decaying average?
+    \vspace{1.5cm}
+    
+    \item If the next score is 80, compute the new grade.
+    \vspace{1.5cm}
+    
+    \item If the next score is 90, compute the updated grade.
+    \vspace{1.5cm}
+    
+    \item In your own words:
+    \begin{itemize}
+        \item Why might a school use a decaying average system?
+        \item What does this system assume about how students learn?
+    \end{itemize}
+    \vspace{2cm}
+\end{enumerate}
+
+\section*{Part 2: Testing Learning Patterns}
+
+For each dataset:
+\begin{itemize}
+    \item Compute the decaying average after each assignment
+    \item Graph the scores and the decaying average
+    \item Describe what the grading system concludes
+\end{itemize}
+
+\subsection*{Data Set A: Consistent Improvement}
+
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+Assignment & Score \\
+\midrule
+1 & 55 \\
+2 & 65 \\
+3 & 75 \\
+4 & 85 \\
+5 & 92 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\subsection*{Data Set B: Early Success, Later Struggle}
+
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+Assignment & Score \\
+\midrule
+1 & 95 \\
+2 & 90 \\
+3 & 82 \\
+4 & 70 \\
+5 & 60 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\subsection*{Data Set C: Fluctuating Performance}
+
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+Assignment & Score \\
+\midrule
+1 & 90 \\
+2 & 65 \\
+3 & 88 \\
+4 & 70 \\
+5 & 92 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\section*{Part 3: A Hidden Problem}
+
+A class studies three units:
+\begin{itemize}
+    \item Linear Functions
+    \item Quadratic Functions
+    \item Exponential Functions
+\end{itemize}
+
+\subsection*{Student D}
+
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+Test & Topic & Score \\
+\midrule
+1 & Linear & 95 \\
+2 & Quadratic & 96 \\
+3 & Exponential & 55 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+    \item What does the decaying average say about this student?
+    \vspace{1.5cm}
+    
+    \item What does the raw data suggest?
+    \vspace{1.5cm}
+    
+    \item What information might the grading system miss?
+    \vspace{1.5cm}
+\end{enumerate}
+
+\subsection*{Student E}
+
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+Test & Topic & Score \\
+\midrule
+1 & Linear & 55 \\
+2 & Quadratic & 95 \\
+3 & Exponential & 96 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+    \item What grade does the decaying average give this student?
+    \vspace{1.5cm}
+    
+    \item Is the student proficient in all topics?
+    \vspace{1.5cm}
+    
+    \item How might the system interpret this pattern?
+    \vspace{1.5cm}
+\end{enumerate}
+
+\section*{Part 4: Detecting the Limitation}
+
+Discuss:
+
+\begin{enumerate}
+    \item What assumption does the decaying average make about learning?
+    \vspace{1.5cm}
+    
+    \item Why might this fail when topics change?
+    \vspace{1.5cm}
+    
+    \item What situations does this system model well?
+    \vspace{1.5cm}
+    
+    \item When does it fail?
+    \vspace{1.5cm}
+\end{enumerate}
+
+\section*{Part 5: Designing a Better System}
+
+You are now a grading system designer.
+
+Propose guidelines for teachers:
+
+\begin{itemize}
+    \item How should assignments be structured?
+    \item Should topics be revisited?
+    \item How many data points are needed per skill?
+\end{itemize}
+
+\vspace{3cm}
+
+\section*{Final Report}
+
+Write a report explaining:
+
+\begin{enumerate}
+    \item How the decaying average works
+    \item When it measures learning well
+    \item When it fails
+    \item Your recommended best practices
+\end{enumerate}
+
+Support your arguments with data and reasoning.
+
+\end{document}
