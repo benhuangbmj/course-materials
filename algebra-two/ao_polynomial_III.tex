@@ -56,6 +56,7 @@ First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspac
 
 \begin{enumerate}
 \section*{\normalsize Be Precise.}
+\item  The Remainder Theorem: The remainder of $p(x)$ divided by $(x-a)$ is \rule{4em}{0.4pt}.
 \item The standard form of $(-\directlua{tex.print(utils.genRandom(2, 3))}x^{\directlua{tex.print(utils.genRandom(2,10))}})^3$ is \rule{4em}{0.4pt}, the degree is \rule{4em}{0.4pt}, the leading coefficient is \rule{4em}{0.4pt} and the constant value is \rule{4em}{0.4pt}. 
 \item Write a polynomial given the following conditions:
 \begin{itemize}
@@ -90,11 +91,19 @@ A. $(x-8)(x+10)$\hfill B. $(x-2)(x+40)$ \hfill C. $(x+2)(x-40)$ \hfill D. $(x+16
 \vspace{\stretch{1}}
 \end{enumerate}
 \section*{\normalsize Argue. }
-\item Choose one set of problems (either \textbf{Recap} or \textbf{Rebuild}) to solve:
+\item Choose one set of problems (either \textbf{Recap} or \textbf{Rebuild}) to solve. \textbf{Circle the label of the problem set.}
+
+{\bf Rebuild:}
+\begin{enumerate}
+\item Use the quadratic formula to solve $2x^2 - 4x - \directlua{tex.print(utils.genRandom(1,9))} = 0$, and express the answer in simplest
+radical form. 
+\item Find the remainder of $x^2 - x - 6$ divided by $x\directlua{tex.print(utils.genRandom(-9, 9, true, false, true))}$. Show all your work!
+\item \directlua{a = utils.genRandom(-5,5, true, true, true)} Factor the binomial $x^2\directlua{tex.print(a)}x$ completely. Show all your work!
+\end{enumerate}
 
 \textbf{Recap:}
 \begin{enumerate}
-\item Finish the proof of the remainder theorem: The remainder of $p(x)$ divided by $(x-a)$ is $p(a)$.
+\item Finish the proof of the remainder theorem.
 
 {\bf Proof:} Suppose $p(x) = q(x)(x-a) + r$, then 
 \begin{align*}
@@ -105,13 +114,6 @@ p(a) & = q(\rule{2em}{0.4pt})(\rule{2em}{0.4pt} - a) + r\\
 
 \item Use the remainder theorem to determine if $x\directlua{tex.print(utils.genRandom(-3, 3, true, false, true))}$ is a factor of $x^3 - x^2 - x + 1$. Show all your work!
 \item \directlua{a = utils.genRandom(-5,5); b = utils.genRandom(-5,5, false, false, -a);c = utils.genRandom(-5,5)} Factor the polynomial $(x\directlua{tex.print(utils.normalizeCoeff(c, true))})^2\directlua{tex.print(utils.normalizeCoeff(a+b, true))}(x\directlua{tex.print(utils.normalizeCoeff(c, true))})\directlua{tex.print(utils.normalizeCoeff(a*b, true))}$ completely. Show all your work!
-\end{enumerate}
-{\bf Rebuild:}
-\begin{enumerate}
-\item Use the quadratic formula to solve $2x^2 - 4x - \directlua{tex.print(utils.genRandom(1,9))} = 0$, and express the answer in simplest
-radical form. 
-\item Find the remainder of $x^2 - x - 6$ divided by $x\directlua{tex.print(utils.genRandom(-9, 9, true, false, true))}$. Show all your work!
-\item \directlua{a = utils.genRandom(-5,5, true, true, true)} Factor the binomial $x^2\directlua{tex.print(a)}x$ completely. Show all your work!
 \end{enumerate}
 \item Determine the product of $(\directlua{tex.print(d1)}x\directlua{tex.print(a1)})$ and $(-4x^2 + x - 2)$. Express the product in standard form. {\bf Show all your work!}
 \vspace{\stretch{1}}
@@ -131,6 +133,9 @@ Let $f(x) = (x - 10)(x + 3)$. {\bf Explain} how you will choose the smallest gra
 \section*{\normalsize Model. }
 \item
 \begin{enumerate}
+\item 
+\directlua{x = utils.genRandom(2, 10); y = x + utils.genRandom(1,5); total = 0.25*x + 0.1*y;}
+Josie has \$\directlua{tex.print(total)} in dimes and quarters. She has \directlua{tex.print(y-x)} more dimes than quarters. Establish an equation that can be used to determine $x$, the number of quarters she has.
 \item
 Find the number that is $\displaystyle \frac{7}{12}$ less than its reciprocal.
 \end{enumerate}
