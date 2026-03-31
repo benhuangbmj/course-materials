@@ -1,0 +1,132 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Exponents and Logarithms I}
+\directlua{pageNum = 1}
+\rhead{AO \assessmentType, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 2 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+\section*{BE PRECISE}
+\item Complete the properties of logarithms.
+\begin{enumerate}[itemsep=2em]
+\item
+$\log_b(\frac{U}{V}) = \rule{8em}{0.4pt}$
+\item
+$\log_b(U^c) =  \rule{8em}{0.4pt}$
+\item
+$\displaystyle \log_b(a) = \frac{\log_c(\rule{3em}{0.4pt})}{\log_c( \rule{3em}{0.4pt})}$
+\end{enumerate}
+\item Find the value of each of the following expressions.
+\begin{enumerate}[itemsep=2em]
+\item \directlua{b=utils.genRandom(2, 5);}$\log_{\directlua{tex.print(b)}}({\directlua{tex.print(b)}}^{\directlua{tex.print(utils.genRandom(-30, 30))}}) =  \rule{4em}{0.4pt}$
+\item  \directlua{b=utils.genRandom(2, 5); e=utils.genRandom(2,3)}$\log_{\directlua{tex.print(b)}}({\directlua{tex.print(math.tointeger(b^e))}}) =\rule{4em}{0.4pt}$
+\item  \directlua{b=utils.genRandom(2, 5)}$\log_{\directlua{tex.print(b)}}(\sqrt[\directlua{tex.print(utils.genRandom(1, 15, false, true, 2))}]{{\directlua{tex.print(b)}}}) = \rule{4em}{0.4pt}$
+\item  \directlua{b=utils.genRandom(2, 5); e=utils.genRandom(2,3)} $\log_{\directlua{tex.print(b)}}\left(\frac{1}{{\directlua{tex.print(math.tointeger(b^e))}}}\right) = \rule{4em}{0.4pt}$
+\end{enumerate}
+\section*{ARGUE}
+\item 
+Complete the steps of a proof for the logarithm product rule: $\displaystyle \log_b\left(U\cdot V\right) = \log_b{U} + \log_b{V}$. Start with two equations:
+\[
+b^x = U\hspace{8em}b^y = V
+\]
+\begin{enumerate}[label = (\roman*)]
+\item
+Rewrite both of these equations as logarithms.
+\begin{align*}
+\log_{\rule{2em}{.4pt}}\left(\rule{3em}{0.4pt}\right) &= \rule{4em}{.4pt}\\[1em]
+\log_{\rule{2em}{.4pt}}\left(\rule{3em}{0.4pt}\right) &= \rule{4em}{.4pt}
+\end{align*}
+\item Multiply the left sides of the original equations, and set the product equal to the product of
+the right sides of the original equations.
+\[
+\rule{6em}{0.4pt} = U\cdot V
+\]
+\item Combine the exponents on the left side of the equation so that it is written with a
+single base.
+\[
+\rule{6em}{0.4pt} = U\cdot V
+\]
+\item Rewrite the last equation as a logarithm.
+\[
+\log_{\rule{2em}{.4pt}}\left(\rule{3em}{0.4pt}\right) = \rule{4em}{.4pt}
+\]
+\item Combine the result in (i) and (iv) to derive the product rule of logarithms:\\[1em]
+\begin{center}
+\rule{20em}{.4pt}
+\end{center}
+\end{enumerate}
+\clearpage
+
+\item \directlua{a = utils.genRandom(-5,5); b = utils.genRandom(-5,5, false, false, -a);} Solve $x^2\directlua{tex.print(utils.normalizeCoeff(a+b, true))}x\directlua{tex.print(utils.normalizeCoeff(a*b, true))} =0$ for $x$. Show all your work!
+\vspace{\stretch{1}}
+
+\item \directlua{a=(utils.genRandom(-5,5,true, false, true)); b=utils.genRandom(-5,5,true, false, tonumber(a)); c=utils.genRandom(-5,5,false, false, false)} Solve $\log_2(x\directlua{tex.print(a)}) - \log_2(x\directlua{tex.print(b)}) = \directlua{tex.print(c)}$ for $x$.
+\vspace{\stretch{1}}
+\clearpage
+\end{enumerate}
+}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\begin{luacode}
+for i=1,13 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")	
+end
+\end{luacode}
+\end{document}
