@@ -1,0 +1,111 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II - BASE}
+\chead{Radical Equations}
+\directlua{pageNum = 1}
+\rhead{Practice, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 100 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\template
+
+\noindent\textbf{Learning Target: Argue.}
+\begin{itemize}
+\item
+I can solve a radical equation.
+\end{itemize}
+
+\noindent
+{\bf Practice.} Solve algebraically for all values of $m$:
+\[
+m - 2\sqrt{4m-3} = 3
+\]
+(Reference: 012636AII)
+\begin{enumerate}[label = Step \arabic*.,  leftmargin=*]
+\item
+Separate the radical operation from the rest of the equation on one side.
+\vspace{\stretch{1}}
+
+\item
+Raise both sides of the equation to the second power.
+\vspace{\stretch{1}}
+
+\item 
+Turn the resulted quadratic equation to the standard form, then solve.
+\vspace{\stretch{1}}
+
+\item
+Check for extraneous solutions.
+\vspace{\stretch{1}}
+\end{enumerate}
+\clearpage
+
+\noindent
+{\bf Exit Ticket (Argue).} Score \rule{2em}{0.4pt} 
+
+Solve algebraically for all values of $x$.
+\[
+\sqrt{x+5} - x = 3
+\]
+(Reference: 082530AII)\begin{enumerate}[label = Step \arabic*.,  leftmargin=*]
+\item
+Separate the radical operation from the rest of the equation on one side.
+\vspace{\stretch{1}}
+
+\item
+Raise both sides of the equation to the second power.
+\vspace{\stretch{1}}
+
+\item 
+Turn the resulted quadratic equation to the standard form, then solve.
+\vspace{\stretch{1}}
+
+\item
+Check for extraneous solutions.
+\vspace{\stretch{1}}
+\end{enumerate}
+
+\end{document}
