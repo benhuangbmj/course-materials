@@ -108,10 +108,31 @@ single base.
 \clearpage
 
 \item \directlua{a = utils.genRandom(-5,5); b = utils.genRandom(-5,5, false, false, -a);} Solve $x^2\directlua{tex.print(utils.normalizeCoeff(a+b, true))}x\directlua{tex.print(utils.normalizeCoeff(a*b, true))} =0$ for $x$. Show all your work!
+\begin{enumerate}[label = \textbf{Step \arabic*:}, leftmargin=*]
+\item
+Find two numbers $u$ and $v$ such that $u\cdot v = \directlua{tex.print(utils.normalizeCoeff(a*b, true))}$ and $u + v =  \directlua{tex.print(utils.normalizeCoeff(a+b, true))}$
 \vspace{\stretch{1}}
+\item Use the result in Step 1 to factor the polynomial of the left.
+\vspace{\stretch{1}}
+\item Use the factorization in Step 2 to determine the solutions of the equations.
+\vspace{\stretch{1}}
+\end{enumerate}
+
 
 \item \directlua{a=(utils.genRandom(-5,5,true, false, true)); b=utils.genRandom(-5,5,true, false, tonumber(a)); c=utils.genRandom(-5,5,false, false, false)} Solve $\log_2(x\directlua{tex.print(a)}) - \log_2(x\directlua{tex.print(b)}) = \directlua{tex.print(c)}$ for $x$.
+\begin{enumerate}[label = \textbf{Step \arabic*:}, leftmargin=*]
+\item
+Combine each side into a single logarithm with the same base.
 \vspace{\stretch{1}}
+\item
+Exponentiate both sides with the appropriate base.
+\vspace{\stretch{1}}
+\item
+Solve the resulted simplified equation.
+\vspace{\stretch{1}}
+\item Check for extraneous solutions. Note that the input of the log cannot be $0$ or negative as well.
+\vspace{\stretch{1}}
+\end{enumerate}
 \clearpage
 \end{enumerate}
 }
