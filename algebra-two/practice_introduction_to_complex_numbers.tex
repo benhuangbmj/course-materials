@@ -52,9 +52,42 @@ utils = require("../utils")
 \begin{document}
 \template
 
-The numbers that we use to count and measure, for example, $1$, $2$, $-3$, $\displaystyle\frac{4}{5}$, $\sqrt6$, $e$, and $\pi$, are called \textbf{real numbers}. They are tremendously useful beyond doubt. But here comes a curious questions:
+The numbers that we use to count and measure, for example, $1$, $2$, $-3$, $\displaystyle\frac{4}{5}$, $\sqrt{67}$, $e$, and $\pi$, are called \textbf{real numbers}. They are tremendously useful beyond doubt. But here comes a curious questions:
 \begin{center}
 Can you find a real number $x$ such that $x^2 = -1$?
 \end{center}
+You should pause your reading, think about it, and talk with your classmates on your thought.
+\vspace{\stretch{1}}
+
 Since the square of any nonzero real number must be positive\footnote{In case you're curious, here is a proof of this claim: Let $a > 0$, then $a^2 - (-a)^2 = (a - a)(a + a) = 0\cdot 2a = 0$. Therefore, $(-a)^2 = a^2 > 0.$}, there isn't a real number solution of the equation above.
+
+Now, in order to solve the equation $x^2 = -1$, we need to go beyond the real numbers. Let us introduce a new number, denoted by $i$, defined by the property that $i^2 = -1$. Historically, this number $i$ is called the \textbf{imaginary unit}. When we combine this imaginary unit with real numbers, we obtain the \textbf{complex number} system.
+
+You may wonder: is this imaginary number actually useful? At first glance, it may seem frivolous—we do not use it to count or measure in everyday life. However, complex numbers have many important applications in the real world. Below is a small sample of these powerful (and sometimes surprising) applications:
+\begin{itemize}
+    \item Electrical engineering: Complex numbers model alternating current so engineers can track voltage and current that are out of sync.
+    
+    \item Signal processing: The Fourier Transform uses complex numbers to break signals (like music or images) into frequencies.
+    
+    \item Computer graphics: Multiplying complex numbers rotates and scales objects smoothly in animations and games.
+    
+    \item Telecommunications: Cell phones and Wi-Fi use complex numbers to encode and decode signals for fast, reliable data transmission.
+    
+    \item Audio technology: Noise cancellation and sound compression rely on complex-number analysis of sound waves.
+    
+    \item Medical imaging: MRI scanners use complex numbers to reconstruct detailed images from raw signal data.
+    
+    \item Control systems: Engineers use complex numbers to determine whether systems like drones or cars will remain stable or oscillate.
+    
+    \item Quantum physics: The behavior of particles is described using complex-valued wave functions.
+    
+    \item Fluid dynamics: Complex functions help model 2D fluid flow, such as air moving around an airplane wing.
+    
+    \item Fractals and visualization: Iterating complex numbers generates intricate patterns like the Mandelbrot set.
+    
+    \item Navigation and robotics: Rotations and orientations in 2D space can be efficiently handled using complex multiplication.
+    
+    \item Cryptography: Some encryption methods rely on number systems and structures closely related to complex numbers.
+\end{itemize}
+In the next couple of lectures, we are going to have a deep dive into the mathematical properties of these complex numbers!
 \end{document}
