@@ -52,7 +52,17 @@ utils = require("../utils")
 \begin{document}
 \template
 
-The numbers that we use to count and measure, for example, $1$, $2$, $-3$, $\displaystyle\frac{4}{5}$, $\sqrt{67}$, $e$, and $\pi$, are called \textbf{real numbers}. They are tremendously useful beyond doubt. But here comes a curious questions:
+The numbers that we use to count and measure, for example, $1$, $2$, $-3$, $\displaystyle\frac{4}{5}$, $\sqrt{67}$, $e$, and $\pi$, are called \textbf{real numbers}. Every real number is correspondent to a point on the number line.
+\begin{center}
+\begin{tikzpicture}
+  \draw[->] (-5,0) -- (5,0);
+  \foreach \x in {-4,..., 4}
+    \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+  \filldraw[fill=black] (0.8,0) circle [radius=2pt] node[below] {$\frac{4}{5}$};
+  
+\end{tikzpicture}
+\end{center}
+They are tremendously useful beyond doubt. But here comes a curious questions:
 \begin{center}
 Can you find a real number $x$ such that $x^2 = -1$?
 \end{center}
