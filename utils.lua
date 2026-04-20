@@ -8,7 +8,7 @@ function utils.genRandom(a, b, sign, noOne, noZero)
 	end
 	output =  math.random(a,b)
 	if noZero ~= false then
-		while output == noZero do
+		while output == noZero or output == 0 do
 			output =  math.random(a,b)
 		end
 	end
