@@ -1,0 +1,135 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Alagebra II - BASE}
+\chead{Polynomial Rebuild}
+\directlua{pageNum = 1}
+\rhead{AO \assessmentType, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 2 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspace{\stretch{1}} Date \rule{1.5em}{.4pt} -- \rule{1.5em}{.4pt} -- \rule{1.5em}{.4pt}\hspace{\stretch{1}} Period \rule{2em}{.4pt}\hspace{\stretch{1}}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+\section*{\normalsize Be Precise.}
+ \item Write the expression in standard form:
+$
+ (\directlua{tex.print(utils.genRandom(-10,10, false, true, true))} x \directlua{tex.print(utils.genRandom(-10,10, true, true, true))} x^3\directlua{tex.print(utils.genRandom(-10,10, true, true, true))}x^2 ) - (\directlua{tex.print(utils.genRandom(-10,10, false, true, true))}x^2  \directlua{tex.print(utils.genRandom(-10,10, true, true, true))} x \directlua{tex.print(utils.genRandom(-10,10, true, false, true))} )
+$
+\vspace{2em}
+
+\rule{20em}{0.4pt}
+ \item Write the expression in standard form: $(x \directlua{tex.print(utils.genRandom(-10,10, true, false, true))})(x \directlua{tex.print(utils.genRandom(-10,10, true, false, true))})$
+ \vspace{2em}
+
+\rule{20em}{0.4pt}
+ \item Write a polynomial given the following conditions:
+\begin{itemize}
+\item
+the degree of the expression is \directlua{tex.print(utils.genRandom(3, 8))}
+\item 
+the leading coefficient is \directlua{tex.print(utils.genRandom(-99, 99, false, false, true))}
+\item the constant term is \directlua{tex.print(utils.genRandom(-99, 99, false, false, false))}
+\item it has exactly three terms
+\end{itemize}
+\vspace{2em}
+
+\rule{20em}{0.4pt}
+\section*{\normalsize Model. }
+\item Suppose the sum of two numbers is $\directlua{tex.print(utils.genRandom(-100, 100))}$. Denote one of the numbers by $x$.
+\begin{enumerate}
+\item Write an expression for the product of these two numbers, $P(x)$. \textbf{Show your reasoning.}
+\vspace{\stretch{1}}
+\item What is the product of the two numbers when $x=\directlua{tex.print(utils.genRandom(-50, 50))}$. \textbf{Show your reasoning.}
+\vspace{\stretch{1}}
+\item What is the reasonable domain of $P(x)$? \textbf{Show your reasoning.}
+\vspace{\stretch{1}}
+\end{enumerate}
+\clearpage
+\section*{\normalsize Argue. }
+\item \directlua{a = utils.genRandom(-5,5); b = utils.genRandom(-5,5, false, false, -a);} Solve $x^2\directlua{tex.print(utils.normalizeCoeff(a+b, true))}x\directlua{tex.print(utils.normalizeCoeff(a*b, true))} =0$ for $x$. Show all your work!
+\begin{enumerate}[label = \textbf{Step \arabic*:}, leftmargin=*]
+\item
+Find two numbers $u$ and $v$ such that $u\cdot v = \directlua{tex.print(utils.normalizeCoeff(a*b, false))}$ and $u + v =  \directlua{tex.print(utils.normalizeCoeff(a+b, false))}$
+\vspace{\stretch{1}}
+\item Use the result in Step 1 to factor the polynomial of the left.
+\vspace{\stretch{1}}
+\item Use the factorization in Step 2 to determine the solutions of the equations.
+\vspace{\stretch{1}}
+\end{enumerate}
+\item  Solve $ \directlua{tex.print(utils.genRandom(2,10))}\left( \directlua{tex.print(utils.genRandom(2,10))}\right)^{ \directlua{tex.print(utils.genRandom(-10,10, false, true, true))}x} =  \directlua{tex.print(utils.genRandom(1,20))}$ for $x$. \textbf{Show your work, and express your answer in exact form through mathematics notation. No decimal.}
+\begin{enumerate}[label = \textbf{Step \arabic*:}, leftmargin=*]
+\item
+Isolate the exponential function of $x$ on one side of the equation.
+\vspace{\stretch{1}}
+\item Apply a logarithm of an appropriate base on both sides of the equation.
+\vspace{\stretch{1}}
+\item Solve the resulted linear equation from the last step.
+\vspace{\stretch{1}}
+\end{enumerate}
+\end{enumerate}
+\clearpage
+}
+
+
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=1, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
