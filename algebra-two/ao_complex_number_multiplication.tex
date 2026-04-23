@@ -1,0 +1,117 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Alagebra II - BASE}
+\chead{Complex Number Multiplication}
+\directlua{pageNum = 1}
+\rhead{AO \assessmentType, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 2 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspace{\stretch{1}} Date \rule{1.5em}{.4pt} -- \rule{1.5em}{.4pt} -- \rule{1.5em}{.4pt}\hspace{\stretch{1}} Period \rule{2em}{.4pt}\hspace{\stretch{1}}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+\item Let $\displaystyle w = \frac{\sqrt 3}{2} + \frac{1}{2}i$. Plot $w$ in the complex plan below, and measure the angle between the positive real axis and the ray from the origin to $w$ and the distance from the origin to $w$. Label the measure of the angle and the distance on the graph.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+xlabel={$x$},
+ylabel={$y$},
+axis lines=middle,
+ymin=-3, ymax=3,
+xmin=-3, xmax=3,
+width=\textwidth,
+grid = both,
+xtick distance = 1,
+ytick distance = 1,
+grid style={draw=gray!80, dashed}
+]
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\item Let $z = 1 + 2i$. Calculate $z \cdot w$. Show your work.
+\clearpage
+\item Plot $z$ and $z\cdot w$ in the complex plan below, and measure the angle between the ray from the origin to $z$ and the ray from the origin to $z\cdot w$. Label the measure of the angle on the graph.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+xlabel={$x$},
+ylabel={$y$},
+axis lines=middle,
+ymin=-3, ymax=3,
+xmin=-3, xmax=3,
+width=\textwidth,
+grid = both,
+xtick distance = 1,
+ytick distance = 1,
+grid style={draw=gray!80, dashed}
+]
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
+\clearpage
+}
+
+
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=1, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
