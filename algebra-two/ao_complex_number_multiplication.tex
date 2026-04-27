@@ -13,7 +13,7 @@
 \lhead{Alagebra II - BASE}
 \chead{Complex Number Multiplication}
 \directlua{pageNum = 1}
-\rhead{AO \assessmentType, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 2 then pageNum = 1 end}}
+\rhead{AO \assessmentType, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
 \usepackage{lastpage}
 \usepackage{xcolor}
 \usepackage{enumitem}
@@ -55,8 +55,12 @@ First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspac
 \hline
 \end{tabular}
 
+\vspace{1em}
+\noindent
+\textbf{Tools:} calculator, ruler, protractor 
+
 \begin{enumerate}
-\item Let $\displaystyle w = \frac{\sqrt 3}{2} + \frac{1}{2}i$. Plot $w$ in the complex plan below, and measure the angle between the positive real axis and the ray from the origin to $w$ and the distance from the origin to $w$. Label the measure of the angle and the distance on the graph.
+\item (\textbf{Be Precise}) Let $\displaystyle w = \frac{\sqrt 3}{2} + \frac{1}{2}i$. Plot $w$ in the complex plan below, and measure the angle between the positive real axis and the ray from the origin to $w$ and the distance from the origin to $w$. Label the measure of the angle and the distance on the graph.
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
@@ -70,14 +74,16 @@ width=\textwidth,
 grid = both,
 xtick distance = 1,
 ytick distance = 1,
+minor y tick num = 4,
+minor x tick num = 4,
 grid style={draw=gray!80, dashed}
 ]
 \end{axis}
 \end{tikzpicture}
 \end{center}
-\item Let $z = 1 + 2i$. Calculate $z \cdot w$. Show your work.
+\item (\textbf{Argue}) Let $z = 1 + 2i$. Calculate $z \cdot w$. Show your work.
 \clearpage
-\item Plot $z$ and $z\cdot w$ in the complex plan below, and measure the angle between the ray from the origin to $z$ and the ray from the origin to $z\cdot w$. Label the measure of the angle on the graph.
+\item (\textbf{Be Precise}) Plot $z$ and $z\cdot w$ in the complex plan below, and measure the angle between the ray from the origin to $z$ and the ray from the origin to $z\cdot w$. Label the measure of the angle on the graph.
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
@@ -91,16 +97,18 @@ width=\textwidth,
 grid = both,
 xtick distance = 1,
 ytick distance = 1,
+minor y tick num = 4,
+minor x tick num = 4,
 grid style={draw=gray!80, dashed}
 ]
 \end{axis}
 \end{tikzpicture}
 \end{center}
-\item Examining the first graph and second graph, how would you describe what multiplying by $w$ does to $z$?
+\item (\textbf{Model}) Examining the first graph and second graph, how would you describe what multiplying by $w$ does to $z$?
 \clearpage
-\item\label{plan} Based on the prior observation, explain how to algebraically find the point on the complex plane obtained by rotating $z$ about the origin counterclockwise by $90^\circ$.
+\item\label{plan}  (\textbf{Model}) Based on the prior observation, explain how to algebraically find the point on the complex plane obtained by rotating $z$ about the origin counterclockwise by $90^\circ$.
 \vspace{\stretch{1}}
-\item Carry out your plan in Problem \ref{plan}, then plot both points on the complex plan below, and connect them with the origin. Label the complex numbers clearly.
+\item (\textbf{Be Precise}) Carry out your plan in Problem \ref{plan}, then plot both points on the complex plan below, and connect them with the origin. Label the complex numbers clearly.
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
@@ -114,6 +122,8 @@ width=\textwidth,
 grid = both,
 xtick distance = 1,
 ytick distance = 1,
+minor y tick num = 4,
+minor x tick num = 4,
 grid style={draw=gray!80, dashed}
 ]
 \end{axis}
@@ -133,7 +143,7 @@ end
 \end{luacode*}
 \begin{document}
 \begin{luacode*}
-for i=1, 2 do
+for i=1, 1 do
 	if i == 2 then
 		tex.print("\\renewcommand{\\assessmentType}{Summative}")
 	end
