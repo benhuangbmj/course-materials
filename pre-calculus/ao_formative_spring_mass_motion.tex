@@ -1,0 +1,101 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Spring Mass Motion I}
+\directlua{pageNum = 1}
+\rhead{AO \assessmentType, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 2 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.1pt}\hspace{\stretch{1}} Last Name \rule{6em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} Score \rule{2em}{.1pt}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+\vspace{2em}
+
+Experiment with the Spring Mass Motion Simulation, and answer the questions below.
+\begin{enumerate}
+
+\item (\textbf{Be Precise}) Measure the distance between the natural position of the spring and the equilibrium position of the spring when the load is
+\begin{enumerate}
+\item
+50g \rule{5em}{0.4pt}\\[2em]
+\item 
+100g \rule{5em}{0.4pt}
+\end{enumerate}
+
+\item (\textbf{Model}) Describe a quantitative relationship between the load ($m$) and the displacement of the equilibrium from the natural position ($d$). Is the relationship proportional? If so, propose a model of the form $d=k\cdot m$ and estimate k.
+\vspace{\stretch{1}}
+\item\label{letgo} (\textbf{Be Precise}) Measure the distance between the equilibrium position and
+\begin{enumerate}
+\item
+the place you let go of the load. \rule{5em}{0.4pt}\\[2em]
+\item 
+the highest position of the load. \rule{5em}{0.4pt}\\[2em]
+\item
+the lowest position of the load. \rule{5em}{0.4pt}
+\end{enumerate}
+\item\label{theory} (\textbf{Model}) Do the experiment in Problem \ref{letgo} a few times for different let-go positions, then theorize your observation.
+\vspace{\stretch{1}}
+\item (\textbf{Argue}) Based on the theory you come up with in Problem \ref{theory}, what will happen if you let go of the load right at the equilibrium position? Explain your reasoning.
+\vspace{\stretch{1}}
+\end{enumerate}
+}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\begin{luacode}
+for i=1,1 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")	
+end
+\end{luacode}
+\end{document}
