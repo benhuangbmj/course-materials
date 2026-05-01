@@ -1,0 +1,153 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Alagebra II - BASE}
+\chead{Complex Numbers I}
+\directlua{pageNum = 1}
+\rhead{AO \assessmentType, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspace{\stretch{1}} Date \rule{1.5em}{.4pt} -- \rule{1.5em}{.4pt} -- \rule{1.5em}{.4pt}\hspace{\stretch{1}} Period \rule{2em}{.4pt}\hspace{\stretch{1}}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+
+\vspace{1em}
+\noindent \textbf{Reference:}
+\begin{itemize}
+\item
+Quadratic Formula: $\displaystyle x = \frac{-b\pm\sqrt{b^2 - 4ac}}{2a}$
+\end{itemize}
+
+\begin{enumerate}
+\section*{Be Precise}
+\item 
+$i^2$ = \rule{4em}{0.4pt}
+
+\item 
+$\sqrt{-\directlua{tex.print(math.floor(utils.genRandom(2,6)^2))}} = \rule{4em}{0.4pt}$
+\item The complex number indicated by Point $A$ in the graph below is \rule{4em}{0.4pt}.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+xlabel={$Re$},
+ylabel={$Im$},
+axis lines=middle,
+ymin=-3.5, ymax=3.5,
+xmin=-3.5, xmax=3.5,
+yticklabel={$\pgfmathprintnumber{\tick}i$},
+width=0.6\textwidth,
+grid = both,
+xtick distance = 1,
+ytick distance = 1,
+grid style={draw=gray!80, dashed}
+]
+\draw[fill=black] (\directlua{a = utils.genRandom(-3,3,false, false, true); tex.print(a)},-1) circle(3pt) node {$A$};
+\draw (\directlua{tex.print(a)}, -1.4) node {$\large A$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\item The roots of the equation $x^2 + \directlua{root = utils.genRandom(2, 9); tex.print(math.floor(root^2))} = 0$ are
+
+(1) $\pm\directlua{tex.print(root)}$\hspace{\stretch{1}} (2)  $\pm\directlua{tex.print(root)}i$\hspace{\stretch{1}} (3) $\directlua{tex.print(root)}\pm\directlua{tex.print(root)}i$\hspace{\stretch{1}} (4) $\pm\directlua{tex.print(math.floor(root^2))}i$\hspace{\stretch{1}}
+\item $(\directlua{tex.print(utils.genRandom(-3,3, false, false, true))}\directlua{tex.print(utils.genRandom(-3,3, true, true, true))}i)(\directlua{tex.print(utils.genRandom(-3,3, false, false, true))}\directlua{tex.print(utils.genRandom(-3,3, true, true, true))}i) = \rule{10em}{0.4pt}$
+\section*{Argue}
+\item Explain why the imaginary unit $i$ must NOT be a real number.
+\vspace{2em}
+
+By definition, $i^2 = \rule{5em}{0.4pt}$. However, the square of any real number must be  \rule{10em}{0.4pt}, therefore $i$ must not be a real number.
+
+\vspace{\stretch{1}}
+\clearpage
+\item Express $\directlua{tex.print(utils.genRandom(-10, 10, false, true, true))}i^{10} \directlua{tex.print(utils.genRandom(-10, 10, true, true, true))}i^{19}\directlua{tex.print(utils.genRandom(-10, 10, true, true, true))}i^3\directlua{tex.print(utils.genRandom(-10, 10, true, true, true))}i$ in the simplest form, where $i$ is the imaginary unit. Show all your work.
+\begin{itemize}
+\item
+The remainder of $10$ divided by $4$ is \rule{4em}{0.4pt}, thus $i^{10}$ = \rule{4em}{0.4pt}.\\[1em]
+\item 
+The remainder of $19$ divided by $4$ is \rule{4em}{0.4pt}, thus $i^{19}$ = \rule{4em}{0.4pt}.\\[1em] 
+\item
+The remainder of $3$ divided by $4$ is \rule{4em}{0.4pt}, thus $i^{3}$ = \rule{4em}{0.4pt}.\\[1em]
+\item Lastly, combine the like terms and express the given sum in the form of $a+bi$:
+\end{itemize}
+\vspace{\stretch{1}}
+\item Solve the radical equation $\sqrt{x+\directlua{tex.print(utils.genRandom(1,10))}} = x-1$. Show all your work.
+\begin{enumerate}[leftmargin=*, align=left]
+\item
+Square both sides of the equation.
+\vspace{\stretch{1}}
+\item
+Expand the right hand side into the standard form of a polynomial.
+\vspace{\stretch{1}}
+\item Move everything from the left hand side to the right hand side.
+\vspace{\stretch{1}}
+\item Solve the resulted quadratic equation with the quadratic formula.
+\vspace{\stretch{1}}
+\item Plug the candidate solution(s) in to the original radical equation and check if it works.
+\vspace{\stretch{1}}
+\item Finally, the solution(s) to the radical equation is: \rule{22em}{0.4pt}.
+\end{enumerate}
+
+\end{enumerate}
+\clearpage
+}
+
+
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
