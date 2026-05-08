@@ -58,7 +58,40 @@ First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspac
 \vspace{1em}
 \noindent
 \textbf{Tools:} calculator, ruler, protractor 
+\vspace{1em}
 
+\noindent
+\textbf{Example}. Let $\displaystyle v = \frac{\sqrt2}{2} + \frac{\sqrt2}{2}i$. The measure of the angle between the positive real axis and the ray from the origin to $v$ is $45^\circ$ and the distance from the origin to $v$ is $1$. See the figure below.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+xlabel={$Re$},
+ylabel={$Im$},
+axis lines=middle,
+ymin=-3.5, ymax=3.5,
+xmin=-3.5, xmax=3.5,
+yticklabel={$\pgfmathprintnumber{\tick}i$},
+width=7in,
+height=7in,
+grid = both,
+xtick distance = 1,
+ytick distance = 1,
+minor y tick num = 4,
+minor x tick num = 4,
+grid style={draw=gray!80, dashed}
+]
+\draw[fill=black] (0.707,0.707) circle (2pt);
+\draw[fill=black] (0.707,0.907) node{\Large $v$} ;
+\draw[thick] (0,0) -- (0.707,0.707);
+\draw[thick] (0,0) -- (1,0);
+\draw (0.5, 0.2) node{\large $45^\circ$};
+\draw (0.25, 0.4) node{\large $1$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Here the unit of length is $1$ inch. You are encouraged to remeasure the distance and the angle with the hand tools as practice for using the tools.
+\clearpage
 \begin{enumerate}
 \item (\textbf{Be Precise}) Let $\displaystyle w = \frac{\sqrt 3}{2} + \frac{1}{2}i$. Plot $w$ in the complex plan below, and measure the angle between the positive real axis and the ray from the origin to $w$ and the distance from the origin to $w$. Label the measure of the angle and the distance on the graph.
 \begin{center}
@@ -106,11 +139,17 @@ grid style={draw=gray!80, dashed}
 \end{axis}
 \end{tikzpicture}
 \end{center}
-\item (\textbf{Model}) Examining the first graph and second graph, how would you describe what multiplying by $w$ does to $z$?
-\clearpage
-\item\label{plan}  (\textbf{Model}) Based on the prior observation, explain how to algebraically find the point on the complex plane obtained by rotating $z$ about the origin counterclockwise by $90^\circ$.
 \vspace{\stretch{1}}
-\item (\textbf{Be Precise}) Carry out your plan in Problem \ref{plan}, then plot both points on the complex plan below, and connect them with the origin. Label the complex numbers clearly.
+\item\label{hypothesis} (\textbf{Model}) Examining the first graph and second graph, how would you describe what multiplying by $w$ does to $z$?
+
+Hint: Complete the following sentence. Multiplying $z$ by $w$ will rotate $z$ about the origin counterclockwise by\\[1em] \rule{6em}{0.4pt} degrees, which is precisely the measure of the angle between $w$ and the positive $x$-axis.
+\clearpage
+\item\label{plan}  (\textbf{Model}) You want to test the model you came up with in Problem \ref{hypothesis} with a few more experiments. Let $z_1 = -1 + i$, $z_2= -1 + 0.6i$ and $z_3 = 1 - 1.8i$. Explain how you will use these numbers as test materials, then demonstrate your results in the plot below.
+
+\textbf{Explanation:}
+\vspace{\stretch{1}}
+
+\textbf{Results:}
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
@@ -132,8 +171,9 @@ grid style={draw=gray!80, dashed}
 \end{axis}
 \end{tikzpicture}
 \end{center}
+\item (\textbf{Argue}) Based on the model you found, explain what multiplying $w^3$ to a complex number $z$ does to $z$, and how you know it.
+\vspace{\stretch{1}}
 \end{enumerate}
-
 \clearpage
 }
 
