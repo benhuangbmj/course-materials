@@ -1,0 +1,108 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Alagebra II - BASE}
+\chead{Trigonometric Functions I}
+\directlua{pageNum = 1}
+\rhead{AO \assessmentType, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspace{\stretch{1}} Date \rule{1.5em}{.4pt} -- \rule{1.5em}{.4pt} -- \rule{1.5em}{.4pt}\hspace{\stretch{1}} Period \rule{2em}{.4pt}\hspace{\stretch{1}}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+
+\vspace{1em}
+\noindent
+\textbf{Tools:} calculator, ruler, protractor 
+\vspace{1em}
+
+\noindent
+\begin{enumerate}
+\item ({\textbf{Argue}}) Solve Problem 3 on the worksheet. Use the space below to show your calculation. Use the coordinate plane on the back to plot your angle then use the protractor to estimate the measure.
+\vspace{\stretch{1}}
+\clearpage
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+xlabel={$x$},
+ylabel={$y$},
+axis lines=middle,
+ymin=-1.5, ymax=1.5,
+xmin=-1.5, xmax=1.5,
+width=7in,
+height=7in,
+grid = both,
+xtick distance = 1,
+ytick distance = 1,
+minor y tick num = 9,
+minor x tick num = 9,
+grid style={draw=gray!80, dashed}
+]
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\item (\textbf{Be Precise}) Solve Problem 4 in the worksheet. Express your answer in the simplest radical form. \textbf{No decimal}.
+\end{enumerate}
+\clearpage
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=1, 1 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
