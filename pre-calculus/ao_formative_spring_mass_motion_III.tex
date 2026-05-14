@@ -1,0 +1,98 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Spring Mass Motion I}
+\directlua{pageNum = 1}
+\rhead{AO \assessmentType, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 2 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.1pt}\hspace{\stretch{1}} Last Name \rule{8em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} 
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+\vspace{2em}
+
+Experiment with the Spring Mass Motion Simulation, and answer the questions below.
+\begin{enumerate}
+\item(\textbf{Be Precise}) Hang the 50g load on the spring, then let go of it anywhere. The time it takes for the load to return to the let go position after one full cycle of oscillation is called the period of the oscillation. Since measurement error is inevitable, a typically technique to measure a quantity more accurately is to measure it a few times then take the average.
+\begin{enumerate}
+\item
+Measure the period of the oscillation for one let go position.
+\vspace{\stretch{1}}
+\item Measure the period of the oscillation for another let go position.
+\vspace{\stretch{1}}
+\item Measure the period of the oscillation for the third let go position.
+\vspace{\stretch{1}}
+\end{enumerate}
+
+\item\label{model} (\textbf{Model}) What did you observe from the previous experiment? Write a hypothesis about the relation between the period and the let go position of the spring mass motion for a fixed load.
+
+\vspace{\stretch{1}}
+\item (\textbf{Argue}) Explain how you will experimentally verify the hypothesis you made in Problem \ref{model}.
+\vspace{\stretch{1}}
+\clearpage
+\item(\textbf{Be Precise}) Carry out your verification with the 100g and 250g load. Find the period of each load.
+\vspace{\stretch{1}}
+\item(\textbf{Argue})
+\vspace{\stretch{1}}
+\end{enumerate}
+}
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+\begin{luacode}
+for i=1,1 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")	
+end
+\end{luacode}
+\end{document}
