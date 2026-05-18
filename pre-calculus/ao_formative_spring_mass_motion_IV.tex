@@ -1,0 +1,196 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Spring Mass Motion IV}
+\directlua{pageNum = 1}
+\rhead{AO \assessmentType, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 2 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.1pt}\hspace{\stretch{1}} Last Name \rule{8em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} 
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+\vspace{2em}
+
+Experiment with the spring-mass motion simulation and answer the questions below.
+
+
+\section*{Set Up}
+\begin{enumerate}
+\item
+Click the Pause button.
+\item Align the zero mark of the ruler with the natural length of the spring.
+\item Place the movable line at 30mm of the ruler.
+\item Hang the 100\,g load on the spring and stretch the spring to align the hook with the movable line.
+\item Get the stopwatch ready.
+\end{enumerate}
+Under the Pause state, use the Forward button to fill the following table:
+Let $\mathbf t$ be the time, and $\mathbf d$ the distance from the hook to the natural length position.
+
+
+ \begin{enumerate}
+\item (\textbf{Be Precise}) Hang the 50\,g load on the spring, then release it from any position. The time it takes for the load to return to the release position after one complete cycle of oscillation is called the \emph{period} of the oscillation.
+
+Since measurement error is inevitable, a common technique for improving accuracy is to repeat the measurement several times and then take the average.
+
+\begin{enumerate}
+
+\item Measure the period of the oscillation for one release position.
+\vspace{\stretch{1}}
+
+\item Measure the period of the oscillation for another release position.
+\vspace{\stretch{1}}
+
+\item Measure the period of the oscillation for a third release position.
+\vspace{\stretch{1}}
+
+\end{enumerate}
+
+\item \label{model} (\textbf{Model}) What did you observe from the previous experiment? Write a hypothesis describing the relationship between the period and the release position in spring-mass motion for a fixed load.
+
+\vspace{\stretch{1}}
+
+\item (\textbf{Argue}) Explain how you would experimentally verify the hypothesis you made in Problem~\ref{model}.
+
+\vspace{\stretch{1}}
+
+\clearpage
+
+\item (\textbf{Be Precise}) Carry out your verification using the 100\,g and 250\,g loads. Find the period for each load.
+
+\vspace{\stretch{1}}
+
+\item (\textbf{Argue}) Is the period proportional to the mass of the load? Explain why or why not.
+
+\vspace{\stretch{1}}
+
+\item (\textbf{Argue}) Is the period proportional to the square root of the mass of the load? Explain why or why not.
+
+\vspace{\stretch{1}}
+
+\item (\textbf{Model}) Explain how the period can be used to determine the unknown mass of a load.
+
+\vspace{\stretch{1}}
+
+\item (\textbf{Be Precise}) Use the period to determine the mass of the small purple load. Show all your work.
+
+\vspace{\stretch{1}}
+
+\end{enumerate}
+}
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.1pt}\hspace{\stretch{1}} Last Name \rule{8em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} 
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+\vspace{2em}
+
+Experiment with the spring-mass motion simulation and answer the questions below.
+
+
+\section*{Set Up}
+\begin{enumerate}
+\item
+Click the Pause button.
+\item Align the zero mark of the ruler with the natural length of the spring.
+\item Place the movable line at 30mm of the ruler.
+\item Hang the 100\,g load on the spring and stretch the spring to align the hook with the movable line.
+\item Get the stopwatch ready.
+\end{enumerate}
+Under the Pause state, use the Forward button to fill the following table:
+Let $\mathbf t$ be the time, and $\mathbf d$ the distance from the hook to the natural length position.
+\begin{luacode*}
+tex.print("\\begin{center}\\renewcommand{\\arraystretch}{2}")
+tex.print("\\begin{tabular}{|c|c|}")
+tex.print("\\hline{$\\mathbf t$} &{$\\mathbf d$} \\\\ \\hline")
+for i = 0, 8 do
+  local s = 0.1*i
+  tex.print(string.format("%s & \\hspace{5em} \\\\ \\hline", s))
+end
+tex.print("\\end{tabular}")
+tex.print("\\end{center}")
+\end{luacode*}
+Then, plot all the points $(t,d)$ on the coordinate plane on the flip side of the paper.
+\clearpage
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+xlabel={$x$},
+ylabel={$y$},
+axis lines=middle,
+ymin=-40, ymax=40,
+xmin=-1, xmax=1,
+width=7in,
+height=7in,
+grid = both,
+xtick distance = 0.1,
+ytick distance = 5,
+grid style={draw=gray!80, dashed}
+]
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+
+\end{document}
