@@ -1,0 +1,109 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Alagebra II - BASE}
+\chead{Trigonometric Functions II}
+\directlua{pageNum = 1}
+\rhead{Practice, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspace{\stretch{1}} Date \rule{1.5em}{.4pt} -- \rule{1.5em}{.4pt} -- \rule{1.5em}{.4pt}\hspace{\stretch{1}} Period \rule{2em}{.4pt}\hspace{\stretch{1}}
+}
+\vspace{1em}
+
+\noindent
+\textbf{Tools:} calculator
+
+\noindent
+\begin{enumerate}
+\item (\textbf{Be Precise}) Fill out the blanks.
+\begin{spacing}{2}
+\begin{enumerate}
+\item 
+$\pi\,\text{rad} =\underline{{\color{white}\hspace{1em}180\hspace{1em}}}\,^\circ$
+\item
+$1^\circ ={\underline{{\color{white}\hspace{1em}\pi/180\hspace{1em}}}}\,\text{rad}$
+\item
+Suppose angle $\theta$ is in the standard position with the terminal edge intersect the unit circle at $(x,y)$, then $\sin\theta =  {\underline{{\color{white}\hspace{1em}y\hspace{1em}}}}$, and  $\cos\theta =  {\underline{{\color{white}\hspace{1em}x\hspace{1em}}}}$.
+\item
+The Pythagorean Identity: {\underline{\color{white}$\hspace{1em}\sin^2\theta + \cos^2\theta = 1\hspace{1em}$}}.
+\item Suppose $A$ and $b$ are positive. In the sinusoidal function $A\sin(bx) + c$ and $A\cos(bx) + c$,  the period is {\rule{6em}{0.4pt}}, the midline is \rule{6em}{0.4pt}, the amplitude is \rule{6em}{0.4pt}, and the frequency is \rule{6em}{0.4pt}.
+\item Define all the other trigonometric functions by $\sin x$ and $\cos x$: $\tan x = \rule{6em}{0.4pt}$, $\cot x = \rule{6em}{0.4pt}$, $\sec x = \rule{6em}{0.4pt}$, and $\csc x = \rule{6em}{0.4pt}$.
+\item $1\,\text{Hz} = \rule{30em}{0.4pt}$.
+\end{enumerate}
+\end{spacing}
+\begin{tabular}{cc}
+\includegraphics[
+page=2,
+trim=4.5in 3in 0.5in 5in,
+clip,
+width=.45\textwidth
+]{F.TF.A.2.DeterminingTrigonometricFunctions4.pdf}&\includegraphics[
+page=1,
+trim=4.5in 2in 0.5in 5.7in,
+clip,
+width=.45\textwidth
+]{F.TF.C.8.DeterminingTrigonometricFunctions1.pdf}
+\end{tabular}
+\clearpage
+\includegraphics[
+page=1,
+trim=0 1in 0 1.5in,
+clip,
+width=\textwidth
+]{F.TF.B.5.ModelingTrigonometricFunctions1.pdf}
+\end{enumerate}
+\clearpage
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=1, 1 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
