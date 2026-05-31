@@ -1,0 +1,106 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Precalculus - BASE}
+\chead{Spring Mass Motion V}
+\directlua{pageNum = 1}
+\rhead{AO \assessmentType, Page \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 2 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+
+\begin{luacode*}
+utils = require("../utils")
+\end{luacode*}
+
+\begin{document}
+
+\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.1pt}\hspace{\stretch{1}} Last Name \rule{8em}{.1pt}\hspace{\stretch{1}} Date \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt} -- \rule{1.5em}{.1pt}\hspace{\stretch{1}} Period \rule{2em}{.1pt}\hspace{\stretch{1}} 
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+\vspace{2em}
+
+Recall the setting of the Spring Mass Motion IV:
+\begin{enumerate}
+\item Align the zero mark of the ruler with the natural length of the spring.
+\item Place the movable line at 30mm of the ruler.
+\item Hang the 100\,g load on the spring and stretch the spring to align the hook with the movable line.
+\end{enumerate}
+In this setting, the period of the oscillation is 0.82 sec, and the spring can reach as far as 30mm and as close as 1.5mm. We aim to model the motion by a function of the form $A\cos(bx) + c$. Complete the following steps to establish the model.
+
+\begin{enumerate}
+\item Determine $b$ via the the period
+\vspace{\stretch{1}}
+\item
+Find the midline (equilibrium) of the oscillation, hence determine $c$.
+\vspace{\stretch{1}}
+\item Find the amplitude, hence determine $A$.
+\vspace{\stretch{1}}
+\item Write up the cosine function to model the oscillation.
+\vspace{\stretch{1}}
+\item On the coordinate plane on the next page, plot the graph of the cosine function, then, plot $(t,d)$-data points from Spring Mass Motion IV along the graph.
+\clearpage  
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+xlabel={$x$},
+ylabel={$y$},
+axis lines=middle,
+ymin=-40, ymax=40,
+xmin=-1, xmax=1,
+width=7in,
+height=7in,
+grid = both,
+xtick distance = 0.1,
+ytick distance = 5,
+grid style={draw=gray!80, dashed}
+]
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
+
+
+\end{document}
