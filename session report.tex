@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\geometry{margin=2em}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\pagestyle{empty}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} 
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\studentname}{\rule{10em}{0.4pt}}
+\newcommand{\classtitle}{\rule{10em}{0.4pt}}
+
+\begin{document}
+
+\begin{center}
+\bf
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|p{.3\textwidth}|p{.3\textwidth}|p{.3\textwidth}|}
+\hline
+Student&Session&Date\\
+\hline
+\begin{minipage}{.5\textwidth}
+   \vspace{.5em}
+   Homework Check:\\
+   Not finished / Finished /\\ N/A
+\end{minipage} &
+\begin{minipage}{.5\textwidth}
+   \vspace{.5em}
+   Material
+   \vspace{2em}
+\end{minipage}&
+\begin{minipage}{.5\textwidth}
+   \vspace{.5em}
+   Topics
+   \vspace{2em}
+\end{minipage} \\
+\hline
+\multicolumn{3}{|l|}{
+\begin{minipage}{.5\textwidth}
+   \vspace{1em}
+   Class Progress and Result
+   \vspace{0.25\paperheight}
+\end{minipage}}\\
+\hline
+\multicolumn{3}{|l|}{
+\begin{minipage}{.5\textwidth}
+   \vspace{1em}
+   Weakness
+   \vspace{0.25\paperheight}
+\end{minipage}}\\
+\hline
+\multicolumn{2}{|l|}{
+\begin{minipage}{.5\textwidth}
+   \vspace{1em}
+   Concerns
+   \vspace{0.25\paperheight}
+\end{minipage}}&\begin{minipage}{.25\textwidth}
+   \vspace{1em}
+   Homework
+    \vspace{0.25\paperheight}
+\end{minipage}\\
+\hline
+\end{tabular}
+\end{center}
+\end{document}
