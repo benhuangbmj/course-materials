@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 
 \usepackage{geometry}
 \geometry{margin=2em}
@@ -20,9 +20,7 @@
 \usepackage{tikz}
 \usetikzlibrary{patterns}
 
-\newcommand{\studentname}{\rule{10em}{0.4pt}}
-\newcommand{\classtitle}{\rule{10em}{0.4pt}}
-
+\newcommand{\rowspace}{0.22}
 \begin{document}
 
 \begin{center}
@@ -34,44 +32,49 @@ Student&Session&Date\\
 \hline
 \begin{minipage}{.5\textwidth}
    \vspace{.5em}
-   Homework Check:\\
-   Not finished / Finished /\\ N/A
+   Homework Check:
+   
+   \raisebox{-.15em}{\scalebox{1.5}{$\square$}} Not finished 
+   
+    \raisebox{-.15em}{\scalebox{1.5}{$\square$}} Finished 
+    
+     \raisebox{-.15em}{\scalebox{1.5}{$\square$}} N/A
+     \vspace{5.5em}
 \end{minipage} &
 \begin{minipage}{.5\textwidth}
    \vspace{.5em}
    Material
-   \vspace{2em}
+   \vspace{4em}
+   
+   Homework
+    \vspace{4em}
 \end{minipage}&
 \begin{minipage}{.5\textwidth}
    \vspace{.5em}
    Topics
-   \vspace{2em}
+   \vspace{9em}
 \end{minipage} \\
 \hline
 \multicolumn{3}{|l|}{
 \begin{minipage}{.5\textwidth}
    \vspace{1em}
    Class Progress and Result
-   \vspace{0.25\paperheight}
+   \vspace{\rowspace\paperheight}
 \end{minipage}}\\
 \hline
 \multicolumn{3}{|l|}{
 \begin{minipage}{.5\textwidth}
-   \vspace{1em}
+   \vspace{.5em}
    Weakness
-   \vspace{0.25\paperheight}
+   \vspace{\rowspace\paperheight}
 \end{minipage}}\\
 \hline
-\multicolumn{2}{|l|}{
+\multicolumn{3}{|l|}{
 \begin{minipage}{.5\textwidth}
-   \vspace{1em}
+   \vspace{.5em}
    Concerns
-   \vspace{0.25\paperheight}
-\end{minipage}}&\begin{minipage}{.25\textwidth}
-   \vspace{1em}
-   Homework
-    \vspace{0.25\paperheight}
-\end{minipage}\\
+   \vspace{\rowspace\paperheight}
+\end{minipage}}\\
 \hline
 \end{tabular}
 \end{center}
