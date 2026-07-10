@@ -1,0 +1,123 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Geometry}
+\chead{Assessment I}
+\directlua{pageNum = 1}
+\rhead{\today, Page \thepage}% \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+%\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspace{\stretch{1}}  Score \rule{6em}{.4pt}\hspace{\stretch{1}}
+}
+
+\vspace{1em}
+\noindent
+\textbf{Tools:} calculator
+\vspace{1em}
+
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item
+What are the coordinates of the midpoint of the line
+segment with endpoints $(2,−5)$ and $(8,3)$?
+\vspace{\stretch{1}}
+\item The coordinates of the midpoint of $\overline{AB}$ are (2,4),
+and the coordinates of point $B$ are (3,7). What are
+the coordinates of point $A$?
+\vspace{\stretch{1}}
+\end{enumerate}
+\item
+\begin{enumerate}
+\item Determine and state the length of a line segment
+whose endpoints are $(6,4)$ and $(−9,−4)$.
+\vspace{\stretch{1}}
+\item Jerry and Jean Jogger start at the same time from
+point A shown on the accompanying set of axes.
+Jerry jogs at a rate of 5 miles per hour traveling
+from point $A$ to point $R$ to point $S$ and then to point
+$C$. Jean jogs directly from point $A$ to point $C$ on
+$\overline{AC}$ at the rate of 3 miles per hour. Which jogger
+reaches point $C$ first? Explain or show your
+reasoning.
+\begin{figure}[h]
+\includegraphics[width=0.4\textwidth]{joggers.png}
+\end{figure}
+\end{enumerate}
+\clearpage
+\item
+The coordinates of the endpoints of $\overline{AB}$ are
+$A(−6,−5)$ and $B(4,0)$. Point $P$ is on $\overline{AB}$. Determine
+and state the coordinates of point $P$, such that
+$AP:PB$ is $2:3$.
+\vspace{\stretch{1}}
+\item An architect's design includes $\angle ABC$, which is divided into two adjacent angles, $\angle ABD$ and $\angle DBC$.
+If $m\angle ABC = 110^\circ$, $m\angle ABD = 3x$, and $m\angle DBC = 2x$, what is the measure of $\angle ABD$?
+\vspace{\stretch{1}}
+\item 
+\begin{enumerate}
+\item
+Is $(x+y)^2 = x^2 + y^2$? Use $x = 2$ and $y = 3$ to verify your claim.
+\vspace{\stretch{1}}
+\item
+Expand $(x+y)^2$ algebraically.
+\vspace{\stretch{1}}
+\end{enumerate}
+\item (\textbf{Bonus Problem}) Suppose $C$ is the point on the line segment $\overline{AB}$ such that $AC:AB = m:n$. If $A$ is $(x_1, y_1)$ and $B$ is $(x_2, y_2)$, then what are the coordinates of $C$? Explain your reasoning mathematically.
+\vspace{\stretch{2}}
+\end{enumerate}
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
