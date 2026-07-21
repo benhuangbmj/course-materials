@@ -1,0 +1,180 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Geometry}
+\chead{Assessment 3}
+\directlua{pageNum = 1}
+\rhead{\today, Page \thepage}% \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+%\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspace{\stretch{1}}  Score \rule{6em}{.4pt}\hspace{\stretch{1}}
+}
+
+\vspace{1em}
+\noindent
+\textbf{Tools:} calculator
+\vspace{1em}
+
+\begin{enumerate}
+\item
+An equation of a line perpendicular to the line represented by the equation $\displaystyle y = -\frac{1}{2}x - 5$
+and passing through $(6,-4)$ is
+
+1) $\displaystyle y = -\frac{1}{2}x +4$ \hspace{\stretch{1}}
+2) $\displaystyle y = -\frac{1}{2}x - 1$\hspace{\stretch{1}}
+3) $\displaystyle y = 2x +14$\hspace{\stretch{1}}
+4) $\displaystyle y = 2x - 16$
+\item 
+The two lines represented by the equations below
+are graphed on a coordinate plane.
+\begin{align*}
+x+6y&=12\\
+3(x-2) &= -y-4
+\end{align*}
+Which statement best describes the two lines?
+\begin{enumerate}[label=\arabic*)]
+\item
+The lines are parallel.
+\item
+The lines are the same line.
+\item
+The lines are perpendicular.
+\item 
+The lines intersect at an angle other than $90^\circ$.
+\end{enumerate}
+\item In the $\triangle ABC$, $D$ is the midpoint
+of $\overline{AB}$, and $E$ is the midpoint of $\overline{BC}$.
+If $AC = 4x + 10$, which expression represents $DE$?
+
+1) $\displaystyle x+2.5$ \hspace{\stretch{1}}
+2) $\displaystyle 2x+5$\hspace{\stretch{1}}
+3) $\displaystyle 2x+10$\hspace{\stretch{1}}
+4) $\displaystyle 8x+20$
+\item 
+In the diagram below of $\triangle CER$, $\overline{LA} \parallel \overline{CR}$.
+
+\begin{figure}[h]
+\includegraphics[width=0.2\textwidth, center]{regents-splitter-theorem.png}
+\end{figure}
+
+If $CL = 3.5$, $LE = 7.5$, and $EA = 9.5$, what is the
+length of $\overline{AR}$, to the \textit{nearest tenth}?
+
+1) $5.5$ \hspace{\stretch{1}}
+2) $4.4$\hspace{\stretch{1}}
+3) $3.0$\hspace{\stretch{1}}
+4) $2.8$
+
+\item
+In $\triangle SCU$ shown below, points $T$ and $O$ are on $\overline{SU}$
+and $\overline{CU}$, respectively. Segment OT is drawn so
+that $\angle C \cong \angle OTU$.
+
+\begin{figure}[h]
+\includegraphics[width=0.2\textwidth, center]{regents-similarity1.png}
+\end{figure}
+
+If $TU = 4$, $OU = 5$, and $OC = 7$, what is the length
+of $\overline {ST}$?
+
+1) $5.6$ \hspace{\stretch{1}}
+2) $8.75$\hspace{\stretch{1}}
+3) $11$\hspace{\stretch{1}}
+4) $15$
+\clearpage
+\item 
+In the diagram below, $AC = 7.2$ and $CE = 2.4$.
+
+\begin{figure}[h]
+\includegraphics[width=0.2\textwidth, center]{regents-similarity3.png}
+\end{figure}
+
+Which statement is \textit{not} sufficient to prove
+$\triangle ABC \sim \triangle EDC$?
+\begin{enumerate}[label=\arabic*) ]
+\item $\overline{AB} \parallel \overline{ED}$
+\item $DE = 2.7$ and $AB = 8.1$
+\item  $CD = 3.6$ and $BC = 10.8$
+\item $DE = 3.0$, $AB = 9.0$, $CD = 2.9$, and $BC = 8.7$
+\end{enumerate}
+\item 
+ In the diagram below, $\overline{FAD} \parallel\overline{EHC}$, and $\overline{ABH}$ and
+$\overline{BC}$ are drawn.
+
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth, center]{regents_line_angle3.png}
+\end{figure}
+
+If $m\angle FAB = 48^\circ$ and $m\angle ECB = 18^\circ$, what is
+$m\angle ABC$?
+
+1) $18^\circ$ \hspace{\stretch{1}}
+2) $48^\circ$\hspace{\stretch{1}}
+3) $66^\circ$\hspace{\stretch{1}}
+4) $114^\circ$
+
+\item 
+Given: Parallelogram ABCD, $\overline{EFG}$, and diagonal
+$\overline{DFB}$
+
+\begin{figure}[h]
+\includegraphics[width=0.2\textwidth, center]{regents-similarity2.png}
+\end{figure}
+
+Prove: $\triangle DEF\sim \triangle BGF$.
+\end{enumerate}
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
