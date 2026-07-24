@@ -1,0 +1,214 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Geometry}
+\chead{Midterm}
+\directlua{pageNum = 1}
+\rhead{\today, Page \thepage}% \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+%\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspace{\stretch{1}}  Score \rule{6em}{.4pt}\hspace{\stretch{1}}
+}
+
+\vspace{1em}
+\noindent
+\textbf{Tools:} calculator
+\vspace{1em}
+
+\begin{enumerate}
+\item
+In right triangle $JOE$, hypotenuse $JO = 31.8$ and $m\angle{J} = 38^\circ$. To the \textit{nearest tenth}, the length of $\overline{EJ}$ is 
+
+1) $19.6$ \hspace{\stretch{1}}
+2) $25.1$\hspace{\stretch{1}}
+3) $40.4$\hspace{\stretch{1}}
+4) $51.7$\hspace{\stretch{1}}
+
+\item 
+In $\triangle ABC$ below, points $D$ and $E$ are on $\overline{AB}$ and $\overline{CB}$, respectively, such that $\overline{DE}\parallel\overline{AC}$.
+ If $AD=8$, $DB= 4$, and $DE = 6$, what is the length of $\overline{AC}$?
+
+\begin{figure}[h]
+\includegraphics[width=0.25\textwidth, center]{regents082025geo1.png}
+\end{figure}
+ 
+1) $24$ \hspace{\stretch{1}}
+2) $18$\hspace{\stretch{1}}
+3) $12$\hspace{\stretch{1}}
+4) $10$\hspace{\stretch{1}}
+ 
+\item  In the diagram below,$\overline{CD} \parallel \overline{AB}$, and $\overline{CB}$ bisects $\angle{ABD}$.
+Which statement must be true?
+
+\begin{figure}[h]
+\includegraphics[width=0.25\textwidth, center]{regents082025geo2.png}
+\end{figure}
+
+1) $\overline{CD}\cong\overline{AB}$ \hspace{\stretch{1}}
+2) $\overline{AB}\cong\overline{BD}$\hspace{\stretch{1}}
+3) $\triangle CDB$ is a right triangle\hspace{\stretch{1}}
+4) $\triangle CDB$ is an isosceles triangle\hspace{\stretch{1}}
+
+\item 
+Line $h$ is represented by the equation $\displaystyle y = \frac{2}{3}x - 4$.
+Which equation represents the line that is perpendicular to line $h$
+and passes through the point $(6,1)$?
+
+1) $\displaystyle y - 1= \frac{2}{3}(x - 6)$ \hspace{\stretch{1}}
+2) $\displaystyle y + 1= \frac{2}{3}(x + 6)$\hspace{\stretch{1}}
+3) $\displaystyle y - 1= -\frac{3}{2}(x - 6)$\hspace{\stretch{1}}
+4) $\displaystyle y + 1= \frac{3}{2}(x + 6)$\hspace{\stretch{1}}
+
+\item
+In $\triangle ABC$ below, midsegment $\overline{DE}$ is drawn. If $DE = x+3$ and $AC = 3x-5$, what is the length of $\overline{DE}$?
+
+\begin{figure}[h]
+\includegraphics[width=0.25\textwidth, center]{regents082025geo3.png}
+\end{figure}
+
+1) $28$ \hspace{\stretch{1}}
+2) $14$\hspace{\stretch{1}}
+3) $7$\hspace{\stretch{1}}
+4) $4$\hspace{\stretch{1}}
+
+\item 
+Triangle $DUG$ is an isosceles right triangle with the right angle at $G$. If $DU = 10\sqrt 2$,  what is the length $\overline{GU}$? 
+
+1) $5$ \hspace{\stretch{1}}
+2) $5\sqrt2$\hspace{\stretch{1}}
+3) $10$\hspace{\stretch{1}}
+4) $10\sqrt 2$\hspace{\stretch{1}}
+\clearpage
+
+\item 
+In $\triangle RST$ below, $RS = 9$ cm, $RT = 8$ cm, and $m\angle TRS = 55^\circ$.
+What is the area of $\triangle RST$, to the \textit{nearest square centimeter}?
+
+\begin{figure}[h]
+\includegraphics[width=0.3\textwidth, center]{regents082025geo4.png}
+\end{figure}
+
+1) $59$ \hspace{\stretch{1}}
+2) $36$\hspace{\stretch{1}}
+3) $29$\hspace{\stretch{1}}
+4) $21$\hspace{\stretch{1}}
+\item
+What is the perimeter of $\triangle ABC$, where the vertices have have coordinates $A(-2,3)$, $B(-2,-1)$, and $C(6,-1)$?
+
+1) $16$ \hspace{\stretch{1}}
+2) $92$\hspace{\stretch{1}}
+3) $16\sqrt 5$\hspace{\stretch{1}}
+4) $12 + 4\sqrt 5$\hspace{\stretch{1}}
+
+\item
+In the diagram below, $\overline{GT}$ and $\overline{PF}$ intersect at $E$, and $\angle P\cong \angle F$.
+Which equation is always true?
+
+\begin{figure}[h]
+\includegraphics[width=0.3\textwidth, center]{regents082025geo5.png}
+\end{figure}
+
+1) $\displaystyle \frac{PE}{FE} = \frac{FT}{PG}$ \hspace{\stretch{1}}
+2) $\displaystyle \frac{GE}{TE} = \frac{FT}{PG}$\hspace{\stretch{1}}
+3) $\displaystyle \frac{PE}{GE} = \frac{TE}{FE}$\hspace{\stretch{1}}
+4) $\displaystyle \frac{PE}{FE} = \frac{PG}{FT}$\hspace{\stretch{1}}
+
+\item 
+In right triangle $HAY$ below, altitude $\overline{AL}$ is drawn to hypotenuse $\overline{HY}$.
+If $HY=25$ and $YA=20$, the length of $\overline{AL}$ is 
+
+\begin{figure}[h]
+\includegraphics[width=0.3\textwidth, center]{regents082025geo6.png}
+\end{figure}
+
+1) $9$ \hspace{\stretch{1}}
+2) $12$\hspace{\stretch{1}}
+3) $15$\hspace{\stretch{1}}
+4) $16$\hspace{\stretch{1}}
+
+\item
+The endpoints of $\overline{CAS}$ are $C(-3,1)$ and $S(7,6)$. Determine and state the coordinates of point $A$ such that the ratio of $CA:AS$ is $3:2$.
+\clearpage
+
+\item
+The ramp shown in the diagram below has an angle of elevation of $4.8^\circ$. The ramp is built to a
+landing $0.6$ m above the ground. Determine and state the length of the ramp, to the \textit{nearest tenth of a meter}.
+
+\begin{figure}[h]
+\includegraphics[width=0.55\textwidth]{regents082025geo7.png}
+\end{figure}
+\vspace{\stretch{1}}
+
+\item
+Angle $KML$ is the vertex angle of isosceles triangle $KLM$ below. Side $\overline{LM}$ is extended through vertex $M$ to point $N$. if $m\angle K = 15^\circ$, determine and state $m\angle KMN$.
+
+\begin{figure}[h]
+\includegraphics[width=0.55\textwidth]{regents082025geo8.png}
+\end{figure}
+\vspace{\stretch{1}}
+\clearpage
+\item Using a compass and straightedge, construct the image of point $A$ after a reflection over $\overline{BC}$.
+[Leave all construction marks.]
+
+\begin{figure}[h]
+\includegraphics[width=0.3\textwidth,center]{regents082025geo9.png}
+\end{figure}
+
+\item Quadrilateral $READ$ has vertices with coordinates $R(-1,3)$, $E(2,7)$, $A(10,1)$, and $D(7,-3)$. Prove $READ$ is a rectangle.
+
+\end{enumerate}
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
