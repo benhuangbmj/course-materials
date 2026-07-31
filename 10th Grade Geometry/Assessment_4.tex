@@ -1,0 +1,123 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Geometry}
+\chead{Assessment}
+\directlua{pageNum = 1}
+\rhead{\today, Page \thepage}% \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+%\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspace{\stretch{1}}  Score \rule{6em}{.4pt}\hspace{\stretch{1}}
+}
+
+\vspace{1em}
+\noindent
+\textbf{Tools:} calculator, straightedge, compass
+\vspace{1em}
+
+\begin{enumerate}
+\item\ 
+
+\begin{figure}[h]
+\includegraphics[width=0.6\textwidth,center]{regents082025geo16.png}
+\end{figure}
+
+\item\ 
+
+\begin{figure}[h]
+\includegraphics[width=0.6\textwidth,center]{regents082025geo17.png}
+\end{figure}
+\clearpage
+\item\ 
+
+\begin{figure}[h]
+\includegraphics[width=0.6\textwidth,center]{regents062015geo2.png}
+\end{figure}
+\item In the coordinate plane, the vertices of $\triangle RST$ are $R(6,-1)$, $S(1,-4)$, and $T(-5,6)$.
+Prove that $\triangle RST$ is a right triangle.
+
+[The use of the set of axes below is optional.]
+\vspace{\stretch{1}}
+
+State the coordinates of point $P$ such that quadrilateral $RSTP$ is a rectangle.
+\vspace{\stretch{0.25}}
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth,center]{coordinate_plane.png}
+\end{figure}
+\clearpage
+\item\ 
+
+\begin{figure}[h]
+\includegraphics[width=0.9\textwidth,center]{regents062015geo1.png}
+\end{figure}
+\vspace{\stretch{1}}
+\item\ 
+
+\begin{figure}[h]
+\includegraphics[width=0.9\textwidth,center]{regents082025geo18.png}
+\end{figure}
+\vspace{\stretch{1}}
+\clearpage
+
+\item (\textbf{Bonus problem. No partial credit. Show all your work to justify the answer.})
+
+In the figure below $WXYZ$ is a rectangle with $WX = 4$ and $WZ = 8$. Point $M$ lies on $\overline{XY}$, point $A$ lies on $\overline{YZ}$, and $\angle WMA$ is a right angle. The areas of $\triangle WXM$ and $\triangle WAZ$ are equal. What is the area of $\triangle WMA$?
+\begin{figure}[h]
+\includegraphics[width=0.3\textwidth,center]{2024AMC12B7.png}
+\end{figure}
+\end{enumerate}
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
