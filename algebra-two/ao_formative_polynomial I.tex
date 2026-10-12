@@ -64,6 +64,112 @@ First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspac
 \textbf{Tools:} calculator
 \vspace{1em}
 
+\begin{enumerate}[leftmargin=*, itemsep=1.2em]
+
+\item Evaluate the polynomial
+\[
+P(x)=2x^3-3x^2+4x-5
+\]
+at $x=-2$. Show your substitution and work.
+\[
+P(-2)=\rule{10em}{.4pt}
+\]
+
+\item The coordinate plane below shows a graphing-calculator window. Use the axis labels and tick-mark intervals to determine the six TI-84 window settings.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm, height=7cm,
+    axis lines=middle,
+    xmin=-20, xmax=20,
+    ymin=-50, ymax=50,
+    xtick={-20,-15,...,20},
+    ytick={-50,-40,...,50},
+    minor tick num=0,
+    grid=major,
+    xlabel={$x$}, ylabel={$y$},
+    tick label style={font=\small},
+    xlabel style={at={(axis description cs:1,.5)},anchor=west},
+    ylabel style={at={(axis description cs:.5,1)},anchor=south},
+    enlargelimits=false,
+    clip=false
+]
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$X_{\min}$ & $X_{\max}$ & $X_{\text{scl}}$ & $Y_{\min}$ & $Y_{\max}$ & $Y_{\text{scl}}$ \\
+\hline
+\rule{0pt}{2.2em}\hspace{3em} & \hspace{3em} & \hspace{3em} & \hspace{3em} & \hspace{3em} & \hspace{3em} \\
+\hline
+\end{tabular}
+\end{center}
+\item The graph below represents one of the four polynomial functions. Which equation matches the graph? Circle your choice and briefly explain how the graph helped you decide.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=9cm, height=6cm,
+    axis lines=middle,
+    xmin=-3.2, xmax=3.2,
+    ymin=-8, ymax=8,
+    xtick={-3,-2,-1,0,1,2,3},
+    ytick={-8,-4,0,4,8},
+    grid=both,
+    minor tick num=1,
+    xlabel={$x$}, ylabel={$y$},
+    samples=200,
+    clip=true
+]
+\addplot[domain=-3:3] {x^3-3*x};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=(\Alph*), itemsep=.3em]
+    \item $y=x^3+3x$
+    \item $y=x^3-3x$
+    \item $y=-x^3-3x$
+    \item $y=-x^3+3x$
+\end{enumerate}
+
+\item A rectangular sheet of paper measures $8$ inches by $12$ inches. A square with side length $x$ inches is cut from each corner, and the sides are folded up to make an open-top box.
+
+\begin{center}
+\begin{tikzpicture}[scale=.48]
+    % sheet
+    \draw (0,0) rectangle (12,8);
+    % corner cuts
+    \draw[dashed] (0,0) rectangle (2,2);
+    \draw[dashed] (10,0) rectangle (12,2);
+    \draw[dashed] (0,6) rectangle (2,8);
+    \draw[dashed] (10,6) rectangle (12,8);
+    % dimensions
+    \draw[<->] (0,-.7) -- (12,-.7) node[midway,fill=white] {$12$ in};
+    \draw[<->] (-.7,0) -- (-.7,8) node[midway,fill=white,rotate=90] {$8$ in};
+    \draw[<->] (0,2.35) -- (2,2.35) node[midway,fill=white] {$x$};
+    \end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=(\alph*), itemsep=.7em]
+    \item Express the volume $V$ of the box as a polynomial function of $x$.
+    \[
+    V(x)=\rule{18em}{.4pt}
+    \]
+    \item What is the reasonable domain for $x$? Explain why values outside this domain do not make sense in this situation.
+    \[
+    \text{Domain: }\rule{15em}{.4pt}
+    \]
+\end{enumerate}
+
+\end{enumerate}
+
+
 }
 \begin{luacode*}
 utils = require("../utils")
