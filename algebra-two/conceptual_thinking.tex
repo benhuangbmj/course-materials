@@ -1,0 +1,154 @@
+\documentclass[10pt]{beamer}
+\usetheme{PaloAlto}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+%general package
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\graphicspath{{../img}}
+\hypersetup{
+    colorlinks=true, 
+    linkcolor=red,    % Internal links
+    urlcolor=blue     % External links
+}
+\usepackage{wrapfig}
+\usepackage{luacode}
+\usepackage{comment}
+\usepackage{ulem}
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+%\usepackage{slashed}
+%\usepackage{tikz-cd}
+
+%font package
+%\usepackage{mathrsfs}
+%\usepackage{bm}
+
+%misc. package
+\usepackage{enumitem}
+\usepackage{animate}
+
+\DeclareMathOperator{\xd}{\,d\!}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\dive}{div}
+\newcommand{\e}{{\rm e}}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\R}{\mathbb R}
+\newcommand{\vF}{\mathbf F}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\blankwans}[3][.]{\alt<#2>{{\color{red}\uline{#3}}#1}{\hrulefill#1}}
+
+\author[B.H.]{{\Large A Collection of Daily Exercises}\\\vspace{.5em} Author: Benjamin Huang}
+\date{}
+\title[Skill Builder]{Math Skill Builder}
+
+%\institute[]{\vskip -2em\includegraphics[width = 0.65\textwidth]{}}
+%\logo{\includegraphics[width=.12\textwidth]{}}
+
+\begin{document}
+\begin{luacode*}
+function generateNonzero(min, max)
+  local output
+  repeat
+    output = math.random(min, max)
+  until output ~= 0
+  return output
+end
+\end{luacode*}
+\frame{\titlepage}
+\Large
+\begin{frame}
+\begin{itemize}
+\item
+What are the $x$-intercepts that you can see on the graph? \pause
+\vspace{\stretch{1}}
+\item
+Are there any other  $x$-intercepts on the graph outside of the graphing window? How do you know?\pause
+\vspace{\stretch{1}}
+\item
+Can you come up with a polynomial that have no $x$-intercept?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+In mathematics, a \textbf{product} means \alt<2->{\underline{\color{red}the result of a multiplication}.}{\underline{\phantom{the result of a multiplication}}.} \pause\pause
+\vspace{\stretch{1}}
+\item
+ A \textbf{factor} means \blankwans{4-}{one of the numbers/expressions that form the product}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\pause
+\begin{itemize}
+\item
+If the product is zero, then  \alt<3->{\underline{\color{red}one of the factors is zero}.}{\underline{\phantom{one of the factors is zero}}.}\pause\pause
+\vspace{\stretch{1}}
+\item
+If the product is non-zero, then \alt<5->{\underline{\color{red}all of the factors are non-zero}.}{\underline{\phantom{all of the factors are non-zero}}.}\pause \pause
+\vspace{\stretch{1}}
+\item
+If $x_0$ is an $x$-intercept of $f(x)$, then \alt<7->{\underline{\color{red}$f(x_0) = 0$}.}{\underline{\phantom{$f(x_0) = 0$}}.}\pause \pause 
+\vspace{\stretch{1}}
+\item  
+If $y_0$ is a $y$-intercept of $f(x)$, then \alt<9->{\underline{\color{red}$y_0 = f(0)$}.}{\underline{\phantom{$y_0 = f(0)$}}.}
+\vspace{\stretch{1}}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item 
+The zeros of the function $P(x)$ are \blankwans{2-}{the solutions of the equation $P(x) = 0$, e.g., $1$ and $2$ are the zeros of $x^2 -3x + 2$}\pause \pause 
+\vspace{\stretch{1}}
+\item
+A polynomial is in the \textbf{factored form} if \blankwans{4-}{it's written as a product of first degree polynomial(s), e.g., $(x+2)(x-2)$ is the factored form of $x^2 - 4$}\pause\pause
+\vspace{\stretch{1}}
+\item
+The factored form of a polynomial is good for \blankwans{6-}{relating the zeros of the polynomial immediately, e.g., $-2$ and $3$ are the only zeros of $(x+2)^8(x-3)^5$}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\begin{itemize}
+\item
+The degree of a polynomial is \blankwans{2-}{the highest exponent of the variable, e.g., the degree of $-3 + 2x + 100x^2 - 4x^3$ is 3}\pause\pause
+\vspace{\stretch{1}}
+\item
+A term in a sum is \blankwans{4-}{one of the numbers/expressions that form the sum, e.g., in $3x^2 - 2x + 1$, the terms are $3x^2$, $-2x$ and $1$}\pause\pause
+\vspace{\stretch{1}}
+\item 
+The leading term of a polynomial is \blankwans{6-}{the term of the variable with the highest exponent, e.g., the leading term of $-3 + 2x + 100x^2 - 4x^3$ is $-4x^3$}
+\vspace{\stretch{1}}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item
+The standard form of a polynomial is \blankwans{2-}{the sum with the terms ordered by exponents from high to low, e.g., $3x^3 - 2x + 4$}
+\pause\pause
+\vspace{\stretch{1}}
+\item
+The standard form is good for \blankwans{4-}{identifying the degree, the constant value (a.k.a the $y$-intercept), and implementing the polynomial long division}
+\end{itemize}
+
+\end{frame}
+
+\end{document}

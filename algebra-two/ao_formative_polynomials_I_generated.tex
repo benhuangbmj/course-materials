@@ -1,0 +1,159 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II}
+\chead{Polynomial I}
+\directlua{pageNum = 1}
+\rhead{Formative AO, Page \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+%\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspace{\stretch{1}}  Score \rule{6em}{.4pt}\hspace{\stretch{1}}
+}
+
+\vspace{1em}
+\noindent
+\textbf{Tools:} calculator
+\vspace{1em}
+
+\begin{enumerate}[leftmargin=*, itemsep=1.2em]
+
+\item Evaluate the polynomial
+\[
+P(x)=2x^3-3x^2+4x-5
+\]
+at $x=-2$. Show your substitution and work.
+\[
+P(-2)=\rule{10em}{.4pt}
+\]
+
+\item A graphing calculator window is set using the six values below.  You want the window to show
+$x$ from $-20$ to $20$ and $y$ from $-50$ to $50$.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$X_{\min}$ & $X_{\max}$ & $X_{\text{scl}}$ & $Y_{\min}$ & $Y_{\max}$ & $Y_{\text{scl}}$ \\
+\hline
+\rule{0pt}{2.2em}\hspace{3em} & \hspace{3em} & \hspace{3em} & \hspace{3em} & \hspace{3em} & \hspace{3em} \\
+\hline
+\end{tabular}
+\end{center}
+
+Write the six values you would enter in the TI-84 window settings.
+
+\item The graph below represents one of the four polynomial functions. Which equation matches the graph? Circle your choice and briefly explain how the graph helped you decide.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=9cm, height=6cm,
+    axis lines=middle,
+    xmin=-3.2, xmax=3.2,
+    ymin=-8, ymax=8,
+    xtick={-3,-2,-1,0,1,2,3},
+    ytick={-8,-4,0,4,8},
+    grid=both,
+    minor tick num=1,
+    xlabel={$x$}, ylabel={$y$},
+    samples=200,
+    clip=true
+]
+\addplot[domain=-2.2:2.2] {x^3-3*x};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=(\Alph*), itemsep=.3em]
+    \item $y=x^3+3x$
+    \item $y=x^3-3x$
+    \item $y=-x^3-3x$
+    \item $y=-x^3+3x$
+\end{enumerate}
+
+\item A rectangular sheet of paper measures $8$ inches by $12$ inches. A square with side length $x$ inches is cut from each corner, and the sides are folded up to make an open-top box.
+
+\begin{center}
+\begin{tikzpicture}[scale=.48]
+    % sheet
+    \draw (0,0) rectangle (12,8);
+    % corner cuts
+    \draw[dashed] (0,0) rectangle (2,2);
+    \draw[dashed] (10,0) rectangle (12,2);
+    \draw[dashed] (0,6) rectangle (2,8);
+    \draw[dashed] (10,6) rectangle (12,8);
+    % dimensions
+    \draw[<->] (0,-.7) -- (12,-.7) node[midway,fill=white] {$12$ in};
+    \draw[<->] (-.7,0) -- (-.7,8) node[midway,fill=white,rotate=90] {$8$ in};
+    \draw[<->] (0,2.35) -- (2,2.35) node[midway,fill=white] {$x$};
+    \end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=(\alph*), itemsep=.7em]
+    \item Express the volume $V$ of the box as a polynomial function of $x$.
+    \[
+    V(x)=\rule{18em}{.4pt}
+    \]
+    \item What is the reasonable domain for $x$? Explain why values outside this domain do not make sense in this situation.
+    \[
+    \text{Domain: }\rule{15em}{.4pt}
+    \]
+\end{enumerate}
+
+\end{enumerate}
+
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+		tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
