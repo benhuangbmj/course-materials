@@ -1,0 +1,94 @@
+\documentclass[twoside, 10pt, landscape]{article}
+\usepackage{geometry}
+\geometry{bottom=2em,top=10em,left = 3em, right=3em, headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Diagnostic}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II}
+\chead{Polynomial II}
+\directlua{pageNum = 1}
+\rhead{Diagnostic AO\#2, Page \thepage}% \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+%\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{10em}{.4pt}\hspace{\stretch{1}} Last Name \rule{10em}{.4pt}\hspace{\stretch{1}} Date \underline{\quad\today\quad}\hspace{\stretch{1}} Period \rule{2em}{.4pt}\hspace{\stretch{1}} Score \rule{2em}{0.4pt}
+}
+
+\noindent
+\textbf{Tools:} scientific calculator
+
+\newcommand{\pdfheight}{0.6}
+\noindent
+\includegraphics[
+    page=1,
+    width=\pdfheight\paperheight,
+    clip=true,
+    trim = 1in 1.5in 0 2.8in,
+]{Algebra2-2-Check-Your-Readiness-ImagineIM.pdf}
+\hfill
+\includegraphics[
+    page=2,
+    width=\pdfheight\paperheight,
+    clip=true,
+    trim = 1in 1.5in 0 1.7in,
+]{Algebra2-2-Check-Your-Readiness-ImagineIM.pdf}
+
+\includepdf[
+    pages=3-,
+    nup=2x1,
+    pagecommand={\thispagestyle{fancy}},
+    clip = true,
+    trim = 0.5in 1.5in 0 1.7in,
+]{Algebra2-2-Check-Your-Readiness-ImagineIM.pdf}
+
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
