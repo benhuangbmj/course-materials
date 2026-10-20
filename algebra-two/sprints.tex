@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{margin=4em, top=8em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\newcommand{\topic}{}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II, Sprint\hspace{2em} First Name \rule{7em}{.4pt} Last Name \rule{7em}{.4pt}
+}
+\chead{}
+\rhead{Period \rule{3em}{.4pt}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+%\directlua{tex.print(utils.genVersion())}
+\noindent
+{
+\textbf{Tools:} scientific calculator \hspace{\stretch{1}} Score \rule{4em}{.4pt} 
+}
+
+\Huge
+\begin{enumerate}[leftmargin=*, itemsep=1.2em]
+\item
+ The completely factored form of the expression \[x^6 - 63x^3 - 64\] is
+ \begin{enumerate}[label = (\arabic*)]
+\item
+$(x-64)(x+1)$
+\item
+$(x^3 - 64)(x^3+1)$
+\item
+$(x+8)(x-8)(x+1)(x-1)$
+\item
+$(x-4)(x^2+4x+16)(x+1)(x^2-x+1)$
+\end{enumerate} 
+
+\end{enumerate}
+
+
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}

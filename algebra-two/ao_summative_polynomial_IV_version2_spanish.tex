@@ -1,0 +1,188 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Sumativa}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Álgebra II}
+\chead{Polinomios IV}
+\directlua{pageNum = 1}
+\rhead{Revisión Sumativa AO\#4, Página \thepage}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\noindent
+{\large
+Nombre \rule{6em}{.4pt}\hspace{\stretch{1}} Apellido \rule{6em}{.4pt}\hspace{\stretch{1}} Fecha \raisebox{0.3em}{\underline{\quad\today\quad} \hspace{\stretch{1}}} Período \rule{2em}{.4pt}\hspace{\stretch{1}}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUMENTAR}&\textbf{MODELAR}&\textbf{SER PRECISO}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+
+\vspace{1em}
+\noindent
+\textbf{Herramientas:} calculadora científica
+\vspace{1em}
+
+\begin{enumerate}[leftmargin=*, itemsep=1.2em]
+\item \textbf{Sé preciso}:
+\begin{enumerate}[leftmargin=*, itemsep=1.5em]
+\item
+Identifica el grado, el coeficiente principal y el término independiente del siguiente polinomio:
+\[\directlua{tex.print(utils.genRandom(-10,10, false, true, true))} x^{\directlua{tex.print(utils.genRandom(1,10,false, true,true))}}\directlua{tex.print(utils.genRandom(-10,10, true, true, true))} x^{\directlua{tex.print(utils.genRandom(11,20,false, true,true))}}\directlua{tex.print(utils.genRandom(-10,10, true, true, true))} x^{\directlua{tex.print(utils.genRandom(1,10,false, true,true))}}\directlua{tex.print(utils.genRandom(-200,200, true, false, true))} \]
+
+\vspace{1em}
+Grado: \rule{5em}{0.4pt}\hspace{\stretch{1}} Coeficiente principal: \rule{5em}{0.4pt}\hspace{\stretch{1}} Término independiente: \rule{5em}{0.4pt}\hspace{\stretch{1}}
+ 
+\item El punto dado por las coordenadas $(a,b)$ está en la gráfica de la función $f(x)$ si \hrulefill.
+\item Si $x_0$ es una intersección con el eje $x$ de $f(x)$, entonces \hrulefill.
+\item Si $y_0$ es una intersección con el eje $y$ de $f(x)$, entonces \hrulefill
+ 
+\item Dadas las siguientes funciones $f(x) = \directlua{tex.print(d2)}x^2 \directlua{tex.print(a2)}x + 4$ y $g(x) = 2x \directlua{tex.print(d4)}$, determina $f(x) - g(x)$ y expresa el resultado en forma estándar. Utiliza el espacio a continuación para realizar los cálculos necesarios.
+\vspace{\stretch{1}}
+\end{enumerate}
+\clearpage
+\item\footnote{Adaptado de un problema de 6 puntos de Álgebra II del examen Regents de enero de 2024. ¡En realidad es bastante fácil y muy accesible!} (\textbf{Modelar}) Un fabricante de sudaderas observa que las ganancias y los costos fluctúan según la cantidad de productos fabricados. Producir más artículos no siempre aumenta las ganancias, ya que implica costos adicionales, como la construcción de una instalación más grande o la contratación de más trabajadores. El fabricante determina la ganancia, $p(x)$, en \textbf{miles de dólares}, en función del número de sudaderas vendidas, $x$, en \textbf{miles}. Esta función, $p$, se presenta a continuación:
+\[
+p(x) = -x^3 + 11x^2-7x-69
+\]
+La gráfica de $y=p(x)$, en el intervalo $0\leq x \leq 15$, se proporciona en los ejes a continuación. Parte de la tabla de la función $y = p(x)$ también se incluye abajo.
+\begin{center}
+\begin{minipage}[t]{0.7\textwidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=\textwidth,
+    axis lines=middle,
+    xmin=-6, xmax=15,
+    ymin=-105, ymax=195,
+    minor y tick num=19,
+    minor x tick num=19,
+    grid=both,
+    xtick distance=20,
+    ytick distance=300,
+    xlabel={$x$},
+    ylabel={$y$},
+    samples=200,
+    clip=true,
+    extra x ticks={1},
+    extra y ticks={30},
+]
+\addplot[domain=0:15, thick]
+    {-x^3+11*x^2-7*x-69}
+    node[pos=0.85, above right] {$y=p(x)$};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.25\textwidth}
+\vspace{0pt}
+\centering
+\directlua{
+    tex.print("\\begin{tabular}{|c|c|}\\hline x&y \\\\\\hline");
+    for i=3545,3555 do
+        x = i/1000;
+        y = -x^3+11*x^2-7*x-69;
+        y = math.floor(y*1000+0.5)/1000;
+        tex.print(x.."&"..y.."\\\\\\hline");
+    end;
+    tex.print("\\end{tabular}")
+}
+\end{minipage}
+\end{center}
+\begin{enumerate}
+\item ¿Cómo se configura la ventana gráfica en la calculadora de acuerdo con estos ejes?
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\newcommand{\cellwidth}{5.5em}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+XMIN & XMAX & XSCL & YMIN & YMAX & YSCL \\
+\hline
+\rule{0pt}{2em}\hspace{\cellwidth} & \hspace{\cellwidth} & \hspace{\cellwidth} & \hspace{\cellwidth} & \hspace{\cellwidth} & \hspace{\cellwidth} \\
+\hline
+\end{tabular}
+\end{center}
+ 
+\item En el intervalo dado, indica las coordenadas del máximo de $p$ y redondea todos los valores al entero más cercano. Explica qué representa este punto en términos de la cantidad de sudaderas vendidas y la ganancia.
+\vspace{\stretch{1}}
+\item Determina cuántas sudaderas, redondeando al número entero más cercano, necesitaría fabricar el productor para comenzar a obtener una ganancia positiva. Justifica tu respuesta.
+\vspace{\stretch{1}}
+\end{enumerate}
+
+\end{enumerate}
+
+
+}
+
+\begin{luacode*}
+utils = require("../utils")
+a1 = utils.genRandom(-5,5, true, false, true)
+a2 = utils.genRandom(a1+1,a1+5, true, false, true)
+b1 = utils.genRandom(-10,10, true, false, true)
+b2 = utils.genRandom(b1+1,b1+5, true, false, true)
+b3 = utils.genRandom(b2+1,b2+5, true, false, true)
+c1 = utils.genRandom(-10,10, true, false, true)
+c2 = utils.genRandom(c1+1,c1+5, true, false, true)
+d1 = utils.genRandom(2,10, false, false, true)
+d2 = utils.genRandom(d1+1,11, false, false, true)
+d3 = utils.genRandom(-10,10, true, false, true)
+d4 =  utils.genRandom(-10,10, true, false, true)
+
+\end{luacode*}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Sumativa}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}

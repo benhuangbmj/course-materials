@@ -1,0 +1,204 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II}
+\chead{Polynomial IV}
+\directlua{pageNum = 1}
+\rhead{Summative AO\#4 Revision, Page \thepage}% \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+%\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.4pt}\hspace{\stretch{1}} Last Name \rule{6em}{.4pt}\hspace{\stretch{1}} Date \raisebox{0.3em}{\underline{\quad\today\quad} \hspace{\stretch{1}}} Period \rule{2em}{.4pt}\hspace{\stretch{1}}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+
+\vspace{1em}
+\noindent
+\textbf{Tools:} scientific calculator
+\vspace{1em}
+
+\begin{enumerate}[leftmargin=*, itemsep=1.2em]
+\item \textbf{Be Precise}:
+\begin{enumerate}[leftmargin=*, itemsep=1.5em]
+\item
+Identify the degree, leading coefficient, and constant value of the
+following polynomial:
+\[\directlua{tex.print(utils.genRandom(-10,10, false, true, true))} x^{\directlua{tex.print(utils.genRandom(1,10,false, true,true))}}\directlua{tex.print(utils.genRandom(-10,10, true, true, true))} x^{\directlua{tex.print(utils.genRandom(11,20,false, true,true))}}\directlua{tex.print(utils.genRandom(-10,10, true, true, true))} x^{\directlua{tex.print(utils.genRandom(1,10,false, true,true))}}\directlua{tex.print(utils.genRandom(-200,200, true, false, true))} \]
+
+\vspace{1em}
+Degree: \rule{5em}{0.4pt}\hspace{\stretch{1}} Leading Coefficient: \rule{5em}{0.4pt}\hspace{\stretch{1}} Constant Value: \rule{5em}{0.4pt}\hspace{\stretch{1}}
+ 
+\item The point given by coordinates $(a,b)$ is on the graph of the function $f(x)$ if  \hrulefill.
+\item If $x_0$ is an $x$-intercept of $f(x)$, then \hrulefill.
+\item If $y_0$ is a $y$-intercept of $f(x)$, then \hrulefill
+ 
+\item Given the following functions $f(x) = \directlua{tex.print(d2)}x^2 \directlua{tex.print(a2)}x + 4$ and $g(x) = 2x \directlua{tex.print(d4)}$, determine $f(x) - g(x)$, and express the result in standard form. Use the space below for necessary calculation.
+\vspace{\stretch{1}}
+\end{enumerate}
+\clearpage
+\item\footnote{This is adapted from a 6-point Algebra II Regents problem in Jan 2024. It is actually pretty easy. The Regents exam is very manageable!} (\textbf{Model}) A manufacturer of sweatshirts finds that profits and
+costs fluctuate depending on the number of
+products created. Creating more products doesn't
+always increase profits because it requires
+additional costs, such as building a larger facility or
+hiring more workers. The manufacturer determines
+the profit, $p(x)$, in \textbf {thousands of dollars}, as a
+function of the number of sweatshirts sold, $x$, in
+\textbf{thousands}. This function, $p$, is given below.
+\[
+p(x) = -x^3 + 11x^2-7x-69
+\]
+The graph of $y=p(x)$, over the interval $0\leq x \leq 15$, is provided on the set of axes below. Part of the table of function $y = p(x)$ is also provided below.
+\begin{center}
+\begin{minipage}[t]{0.7\textwidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=\textwidth,
+    axis lines=middle,
+    xmin=-6, xmax=15,
+    ymin=-105, ymax=195,
+    minor y tick num=19,
+    minor x tick num=19,
+    grid=both,
+    xtick distance=20,
+    ytick distance=300,
+    xlabel={$x$},
+    ylabel={$y$},
+    samples=200,
+    clip=true,
+    extra x ticks={1},
+    extra y ticks={30},
+]
+\addplot[domain=0:15, thick]
+    {-x^3+11*x^2-7*x-69}
+    node[pos=0.85, above right] {$y=p(x)$};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.25\textwidth}
+\vspace{0pt}
+\centering
+\directlua{
+    tex.print("\\begin{tabular}{|c|c|}\\hline x&y \\\\\\hline");
+    for i=3545,3555 do
+        x = i/1000;
+        y = -x^3+11*x^2-7*x-69;
+        y = math.floor(y*1000+0.5)/1000;
+        tex.print(x.."&"..y.."\\\\\\hline");
+    end;
+    tex.print("\\end{tabular}")
+}
+\end{minipage}
+\end{center}
+\begin{enumerate}
+\item How to set the graphing window on the calculator according to these axes?
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\newcommand{\cellwidth}{5.5em}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Xmin & Xmax & Xscl & Ymin & Ymax & Yscl \\
+\hline
+\rule{0pt}{2em}\hspace{\cellwidth} & \hspace{\cellwidth} & \hspace{\cellwidth} & \hspace{\cellwidth} & \hspace{\cellwidth} & \hspace{\cellwidth} \\
+\hline
+\end{tabular}
+\end{center}
+ 
+\item Over the given interval, state the coordinates of the
+maximum of $p$ and round all values to the nearest
+integer. Explain what this point represents in terms
+of the number of sweatshirts sold and profit. 
+\vspace{\stretch{1}}
+\item Determine how many sweatshirts, to the nearest
+whole sweatshirt, the manufacturer would need to
+produce in order to first make a positive profit.
+Justify your answer.
+\vspace{\stretch{1}}
+\end{enumerate}
+
+\end{enumerate}
+
+
+}
+
+\begin{luacode*}
+utils = require("../utils")
+a1 = utils.genRandom(-5,5, true, false, true)
+a2 = utils.genRandom(a1+1,a1+5, true, false, true)
+b1 = utils.genRandom(-10,10, true, false, true)
+b2 = utils.genRandom(b1+1,b1+5, true, false, true)
+b3 = utils.genRandom(b2+1,b2+5, true, false, true)
+c1 = utils.genRandom(-10,10, true, false, true)
+c2 = utils.genRandom(c1+1,c1+5, true, false, true)
+d1 = utils.genRandom(2,10, false, false, true)
+d2 = utils.genRandom(d1+1,11, false, false, true)
+d3 = utils.genRandom(-10,10, true, false, true)
+d4 =  utils.genRandom(-10,10, true, false, true)
+
+\end{luacode*}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
