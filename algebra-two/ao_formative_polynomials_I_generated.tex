@@ -11,9 +11,9 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Algebra II}
-\chead{Polynomial I}
+\chead{Polynomials I}
 \directlua{pageNum = 1}
-\rhead{Formative AO, Page \thepage}
+\rhead{AO\#1 Formative , Page \thepage}
 \usepackage{lastpage}
 \usepackage{xcolor}
 \usepackage{enumitem}
@@ -45,12 +45,23 @@
 %\directlua{tex.print(utils.genVersion())}
 \noindent
 {\large
-First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspace{\stretch{1}}  Score \rule{6em}{.4pt}\hspace{\stretch{1}}
+First Name \rule{8em}{.4pt}\hspace{\stretch{1}} Last Name \rule{8em}{.4pt}\hspace{\stretch{1}}  Period \rule{6em}{.4pt}\hspace{\stretch{1}}
 }
 
 \vspace{1em}
 \noindent
-\textbf{Tools:} calculator
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+&&\\
+\hline
+\end{tabular}
+
+\vspace{1em}
+\noindent
+\textbf{Tools:} scientific calculator
 \vspace{1em}
 
 \begin{enumerate}[leftmargin=*, itemsep=1.2em]
@@ -80,7 +91,7 @@ $X_{\min}$ & $X_{\max}$ & $X_{\text{scl}}$ & $Y_{\min}$ & $Y_{\max}$ & $Y_{\text
 
 Write the six values you would enter in the TI-84 window settings.
 
-\item The graph below represents one of the four polynomial functions. Which equation matches the graph? Circle your choice and briefly explain how the graph helped you decide.
+\item The graph below represents one of the four polynomial functions. Which equation matches the graph? Circle your choice.
 
 \begin{center}
 \begin{tikzpicture}
@@ -97,7 +108,7 @@ Write the six values you would enter in the TI-84 window settings.
     samples=200,
     clip=true
 ]
-\addplot[domain=-2.2:2.2] {x^3-3*x};
+\addplot[domain=-3.2:3.2] {x^3-3*x};
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -108,7 +119,7 @@ Write the six values you would enter in the TI-84 window settings.
     \item $y=-x^3-3x$
     \item $y=-x^3+3x$
 \end{enumerate}
-
+\clearpage
 \item A rectangular sheet of paper measures $8$ inches by $12$ inches. A square with side length $x$ inches is cut from each corner, and the sides are folded up to make an open-top box.
 
 \begin{center}
@@ -133,9 +144,29 @@ Write the six values you would enter in the TI-84 window settings.
     V(x)=\rule{18em}{.4pt}
     \]
     \item What is the reasonable domain for $x$? Explain why values outside this domain do not make sense in this situation.
+    \vspace{2em}
     \[
     \text{Domain: }\rule{15em}{.4pt}
     \]
+\vspace{2em}
+
+    Explanation: \hrulefill
+    \vspace{2em}
+    
+    \hrulefill
+    \vspace{2em}
+    
+    \hrulefill
+    \vspace{2em}
+    
+    \hrulefill
+    \vspace{2em}
+    
+    \hrulefill
+    \vspace{2em}
+    
+    \hrulefill
+    \vspace{2em}
 \end{enumerate}
 
 \end{enumerate}

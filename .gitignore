@@ -10,3 +10,5 @@ algebra-two-sync/
 *.local.tex
 !*.md
 !*.bat
+
+*_print.tex

@@ -7,7 +7,7 @@
 \usepackage{amsfonts}
 \usepackage{fancyhdr}
 \usepackage{luacode}
-\newcommand{\assessmentType}{Formative}
+\newcommand{\assessmentType}{Sprint}
 \newcommand{\topic}{}
 \pagestyle{fancy}
 \fancyhf{}
@@ -43,7 +43,6 @@
 \date{}
 
 \newcommand{\template}{
-%\directlua{tex.print(utils.genVersion())}
 \noindent
 {
 \textbf{Tools:} scientific calculator \hspace{\stretch{1}} Score \rule{4em}{.4pt} 
@@ -63,10 +62,9 @@ $(x+8)(x-8)(x+1)(x-1)$
 \item
 $(x-4)(x^2+4x+16)(x+1)(x^2-x+1)$
 \end{enumerate} 
-
 \end{enumerate}
-
-
+\clearpage
+\renewcommand{\assessmentType}{}
 }
 \begin{luacode*}
 utils = require("../utils")
