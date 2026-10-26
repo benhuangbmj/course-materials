@@ -1,0 +1,241 @@
+\documentclass[10pt]{article}
+
+% ---------- Packages ----------
+
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{margin=4em, top=8em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Respuesta Escrita}
+\newcommand{\topic}{}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Álgebra II, \assessmentType\hspace{2em} Nombre \rule{7em}{.4pt} Apellido \rule{7em}{.4pt}
+}
+\chead{}
+\rhead{Período \rule{3em}{.4pt}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+
+% ---------- General formatting ----------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlist[enumerate]{
+    leftmargin=1.8em,
+    itemsep=3pt,
+    topsep=2pt,
+    parsep=1pt
+}
+
+% ---------- Ruled writing lines ----------
+\newcommand{\writingline}{%
+    \noindent
+    \makebox[\linewidth][l]{%
+        \rule{0pt}{1.65em}%
+        \leaders\hrule height 0.35pt\hfill
+    }\par
+}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\noindent
+{
+\textbf{Herramientas:} calculadora científica \hspace{\stretch{1}} Calificación \rule{4em}{.4pt} 
+}
+
+\Huge
+\begin{enumerate}[leftmargin=*, itemsep=1.2em]
+\item
+ La forma completamente factorizada de la expresión \[x^6 - 63x^3 - 64\] es
+ \begin{enumerate}[label = (\arabic*)]
+\item
+$(x-64)(x+1)$
+\item
+$(x^3 - 64)(x^3+1)$
+\item
+$(x+8)(x-8)(x+1)(x-1)$
+\item
+$(x-4)(x^2+4x+16)(x+1)(x^2-x+1)$
+\end{enumerate} 
+\end{enumerate}
+\clearpage
+}
+
+
+
+\begin{document}
+
+% ==========================================
+% PAGE 1: Reading and reflection questions
+% ==========================================
+
+\begin{center}
+    {\Large\bfseries Asumir la Responsabilidad de Tu Educación}
+
+    \vspace{2pt}
+    {\small\itshape Reflexión sobre el Primer Período de Calificaciones}
+\end{center}
+
+\textbf{¿Qué significa asumir la responsabilidad de tu educación?}
+
+La educación es más que asistir a clases, completar tareas y
+obtener calificaciones. Es una oportunidad para desarrollar conocimientos,
+habilidades y formas de pensar que te servirán a lo largo de tu
+vida. Tus profesores pueden guiarte, explicarte conceptos difíciles
+y ofrecerte oportunidades para aprender. Sin embargo, no pueden hacer
+el aprendizaje por ti. En última instancia, tu educación es algo en
+lo que debes participar activamente y de lo cual debes hacerte responsable.
+
+\textbf{Asumir la responsabilidad de tu educación significa tomar un papel
+activo en tu propio aprendizaje.} Significa reconocer que tus elecciones,
+hábitos y acciones importan. También significa ser honesto contigo mismo
+sobre los desafíos que enfrentas, reconocer en qué puedes mejorar y
+tomar medidas para alcanzar tus metas.
+
+Asumir la responsabilidad no significa que todo esté bajo tu
+control. Es posible que enfrentes circunstancias personales, responsabilidades
+familiares, problemas de salud u otros desafíos que dificulten asistir
+a clase o mantenerte enfocado. No necesitas culparte por circunstancias
+fuera de tu control ni divulgar información privada para explicar tus
+experiencias. En su lugar, concéntrate en comprender tu situación,
+reconocer qué puedes influir y buscar ayuda cuando la necesites.
+
+La responsabilidad también significa tomar la iniciativa cuando encuentras
+dificultades. En matemáticas, cuando no entiendes un concepto, puedes
+hacer preguntas, buscar aclaraciones o explicarle el concepto a otra
+persona para poner a prueba tu comprensión. Cuando cometes un error,
+puedes examinar tu razonamiento, identificar qué salió mal y aprender
+de la experiencia en lugar de simplemente copiar la respuesta correcta.
+Estas acciones demuestran que estás trabajando activamente para mejorar
+en lugar de esperar a que alguien más resuelva cada dificultad por ti.
+
+Asumir la responsabilidad también implica reflexionar honestamente sobre
+tus hábitos y decisiones. Si faltas a clases, te cuesta participar o te
+sientes desconectado, considera qué contribuyó a estas experiencias.
+¿Qué factores estaban fuera de tu control? ¿Qué decisiones podrías haber
+tomado de manera diferente? ¿Qué recursos o apoyo podrían ayudarte? El
+propósito de la reflexión no es juzgarte ni buscar excusas, sino comprender
+tus experiencias e identificar oportunidades de crecimiento.
+
+El primer período de calificaciones es una oportunidad para reflexionar
+sobre cómo han ido las cosas hasta ahora. No puedes cambiar el pasado,
+pero puedes aprender de él. Al mirar hacia el próximo período de
+calificaciones, piensa en una o dos acciones específicas y realistas que
+puedas tomar para mejorar tu asistencia, participación o hábitos de
+aprendizaje. En lugar de simplemente prometer esforzarte más, considera
+qué harás realmente y qué apoyo podrías necesitar.
+
+\textbf{Tu educación es un esfuerzo compartido, pero tu aprendizaje requiere
+de tu participación. No tienes que hacerlo todo solo ni tienes que ser
+perfecto. Lo que importa es que asumas un papel activo en tu propio progreso.}
+
+\vspace{3pt}
+\hrule
+\vspace{4pt}
+
+{\large\bfseries Reflexión Escrita: Mi Primer Período de Calificaciones}
+
+Reflexiona sobre tus experiencias durante el primer período de calificaciones y
+escribe una respuesta bien pensada que responda a las tres preguntas a continuación.
+Utiliza ejemplos específicos según corresponda, pero no te sientas obligado
+a divulgar información privada.
+
+\begin{enumerate}
+    \item \textbf{Asistencia:} ¿Cuáles fueron los motivos principales de tus
+    ausencias durante el primer período de calificaciones? ¿Qué circunstancias
+    o factores afectaron tu capacidad para asistir a clase con regularidad?
+
+    \item \textbf{Participación en el aula:} ¿Cuáles fueron las razones principales
+    por las que a veces te resultó difícil participar o mantenerte enfocado
+    en clase? Considera los factores que afectaron tu atención, participación,
+    motivación o disposición para pedir ayuda.
+
+    \item \textbf{Responsabilidad y cómo seguir adelante:} ¿Qué significa para ti
+    asumir la responsabilidad de tu educación? Mirando hacia atrás en el
+    primer período de calificaciones, ¿cómo has asumido la responsabilidad de tu
+    aprendizaje y en qué podrías mejorar? Identifica una o dos acciones específicas
+    que tomarás durante el próximo período de calificaciones para mejorar tu
+    asistencia, participación en clase o hábitos de aprendizaje. Si necesitas
+    apoyo para realizar estos cambios, explica qué tipo de ayuda te serviría.
+\end{enumerate}
+
+Sé honesto y reflexivo. El propósito de esta tarea no es juzgar tu pasado
+ni asignar culpas, sino comprender tus experiencias, reconocer tus
+oportunidades de crecimiento y hacer un plan realista para salir adelante.
+\clearpage
+
+\noindent
+{
+\hspace{\stretch{1}} Calificación \rule{4em}{.4pt} 
+}
+
+\begin{center}
+    {\Large\bfseries Mi Reflexión}
+\end{center}
+
+% Use any remaining space on page 1 for writing.
+\vfill
+\writingline
+\writingline
+\writingline
+
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\end{document}

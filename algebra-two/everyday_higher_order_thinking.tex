@@ -1,0 +1,177 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+\usetheme{PaloAlto}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+%general package
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\graphicspath{{../img}}
+\hypersetup{
+    colorlinks=true, 
+    linkcolor=red,    % Internal links
+    urlcolor=blue     % External links
+}
+\usepackage{wrapfig}
+\usepackage{luacode}
+\usepackage{comment}
+\usepackage{ulem}
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+%\usepackage{slashed}
+%\usepackage{tikz-cd}
+
+%font package
+%\usepackage{mathrsfs}
+%\usepackage{bm}
+
+%misc. package
+\usepackage{enumitem}
+\usepackage{animate}
+
+\DeclareMathOperator{\xd}{\,d\!}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\dive}{div}
+\newcommand{\e}{{\rm e}}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\R}{\mathbb R}
+\newcommand{\vF}{\mathbf F}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\blankwans}[3][.]{\alt<#2>{{\color{red}\uline{#3}}#1}{\hrulefill#1}}
+
+\author[B.H.]{{\Large A Collection of Daily Tasks}\\\vspace{.5em} Author: Benjamin Huang}
+\date{}
+\title[EHOT]{Everyday Higher Order Thinking}
+
+%\institute[]{\vskip -2em\includegraphics[width = 0.65\textwidth]{}}
+%\logo{\includegraphics[width=.12\textwidth]{}}
+
+\begin{document}
+\begin{luacode*}
+function generateNonzero(min, max)
+  local output
+  repeat
+    output = math.random(min, max)
+  until output ~= 0
+  return output
+end
+\end{luacode*}
+\frame{\titlepage}
+\Large
+
+\begin{frame}
+\frametitle{Homework Policy Addendum}
+\pause
+On top of the daily homework draw, we will create a parallel homework system via Khan Academy in case you want more practice or recover your lost grade.
+\vspace{\stretch{1}}
+
+At the end of each marking period, we will look at your daily homework draw grade and your Khan Academy homework grade, and take the \textbf{\color{red}greater number} for record. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Tools Policy}
+\pause
+If you need  a pencil, please raise your hand to make a request. 
+\vspace{\stretch{1}}
+
+When your request is approved, take a pencil from the tool container, and write your name down in the pencil register on the wall. 
+\vspace{\stretch{1}}
+
+When you are finished, return the pencil to the container, and put a check next to your name. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Bathroom Policy Addendum}
+\pause
+
+Plan your bathroom trip so that you can minimize the need during the math class.\pause
+\vspace{\stretch{1}}
+
+If you need to use the bathroom, do not use it during the \textit{One Mic Time} unless it is an absolute emergency. Your teacher will remind you about this policy upon your request.
+\end{frame}
+
+\begin{frame}
+\frametitle{Cleanup Policy}
+\pause
+There are two trash bins in this room, one at the front and one at the back. Please be sure to clean up your trash and mess as soon as possible.\pause
+\vspace{\stretch{1}}
+
+By the end of each class, align the desks and chairs as how they were layout.\pause
+\vspace{\stretch{1}}
+
+Return your binder or folder to the assigned space.
+\end{frame}
+
+\begin{frame}
+\frametitle{Dismissal Policy}
+\large
+\pause
+
+\begin{center}
+\textit{The bell doesn't dismiss you---I do.}
+
+\hfill--- Confucius, circa 500 BCE (allegedly)
+
+\end{center}
+\pause
+
+\begin{enumerate}[label=$\bullet$]
+\item All students must remain seated until the teacher dismisses the class.
+\pause
+
+\textbf{Before dismissal:}
+\pause
+
+\item All pencils, markers, calculators, laptops, and other supplies must be returned to the right place.
+\pause
+
+\item Class materials must be put back in the binder, homework must be put away in the backpack, and all personal belongings must be removed from desks and the floor.
+\pause
+
+\item All trash must be thrown away, desks and chair must be aligned, and the classroom area must be left clean.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+In order to make an action opportunity for the students, Benjamin needs to generate a table of the function $p(x) = -x^3 + 11x^2-7x-69$ like this:
+
+\small
+\directlua{
+    tex.print("\\begin{tabular}{|c|c|}\\hline x&y \\\\\\hline");
+    for i=3545,3555 do
+        x = i/1000;
+        y = -x^3+11*x^2-7*x-69;
+        y = math.floor(y*1000+0.5)/1000;
+        tex.print(x.."&"..y.."\\\\\\hline");
+    end;
+    tex.print("\\end{tabular}")
+}
+\Large
+Imagine that Benjamin will need to frequently make revision to the problem, such as replacing the functions, or change the number of rows in the table. If you were Benjamin, how would you go about generating this table? 
+\end{frame}
+
+\begin{frame}
+\frametitle{Everyday Higher Order Thinking}
+Create two polynomials such that 
+\begin{enumerate}[leftmargin=*, label=(\alph*)]
+\item
+They both have $x$-intercepts only at $-2$, $1$ and $4$, but not anywhere else.
+\item 
+They have very different general shapes.
+\end{enumerate}
+\vspace{\stretch{1}}
+Use a graphing utility to check your candidates. \textbf{\color{red}Be sure to write down both the formulas and sketch the graph on a coordinate plane.}
+
+Explain your thought process to your group members meticulously.
+\end{frame}
+\end{document}

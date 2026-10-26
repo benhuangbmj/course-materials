@@ -1,0 +1,245 @@
+\documentclass[10pt]{article}
+
+% ---------- Packages ----------
+
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{margin=4em, top=8em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Writing Response}
+\newcommand{\topic}{}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Algebra II, \assessmentType\hspace{2em} First Name \rule{7em}{.4pt} Last Name \rule{7em}{.4pt}
+}
+\chead{}
+\rhead{Period \rule{3em}{.4pt}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+
+% ---------- General formatting ----------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlist[enumerate]{
+    leftmargin=1.8em,
+    itemsep=3pt,
+    topsep=2pt,
+    parsep=1pt
+}
+
+% ---------- Ruled writing lines ----------
+\newcommand{\writingline}{%
+    \noindent
+    \makebox[\linewidth][l]{%
+        \rule{0pt}{1.65em}%
+        \leaders\hrule height 0.35pt\hfill
+    }\par
+}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\noindent
+{
+\textbf{Tools:} scientific calculator \hspace{\stretch{1}} Score \rule{4em}{.4pt} 
+}
+
+\Huge
+\begin{enumerate}[leftmargin=*, itemsep=1.2em]
+\item
+ The completely factored form of the expression \[x^6 - 63x^3 - 64\] is
+ \begin{enumerate}[label = (\arabic*)]
+\item
+$(x-64)(x+1)$
+\item
+$(x^3 - 64)(x^3+1)$
+\item
+$(x+8)(x-8)(x+1)(x-1)$
+\item
+$(x-4)(x^2+4x+16)(x+1)(x^2-x+1)$
+\end{enumerate} 
+\end{enumerate}
+\clearpage
+}
+
+
+
+\begin{document}
+
+% ==========================================
+% PAGE 1: Reading and reflection questions
+% ==========================================
+
+\begin{center}
+    {\Large\bfseries Taking Ownership of Your Education}
+
+    \vspace{2pt}
+    {\small\itshape Reflecting on the First Marking Period}
+\end{center}
+
+\textbf{What does it mean to take ownership of your education?}
+
+Education is more than attending classes, completing assignments,
+and earning grades. It is an opportunity to develop knowledge,
+skills, and ways of thinking that will serve you throughout your
+life. Your teachers can guide you, explain difficult concepts,
+and provide opportunities to learn. However, they cannot do the
+learning for you. Ultimately, your education is something you
+must actively participate in and take responsibility for.
+
+\textbf{Taking ownership of your education means taking an active
+role in your own learning.} It means recognizing that your choices,
+habits, and actions matter. It also means being honest with yourself
+about the challenges you face, recognizing what you can improve,
+and taking steps toward your goals.
+
+Taking ownership does not mean that everything is within your
+control. You may face personal circumstances, family responsibilities,
+health concerns, or other challenges that make attending class or
+staying engaged difficult. You do not need to blame yourself for
+circumstances beyond your control or disclose private information
+to explain your experiences. Instead, focus on understanding your
+situation, recognizing what you can influence, and seeking help
+when you need it.
+
+Ownership also means taking initiative when you encounter
+difficulties. In mathematics, when you do not understand a concept,
+you can ask questions, seek clarification, or explain the concept
+to someone else to test your understanding. When you make a mistake,
+you can examine your reasoning, identify what went wrong, and learn
+from the experience instead of simply copying the correct answer.
+These actions show that you are actively working to improve rather
+than waiting for someone else to solve every difficulty for you.
+
+Taking ownership also involves reflecting honestly on your habits
+and decisions. If you miss classes, struggle to participate, or find
+yourself disengaged, consider what contributed to these experiences.
+Which factors were beyond your control? What choices could you make
+differently? What resources or support might help you? The purpose
+of reflection is not to judge yourself or make excuses, but to
+understand your experiences and identify opportunities for growth.
+
+The first marking period is an opportunity to reflect on how things
+have gone so far. You cannot change the past, but you can learn from
+it. As you look toward the next marking period, think about one or
+two specific, realistic actions you can take to improve your
+attendance, engagement, or learning habits. Rather than simply
+promising to try harder, consider what you will actually do and
+what support you may need.
+
+\textbf{Your education is a shared effort, but your learning requires
+your participation. You do not have to do everything alone, and
+you do not have to be perfect. What matters is that you take an
+active role in your own progress.}
+
+\vspace{3pt}
+\hrule
+\vspace{4pt}
+
+{\large\bfseries Written Reflection: My First Marking Period}
+
+Reflect on your experiences during the first marking period and
+write a thoughtful response addressing all three questions below.
+Use specific examples where appropriate, but do not feel obligated
+to disclose private information.
+
+\begin{enumerate}
+    \item \textbf{Attendance:} What were the major reasons for your
+    absences during the first marking period? What circumstances
+    or factors affected your ability to attend class regularly?
+
+    \item \textbf{Classroom engagement:} What were the major reasons
+    you sometimes found it difficult to participate in or stay
+    engaged with class? Consider factors that affected your attention,
+    participation, motivation, or willingness to ask for help.
+
+    \item \textbf{Ownership and moving forward:} What does taking
+    ownership of your education mean to you? Looking back on the
+    first marking period, how have you taken ownership of your
+    learning, and where could you improve? Identify one or two
+    specific actions you will take during the next marking period
+    to improve your attendance, classroom engagement, or learning
+    habits. If you need support to make these changes, explain
+    what kind of support would help.
+\end{enumerate}
+
+Be honest and thoughtful. The purpose of this assignment is not
+to judge your past or assign blame, but to understand your
+experiences, recognize your opportunities for growth, and make
+a realistic plan for moving forward.
+\clearpage
+
+\noindent
+{
+\hspace{\stretch{1}} Score \rule{4em}{.4pt} 
+}
+
+\begin{center}
+    {\Large\bfseries My Reflection}
+\end{center}
+
+% Use any remaining space on page 1 for writing.
+\vfill
+\writingline
+\writingline
+\writingline
+
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\writingline
+\end{document}
