@@ -25,6 +25,10 @@
 %math package
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 %\usepackage{amssymb}
 %\usepackage{amsthm}
 %\usepackage{slashed}
@@ -48,6 +52,7 @@
 \newcommand{\vv}{\mathbf v}
 \newcommand{\inpr}[1]{\left\langle#1\right\rangle}
 \newcommand{\blankwans}[3][.]{\alt<#2>{{\color{red}\uline{#3}}#1}{\hrulefill#1}}
+\newcommand{\ehot}{\frametitle{Everyday Higher Order Thinking}}
 
 \author[B.H.]{{\Large A Collection of Daily Tasks}\\\vspace{.5em} Author: Benjamin Huang}
 \date{}
@@ -70,46 +75,97 @@ end
 \Large
 
 \begin{frame}
+\frametitle{AO Policy}
+\begin{itemize}
+\item
+\textbf{ACADEMIC}
+\begin{itemize}
+\item
+Formative AO -- revise at your own time
+\item
+Summative AO -- revise with a  proctor, e.g.,  in class or during office hours
+\item 
+End of Term (EOT) AO -- no revision
+\end{itemize}
+\item
+\textbf{HABIT OF WORK}
+\begin{itemize}
+\item
+Sprint or Exit Ticket -- no revision
+\item 
+Homework -- see \textit{Homework Policy}
+\item
+Diagnostic AO -- no revision\footnote{This is meant to assess the readiness for EOT and Regents}.
+\item
+Essays -- revise at your own time
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Communication Policy}
+\pause
+
+\begin{itemize}
+\item
+Students must check their school email  account \textbf{at least} twice a day. Typically, once before school, and once after school.\pause
+\vspace{\stretch{1}}
+\item Your JumpRope account and Google Classroom account should set to send all sort of notifications to your school email.\pause
+\vspace{\stretch{1}}
+\item Ideally, if you have a smart phone, you shall link your school email account with your preferred email app(e.g., Outlook App or Gmail App)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
 \frametitle{Homework Policy Addendum}
 \pause
-On top of the daily homework draw, we will create a parallel homework system via Khan Academy in case you want more practice or recover your lost grade.
+
+In addition to our daily homework draw, we will use Khan Academy as a parallel homework system. These assignments will give you extra practice and an opportunity to make up for a low homework grade.
 \vspace{\stretch{1}}
 
-At the end of each marking period, we will look at your daily homework draw grade and your Khan Academy homework grade, and take the \textbf{\color{red}greater number} for record. 
+At the end of each marking period, we will compare your daily homework draw grade with your Khan Academy homework grade and record the \textbf{\color{red}higher of the two}.
 \end{frame}
 
 \begin{frame}
 \frametitle{Tools Policy}
 \pause
-If you need  a pencil, please raise your hand to make a request. 
+
+If you need a pencil, please raise your hand and ask for one.
 \vspace{\stretch{1}}
 
-When your request is approved, take a pencil from the tool container, and write your name down in the pencil register on the wall. 
+Once your request is approved, take a pencil from the container and sign your \textbf{initials} in the pencil register on the wall.
 \vspace{\stretch{1}}
 
-When you are finished, return the pencil to the container, and put a check next to your name. 
+When you are finished, return the pencil to the container and check off your \textbf{initials} in the register.
 \end{frame}
 
 \begin{frame}
 \frametitle{Bathroom Policy Addendum}
 \pause
 
-Plan your bathroom trip so that you can minimize the need during the math class.\pause
+Please plan your bathroom trips to minimize your absence during math class. (Whenever possible, use the bathroom at other time.)
+\pause
 \vspace{\stretch{1}}
 
-If you need to use the bathroom, do not use it during the \textit{One Mic Time} unless it is an absolute emergency. Your teacher will remind you about this policy upon your request.
+If you need to use the bathroom, please wait until \textit{One Mic Time} has ended unless it is an emergency. If you ask to leave during \textit{One Mic Time}, I will remind you of this policy.\pause
+\vspace{\stretch{1}}
+
+On your way out to the bathroom or get water, \textbf{sign your initials in the register} and put the trash bin between the frame and the door so that it doesn't lock. On your way in, remove the trash bin and return to your seat quietly.
 \end{frame}
 
 \begin{frame}
 \frametitle{Cleanup Policy}
 \pause
-There are two trash bins in this room, one at the front and one at the back. Please be sure to clean up your trash and mess as soon as possible.\pause
+
+There are two trash bins in this room, one at the front and one at the back. Please throw away your trash and clean up any mess promptly.
+\pause
 \vspace{\stretch{1}}
 
-By the end of each class, align the desks and chairs as how they were layout.\pause
+At the end of each class, return the desks and chairs to their original arrangement.
+\pause
 \vspace{\stretch{1}}
 
-Return your binder or folder to the assigned space.
+Return your binder or folder to its designated place.
 \end{frame}
 
 \begin{frame}
@@ -125,41 +181,55 @@ Return your binder or folder to the assigned space.
 \end{center}
 \pause
 
-\begin{enumerate}[label=$\bullet$]
-\item All students must remain seated until the teacher dismisses the class.
+All students must remain seated until I dismiss the class.
 \pause
 
 \textbf{Before dismissal:}
 \pause
 
-\item All pencils, markers, calculators, laptops, and other supplies must be returned to the right place.
+\begin{enumerate}[label=$\bullet$]
+\item All pencils, markers, calculators, laptops, and other supplies must be returned to their proper places.
 \pause
 
 \item Class materials must be put back in the binder, homework must be put away in the backpack, and all personal belongings must be removed from desks and the floor.
 \pause
 
-\item All trash must be thrown away, desks and chair must be aligned, and the classroom area must be left clean.
+\item All trash must be thrown away, desks and chairs must be returned to their original arrangement, and the classroom must be left clean.
 \end{enumerate}
 \end{frame}
-
 \begin{frame}
-In order to make an action opportunity for the students, Benjamin needs to generate a table of the function $p(x) = -x^3 + 11x^2-7x-69$ like this:
+\frametitle{Everyday Higher Order Thinking}
+Benjamin wants to create an action opportunity for his students. To do so, he needs to generate a table of values for the function $p(x) = -x^3 + 11x^2 - 7x - 69$, as shown here:
 
 \small
-\directlua{
-    tex.print("\\begin{tabular}{|c|c|}\\hline x&y \\\\\\hline");
-    for i=3545,3555 do
-        x = i/1000;
-        y = -x^3+11*x^2-7*x-69;
-        y = math.floor(y*1000+0.5)/1000;
-        tex.print(x.."&"..y.."\\\\\\hline");
-    end;
-    tex.print("\\end{tabular}")
-}
-\Large
-Imagine that Benjamin will need to frequently make revision to the problem, such as replacing the functions, or change the number of rows in the table. If you were Benjamin, how would you go about generating this table? 
-\end{frame}
 
+\directlua{
+
+    tex.print("\\begin{wraptable}{l}{8em}\\vspace{-2em}\\begin{tabular}{|c|c|}\\hline x&y \\\\\\hline");
+
+    for i=3545,3555 do
+
+        x = i/1000;
+
+        y = -x^3+11*x^2-7*x-69;
+
+        y = math.floor(y*1000+0.5)/1000;
+
+        tex.print(x.."&"..y.."\\\\\\hline");
+
+    end;
+
+    tex.print("\\end{tabular}\\end{wraptable}")
+
+}
+
+\Large
+
+Imagine that Benjamin will need to revise the problem frequently---for example, by changing the function or the number of rows in the table.
+
+If you were Benjamin, how would you go about generating this table? \textbf{\color{red} Briefly describe your strategy and explain the factors you would consider when choosing it, such as ease of revision, accuracy, and efficiency.}
+
+\end{frame}
 \begin{frame}
 \frametitle{Everyday Higher Order Thinking}
 Create two polynomials such that 
@@ -173,5 +243,49 @@ They have very different general shapes.
 Use a graphing utility to check your candidates. \textbf{\color{red}Be sure to write down both the formulas and sketch the graph on a coordinate plane.}
 
 Explain your thought process to your group members meticulously.
+\end{frame}
+
+\begin{frame}
+\frametitle{Everyday Higher Order Thinking}
+\begin{enumerate}[leftmargin = *, label = \arabic*]
+\item
+Sketch a graph for a polynomial function $y = f(x$) that has $3$ different zeros and $f(x) \geq 0$ for
+all values of $x$.
+\vspace{\stretch{1}}
+
+\item
+What is a possible equation for the polynomial? Use graphing technology to see if your
+equation matches your sketch.
+\vspace{\stretch{1}}
+
+\item
+What is the smallest degree the polynomial could have?
+
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\ehot
+Write an equation of the polynomial represented by the graph below
+\begin{center}
+\normalsize
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.5\textwidth, 
+    axis lines=middle,
+    xmin=-6, xmax=6,
+    ymin=-10, ymax=10,
+    xlabel={$x$}, ylabel={$y$},
+    ytick=\empty,
+    minor tick num = 1,
+    samples=200,
+    clip=true
+]
+\addplot[thick]{1/5*(x-2)^2*(x+3)};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Work on it quietly and individually for 3 minutes, then explain your thought process to your group members.
 \end{frame}
 \end{document}

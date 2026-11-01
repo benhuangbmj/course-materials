@@ -2,17 +2,8 @@
 \usepackage{geometry}
 \geometry{margin=0em}
 \usepackage{pdfpages}
-
+\newcommand{\repeatfour}[1]{#1,#1,#1,#1}
 \begin{document}
-
-\includepdf[
-    pages={},
-    nup=,
-]{}
-
-\includepdf[
-    pages={},
-    nup=,
-]{}
-
+%\includepdf[    pages={\repeatfour{}},    nup=,    clip=true,    frame = true,]{}
+%\includepdf[    pages={\repeatfour{}},    nup=,    clip=true,    frame = true,]{}
 \end{document}

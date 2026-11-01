@@ -38,16 +38,28 @@
 
 \DeclareMathOperator{\xd}{d\!}
 \DeclareMathOperator{\proj}{proj}
+\newcommand{\tools}[1][scientific calculator]{
+{
+\normalsize
+\hfill
+\vspace{-2.5em}
 
+\noindent
+\textbf{Tools:} #1 \hspace{\stretch{1}}\renewcommand{\arraystretch}{1.5} \begin{tabular}{|c|}
+\hline
+\textbf{Score}\\
+\hline
+\rule{0em}{2.5em}\\
+\hline
+\end{tabular} 
+}
+}
 \title{}
 \date{}
 
 \newcommand{\template}{
 %\directlua{tex.print(utils.genVersion())}
-\noindent
-{
-\textbf{Tools:} scientific calculator \hspace{\stretch{1}} Score \rule{4em}{.4pt} 
-}
+\tools
 
 \Huge
 \begin{enumerate}[leftmargin=*, itemsep=1.2em]
@@ -72,10 +84,151 @@ $p(x)$. Sketch $y = p(x)$ on the set of axes below.
 \end{axis}
 \end{tikzpicture}
 \end{center}
-
 \end{enumerate}
+\clearpage
+\tools[N/A]
+\begin{enumerate}
+\Large
+\item
+Do you have a binder or a folder for this class?\hspace{1em}Yes\hspace{2em}No
+\item
+At the very least, how often are you supposed to check your school email?
+\vspace{1em}
 
+\hrulefill
+\item
+What are some reasons you might not complete your homework, and what could you do to address them?
+\vspace{1em}
 
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\end{enumerate}
+\clearpage
+{
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.5em, itemsep=0.5em, topsep=0.4em}
+\setlist[enumerate]{leftmargin=1.8em, itemsep=0.5em, topsep=0.4em}
+\small
+\begin{center}
+\huge
+\textbf{Classroom Policies}
+\end{center}
+
+\section{Communication Policy}
+
+\begin{itemize}
+    \item Students must check their school email account \textbf{at least twice a day}---typically once before school and once after school.
+    \item Your JumpRope account and Google Classroom account should be set to send all notifications to your school email.
+    \item Ideally, if you have a smartphone, link your school email account to your preferred email app (e.g., Outlook or Gmail).
+\end{itemize}
+
+\section{Homework Policy Addendum}
+
+In addition to our daily homework draw, we will use Khan Academy as a parallel homework system. These assignments will give you extra practice and an opportunity to make up for a low homework grade.
+
+At the end of each marking period, we will compare your daily homework draw grade with your Khan Academy homework grade and record the \textbf{higher of the two}.
+
+\section{Tools Policy}
+
+If you need a pencil, please raise your hand and ask for one.
+
+Once your request is approved, take a pencil from the container and sign your name in the pencil register on the wall.
+
+When you are finished, return the pencil to the container and check off your name in the register.
+
+\section{Bathroom Policy Addendum}
+
+Please plan your bathroom trips to minimize your absence during math class. Whenever possible, use the bathroom at another time.
+
+If you need to use the bathroom, please wait until \textit{One Mic Time} has ended unless it is an emergency. If you ask to leave during \textit{One Mic Time}, I will remind you of this policy.
+
+On your way out to use the bathroom or get water, place the trash bin between the door and its frame so that the door does not lock. On your way back in, remove the trash bin and return to your seat quietly.
+
+\section{Cleanup Policy}
+
+There are two trash bins in this room, one at the front and one at the back. Please throw away your trash and clean up any mess promptly.
+
+At the end of each class, return the desks and chairs to their original arrangement.
+
+Return your binder or folder to its designated place.
+
+\section{Dismissal Policy}
+
+\begin{center}
+    \textit{The bell doesn't dismiss you---I do.}
+
+    \vspace{0.25em}
+    --- Confucius, circa 500 BCE (allegedly)
+\end{center}
+
+All students must remain seated until I dismiss the class.
+
+\textbf{Before dismissal:}
+\begin{itemize}[label=$\bullet$]
+    \item Return all pencils, markers, calculators, laptops, and other supplies to their proper places.
+    \item Put class materials back in your binder, put homework away in your backpack, and remove all personal belongings from your desk and the floor.
+    \item Throw away all trash, return desks and chairs to their original arrangement, and leave the classroom clean.
+\end{itemize}
+
+\section{AO Policy}
+
+\textbf{Academic}
+\begin{itemize}
+    \item \textbf{Formative AO:} May be revised on your own time.
+    \item \textbf{Summative AO:} May be revised with a proctor, either in class or during office hours.
+    \item \textbf{End-of-Term (EOT) AO:} Cannot be revised.
+\end{itemize}
+
+\textbf{Habit of Work}
+\begin{itemize}
+    \item \textbf{Sprint or Exit Ticket:} Cannot be revised.
+    \item \textbf{Homework:} See the Homework Policy Addendum.
+    \item \textbf{Diagnostic AO:} Cannot be revised.
+    \item \textbf{Essays:} May be revised on your own time.
+\end{itemize}
+
+\section{Student Acknowledgment}
+
+I acknowledge that I have read and understood these classroom policies. I understand that I am responsible for following them and will ask my teacher if I have questions about any part of the policies.
+
+\vspace{\stretch{1}}
+
+\noindent
+Student name (print): \hrulefill
+
+\vspace{\stretch{1}}
+
+\noindent
+Student signature: \hrulefill
+
+\vspace{\stretch{1}}
+
+\noindent
+Date: \hrulefill
+}
 }
 \begin{luacode*}
 utils = require("../utils")
