@@ -1,0 +1,203 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+\usetheme{PaloAlto}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+%general package
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\graphicspath{{../img}}
+\hypersetup{
+    colorlinks=true, 
+    linkcolor=red,    % Internal links
+    urlcolor=blue     % External links
+}
+\usepackage{wrapfig}
+\usepackage{luacode}
+\usepackage{comment}
+\usepackage{ulem}
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+%\usepackage{slashed}
+%\usepackage{tikz-cd}
+
+%font package
+%\usepackage{mathrsfs}
+%\usepackage{bm}
+
+%misc. package
+\usepackage{enumitem}
+\usepackage{animate}
+
+\DeclareMathOperator{\xd}{\,d\!}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\dive}{div}
+\newcommand{\e}{{\rm e}}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\R}{\mathbb R}
+\newcommand{\vF}{\mathbf F}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\blankwans}[3][.]{\alt<#2>{{\color{red}\uline{#3}}#1}{\hrulefill#1}}
+\newcommand{\ehot}{\frametitle{Everyday Higher Order Thinking}}
+
+\author[B.H.]{{\Large The Cultivation of Habits of Work}\\\vspace{.5em} Author: Benjamin Huang}
+\date{}
+\title[U0]{Unit Zero}
+
+%\institute[]{\vskip -2em\includegraphics[width = 0.65\textwidth]{}}
+%\logo{\includegraphics[width=.12\textwidth]{}}
+
+\begin{document}
+\begin{luacode*}
+function generateNonzero(min, max)
+  local output
+  repeat
+    output = math.random(min, max)
+  until output ~= 0
+  return output
+end
+\end{luacode*}
+\frame{\titlepage}
+\Large
+
+\begin{frame} \frametitle{Challenges} \pause
+\begin{itemize} \item How much better are you than yesterday? \vspace{\stretch{1}} \item How did you contribute to the community today? \vspace{\stretch{1}} \item What did you do today that you are proud of? \vspace{\stretch{1}} \item How did you fulfill your ownership of your education today?\end{itemize} \end{frame}
+
+\begin{frame}
+\frametitle{AO Policy}
+\begin{itemize}
+\item
+\textbf{ACADEMIC}
+\begin{itemize}
+\item
+Formative AO -- revise at your own time
+\item
+Summative AO -- revise with a  proctor, e.g.,  in class or during office hours
+\item 
+End of Term (EOT) AO -- no revision
+\end{itemize}
+\item
+\textbf{HABITS OF WORK}
+\begin{itemize}
+\item
+Sprint or Exit Ticket -- no revision
+\item 
+Homework -- see \textit{Homework Policy}
+\item
+Diagnostic AO -- no revision\footnote{This is meant to assess the readiness for EOT and Regents}.
+\item
+Essays -- revise at your own time
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Communication Policy}
+\pause
+
+\begin{itemize}
+\item
+Students must check their school email  account \textbf{at least} twice a day. Typically, once before school, and once after school.\pause
+\vspace{\stretch{1}}
+\item Your JumpRope account and Google Classroom account should set to send all sort of notifications to your school email.\pause
+\vspace{\stretch{1}}
+\item Ideally, if you have a smart phone, you shall link your school email account with your preferred email app(e.g., Outlook App or Gmail App)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Homework Policy Addendum}
+\pause
+
+In addition to our daily homework draw, we will use Khan Academy as a parallel homework system. These assignments will give you extra practice and an opportunity to make up for a low homework grade.
+\vspace{\stretch{1}}
+
+At the end of each marking period, we will compare your daily homework draw grade with your Khan Academy homework grade and record the \textbf{\color{red}higher of the two}.
+\end{frame}
+
+\begin{frame}
+\frametitle{Tools Policy}
+\pause
+
+If you need a pencil, please raise your hand and ask for one.
+\vspace{\stretch{1}}
+
+Once your request is approved, take a pencil from the container and sign your \textbf{initials} in the pencil register on the wall.
+\vspace{\stretch{1}}
+
+When you are finished, return the pencil to the container and check off your \textbf{initials} in the register.
+\end{frame}
+
+\begin{frame}
+\frametitle{Bathroom Policy Addendum}
+\pause
+
+Please plan your bathroom trips to minimize your absence during math class. (Whenever possible, use the bathroom at other time.)
+\pause
+\vspace{\stretch{1}}
+
+If you need to use the bathroom, please wait until \textit{One Mic Time} has ended unless it is an emergency. If you ask to leave during \textit{One Mic Time}, I will remind you of this policy.\pause
+\vspace{\stretch{1}}
+
+On your way out to the bathroom or get water, \textbf{sign your initials in the register} and put the trash bin between the frame and the door so that it doesn't lock. On your way in, remove the trash bin and return to your seat quietly.
+\end{frame}
+
+\begin{frame}
+\frametitle{Cleanup Policy}
+\pause
+
+There are two trash bins in this room, one at the front and one at the back. Please throw away your trash and clean up any mess promptly.
+\pause
+\vspace{\stretch{1}}
+
+At the end of each class, return the desks and chairs to their original arrangement.
+\pause
+\vspace{\stretch{1}}
+
+Return your binder or folder to its designated place.
+\end{frame}
+
+\begin{frame}
+\frametitle{Dismissal Policy}
+\large
+\pause
+
+\begin{center}
+\textit{The bell doesn't dismiss you---I do.}
+
+\hfill--- Confucius, circa 500 BCE (allegedly)
+
+\end{center}
+\pause
+
+All students must remain seated until I dismiss the class.
+\pause
+
+\textbf{Before dismissal:}
+\pause
+
+\begin{enumerate}[label=$\bullet$]
+\item All pencils, markers, calculators, laptops, and other supplies must be returned to their proper places.
+\pause
+
+\item Class materials must be put back in the binder, homework must be put away in the backpack, and all personal belongings must be removed from desks and the floor.
+\pause
+
+\item All trash must be thrown away, desks and chairs must be returned to their original arrangement, and the classroom must be left clean.
+\end{enumerate}
+\end{frame}
+\end{document}
