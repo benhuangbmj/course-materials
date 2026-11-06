@@ -1,0 +1,169 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{BASE Algebra II}
+\chead{Polynomial V, Version 1}
+\directlua{pageNum = 1}
+\rhead{AO\#5 Formative, Page \thepage}% \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+
+%\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.4pt}\hspace{\stretch{1}} Last Name \rule{6em}{.4pt}\hspace{\stretch{1}} Date \raisebox{0.3em}{\underline{\quad\color{gray}\today\quad} \hspace{\stretch{1}}} Period \rule{2em}{.4pt}\hspace{\stretch{1}}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+\rule{0em}{3em}\raisebox{1em}{N/A}&&\\
+\hline
+\end{tabular}
+
+\vspace{1em}
+\noindent
+\textbf{Tools:} TI-84/83
+\vspace{1em}
+
+\begin{enumerate}[leftmargin=*]
+\item (\textbf{BE PRECISE})
+Let $f(x) = x^2 - x - 6$.
+\begin{enumerate}
+    \item Complete the following table.
+    \item Plot the points with the coordinates from the table in the coordinate frame below.
+    \item Sketch the graph of $f(x)$ by tracing the points.
+\end{enumerate}
+(\textbf{IMPORTANT:} \textit{In order to earn credits, you must complete all three tasks.})
+\vspace{\stretch{1}}
+
+\begin{minipage}{.15\textwidth}
+\directlua{genTable()}
+\end{minipage}
+\begin{minipage}{.85\textwidth}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    grid=both,
+    minor tick num=3,
+    axis lines=middle,
+    xtick distance = 2,
+    xmin=-7,xmax=7,
+    ymin=-7,ymax=7,
+    samples=100,
+    width=\textwidth,
+    grid style={draw=gray!30},
+]
+\end{axis}
+\end{tikzpicture}
+\end{center} 
+\end{minipage}
+\vspace{\stretch{1}}
+\item (\textbf{BE PRECISE})
+Which value is a zero of $a(x) = x^3 + 3x^2-4x-12$?\vspace{1em}
+
+(1) $-12$\hspace{\stretch{1}}(2) $-3$\hspace{\stretch{1}}(3) $3$\hspace{\stretch{1}}(4) $0$
+\vspace{\stretch{1}}
+\clearpage
+\item (\textbf{BE PRECISE})
+Given $x\ne-1$, $\displaystyle \frac{x^3+5x^2+2x-8}{x+1}$ is equivalent to\vspace{1em}
+
+(1) $\displaystyle x^2 + 4x + 2- \frac{10}{x+1}$\hspace{\stretch{1}}(2) $\displaystyle x^2 + 6x -4 -\frac{4}{x+1}$\hspace{\stretch{1}} (3) $x^2 + 6x + 8$\hspace{\stretch{1}} (4) $\displaystyle x^2 + 4x -2 -\frac{6}{x+1}$
+\vspace{\stretch{1}}
+\item (\textbf{MODEL})
+The zeros of a cubic polynomial function are $-3$, $2$, and $5$. There is a relative maximum of
+the function at $(-1, 9)$. Construct a sketch of the function on the set of axes below. 
+\vspace{\stretch{1}}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$y$},
+    axis lines=middle,
+    xmin=-10,xmax=10,
+    ymin=-10,ymax=10,
+    xtick=\empty,
+    ytick=\empty,
+    samples=100,
+    width=\textwidth,
+]
+\end{axis}
+\end{tikzpicture}
+\end{center} 
+\vspace{\stretch{1}}
+\end{enumerate}
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+
+\begin{luacode*}
+function genTable()
+tex.print("\\begin{center}")
+tex.print("\\begin{tabular}{|c|c|}")
+tex.print("\\hline\\textbf{$x$} & \\textbf{$f(x)$} \\\\ \\hline")
+
+for i = -6, 6 do
+  local x = i * 0.5
+  tex.print(string.format("$%g$ & \\rule{0em}{2em}\\hspace{2em}\\phantom{%g} \\\\ \\hline", x, x^2-x - 6))
+end
+
+tex.print("\\end{tabular}")
+tex.print("\\end{center}")
+end
+\end{luacode*}
+
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
