@@ -10,5 +10,6 @@ algebra-two-sync/
 *.local.tex
 !*.md
 !*.bat
+!concepts.csv
 
 *_print.tex
