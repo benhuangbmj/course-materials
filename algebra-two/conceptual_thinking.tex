@@ -59,6 +59,7 @@
 
 \begin{document}
 \begin{luacode*}
+ftcsv = require("../ftcsv")
 function generateNonzero(min, max)
   local output
   repeat
@@ -85,7 +86,7 @@ Can you come up with a polynomial that have no $x$-intercept?
 \begin{frame}
 \begin{itemize}
 \item
-In mathematics, a \textbf{product} means \alt<2->{\underline{\color{red}the result of a multiplication}.}{\underline{\phantom{the result of a multiplication}}.} \pause\pause
+In mathematics, a \textbf{product} means \blankwans{2-}{the result of a multiplication}  \pause\pause
 \vspace{\stretch{1}}
 \item
  A \textbf{factor} means \blankwans{4-}{one of the numbers/expressions that form the product}
