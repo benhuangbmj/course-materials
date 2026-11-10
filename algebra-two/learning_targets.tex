@@ -1,0 +1,84 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+\usetheme{PaloAlto}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+%general package
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\graphicspath{{../img}}
+\hypersetup{
+    colorlinks=true, 
+    linkcolor=red,    % Internal links
+    urlcolor=blue     % External links
+}
+\usepackage{wrapfig}
+\usepackage{luacode}
+\usepackage{comment}
+\usepackage{ulem}
+%math package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+%\usepackage{slashed}
+%\usepackage{tikz-cd}
+
+%font package
+%\usepackage{mathrsfs}
+%\usepackage{bm}
+
+%misc. package
+\usepackage{enumitem}
+\usepackage{animate}
+
+\DeclareMathOperator{\xd}{\,d\!}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\dive}{div}
+\newcommand{\e}{{\rm e}}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\R}{\mathbb R}
+\newcommand{\vF}{\mathbf F}
+\newcommand{\vv}{\mathbf v}
+\newcommand{\inpr}[1]{\left\langle#1\right\rangle}
+\newcommand{\blankwans}[3][.]{\alt<#2>{{\color{red}\uline{#3}}#1}{\hrulefill#1}}
+\newcommand{\UL}[2]{\frametitle{\bf Unit #1 Lesson #2} I can\vspace{\stretch{1}}}
+
+\author[B.H.]{{\Large The Takeaways from this Class}\\\vspace{.5em} Author: Benjamin Huang}
+\date{}
+\title[LT]{Learning Targets}
+
+%\institute[]{\vskip -2em\includegraphics[width = 0.65\textwidth]{}}
+%\logo{\includegraphics[width=.12\textwidth]{}}
+
+\begin{document}
+\begin{luacode*}
+ftcsv = require("../ftcsv")
+function generateNonzero(min, max)
+  local output
+  repeat
+    output = math.random(min, max)
+  until output ~= 0
+  return output
+end
+\end{luacode*}
+\frame{\titlepage}
+\Large
+\begin{frame}
+\UL{3}{1}
+\begin{itemize}[label = $\bullet$]
+\item
+define what rational functions are
+\vspace{\stretch{1}}
+\item
+write a rational function to model different properties of cylinders
+\vspace{\stretch{1}}
+\end{itemize}
+\end{frame}
+\end{document}
