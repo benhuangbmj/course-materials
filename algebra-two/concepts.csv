@@ -1,20 +1,28 @@
-﻿Question,Answer
-"In mathematics, a \textbf{product} means",the result of a multiplication
-A \textbf{factor} means,one of the numbers/expressions that form the product
-"If the product is zero, then",one of the factors is zero
-"If the product is non-zero, then",all of the factors are non-zero
-"The point of coordinates $(a,b)$ is on the graph of the function $f(x)$ if","$b = f(a)$, e.g., $(1,1)$ is on the graph of $f(x) = 2x - 1$, while $(1,2)$ is not."
-"The point of coordinates $(a,b)$ is on the graph of the equation $f(x,y) = C$ if","(a,b) is a solution to the equation, i.e., $f(a,b) = C$, e.g., $\left(\frac{\sqrt{3}}{2}, -\frac{1}{2}\right)$ is on the graph of $x^2 + y^2 = 1$"
-"If $x_0$ is an $x$-intercept of $f(x)$, then",$f(x_0) = 0$
-"If $y_0$ is a $y$-intercept of $f(x)$, then",$y_0 = f(0)$
-The zeros of the function $P(x)$ are,"the solutions of the equation $P(x) = 0$, e.g., $1$ and $2$ are the zeros of $x^2 -3x + 2$"
-A polynomial is in the \textbf{factored form} if,"it's written as a product of first degree polynomial(s), e.g., $(x+2)(x-2)$ is the factored form of $x^2 - 4$"
-The factored form of a polynomial is good for,"relating the zeros of the polynomial immediately, e.g., $-2$ and $3$ are the only zeros of $(x+2)^8(x-3)^5$"
-The degree of a polynomial is,"the highest exponent of the variable, e.g., the degree of $-3 + 2x + 100x^2 - 4x^3$ is 3"
-A term in a sum is,"one of the numbers/expressions that form the sum, e.g., in $3x^2 - 2x + 1$, the terms are $3x^2$, $-2x$ and $1$"
-The leading term of a polynomial is,"the term of the variable with the highest exponent, e.g., the leading term of $-3 + 2x + 100x^2 - 4x^3$ is $-4x^3$"
-The standard form of a polynomial is,"the sum with the terms ordered by exponents from high to low, e.g., $3x^3 - 2x + 4$"
-The standard form is good for,"identifying the degree, the constant value (a.k.a the $y$-intercept), and implementing the polynomial long division"
-"Before you plot the graph of a function on a graphing calculator, you should",set the graphing window properly
-"To set the graphing window, firstly, you should",find all the $x$-intercepts
-The multiplicity of a factor of a polynomial is,"the power to which the factor occurs in the factored form, e.g., in $(x+3)^2(x-4)$, the multiplicity of $(x+3)$ is 2 and of $(x-4)$ is 1"
+﻿Question,Answer,Group
+"In mathematics, a \textbf{product} means",the result of a multiplication,1
+A \textbf{factor} means,one of the numbers/expressions that form the product,2
+"If the product is zero, then",one of the factors is zero,3
+"If the product is non-zero, then",all of the factors are non-zero,4
+"The point of coordinates $(a,b)$ is on the graph of the function $f(x)$ if","$b = f(a)$, e.g., $(1,1)$ is on the graph of $f(x) = 2x - 1$, while $(1,2)$ is not.",5
+"The point of coordinates $(a,b)$ is on the graph of the equation $f(x,y) = C$ if","(a,b) is a solution to the equation, i.e., $f(a,b) = C$, e.g., $\left(\frac{\sqrt{3}}{2}, -\frac{1}{2}\right)$ is on the graph of $x^2 + y^2 = 1$",6
+"If $x_0$ is an $x$-intercept of $f(x)$, then",$f(x_0) = 0$,7
+"If $y_0$ is a $y$-intercept of $f(x)$, then",$y_0 = f(0)$,8
+The zeros of the function $P(x)$ are,"the solutions of the equation $P(x) = 0$, e.g., $1$ and $2$ are the zeros of $x^2 -3x + 2$",9
+A polynomial is in the \textbf{factored form} if,"it is written as a product of first degree polynomial(s), e.g., $(x+2)(x-2)$ is the factored form of $x^2 - 4$",10
+The factored form of a polynomial is good for,"relating the zeros of the polynomial immediately, e.g., $-2$ and $3$ are the only zeros of $(x+2)^8(x-3)^5$",12
+The exponent of $x^4$ is,$4$,11
+It means,"$4$ copies of $x$ multiply together, i.e., $x^4 = x\cdot x\cdot x\cdot x$",11
+The degree of a polynomial is,"the highest exponent of the variable, e.g., the degree of $-3 + 2x + 100x^2 - 4x^3$ is 3",13
+A term in a sum is,"one of the numbers/expressions that form the sum, e.g., in $3x^2 - 2x + 1$, the terms are $3x^2$, $-2x$ and $1$",14
+The leading term of a polynomial is,"the term of the variable with the highest exponent, e.g., the leading term of $-3 + 2x + 100x^2 - 4x^3$ is $-4x^3$",15
+The standard form of a polynomial is,"the sum with the terms ordered by exponents from high to low, e.g., $3x^3 - 2x + 4$",16
+The standard form is good for,"identifying the degree, the constant value (a.k.a the $y$-intercept), and implementing the polynomial long division",17
+"Before you plot the graph of a function on a graphing calculator, you should",set the graphing window properly,18
+"To set the graphing window, firstly, you should",find all the $x$-intercepts,19
+The multiplicity of a factor of a polynomial is,"the power to which the factor occurs in the factored form, e.g., in $(x+3)^2(x-4)$, the multiplicity of $(x+3)$ is 2 and of $(x-4)$ is 1",20
+A rational function is,"a quotient of two polynomial functions, e.g., $\frac{x+1}{x-2},\ \frac{x^2+2x+1}{x+1}$. In particular, all polynomial functions are rational functions with denominator $1$.",21
+"``\textit{POV: When it comes to solving equation systems, less is better.}'' means","it's easier to solve a system with less line of equations and less variables. Therefore, the guiding priciple is to reduce the number of variables as much as possible",22
+The relation between the graph and the equation is,"the coordinates of the points on the graph are the solutions to the equations, e.g., $(\sqrt{2},\sqrt{7})$ is a point on the graph of $x^2 + y^2 = 9$.",23
+"To find the intersection of two graphs, ",we need to solve the system given by two equations,24
+"The relation of distance, average speed and time is",$\text{distance} = \text{average speed}\cdot\text{time}$,25
+A vertical asymptote of a rational function is ,"a vertical line that a function's graph gets infinitely close to, but never touches or crosses, e.g., $x =  2$ is a vertical asymptote of $y = \frac{x+1}{x-2}$.",26
