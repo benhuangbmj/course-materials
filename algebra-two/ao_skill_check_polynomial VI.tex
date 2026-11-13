@@ -1,0 +1,169 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{BASE Algebra II}
+\chead{Polynomial VI}
+\directlua{pageNum = 1}
+\rhead{AO\#6 Skill Check, Page \thepage}% \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+
+%\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+First Name \rule{6em}{.4pt}\hspace{\stretch{1}} Last Name \rule{6em}{.4pt}\hspace{\stretch{1}} Date \raisebox{0.3em}{\underline{\quad\color{gray}\today\quad} \hspace{\stretch{1}}} Period \rule{2em}{.4pt}\hspace{\stretch{1}}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{ARGUE}&\textbf{MODEL}&\textbf{BE PRECISE}\\
+\hline
+\rule{0em}{3em}\raisebox{1em}{N/A}&&\\
+\hline
+\end{tabular}
+
+\vspace{1em}
+\noindent
+\textbf{Tools:} TI-84/83
+\vspace{1em}
+
+\begin{enumerate}[leftmargin=*]
+\item
+Which description could represent the graph of $f(x) = 4x^2(x+a) - x - a$, if $a$ is an integer?
+\begin{enumerate}[label = (\arabic*), itemsep=2em]
+\item 
+As $x\to-\infty$, $f(x) \to \infty$, as $x\to\infty$, $f(x)\to\infty$, and the graph has $3$ $x$-intercepts.
+\item
+As $x\to-\infty$, $f(x) \to -\infty$, as $x\to\infty$, $f(x)\to\infty$, and the graph has $3$ $x$-intercepts.
+\item
+As $x\to-\infty$, $f(x) \to \infty$, as $x\to\infty$, $f(x)\to-\infty$, and the graph has $4$ $x$-intercepts.
+\item
+As $x\to-\infty$, $f(x) \to -\infty$, as $x\to\infty$, $f(x)\to\infty$, and the graph has $4$ $x$-intercepts.
+\end{enumerate}
+\item The graph of the function $p(x)$is sketched below.
+Which equation could represent $p(x)$?
+\begin{enumerate}[label = (\arabic*), itemsep=2em]
+\item
+$p(x) = (x^2-9)(x-2)$
+\item
+$p(x) = x^3 - 2x^2 + 9 x + 18$
+\item
+$p(x) = (x^2 + 9)(x-2)$
+\item
+$p(x) = x^3 + 2x^2 - 9x - 18$
+\end{enumerate}
+\item
+What is the solution set of the following system of equations?
+\begin{align*}
+y &= 3x+6\\
+y &= (x+4)^2 - 10
+\end{align*}
+\begin{enumerate}[label = (\arabic*), itemsep=2em]
+\item
+$\left\{(-5,-9)\right\}$
+\item
+$\left\{(5,21)\right\}$
+\item
+$\left\{(0,6),\ (-5,-9)\right\}$
+\item
+$\left\{(0,6),\ (5,21)\right\}$
+\end{enumerate}
+\item Which expression is equivalent to $(x+2)^2 - 5(x+2) + 6$?
+\begin{enumerate}[label = (\arabic*), itemsep=2em]
+\item
+$x(x-1)$
+\item
+$(x-3)(x-2)$
+\item
+$(x-4)(x+3)$
+\item
+$(x-6)(x+1)$
+\end{enumerate}
+\item Given $f(x) = \frac{x^2 - 4}{x+5}$, Select \textbf{all} values that make $f(x)$ equal to $0$.
+\begin{enumerate}[label = (\arabic*), itemsep=2em]
+\item
+$-5$
+\item
+$-2$
+\item
+$\displaystyle -\frac{4}{5}$
+\item
+$0$
+\item
+$2$
+\item
+$4$
+\end{enumerate}
+\end{enumerate}
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+
+\begin{luacode*}
+function genTable()
+tex.print("\\begin{center}")
+tex.print("\\begin{tabular}{|c|c|}")
+tex.print("\\hline\\textbf{$x$} & \\textbf{$f(x)$} \\\\ \\hline")
+
+for i = -6, 6 do
+  local x = i * 0.5
+  tex.print(string.format("$%g$ & \\rule{0em}{2em}\\hspace{2em}\\phantom{%g} \\\\ \\hline", x, x^2-x - 6))
+end
+
+tex.print("\\end{tabular}")
+tex.print("\\end{center}")
+end
+\end{luacode*}
+
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
