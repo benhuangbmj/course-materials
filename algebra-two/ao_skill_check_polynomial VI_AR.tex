@@ -1,0 +1,224 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{arabic}
+\setotherlanguage{english}
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.1]{Amiri}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{BASE الجبر 2}
+\chead{كثيرات الحدود VI}
+\directlua{pageNum = 1}
+\rhead{تحقق من المهارات AO\#6، الصفحة \thepage}% \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+\small
+%\directlua{tex.print(utils.genVersion())}
+\noindent
+{\large
+الاسم الأول \rule{6em}{.4pt}\hspace{\stretch{1}} اسم العائلة \rule{6em}{.4pt}\hspace{\stretch{1}} التاريخ \raisebox{0.3em}{\underline{\quad\color{gray}\today\quad} \hspace{\stretch{1}}} الحصة \rule{2em}{.4pt}\hspace{\stretch{1}}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{استدل}&\textbf{مثّل}&\textbf{كن دقيقًا}\\
+\hline
+\rule{0em}{3em}\raisebox{1em}{لا ينطبق}&&\\
+\hline
+\end{tabular}
+
+\vspace{1em}
+\noindent
+\textbf{الأدوات:} TI-84/83
+\vspace{1em}
+
+\begin{enumerate}[leftmargin=*, itemsep=0em]
+\item
+أي وصف يمكن أن يمثّل الرسم البياني للدالة $f(x) = 4x^2(x+a) - x - a$، إذا كان $a$ عددًا صحيحًا؟
+\begin{enumerate}[label = (\arabic*), itemsep=2em]
+\item 
+عندما $x\to-\infty$, $f(x) \to \infty$، عندما $x\to\infty$, $f(x)\to\infty$، ويحتوي الرسم البياني على $3$ تقاطعات مع محور $x$.
+\item
+عندما $x\to-\infty$, $f(x) \to -\infty$، عندما $x\to\infty$, $f(x)\to\infty$، ويحتوي الرسم البياني على $3$ تقاطعات مع محور $x$.
+\item
+عندما $x\to-\infty$, $f(x) \to \infty$، عندما $x\to\infty$, $f(x)\to-\infty$، ويحتوي الرسم البياني على $4$ تقاطعات مع محور $x$.
+\item
+عندما $x\to-\infty$, $f(x) \to -\infty$، عندما $x\to\infty$, $f(x)\to\infty$، ويحتوي الرسم البياني على $4$ تقاطعات مع محور $x$.
+\end{enumerate}
+\vspace{2em}
+\textbf{الإجابة}: \rule{4em}{.4pt}
+\item الرسم البياني للدالة $p(x)$ موضّح أدناه.
+أي معادلة يمكن أن تمثّل $p(x)$?
+
+
+\begin{minipage}{.45\textwidth}
+
+\begin{enumerate}[label = (\arabic*), itemsep=1em]
+\item
+$p(x) = (x^2-9)(x-2)$
+\item
+$p(x) = x^3 - 2x^2 + 9 x + 18$
+\item
+$p(x) = (x^2 + 9)(x-2)$
+\item
+$p(x) = x^3 + 2x^2 - 9x - 18$
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$p(x)$},
+    axis lines=middle,
+    xmin=-5,xmax=5,
+    ymin=-20,ymax=50,
+    ytick=\empty,
+    minor tick num =1,
+    samples=100,
+    width=\textwidth,
+]
+\addplot[thick]{(x^2-9)*(x-2)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{2em}
+\textbf{الإجابة}: \rule{4em}{.4pt}
+\item
+ما مجموعة حلول نظام المعادلات الآتي؟
+\begin{align*}
+y &= 3x+6\\
+y &= (x+4)^2 - 10
+\end{align*}
+\begin{enumerate}[label = (\arabic*), itemsep=2em]
+\item
+$\left\{(-5,-9)\right\}$
+\item
+$\left\{(5,21)\right\}$
+\item
+$\left\{(0,6),\ (-5,-9)\right\}$
+\item
+$\left\{(0,6),\ (5,21)\right\}$
+\end{enumerate}
+\vspace{2em}
+\textbf{الإجابة}: \rule{4em}{.4pt}
+\clearpage
+\item أي تعبير يكافئ $(x+2)^2 - 5(x+2) + 6$?
+\begin{enumerate}[label = (\arabic*), itemsep=2em]
+\item
+$x(x-1)$
+\item
+$(x-3)(x-2)$
+\item
+$(x-4)(x+3)$
+\item
+$(x-6)(x+1)$
+\end{enumerate}
+\vspace{1em}
+\textbf{الإجابة}: \rule{4em}{.4pt}
+\item إذا كانت $\displaystyle f(x) = \frac{x^2 - 4}{x+5}$، اختر \textbf{جميع} القيم التي تجعل $f(x)$ تساوي $0$.
+\begin{enumerate}[label = (\arabic*), itemsep=2em]
+\item
+$-5$
+\item
+$-2$
+\item
+$\displaystyle -\frac{4}{5}$
+\item
+$0$
+\item
+$2$
+\item
+$4$
+\end{enumerate}
+\vspace{1em}
+\textbf{الإجابة}: \rule{4em}{.4pt}
+\item طابق كل تعبير من A -- D مع تعبير مكافئ له من $(1)$ -- $(4)$.
+
+\begin{tabular}{ll}
+\textbf{الإجابة}\\
+\rule{0em}{3em}\rule{4em}{0.4pt} & A. $(a+b)^2$\\
+\rule{0em}{3em}\rule{4em}{0.4pt} & B. $(a-b)^2$\\
+\rule{0em}{3em}\rule{4em}{0.4pt} & C. $a(b+c)$\\
+\rule{0em}{3em}\rule{4em}{0.4pt} & D. $\frac{1}{a} + \frac{1}{b}$
+\end{tabular}
+\begin{enumerate}[label=(\arabic*), itemsep = 1em]
+\item
+$ab+ac$
+\item $\frac{a+b}{ab}$
+\item $a^2 + 2ab+b^2$
+\item $a^2-2ab+b^2$
+\end{enumerate}
+\end{enumerate}
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+
+\begin{luacode*}
+function genTable()
+tex.print("\\begin{center}")
+tex.print("\\begin{tabular}{|c|c|}")
+tex.print("\\hline\\textbf{$x$} & \\textbf{$f(x)$} \\\\ \\hline")
+
+for i = -6, 6 do
+  local x = i * 0.5
+  tex.print(string.format("$%g$ & \\rule{0em}{2em}\\hspace{2em}\\phantom{%g} \\\\ \\hline", x, x^2-x - 6))
+end
+
+tex.print("\\end{tabular}")
+tex.print("\\end{center}")
+end
+\end{luacode*}
+
+\begin{document}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
