@@ -65,7 +65,7 @@ First Name \rule{6em}{.4pt}\hspace{\stretch{1}} Last Name \rule{6em}{.4pt}\hspac
 \textbf{Tools:} TI-84/83
 \vspace{1em}
 
-\begin{enumerate}[leftmargin=*]
+\begin{enumerate}[leftmargin=*, itemsep=0em]
 \item
 Which description could represent the graph of $f(x) = 4x^2(x+a) - x - a$, if $a$ is an integer?
 \begin{enumerate}[label = (\arabic*), itemsep=2em]
@@ -78,9 +78,15 @@ As $x\to-\infty$, $f(x) \to \infty$, as $x\to\infty$, $f(x)\to-\infty$, and the 
 \item
 As $x\to-\infty$, $f(x) \to -\infty$, as $x\to\infty$, $f(x)\to\infty$, and the graph has $4$ $x$-intercepts.
 \end{enumerate}
-\item The graph of the function $p(x)$is sketched below.
+\vspace{2em}
+\textbf{Answer}: \rule{4em}{.4pt}
+\item The graph of the function $p(x)$ is sketched below.
 Which equation could represent $p(x)$?
-\begin{enumerate}[label = (\arabic*), itemsep=2em]
+
+
+\begin{minipage}{.45\textwidth}
+
+\begin{enumerate}[label = (\arabic*), itemsep=1em]
 \item
 $p(x) = (x^2-9)(x-2)$
 \item
@@ -90,6 +96,27 @@ $p(x) = (x^2 + 9)(x-2)$
 \item
 $p(x) = x^3 + 2x^2 - 9x - 18$
 \end{enumerate}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$x$},
+    ylabel={$p(x)$},
+    axis lines=middle,
+    xmin=-5,xmax=5,
+    ymin=-20,ymax=50,
+    ytick=\empty,
+    minor tick num =1,
+    samples=100,
+    width=\textwidth,
+]
+\addplot[thick]{(x^2-9)*(x-2)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{2em}
+\textbf{Answer}: \rule{4em}{.4pt}
 \item
 What is the solution set of the following system of equations?
 \begin{align*}
@@ -106,6 +133,9 @@ $\left\{(0,6),\ (-5,-9)\right\}$
 \item
 $\left\{(0,6),\ (5,21)\right\}$
 \end{enumerate}
+\vspace{2em}
+\textbf{Answer}: \rule{4em}{.4pt}
+\clearpage
 \item Which expression is equivalent to $(x+2)^2 - 5(x+2) + 6$?
 \begin{enumerate}[label = (\arabic*), itemsep=2em]
 \item
@@ -117,7 +147,9 @@ $(x-4)(x+3)$
 \item
 $(x-6)(x+1)$
 \end{enumerate}
-\item Given $f(x) = \frac{x^2 - 4}{x+5}$, Select \textbf{all} values that make $f(x)$ equal to $0$.
+\vspace{1em}
+\textbf{Answer}: \rule{4em}{.4pt}
+\item Given $\displaystyle f(x) = \frac{x^2 - 4}{x+5}$, Select \textbf{all} values that make $f(x)$ equal to $0$.
 \begin{enumerate}[label = (\arabic*), itemsep=2em]
 \item
 $-5$
@@ -131,6 +163,24 @@ $0$
 $2$
 \item
 $4$
+\end{enumerate}
+\vspace{1em}
+\textbf{Answer}: \rule{4em}{.4pt}
+\item Match each expression in A -- D to an equivalent expression in $(1)$ -- $(4)$.
+
+\begin{tabular}{ll}
+\textbf{Answer}\\
+\rule{0em}{3em}\rule{4em}{0.4pt} & A. $(a+b)^2$\\
+\rule{0em}{3em}\rule{4em}{0.4pt} & B. $(a-b)^2$\\
+\rule{0em}{3em}\rule{4em}{0.4pt} & C. $a(b+c)$\\
+\rule{0em}{3em}\rule{4em}{0.4pt} & D. $\frac{1}{a} + \frac{1}{b}$
+\end{tabular}
+\begin{enumerate}[label=(\arabic*), itemsep = 1em]
+\item
+$ab+ac$
+\item $\frac{a+b}{ab}$
+\item $a^2 + 2ab+b^2$
+\item $a^2-2ab+b^2$
 \end{enumerate}
 \end{enumerate}
 }
