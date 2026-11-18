@@ -73,7 +73,62 @@ end
 \end{luacode*}
 \frame{\titlepage}
 \Large
-
+\begin{frame}
+\ehot
+\begin{minipage}{0.45\textwidth}
+\begin{figure}[h]
+\begin{center}
+\normalsize
+\begin{tikzpicture}
+\begin{axis}[
+    width=\textwidth, 
+    axis lines=middle,
+    xmin=-5, xmax=5,
+    ymin=-10, ymax=10,
+    xlabel={$x$}, ylabel={$y$},
+    ytick=\empty, xtick=\empty,
+    samples=200,
+    clip=true
+]
+\addplot[thick]{(x+2)*(x-1)*(x-3) };
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{A Polynomial Function}
+\end{figure}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\begin{figure}[h]
+\begin{center}
+\normalsize
+\begin{tikzpicture}
+  \begin{axis}[
+  width=\textwidth,
+    axis lines = middle,
+    xmin = -10, xmax = 10,
+    ymin = -10, ymax = 10,
+    samples = 100,
+     xlabel={$x$}, ylabel={$y$},
+    ytick=\empty, xtick=\empty,
+    restrict y to domain = -15:15, % Prevents extreme y-values from distorting the plot
+    unbounded coords = jump        % Breaks the line if a point exceeds the y-domain
+  ]
+    % Left branch (up to just before x = 2)
+    \addplot[thick, blue, domain=-10:1.99] {(x+1)/(x-2)};
+    
+    % Right branch (starting just after x = 2)
+    \addplot[thick, blue, domain=2.01:10] {(x+1)/(x-2)};
+    
+    % Dashed vertical asymptote at x = 2
+    \draw[dashed, red, thick] (axis cs:2,-10) -- (axis cs:2,10);
+    \addplot[dashed, green, domain=-10:10]{1};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{A Rational Function}
+\end{figure}
+\end{minipage}
+\end{frame}
 \begin{frame}
 \frametitle{Everyday Higher Order Thinking}
 Benjamin wants to create an action opportunity for his students. To do so, he needs to generate a table of values for the function $p(x) = -x^3 + 11x^2 - 7x - 69$, as shown here:
@@ -159,7 +214,6 @@ Write an equation of the polynomial represented by the graph below
     clip=true
 ]
 \addplot[thick]{1/5*(x-2)^2*(x+3)};
-
 \end{axis}
 \end{tikzpicture}
 \end{center}

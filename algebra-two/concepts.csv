@@ -26,3 +26,8 @@ The relation between the graph and the equation is,"the coordinates of the point
 "To find the intersection of two graphs, ",we need to solve the system given by two equations,24
 "The relation of distance, average speed and time is",$\text{distance} = \text{average speed}\cdot\text{time}$,25
 A vertical asymptote of a rational function is ,"a vertical line that a function's graph gets infinitely close to, but never touches or crosses, e.g., $x =  2$ is a vertical asymptote of $y = \frac{x+1}{x-2}$.",26
+The domain of a function is,the set of inputs accepted by the function,27
+The natural domain of a function is,"the set of all inputs accepted by the algebraic expression of the functio, e.g., $0\leq x\leq\infty$ is the natural domain of $f(x) = \sqrt{x}$.",30
+The reasonable domain of a function arising from a mathematical model is,"the set of inputs accepted by the function in the physical sense, e.g., in the open-box-making problem, the reasonable domain is $ 0 < x < \text{one half of the shorter side length} $.",30
+The range of a function is,the set of all possible outputs of  the function,28
+A horizontal  asymptote of a rational function is ,"a horizontal line that a function's graph gets infinitely close to as $x$ gets greater and greater either positively or negatively, e.g., $y =  2$ is a horizontal asymptote of $y = \frac{2x+1}{x-2}$.",29
