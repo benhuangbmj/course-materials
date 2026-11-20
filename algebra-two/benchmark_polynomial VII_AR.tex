@@ -1,0 +1,296 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{arabic}
+\setotherlanguage{english}
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.05]{Amiri}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{wrapfig}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{BASE Algebra II}
+\chead{Polynomial VII}
+\directlua{pageNum = 1}
+\rhead{Benchmark\#1, Page \thepage}% \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash\hsize=#1\hsize}X}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+%\directlua{tex.print(utils.genVersion())}
+
+\noindent
+{\large
+الاسم الأول \rule{6em}{.4pt}\hspace{\stretch{1}} اسم العائلة \rule{6em}{.4pt}\hspace{\stretch{1}} التاريخ \raisebox{0.3em}{\underline{\quad\color{gray}\phantom{\today}\quad} \hspace{\stretch{1}}} الحصة \rule{2em}{.4pt}\hspace{\stretch{1}}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{الاستدلال}&\textbf{النمذجة}&\textbf{الدقة}\\
+\hline
+\rule{0em}{3em}&\raisebox{1em}{غير متاح}&\raisebox{1em}{غير متاح}\\
+\hline
+\end{tabular}
+
+\vspace{1em}
+\noindent
+\textbf{الأدوات:} TI-84/83
+\vspace{1em}
+
+\begin{enumerate}
+
+\item أبعاد ورقة مستطيلة هي $8$ بوصات في $12$ بوصة. يُقصّ مربع طول ضلعه $x$ بوصة من كل زاوية، ثم تُطوى الجوانب إلى الأعلى لتكوين صندوق مفتوح من الأعلى.
+
+\begin{center}
+\begin{tikzpicture}[scale=.48]
+    % sheet
+    \draw (0,0) rectangle (12,8);
+    % corner cuts
+    \draw[dashed] (0,0) rectangle (2,2);
+    \draw[dashed] (10,0) rectangle (12,2);
+    \draw[dashed] (0,6) rectangle (2,8);
+    \draw[dashed] (10,6) rectangle (12,8);
+    % dimensions
+    \draw[<->] (0,-.7) -- (12,-.7) node[midway,fill=white] {$12$ بوصة};
+    \draw[<->] (-.7,0) -- (-.7,8) node[midway,fill=white,rotate=90] {$8$ بوصات};
+    \draw[<->] (0,2.35) -- (2,2.35) node[midway,fill=white] {$x$};
+    \end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=(\alph*), itemsep=.7em]
+    \item اكتب حجم الصندوق $V$ على هيئة دالة كثيرة حدود في $x$، واشرح لماذا تكون المعادلة منطقية من الناحية الرياضية.
+    \vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+    \item ما المجال المعقول لقيم $x$؟ اشرح لماذا لا تكون القيم خارج هذا المجال منطقية في هذه الحالة.
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\item يحسب أبيل قيمة الدالة $V(x)$ عند $x = 7$، ويحصل على $V(7) = 84$؛ لذلك يزعم أنه يستطيع صنع صندوق حجمه 84 بوصة مكعبة في الواقع. هل هو محق؟ أنشئ حجة تبرر ادعاءك.
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\end{enumerate}
+\clearpage
+
+\item
+يدخل غالوا كثيرتي الحدود الآتيتين في آلته الحاسبة البيانية:
+\begin{center}
+\begin{tabular}{lr}
+$
+\begin{aligned}
+Y_1 ={}& x^{10}-45x^9+870x^8-9450x^7\\
+&+63273x^6-269325x^5+723680x^4\\
+&-1172700x^3+1026576x^2\\
+&-362879x+1
+\end{aligned}
+$\hspace{1in}\ &$
+\begin{aligned}
+Y_2 ={}& -x^{10}+45x^9-870x^8+9450x^7\\
+&-63273x^6+269325x^5-723680x^4\\
+&+1172700x^3-1026576x^2\\
+&+362881x+1
+\end{aligned}
+$
+\end{tabular}
+\end{center}
+
+ثم يُنشئ الجدول التالي باستخدام آلته الحاسبة البيانية:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|r|r|r|}
+\hline
+\textbf{X} & \textbf{Y1} & \textbf{Y2} \\
+\hline
+\directlua{
+for  x = 0, 9 do
+format(x, f(x), g(x))
+end
+}
+\end{tabular}
+\end{center}
+بعد فحص الجدول، يلاحظ غالوا أن كثيرتي الحدود تعطيان النتائج نفسها لكل قيمة إدخال من 0 إلى 9. ويستنتج أن كثيرتي الحدود متكافئتان.
+\begin{enumerate}
+\item
+هل استنتاج غالوا صحيح؟ اشرح تعليلك.
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\item 
+تخيّل أنك تقدم نصيحة لطالب أصغر سنًا يواجه موقفًا مشابهًا. ما الدرس الرياضي المهم الذي تود أن يستفيده من هذه المسألة؟
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\end{enumerate}
+\end{enumerate}
+\clearpage
+\begin{center}
+\huge
+يُرجى عدم الكتابة على هذه الصفحة.\par أعِد هذه الورقة إلى مراقب الاختبار بعد الانتهاء من التقييم.
+\end{center}
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+{
+\begin{tabularx}{\textwidth}{|L{1}|L{1}|L{1}|L{1}|L{1}|L{1}|}
+\hline
+\multicolumn{6}{|l|}{\cellcolor{gray!20}\rule{0em}{3em}\raisebox{1em}{\parbox{0.95\textwidth}{\textbf{الاستدلال}: أستطيع بناء حجة منطقية لشرح حلي أو تبرير ادعائي باستخدام لغة رياضية سليمة.}}}
+\\
+\hline
+\bf \centerline{المهارة} & \centerline{4} & \centerline{3} & \centerline{2} & \centerline{1} & \centerline{بانتظار الأدلة} \\
+\hline
+\cellcolor{gray!40}بناء حجة رياضية وتبريرها&
+أنشأت حجة واضحة ومنطقية تدعمها أدلة رياضية ذات صلة ولغة دقيقة. وأظهرت عمقًا أكبر في الاستدلال من خلال توسيع التبرير، وإقامة روابط رياضية ذات معنى، أو استكشاف متى ولماذا تكون حجتي صحيحة.
+&أنشأت حجة منطقية توضح بجلاء لماذا يكون حلي أو ادعائي صحيحًا، مستخدمًا أدلة رياضية ذات صلة ولغة رياضية دقيقة.
+&أنشأت حجة غير مكتملة مدعومة ببعض الأدلة الرياضية ذات الصلة، لكن استدلالي يتضمن ثغرات أو لا يوضح تمامًا لماذا يكون حلي أو ادعائي صحيحًا.
+&ذكرت ادعاءً أو وصفت خطوات للوصول إلى حل، لكنني قدمت أدلة أو تعليلات رياضية قليلة جدًا أو لم أقدم أيًا منها لتبريره.
+&لا يتضمن عملي أي ادعاءات أو ملاحظات أو تعليلات رياضية ذات صلة تُظهر محاولة للتعامل مع المسألة.\\
+\hline
+\cellcolor{gray!40}نقد الاستدلال الرياضي وتقييمه (عند الاقتضاء)&قيّمت حجة رياضية أخرى، وحددت نقاط قوتها أو عيوبها أو حدودها. واستخدمت أدلة رياضية لتعزيز استدلال صاحبها أو تحسينه أو تقديم بديل له.&قيّمت حجة رياضية أخرى وشرحت، باستخدام أدلة رياضية ذات صلة، ما إذا كان الاستدلال صحيحًا.&حددت نقطة قوة أو عيبًا في حجة أخرى، لكن تقييمي غير مكتمل أو يفتقر إلى أدلة رياضية كافية.&ذكرت ما إذا كنت أوافق على حجة أخرى أم أعارضها، لكنني قدمت تعليلًا رياضيًا ضئيلًا جدًا أو لم أقدم أي تعليل لدعم تقييمي.&لم يتضمن عملي تقييمًا لحجة رياضية أو نقدًا لها.
+\\
+\hline 
+{\bf معايير النجاح}&\multicolumn{5}{l|}{\parbox{0.8\textwidth}{\vspace{0.4em}\begin{itemize}[label = $\square$, leftmargin=1.5em, itemsep=0.2em]
+\item \textbf{تبرير القيود:} اشرح بوضوح كيف ترتبط معادلة كثيرة الحدود وقيود المجال بالأبعاد الفعلية للصندوق.
+\item \textbf{نقد الادعاءات:} قيّم بدقة حجتي أبيل وغالوا باستخدام أدلة رياضية محددة (حدود المجال، أو أمثلة مضادة، أو بنية كثيرتي الحدود ومعاملاتهما، وما إلى ذلك).
+\item \textbf{تعميم الدروس المستفادة:} قدّم نصيحة واضحة قابلة للتطبيق في مواقف أخرى، تشرح لماذا لا يثبت جدول محدود من القيم المتطابقة أن تعبيرين متكافئان.
+\end{itemize}\vspace{0.4em}}}\\
+\hline
+\end{tabularx}
+}
+\end{center}
+\endgroup
+\clearpage
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+
+\begin{document}
+\begin{luacode*}
+function f(x)
+	return x^10 - 45*x^9 + 870*x^8 - 9450*x^7
+      + 63273*x^6 - 269325*x^5 + 723680*x^4
+      - 1172700*x^3 + 1026576*x^2 - 362879*x + 1
+end
+function g(x)
+	return  -x^10 + 45*x^9 - 870*x^8 + 9450*x^7
+      - 63273*x^6 + 269325*x^5 - 723680*x^4
+      + 1172700*x^3 - 1026576*x^2 + 362881*x + 1 
+end
+function format(x,y1,y2)
+tex.sprint(string.format(
+      "%d & %.0f & %.0f \\\\\\hline",
+      x, y1, y2
+    ))
+end
+\end{luacode*}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}

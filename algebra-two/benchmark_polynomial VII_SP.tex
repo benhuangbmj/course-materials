@@ -1,0 +1,293 @@
+\documentclass[twoside, 10pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{bottom=4em,top=6em, inner=2.2cm, outer=4em,  headheight=\paperheight}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{wrapfig}
+\usepackage{luacode}
+\newcommand{\assessmentType}{Formative}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{BASE Algebra II}
+\chead{Polynomial VII}
+\directlua{pageNum = 1}
+\rhead{Benchmark\#1, Page \thepage}% \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
+\usepackage{lastpage}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{{../img}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularx}
+\usepackage{polynom}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\e}{{\rm e}}
+\newcommand{\pobr}[1]{\left\langle#1\right\rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash\hsize=#1\hsize}X}
+
+\DeclareMathOperator{\xd}{d\!}
+\DeclareMathOperator{\proj}{proj}
+
+\title{}
+\date{}
+
+\newcommand{\template}{
+%\directlua{tex.print(utils.genVersion())}
+
+\noindent
+{\large
+Nombre \rule{6em}{.4pt}\hspace{\stretch{1}} Apellido \rule{6em}{.4pt}\hspace{\stretch{1}} Fecha \raisebox{0.3em}{\underline{\quad\color{gray}\phantom{\today}\quad} \hspace{\stretch{1}}} Período \rule{2em}{.4pt}\hspace{\stretch{1}}
+}
+\vspace{1em}
+
+\noindent
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{ARGUMENTAR}&\textbf{MODELAR}&\textbf{SER PRECISO}\\
+\hline
+\rule{0em}{3em}&\raisebox{1em}{N/D}&\raisebox{1em}{N/D}\\
+\hline
+\end{tabular}
+
+\vspace{1em}
+\noindent
+\textbf{Herramientas:} TI-84/83
+\vspace{1em}
+
+\begin{enumerate}
+
+\item Una hoja rectangular de papel mide $8$ pulgadas por $12$ pulgadas. Se recorta un cuadrado de lado $x$ pulgadas en cada esquina y se doblan los lados hacia arriba para formar una caja sin tapa.
+
+\begin{center}
+\begin{tikzpicture}[scale=.48]
+    % sheet
+    \draw (0,0) rectangle (12,8);
+    % corner cuts
+    \draw[dashed] (0,0) rectangle (2,2);
+    \draw[dashed] (10,0) rectangle (12,2);
+    \draw[dashed] (0,6) rectangle (2,8);
+    \draw[dashed] (10,6) rectangle (12,8);
+    % dimensions
+    \draw[<->] (0,-.7) -- (12,-.7) node[midway,fill=white] {$12$ pulg.};
+    \draw[<->] (-.7,0) -- (-.7,8) node[midway,fill=white,rotate=90] {$8$ pulg.};
+    \draw[<->] (0,2.35) -- (2,2.35) node[midway,fill=white] {$x$};
+    \end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=(\alph*), itemsep=.7em]
+    \item Expresa el volumen $V$ de la caja como una función polinómica de $x$ y explica por qué la ecuación tiene sentido matemáticamente.
+    \vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+    \item ¿Cuál es el dominio razonable de $x$? Explica por qué los valores fuera de este dominio no tienen sentido en esta situación.
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\item Abel evalúa la función $V(x)$ en $x = 7$ y obtiene $V(7) = 84$, así que afirma que en realidad puede construir una caja de 84 pulgadas cúbicas. ¿Tiene razón? Construye un argumento para justificar tu afirmación.
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\end{enumerate}
+\clearpage
+
+\item
+Galois introduce los siguientes dos polinomios en su calculadora gráfica:
+\begin{center}
+\begin{tabular}{lr}
+$
+\begin{aligned}
+Y_1 ={}& x^{10}-45x^9+870x^8-9450x^7\\
+&+63273x^6-269325x^5+723680x^4\\
+&-1172700x^3+1026576x^2\\
+&-362879x+1
+\end{aligned}
+$\hspace{1in}\ &$
+\begin{aligned}
+Y_2 ={}& -x^{10}+45x^9-870x^8+9450x^7\\
+&-63273x^6+269325x^5-723680x^4\\
+&+1172700x^3-1026576x^2\\
+&+362881x+1
+\end{aligned}
+$
+\end{tabular}
+\end{center}
+
+Luego genera la siguiente tabla en su calculadora gráfica:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|r|r|r|}
+\hline
+\textbf{X} & \textbf{Y1} & \textbf{Y2} \\
+\hline
+\directlua{
+for  x = 0, 9 do
+format(x, f(x), g(x))
+end
+}
+\end{tabular}
+\end{center}
+Después de examinar la tabla, Galois observa que los dos polinomios producen resultados idénticos para cada valor de entrada del 0 al 9. Concluye que los dos polinomios son equivalentes.
+\begin{enumerate}
+\item
+¿Es correcta la conclusión de Galois? Explica tu razonamiento.
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\item 
+Imagina que estás aconsejando a un estudiante más joven que se encuentra en una situación similar. ¿Qué lección matemática importante quisieras que aprendiera de este problema?
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\hrulefill
+\vspace{1em}
+
+\end{enumerate}
+\end{enumerate}
+\clearpage
+\begin{center}
+\huge
+Por favor, NO escribas en esta página.\par Devuélvela al supervisor al terminar la evaluación.
+\end{center}
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+{
+\begin{tabularx}{\textwidth}{|L{1}|L{1}|L{1}|L{1}|L{1}|L{1}|}
+\hline
+\multicolumn{6}{|l|}{\cellcolor{gray!20}\rule{0em}{3em}\raisebox{1em}{\parbox{0.95\textwidth}{\textbf{Argumentar}: Puedo construir un argumento lógico para explicar mi solución o justificar mi afirmación usando lenguaje matemático adecuado.}}}
+\\
+\hline
+\bf \centerline{Habilidad} & \centerline{4} & \centerline{3} & \centerline{2} & \centerline{1} & \centerline{A la espera de evidencia} \\
+\hline
+\cellcolor{gray!40}Construir y justificar un argumento matemático&
+Construí un argumento claro y lógico, respaldado por evidencia matemática pertinente y un lenguaje preciso. Demostré un razonamiento más profundo al ampliar mi justificación, establecer conexiones matemáticas significativas o explorar cuándo y por qué mi argumento es válido.
+&Construí un argumento lógico que explica claramente por qué mi solución o afirmación es válida, usando evidencia matemática pertinente y lenguaje matemático preciso.
+&Construí un argumento parcialmente desarrollado con cierta evidencia matemática pertinente, pero mi razonamiento contiene lagunas o no explica por completo por qué mi solución o afirmación es válida.
+&Presenté una afirmación o describí pasos hacia una solución, pero proporcioné poca o ninguna evidencia ni razonamiento matemático para justificarla.
+&Mi trabajo no contiene afirmaciones, observaciones ni razonamientos matemáticos pertinentes que demuestren un intento de abordar el problema.\\
+\hline
+\cellcolor{gray!40}Criticar y evaluar el razonamiento matemático (cuando corresponda)&Evalué otro argumento matemático e identifiqué sus fortalezas, errores o limitaciones. Usé evidencia matemática para reforzar, perfeccionar u ofrecer una alternativa a su razonamiento.&Evalué otro argumento matemático y expliqué si el razonamiento es válido usando evidencia matemática pertinente.&Identifiqué una fortaleza o un error en otro argumento, pero mi evaluación está incompleta o carece de suficiente evidencia matemática.&Indiqué si estaba de acuerdo o en desacuerdo con otro argumento, pero proporcioné poco o ningún razonamiento matemático para respaldar mi evaluación.&Mi trabajo no incluye una evaluación ni una crítica de un argumento matemático.
+\\
+\hline 
+{\bf Criterios de éxito}&\multicolumn{5}{l|}{\parbox{0.8\textwidth}{\vspace{0.4em}\begin{itemize}[label = $\square$, leftmargin=1.5em, itemsep=0.2em]
+\item \textbf{Justificar las restricciones:} Explicar claramente cómo la ecuación polinómica y las restricciones del dominio se relacionan con las dimensiones físicas de la caja.
+\item \textbf{Criticar afirmaciones:} Evaluar correctamente los argumentos de Abel y Galois usando evidencia matemática específica (límites del dominio, contraejemplos o la estructura y los coeficientes de los polinomios, etc.).
+\item \textbf{Generalizar las conclusiones:} Ofrecer consejos claros y aplicables a otras situaciones que expliquen por qué una tabla finita de valores coincidentes no demuestra que dos expresiones sean equivalentes.
+\end{itemize}\vspace{0.4em}}}\\
+\hline
+\end{tabularx}
+}
+\end{center}
+\endgroup
+\clearpage
+}
+\begin{luacode*}
+utils = require("../utils")
+function toFix(num, n)
+	return string.format("%." .. n .. "f", num)
+end
+\end{luacode*}
+
+\begin{document}
+\begin{luacode*}
+function f(x)
+	return x^10 - 45*x^9 + 870*x^8 - 9450*x^7
+      + 63273*x^6 - 269325*x^5 + 723680*x^4
+      - 1172700*x^3 + 1026576*x^2 - 362879*x + 1
+end
+function g(x)
+	return  -x^10 + 45*x^9 - 870*x^8 + 9450*x^7
+      - 63273*x^6 + 269325*x^5 - 723680*x^4
+      + 1172700*x^3 - 1026576*x^2 + 362881*x + 1 
+end
+function format(x,y1,y2)
+tex.sprint(string.format(
+      "%d & %.0f & %.0f \\\\\\hline",
+      x, y1, y2
+    ))
+end
+\end{luacode*}
+\begin{luacode*}
+for i=2, 2 do
+	if i == 2 then
+		tex.print("\\renewcommand{\\assessmentType}{Summative}")
+	end
+	tex.print("\\template")
+end
+\end{luacode*}
+\end{document}
