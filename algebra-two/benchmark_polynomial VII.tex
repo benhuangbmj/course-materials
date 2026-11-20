@@ -16,7 +16,7 @@
 \directlua{pageNum = 1}
 \rhead{Benchmark, Page \thepage}% \directlua{tex.print(pageNum); pageNum = pageNum + 1; if pageNum > 3 then pageNum = 1 end}}
 \usepackage{lastpage}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 \usepackage{enumitem}
 \usepackage{pifont}
 \usepackage{graphicx}
@@ -35,6 +35,7 @@
 \newcommand{\pobr}[1]{\left\langle#1\right\rangle}
 \newcommand{\norm}[1]{\lVert #1 \rVert}
 \newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash\hsize=#1\hsize}X}
 
 \DeclareMathOperator{\xd}{d\!}
 \DeclareMathOperator{\proj}{proj}
@@ -43,41 +44,13 @@
 \date{}
 
 \newcommand{\template}{
-
 %\directlua{tex.print(utils.genVersion())}
+
 \noindent
 {\large
 First Name \rule{6em}{.4pt}\hspace{\stretch{1}} Last Name \rule{6em}{.4pt}\hspace{\stretch{1}} Date \raisebox{0.3em}{\underline{\quad\color{gray}\phantom{\today}\quad} \hspace{\stretch{1}}} Period \rule{2em}{.4pt}\hspace{\stretch{1}}
 }
 \vspace{1em}
-
-\begingroup
-\renewcommand{\arraystretch}{1.5}
-\begin{center}
-{
-\begin{tabularx}{\textwidth}{|X|X|X|X|X|X|}
-\hline
-\multicolumn{6}{|l|}{\rule{0em}{3em}\raisebox{1em}{\parbox{0.95\textwidth}{\textbf{Argue}: I can construct a logical argument to explain my solution or justify my claim using proper mathematical language.}}}
-\\
-\hline
-\bf \centerline{Skill} & \centerline{4} & \centerline{3} & \centerline{2} & \centerline{1} & \centerline{Awaiting Evidence} \\
-\hline
-Construct and Justify a Mathematical Argument&
-I constructed a clear, logical argument supported by relevant mathematical evidence and precise language. I demonstrated deeper reasoning by extending my justification, making meaningful mathematical connections, or exploring when and why  my argument is valid.
-&I constructed a logical argument that clearly explains why my solution or claim is valid, using relevant mathematical evidence and accurate mathematical language.
-&I constructed a partially developed argument with some relevant mathematical evidence, but my reasoning contains gaps or does not fully explain why my solution or claim is valid.
-&I stated a claim or described steps toward a solution, but provided little to  no mathematical evidence or reasoning to justify it.
-&My work contains no relevant mathematical claims, observations, or reasoning that demonstrates an attempt to engage with the problem.\\
-\hline
-Critique and Evaluate Mathematical Reasoning (When applicable)&I evaluated another mathematical argument, identifying strengths, flaws, or limitations. I used mathematical evidence to strengthen, refine, or offer an alternative to their reasoning.&I evaluated another mathematical argument and explained whether the reasoning is valid using relevant mathematical evidence.&I identified a strength or flaw in another argument, but my evaluation is incomplete or lacks sufficient mathematical evidence.&I stated whether I agreed or disagreed with another argument, but provided little to no mathematical reasoning to support my evaluation.&My work did not provide an evaluation or critique of a mathematical argument.
-\\
-\hline 
-\bf Criteria&\multicolumn{5}{l|}{\parbox[c][4em]{.8\textwidth}{}}\\
-\hline
-\end{tabularx}
-}
-\end{center}
-\endgroup
 
 \noindent
 \renewcommand{\arraystretch}{2}
@@ -158,7 +131,7 @@ Critique and Evaluate Mathematical Reasoning (When applicable)&I evaluated anoth
 \clearpage
 
 \item
-Bosco enters the following two polynomials into his graphing calculator:
+Galois enters the following two polynomials into his graphing calculator:
 \begin{center}
 \begin{tabular}{lr}
 $
@@ -194,10 +167,10 @@ end
 }
 \end{tabular}
 \end{center}
-After examining the table, Bosco notices that the two polynomials produce identical outputs for every input from 1 through 10. He concludes that the two polynomials are equivalent.
+After examining the table, Galois notices that the two polynomials produce identical outputs for every input from 0 through 9. He concludes that the two polynomials are equivalent.
 \begin{enumerate}
 \item
-Is Bosco's conclusion correct? Explain your reasoning.
+Is Galois's conclusion correct? Explain your reasoning.
 \vspace{1em}
 
 \hrulefill
@@ -243,6 +216,43 @@ Imagine you are giving advice to a younger student who encounters a similar situ
 
 \end{enumerate}
 \end{enumerate}
+\clearpage
+\begin{center}
+\huge
+Please do NOT write on this paper.\par Return it to the proctor upon completion of the test.
+\end{center}
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+{
+\begin{tabularx}{\textwidth}{|L{1}|L{1}|L{1}|L{1}|L{1}|L{1}|}
+\hline
+\multicolumn{6}{|l|}{\cellcolor{gray!20}\rule{0em}{3em}\raisebox{1em}{\parbox{0.95\textwidth}{\textbf{Argue}: I can construct a logical argument to explain my solution or justify my claim using proper mathematical language.}}}
+\\
+\hline
+\bf \centerline{Skill} & \centerline{4} & \centerline{3} & \centerline{2} & \centerline{1} & \centerline{Awaiting Evidence} \\
+\hline
+\cellcolor{gray!40}Construct and Justify a Mathematical Argument&
+I constructed a clear, logical argument supported by relevant mathematical evidence and precise language. I demonstrated deeper reasoning by extending my justification, making meaningful mathematical connections, or exploring when and why  my argument is valid.
+&I constructed a logical argument that clearly explains why my solution or claim is valid, using relevant mathematical evidence and accurate mathematical language.
+&I constructed a partially developed argument with some relevant mathematical evidence, but my reasoning contains gaps or does not fully explain why my solution or claim is valid.
+&I stated a claim or described steps toward a solution, but provided little to  no mathematical evidence or reasoning to justify it.
+&My work contains no relevant mathematical claims, observations, or reasoning that demonstrates an attempt to engage with the problem.\\
+\hline
+\cellcolor{gray!40}Critique and Evaluate Mathematical Reasoning (When applicable)&I evaluated another mathematical argument, identifying strengths, flaws, or limitations. I used mathematical evidence to strengthen, refine, or offer an alternative to their reasoning.&I evaluated another mathematical argument and explained whether the reasoning is valid using relevant mathematical evidence.&I identified a strength or flaw in another argument, but my evaluation is incomplete or lacks sufficient mathematical evidence.&I stated whether I agreed or disagreed with another argument, but provided little to no mathematical reasoning to support my evaluation.&My work did not provide an evaluation or critique of a mathematical argument.
+\\
+\hline 
+{\bf Success Criteria}&\multicolumn{5}{l|}{\parbox{0.8\textwidth}{\vspace{0.4em}\begin{itemize}[label = $\square$, leftmargin=1.5em, itemsep=0.2em]
+\item \textbf{Justify Constraints:} Clearly explain how the polynomial equation and domain restrictions connect to the physical dimensions of the box.
+\item \textbf{Critique Claims:} Accurately evaluate Abel's and Galois's arguments using specific mathematical evidence (domain limits, counterexamples, or polynomial structure/coefficients, etc.).
+\item \textbf{Generalize Takeaways:} Offer clear, transferable advice explaining why a finite table of matching values does not prove two expressions are equivalent.
+\end{itemize}\vspace{0.4em}}}\\
+\hline
+\end{tabularx}
+}
+\end{center}
+\endgroup
+\clearpage
 }
 \begin{luacode*}
 utils = require("../utils")
