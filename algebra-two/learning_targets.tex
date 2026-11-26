@@ -47,8 +47,6 @@
 \newcommand{\vF}{\mathbf F}
 \newcommand{\vv}{\mathbf v}
 \newcommand{\inpr}[1]{\left\langle#1\right\rangle}
-\newcommand{\blankwans}[3][.]{\alt<#2>{{\color{red}\uline{#3}}#1}{\hrulefill#1}}
-\newcommand{\UL}[2]{\frametitle{\bf Unit #1 Lesson #2} I can\vspace{\stretch{1}}}
 
 \author[B.H.]{{\Large The Takeaways from this Class}\\\vspace{.5em} Author: Benjamin Huang}
 \date{}
@@ -70,44 +68,44 @@ end
 \end{luacode*}
 \frame{\titlepage}
 \Large
-\begin{frame}
-\frametitle{\bf Pause Day \#1 Quadratic Equations I}
-I can
-\vspace{\stretch{1}}
-\begin{itemize}[label = $\bullet$]
-\item verify whether a given number is a solution of a quadratic equation numerically.
-\vspace{\stretch{1}}
-\item solve a quadratic equation algebraically via the quadratic formula.
-\vspace{\stretch{1}}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\UL{3}{1}
-\begin{itemize}[label = $\bullet$]
-\item
-define what rational functions are
-\vspace{\stretch{1}}
-\item
-write a rational function to model different properties of cylinders
-\vspace{\stretch{1}}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\UL{3}{2}
-\begin{itemize}[label = $\bullet$]
-\item
-identify a vertical asymptote from a graph or an equation of a rational function
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\UL{3}{3}
-\begin{itemize}[label = $\bullet$]
-\item
-I can identify a horizontal asymptote from a graph or an equation of a
-rational function.
-\end{itemize}
-\end{frame}
+\begin{luacode*}
+function groupByUL(t)
+local output = {}
+local ind = {}
+function makeKey(unit, lesson)
+return "Unit " .. unit .. " Lesson " .. lesson
+end
+function checkForKey(key, t)
+return  t[key] ~= nil
+end
+for i = #t, 1, -1 do
+local curr = t[i]
+local currKey = makeKey(curr.unit, curr.lesson)
+if checkForKey(currKey, output) then
+table.insert(output[currKey], curr)
+else
+output[currKey] = {curr}
+table.insert(ind, currKey)
+end
+end
+return output, ind
+end
+ftcsv = require("../ftcsv")
+local learning_targets = ftcsv.parse("learning_targets.csv")
+local grouped_LT, group_index = groupByUL(learning_targets)
+for i=1, #group_index do
+    local targets = grouped_LT[group_index[i]]
+    tex.sprint("\\begin{frame}\\frametitle{\\bf "..group_index[i].." ".. targets[1].title.."}")
+    tex.sprint("I can")
+    tex.sprint("\\vspace{\\stretch{1}}")
+    tex.sprint("\\begin{itemize}[leftmargin=*, label=$\\bullet$]")
+    for _ , target in ipairs(targets) do	
+    tex.sprint("\\item")
+    tex.sprint(target.learning_target)
+    tex.sprint("\\vspace{\\stretch{1}}")
+    end
+    tex.sprint("\\end{itemize}")
+    tex.sprint("\\end{frame}")
+end
+\end{luacode*}
 \end{document}
