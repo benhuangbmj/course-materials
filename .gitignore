@@ -11,5 +11,6 @@ algebra-two-sync/
 !*.md
 !*.bat
 !concepts.csv
+!learning_targets.csv
 
 *_print.tex

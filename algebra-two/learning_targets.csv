@@ -1,0 +1,12 @@
+﻿id,unit,lesson,learning_target,title
+-4,0,1,verify whether a given number is a solution of a quadratic equation numerically.,Quadratic Equations I
+-3,0,1,solve a quadratic equation algebraically via the quadratic formula.,Quadratic Equations I
+-2,0,2,determine whether a point is on the graph of an equation or a function algebraically,Intersection of Lines
+-1,0,2,"explain the relation between ""finding the intersection of two lines"" and ""solving an equation system of two variables""",Intersection of Lines
+0,0,2,find the intersection of two lines graphically and algebraically with the substitution method,Intersection of Lines
+1,3,1,define what rational functions are,Minimizing Surface Area
+2,3,1,write a rational function to model different properties of cylinders,Minimizing Surface Area
+3,3,2,identify a vertical asymptote from a graph or an equation of a rational function,Graphs of Rational Functions (Part 1)
+4,3,3,I can identify a horizontal asymptote from a graph or an equation of a rational function.,Graphs of Rational Functions (Part 2)
+5,3,7,check for \textbf{extraneous solutions} to rational equations.,Solving Rational Equations
+6,3,7,transform a \textbf{rational equation} into a \textbf{polynomial equation}.,Solving Rational Equations
